@@ -303,6 +303,7 @@
 
 .intro {
   margin-bottom: var(--stack-inner-gap);
+  text-align: center;
 }
 
 .introLine {
@@ -367,6 +368,15 @@
   overflow-wrap: anywhere;
   word-break: break-word;
   hyphens: auto;
+}
+
+.homeDisplayName {
+  margin-top: 130px;
+  margin-bottom: 40px;
+}
+
+.homeIntro {
+  margin-bottom: 130px;
 }
 
 .pageTitle {

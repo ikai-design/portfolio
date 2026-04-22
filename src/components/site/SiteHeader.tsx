@@ -18,9 +18,9 @@ export function SiteHeader() {
         <NavLink to="/about" className={navClass}>
           About
         </NavLink>
-        <Link to="/contact" className={styles.contactLink}>
+        <NavLink to="/contact" className={navClass}>
           Contact
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

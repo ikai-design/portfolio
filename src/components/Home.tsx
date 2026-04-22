@@ -44,7 +44,9 @@ const CASE_ITEMS = [
 export default function Home() {
   return (
     <>
-      <section className={styles.intro} aria-label="Introduction">
+      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Eugene Voroniuk</h1>
+
+      <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
           Senior Product Designer, Growth at{' '}
           <a
@@ -68,8 +70,6 @@ export default function Home() {
           .
         </p>
       </section>
-
-      <h1 className={styles.displayName}>Eugene Voroniuk</h1>
 
       <ul className={styles.caseStack}>
         {CASE_ITEMS.map((item) => (
