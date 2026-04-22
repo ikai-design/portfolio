@@ -447,6 +447,11 @@
   .displayName {
     line-height: 1.05;
   }
+
+  /* Home hero keeps centered title, while generic page titles stay left-aligned. */
+  .displayName.homeDisplayName {
+    text-align: center;
+  }
 }
 
 @media (max-width: 380px) {
