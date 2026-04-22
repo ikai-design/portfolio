@@ -1,0 +1,100 @@
+/* Route loading skeleton — matches dark page + light “frame” wireframe blocks */
+
+.wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.bar,
+.frame,
+.frameSmall {
+  border-radius: 4px;
+  background: linear-gradient(
+    105deg,
+    #141414 0%,
+    #141414 38%,
+    #2a2a2a 50%,
+    #141414 62%,
+    #141414 100%
+  );
+  background-size: 220% 100%;
+  animation: skelShimmer 1.35s ease-in-out infinite;
+}
+
+.bar {
+  height: 1.125rem;
+}
+
+.barWide {
+  width: min(12rem, 45%);
+  height: 1.5rem;
+}
+
+.barShort {
+  width: min(10rem, 40%);
+  height: 1.5rem;
+  margin-left: auto;
+}
+
+.title {
+  width: min(100%, 18rem);
+  height: 3.5rem;
+  border-radius: 6px;
+}
+
+.line {
+  width: 100%;
+  max-width: 42ch;
+  height: 1.25rem;
+}
+
+.lineNarrow {
+  width: min(100%, 28ch);
+  height: 1rem;
+}
+
+.frame {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  max-height: 22rem;
+  border-radius: 2px;
+}
+
+.frameSmall {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  max-height: 8rem;
+  border-radius: 2px;
+}
+
+@keyframes skelShimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .frame,
+  .frameSmall {
+    animation: none;
+    opacity: 0.55;
+    background: #1f1f1f;
+  }
+}

@@ -1,0 +1,32 @@
+/* PolySans — same @font-face URLs as davidhuynh.se (Tilda export, Reference.zip) */
+@font-face {
+  font-family: 'PolySans';
+  src: url('https://static.tildacdn.net/tild6438-3833-4433-a332-333666666563/PolySans-Neutral.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('https://static.tildacdn.net/tild6132-6361-4132-b739-346637346564/helveticaneuemed-web.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('https://static.tildacdn.net/tild3133-3566-4864-a466-633833613036/PolySans-Bulky.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PolySans';
+  src: url('https://static.tildacdn.net/tild6163-6232-4164-b338-313863633633/helveticaneuebd-webf.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
