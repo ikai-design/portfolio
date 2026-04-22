@@ -6,6 +6,8 @@
  * Do not rely on this for confidential material.
  */
 export const LOCKED_CASE_PASSWORDS: Record<string, string> = {
+  miro: 'changeme',
+  'wix-groups': 'changeme',
   'star-global': 'changeme',
 };
 
