@@ -59,7 +59,7 @@ export default function Home() {
           </a>
         </p>
         <p className={styles.introLine}>
-          Based in Amsterdam · CET. Formerly at{' '}
+          Based in Amsterdam. Formerly at{' '}
           <Link className={styles.inlineLink} to="/about">
             Wix
           </Link>{' '}
