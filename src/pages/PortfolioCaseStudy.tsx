@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
 import { CaseLockForm } from '../components/site/CaseLockForm';
+import { MAILTO } from '../components/site/SiteHeader';
 import { PORTFOLIO_CASES } from '../data/portfolioCases';
 import {
   CASE_UNLOCK_STORAGE_PREFIX,
@@ -16,6 +17,13 @@ function readSessionUnlocked(slug: string): boolean {
     return false;
   }
 }
+
+const PUBLIC_TEASER_TEMPLATE = [
+  'Context: high-level product area, target users, and why this direction mattered for growth.',
+  'Role: end-to-end product design in close partnership with PM and engineering, from framing through delivery.',
+  'Approach: hypotheses, experiments, and iterative UX refinements informed by qualitative and quantitative signals.',
+  'Outcome: measurable movement in activation, conversion, and product clarity (details are shared in the full case).',
+];
 
 export default function PortfolioCaseStudy() {
   const { slug } = useParams<{ slug: string }>();
@@ -36,22 +44,25 @@ export default function PortfolioCaseStudy() {
     setUnlocked(readSessionUnlocked(slug));
   }, [slug]);
 
-  if (!slug || !data) {
+  if (!slug) {
     return <Navigate to="/" replace />;
   }
 
-  if (locked && !unlocked) {
+  if (!data) {
     return (
       <>
         <Link className={styles.backLink} to="/">
           ← Back
         </Link>
-        {data.eyebrow ? <p className={styles.pageEyebrow}>{data.eyebrow}</p> : null}
-        <h1 className={styles.pageTitle}>{data.title}</h1>
+        <p className={styles.caseContextHint}>Case study</p>
+        <h1 className={styles.pageTitle}>This case is not available</h1>
         <p className={styles.caseLockIntro}>
-          This project is password-protected. Enter the password to view the case.
+          The project link may be outdated. Please return to the homepage or contact me for access
+          to private case studies.
         </p>
-        <CaseLockForm slug={slug} onUnlocked={() => setUnlocked(true)} />
+        <Link className={styles.ctaLink} to="/contact">
+          Contact →
+        </Link>
       </>
     );
   }
@@ -61,43 +72,65 @@ export default function PortfolioCaseStudy() {
       <Link className={styles.backLink} to="/">
         ← Back
       </Link>
+      <p className={styles.caseContextHint}>Case study</p>
 
       {data.eyebrow ? <p className={styles.pageEyebrow}>{data.eyebrow}</p> : null}
       <h1 className={styles.pageTitle}>{data.title}</h1>
       <p className={styles.pageLede}>{data.lede}</p>
 
-      <div className={styles.caseStream}>
-        <CaseStudyFigure
-          aspectRatio={data.hero.aspectRatio}
-          badge={data.hero.badge}
-          caption={data.hero.caption}
-        />
+      <section className={styles.caseTeaser}>
+        <h2 className={styles.caseBlockHead}>Case teaser</h2>
+        {PUBLIC_TEASER_TEMPLATE.map((line) => (
+          <p key={line} className={styles.prose}>
+            {line}
+          </p>
+        ))}
+      </section>
 
-        {data.body.map((block, i) =>
-          block.kind === 'text' ? (
-            <div key={`text-${i}`} className={styles.caseTextBlock}>
-              {block.paragraphs.map((p, j) => (
-                <p key={j} className={styles.prose}>
-                  {p}
-                </p>
-              ))}
-            </div>
-          ) : (
+      {locked && !unlocked ? (
+        <section className={styles.caseAccessGate}>
+          <p className={styles.caseLockIntro}>
+            The full case study is available only with a password due to confidentiality constraints.
+            To request access, please <a href={MAILTO}>write to me</a>.
+          </p>
+          <CaseLockForm slug={slug} onUnlocked={() => setUnlocked(true)} />
+        </section>
+      ) : (
+        <>
+          <div className={styles.caseStream}>
             <CaseStudyFigure
-              key={`fig-${i}`}
-              aspectRatio={block.spec.aspectRatio}
-              badge={block.spec.badge}
-              caption={block.spec.caption}
+              aspectRatio={data.hero.aspectRatio}
+              badge={data.hero.badge}
+              caption={data.hero.caption}
             />
-          ),
-        )}
-      </div>
 
-      {data.cta ? (
-        <Link className={styles.ctaLink} to={data.cta.to}>
-          {data.cta.label}
-        </Link>
-      ) : null}
+            {data.body.map((block, i) =>
+              block.kind === 'text' ? (
+                <div key={`text-${i}`} className={styles.caseTextBlock}>
+                  {block.paragraphs.map((p, j) => (
+                    <p key={j} className={styles.prose}>
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <CaseStudyFigure
+                  key={`fig-${i}`}
+                  aspectRatio={block.spec.aspectRatio}
+                  badge={block.spec.badge}
+                  caption={block.spec.caption}
+                />
+              ),
+            )}
+          </div>
+
+          {data.cta ? (
+            <Link className={styles.ctaLink} to={data.cta.to}>
+              {data.cta.label}
+            </Link>
+          ) : null}
+        </>
+      )}
     </>
   );
 }
