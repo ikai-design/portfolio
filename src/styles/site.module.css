@@ -943,7 +943,7 @@
 .caseCardLink:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
-  border-radius: 2px;
+  border-radius: 12px;
 }
 
 .caseFigure {
@@ -963,6 +963,7 @@
   max-width: 100%;
   background: #f6f6f6;
   border: 1px solid #d0d0d0;
+  border-radius: 12px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -992,6 +993,7 @@
   position: absolute;
   inset: clamp(16px, 3vw, 28px);
   border: 1px dashed rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
   pointer-events: none;
 }
 
