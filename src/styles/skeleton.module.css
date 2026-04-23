@@ -1,4 +1,4 @@
-/* Route loading skeleton — matches dark page + light “frame” wireframe blocks */
+/* Route loading skeleton — matches light page + dark “frame” wireframe blocks */
 
 .wrap {
   flex: 1 1 auto;
@@ -24,11 +24,11 @@
   border-radius: 4px;
   background: linear-gradient(
     105deg,
-    #141414 0%,
-    #141414 38%,
-    #2a2a2a 50%,
-    #141414 62%,
-    #141414 100%
+    #ebebeb 0%,
+    #ebebeb 38%,
+    #d5d5d5 50%,
+    #ebebeb 62%,
+    #ebebeb 100%
   );
   background-size: 220% 100%;
   animation: skelShimmer 1.35s ease-in-out infinite;
@@ -95,6 +95,6 @@
   .frameSmall {
     animation: none;
     opacity: 0.55;
-    background: #1f1f1f;
+    background: #e0e0e0;
   }
 }

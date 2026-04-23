@@ -1,11 +1,9 @@
-/* Site-wide dark reference theme — Reference.zip / davidhuynh.se (Tilda export)
- * Body #000, PolySans, muted gray #8d8d8d links, hover #cccccc.
- */
+/* Site-wide light (inverted) theme — PolySans, muted gray #727272 links, hover #333333. */
 
 @import './polySans.css';
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -15,8 +13,8 @@ html {
 
 html,
 body {
-  background-color: #000000;
-  color: #8d8d8d;
+  background-color: #ffffff;
+  color: #727272;
   font-family: 'PolySans', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,26 +34,25 @@ body {
 }
 
 a {
-  color: #8d8d8d;
+  color: #727272;
   text-decoration: none;
   transition: color 0.2s ease, opacity 0.2s ease;
   overflow-wrap: anywhere;
 }
 
 a:hover {
-  color: #cccccc;
+  color: #333333;
 }
 
 :focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #0f0f0f;
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Global selection — matches gray-on-black aesthetic */
 ::selection {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #0f0f0f;
+  color: #ffffff;
 }
 
 img {

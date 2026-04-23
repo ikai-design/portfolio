@@ -44,11 +44,11 @@ const CASE_ITEMS = [
 export default function Home() {
   return (
     <>
-      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Eugene Voroniuk</h1>
+      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Product Designer</h1>
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Senior Product Designer, Growth at{' '}
+          Based in Amsterdam.{' '}
           <a
             className={styles.inlineLink}
             href="https://miro.com"
@@ -57,17 +57,14 @@ export default function Home() {
           >
             Miro
           </a>
-        </p>
-        <p className={styles.introLine}>
-          Based in Amsterdam. Formerly at{' '}
+          ,{' '}
           <Link className={styles.inlineLink} to="/about">
             Wix
-          </Link>{' '}
-          &{' '}
+          </Link>
+          ,{' '}
           <Link className={styles.inlineLink} to="/about">
             Star
           </Link>
-          .
         </p>
       </section>
 
