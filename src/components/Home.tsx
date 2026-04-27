@@ -24,8 +24,6 @@ const CASE_ITEMS: HomeCaseItem[] = [
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
-    imageSrc: `${import.meta.env.BASE_URL}cover_miro_26.png`,
-    imageAlt: 'Miro case cover',
   },
   {
     to: '/projects/wix-groups',
@@ -59,27 +57,11 @@ const CASE_ITEMS: HomeCaseItem[] = [
 export default function Home() {
   return (
     <>
-      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Product Designer</h1>
+      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Senior Product Designer</h1>
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Based in Amsterdam.{' '}
-          <a
-            className={styles.inlineLink}
-            href="https://miro.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Miro
-          </a>
-          ,{' '}
-          <Link className={styles.inlineLink} to="/about">
-            Wix
-          </Link>
-          ,{' '}
-          <Link className={styles.inlineLink} to="/about">
-            Star
-          </Link>
+          Full-Funnel Growth Design for SaaS. Miro (80M+), Wix (200M+)
         </p>
       </section>
 
