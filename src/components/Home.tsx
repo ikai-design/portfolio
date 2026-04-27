@@ -24,6 +24,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
+    imageSrc: `${import.meta.env.BASE_URL}cover_m.png`,
+    imageAlt: 'Miro case cover',
   },
   {
     to: '/projects/wix-groups',
@@ -33,6 +35,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     meta: '2019 — 2021 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 02 · Cover',
+    imageSrc: `${import.meta.env.BASE_URL}cover_w_2.png`,
+    imageAlt: 'Wix case cover',
   },
   {
     to: '/projects/star-global',
