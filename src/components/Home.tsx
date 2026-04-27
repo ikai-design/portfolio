@@ -2,7 +2,19 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyCard } from './site/CaseStudyCard';
 
-const CASE_ITEMS = [
+type HomeCaseItem = {
+  to: string;
+  external: false;
+  title: string;
+  desc: string;
+  meta: string;
+  aspectRatio: string;
+  badge: string;
+  imageSrc?: string;
+  imageAlt?: string;
+};
+
+const CASE_ITEMS: HomeCaseItem[] = [
   {
     to: '/projects/miro',
     external: false as const,
@@ -42,7 +54,7 @@ const CASE_ITEMS = [
     aspectRatio: '21 / 9',
     badge: 'Story · Wide',
   },
-] as const;
+];
 
 export default function Home() {
   return (
