@@ -80,7 +80,7 @@ export default function PortfolioCaseStudy() {
 
       <section className={styles.caseTeaser}>
         <h2 className={styles.caseBlockHead}>Case teaser</h2>
-        {PUBLIC_TEASER_TEMPLATE.map((line) => (
+        {(data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).map((line) => (
           <p key={line} className={styles.prose}>
             {line}
           </p>
@@ -93,6 +93,9 @@ export default function PortfolioCaseStudy() {
             The full case study is available only with a password due to confidentiality constraints.
             To request access, please <a href={MAILTO}>write to me</a>.
           </p>
+          {data.lockDisclaimer ? (
+            <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
+          ) : null}
           <CaseLockForm slug={slug} onUnlocked={() => setUnlocked(true)} />
         </section>
       ) : (
@@ -102,6 +105,8 @@ export default function PortfolioCaseStudy() {
               aspectRatio={data.hero.aspectRatio}
               badge={data.hero.badge}
               caption={data.hero.caption}
+              src={data.hero.src}
+              alt={data.hero.alt}
             />
 
             {data.body.map((block, i) =>
@@ -119,6 +124,8 @@ export default function PortfolioCaseStudy() {
                   aspectRatio={block.spec.aspectRatio}
                   badge={block.spec.badge}
                   caption={block.spec.caption}
+                  src={block.spec.src}
+                  alt={block.spec.alt}
                 />
               ),
             )}

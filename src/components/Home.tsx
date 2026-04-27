@@ -7,10 +7,13 @@ const CASE_ITEMS = [
     to: '/projects/miro',
     external: false as const,
     title: 'Miro',
-    desc: 'Growth design for 80M+ users — monetization, enterprise expansion, Miroverse, custom templates.',
+    desc:
+      'Growth design across community and templates, acquisition and signup, enterprise expansion, and self-serve monetization — public teaser; full case on request.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
+    imageSrc: `${import.meta.env.BASE_URL}cover_miro_26.png`,
+    imageAlt: 'Miro case cover',
   },
   {
     to: '/projects/wix-groups',
@@ -79,6 +82,8 @@ export default function Home() {
               meta={item.meta}
               aspectRatio={item.aspectRatio}
               badge={item.badge}
+              imageSrc={item.imageSrc}
+              imageAlt={item.imageAlt}
             />
           </li>
         ))}
