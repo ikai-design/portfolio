@@ -46,6 +46,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     meta: '2015 — 2019 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 03 · Cover',
+    imageSrc: `${import.meta.env.BASE_URL}cover_s.png`,
+    imageAlt: 'Star case cover',
   },
   {
     to: '/about',
