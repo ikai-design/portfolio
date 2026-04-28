@@ -53,7 +53,6 @@ export default function PortfolioCaseStudy() {
         <Link className={styles.backLink} to="/">
           ← Back
         </Link>
-        <p className={styles.caseContextHint}>Case study</p>
         <h1 className={styles.pageTitle}>This case is not available</h1>
         <p className={styles.caseLockIntro}>
           The project link may be outdated. Please return to the homepage or contact me for access
@@ -71,11 +70,14 @@ export default function PortfolioCaseStudy() {
       <Link className={styles.backLink} to="/">
         ← Back
       </Link>
-      <p className={styles.caseContextHint}>Case study</p>
-
-      {data.eyebrow ? <p className={styles.pageEyebrow}>{data.eyebrow}</p> : null}
-      <h1 className={styles.pageTitle}>{data.title}</h1>
-      <p className={styles.pageLede}>{data.lede}</p>
+      <h1 className={styles.pageTitle}>{data.eyebrow ?? data.title}</h1>
+      <CaseStudyFigure
+        aspectRatio={data.hero.aspectRatio}
+        badge={data.hero.badge}
+        caption={data.hero.caption}
+        src={data.hero.src}
+        alt={data.hero.alt}
+      />
 
       <section className={styles.caseTeaser}>
         <h2 className={styles.caseBlockHead}>Case teaser</h2>
@@ -85,6 +87,7 @@ export default function PortfolioCaseStudy() {
           </p>
         ))}
       </section>
+      <p className={styles.pageLede}>{data.lede}</p>
 
       {locked && !unlocked ? (
         <section className={styles.caseAccessGate}>
@@ -100,14 +103,6 @@ export default function PortfolioCaseStudy() {
       ) : (
         <>
           <div className={styles.caseStream}>
-            <CaseStudyFigure
-              aspectRatio={data.hero.aspectRatio}
-              badge={data.hero.badge}
-              caption={data.hero.caption}
-              src={data.hero.src}
-              alt={data.hero.alt}
-            />
-
             {data.body.map((block, i) =>
               block.kind === 'text' ? (
                 <div key={`text-${i}`} className={styles.caseTextBlock}>

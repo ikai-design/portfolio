@@ -54,7 +54,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
-      src: caseAsset('cover_miro_26.png'),
+      src: caseAsset('cover_m.png'),
       alt: 'Miro case study cover',
       caption: 'Public teaser cover for Miro growth case studies.',
     },
@@ -123,6 +123,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Cover · Placeholder',
+      src: caseAsset('cover_w_2.png'),
+      alt: 'Wix case study cover',
       caption: 'Full-width hero — marketing still, product composite, or hero flow.',
     },
     body: [
@@ -188,6 +190,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     hero: {
       aspectRatio: '16 / 9',
       badge: 'Cover · Placeholder',
+      src: caseAsset('cover_s.png'),
+      alt: 'Star case study cover',
       caption: 'Full-width hero — abstract, blurred UI, or typographic cover.',
     },
     body: [
