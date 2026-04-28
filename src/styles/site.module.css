@@ -1106,6 +1106,245 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* Chronology teaser placeholder for Story/Wide card */
+.storyFrame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: clamp(1rem, 3vw, 1.85rem);
+  background: #09090b;
+  overflow: hidden;
+}
+
+.storyFrameBadge {
+  position: absolute;
+  top: clamp(1rem, 2.5vw, 1.5rem);
+  right: clamp(1rem, 2.5vw, 1.5rem);
+  z-index: 2;
+  font-size: clamp(0.48rem, 1vw, 0.62rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.23);
+  pointer-events: none;
+}
+
+.storyAuraTop,
+.storyAuraBottom {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(54px);
+}
+
+.storyAuraTop {
+  width: min(52vw, 34rem);
+  height: min(52vw, 34rem);
+  right: -15%;
+  top: -34%;
+  background: rgba(71, 85, 105, 0.18);
+}
+
+.storyAuraBottom {
+  width: min(40vw, 24rem);
+  height: min(40vw, 24rem);
+  left: 18%;
+  bottom: -54%;
+  background: rgba(39, 39, 42, 0.25);
+}
+
+.storyTimeline {
+  position: absolute;
+  left: clamp(1rem, 3vw, 1.85rem);
+  right: clamp(1rem, 3vw, 1.85rem);
+  top: 50%;
+  transform: translateY(-50%);
+  --story-dot-size: 18px;
+}
+
+.storyTrack {
+  position: absolute;
+  top: calc(var(--story-dot-size) / 2);
+  left: clamp(0.4rem, 2.3vw, 1.6rem);
+  right: clamp(0.4rem, 2.3vw, 1.6rem);
+  height: 1px;
+  transform: translateY(-0.5px);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.12) 12%,
+    rgba(255, 255, 255, 0.12) 88%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.storyNodeRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.3rem, 1.8vw, 1rem);
+  align-items: start;
+}
+
+.storyNodeGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.72rem, 1.8vw, 1rem);
+}
+
+.storyTooltip {
+  position: absolute;
+  top: -1.3rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.42);
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.storyNodeDot {
+  position: relative;
+  display: block;
+  width: var(--story-dot-size);
+  height: var(--story-dot-size);
+  box-sizing: border-box;
+  border-radius: 999px;
+  border: 4px solid #09090b;
+  background: transparent;
+  transition: transform 160ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.storyNodeDot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+}
+
+.storyNodeDotPast {
+  box-shadow: none;
+}
+
+.storyNodeDotCore {
+  box-shadow: 0 0 10px rgba(148, 163, 184, 0.26);
+}
+
+.storyNodeDotCurrent {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.32);
+}
+
+.storyNodeDotPast::after {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.19);
+}
+
+.storyNodeDotCore::after {
+  width: 7px;
+  height: 7px;
+  background: #b7c1ce;
+}
+
+.storyNodeDotCurrent::after {
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+}
+
+.storyNodeLabel {
+  font-size: clamp(0.66rem, 1.7vw, 0.95rem);
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-align: center;
+  transition: color 160ms ease;
+}
+
+.storyNodeLabelPast {
+  color: rgba(255, 255, 255, 0.48);
+  font-weight: 400;
+}
+
+.storyNodeLabelCore {
+  color: rgba(206, 217, 230, 0.93);
+  font-weight: 500;
+}
+
+.storyNodeLabelCurrent {
+  color: rgba(255, 255, 255, 0.98);
+  font-weight: 500;
+}
+
+.caseCardLink:hover .storyNodeGroup .storyTooltip,
+.caseCardLink:focus-visible .storyNodeGroup .storyTooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.caseCardLink:hover .storyNodeDot,
+.caseCardLink:focus-visible .storyNodeDot {
+  transform: scale(1.05);
+}
+
+.caseCardLink:hover .storyNodeDotPast,
+.caseCardLink:focus-visible .storyNodeDotPast {
+  box-shadow: none;
+}
+
+.caseCardLink:hover .storyNodeDotPast::after,
+.caseCardLink:focus-visible .storyNodeDotPast::after {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.caseCardLink:hover .storyNodeDotCore,
+.caseCardLink:focus-visible .storyNodeDotCore {
+  box-shadow: 0 0 12px rgba(148, 163, 184, 0.34);
+}
+
+.caseCardLink:hover .storyNodeDotCurrent,
+.caseCardLink:focus-visible .storyNodeDotCurrent {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.42);
+}
+
+@media (max-width: 639px) {
+  .storyTimeline {
+    --story-dot-size: 16px;
+    left: 0.85rem;
+    right: 0.85rem;
+  }
+
+  .storyTrack {
+    left: 0.2rem;
+    right: 0.2rem;
+  }
+
+  .storyNodeRow {
+    gap: 0.2rem;
+  }
+
+  .storyNodeGroup {
+    gap: 0.5rem;
+  }
+
+  .storyTooltip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storyTooltip,
+  .storyNodeDot,
+  .storyNodeLabel {
+    transition: none;
+  }
+}
+
 .caseFigCaption {
   margin: var(--stack-tight-gap) 0 0;
   font-size: 1rem;

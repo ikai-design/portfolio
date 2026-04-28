@@ -12,6 +12,7 @@ export type CaseStudyCardProps = {
   badge?: string;
   imageSrc?: string;
   imageAlt?: string;
+  placeholderVariant?: 'default' | 'chronology';
 };
 
 /**
@@ -27,6 +28,7 @@ export function CaseStudyCard({
   badge,
   imageSrc,
   imageAlt,
+  placeholderVariant,
 }: CaseStudyCardProps) {
   const figure = (
     <CaseStudyFigure
@@ -34,6 +36,7 @@ export function CaseStudyCard({
       badge={badge}
       src={imageSrc}
       alt={imageAlt ?? title}
+      placeholderVariant={placeholderVariant}
     />
   );
 

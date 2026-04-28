@@ -12,6 +12,7 @@ type HomeCaseItem = {
   badge: string;
   imageSrc?: string;
   imageAlt?: string;
+  placeholderVariant?: 'default' | 'chronology';
 };
 
 const CASE_ITEMS: HomeCaseItem[] = [
@@ -57,7 +58,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     desc: 'Roles, skills, side projects, and how the work above fits together.',
     meta: 'About',
     aspectRatio: '21 / 9',
-    badge: 'Story · Wide',
+    badge: '',
+    placeholderVariant: 'chronology',
   },
 ];
 
@@ -85,6 +87,7 @@ export default function Home() {
               badge={item.badge}
               imageSrc={item.imageSrc}
               imageAlt={item.imageAlt}
+              placeholderVariant={item.placeholderVariant}
             />
           </li>
         ))}
