@@ -6,7 +6,6 @@ const SOCIAL = [
   { label: 'X', href: 'https://x.com/ai_euge' },
   { label: 'ADPList', href: 'https://adplist.org/mentors/eugene-voroniuk' },
   { label: 'Instagram', href: 'https://www.instagram.com/eugeneworonyuk/' },
-  { label: 'VanBlum', href: 'https://vanblum.shop' },
   { label: 'Email', href: MAILTO },
 ] as const;
 

@@ -26,6 +26,7 @@ export type CaseBlock =
 
 export type PortfolioCase = {
   eyebrow?: string;
+  period?: string;
   title: string;
   lede: string;
   /** Optional public teaser bullets (mandate, execution, impact). Falls back to a generic template in the case page. */
@@ -41,6 +42,7 @@ export type PortfolioCase = {
 export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   miro: {
     eyebrow: 'Miro',
+    period: '2021 — now',
     title: 'Growth design — product surfaces',
     lede:
       'I led growth product design across community-led acquisition, activation, expansion, and monetization at Miro. This page shows the public signal; detailed case evidence sits behind password access.',
@@ -110,6 +112,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
   'wix-groups': {
     eyebrow: 'Wix.com',
+    period: '2019 — 2021',
     title: 'Wix Groups — community product',
     lede:
       'I designed Wix Groups as a cross-platform community product for a global website ecosystem. The full product strategy and evidence are shared in the private case.',
@@ -177,6 +180,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
   'star-global': {
     eyebrow: 'Star (ex-Cogniance)',
+    period: '2015 — 2019',
     title: 'Fortune 500 product design',
     lede:
       'I delivered product design for multiple Fortune 500 engagements across complex domains. The public version stays anonymized; the full depth is password-gated.',

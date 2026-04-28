@@ -12,6 +12,8 @@ type CaseStudyFigureProps = {
   caption?: string;
   /** Optional custom placeholder mode when src is absent */
   placeholderVariant?: 'default' | 'chronology';
+  /** Prefer eager only for above-the-fold hero images */
+  loading?: 'eager' | 'lazy';
 };
 
 /**
@@ -25,6 +27,7 @@ export function CaseStudyFigure({
   alt = '',
   caption,
   placeholderVariant = 'default',
+  loading = 'lazy',
 }: CaseStudyFigureProps) {
   const chronologyNodes = [
     { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX craft' },
@@ -37,7 +40,14 @@ export function CaseStudyFigure({
     <figure className={styles.caseFigure}>
       <div className={styles.caseFrame} style={{ aspectRatio }}>
         {src ? (
-          <img src={src} alt={alt} className={styles.caseFrameImg} />
+          <img
+            src={src}
+            alt={alt}
+            className={styles.caseFrameImg}
+            loading={loading}
+            decoding="async"
+            sizes="(max-width: 639px) 100vw, 1160px"
+          />
         ) : placeholderVariant === 'chronology' ? (
           <div className={styles.storyFrame} aria-label="Career chronology timeline teaser">
             {badge && <span className={styles.storyFrameBadge}>{badge}</span>}

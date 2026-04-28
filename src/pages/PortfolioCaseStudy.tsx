@@ -71,12 +71,14 @@ export default function PortfolioCaseStudy() {
         ← Back
       </Link>
       <h1 className={styles.pageTitle}>{data.eyebrow ?? data.title}</h1>
+      {data.period ? <p className={styles.pageEyebrow}>{data.period}</p> : null}
       <CaseStudyFigure
         aspectRatio={data.hero.aspectRatio}
         badge={data.hero.badge}
         caption={data.hero.caption}
         src={data.hero.src}
         alt={data.hero.alt}
+        loading="eager"
       />
 
       <section className={styles.caseTeaser}>
@@ -120,6 +122,7 @@ export default function PortfolioCaseStudy() {
                   caption={block.spec.caption}
                   src={block.spec.src}
                   alt={block.spec.alt}
+                  loading="lazy"
                 />
               ),
             )}

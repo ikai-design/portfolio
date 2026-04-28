@@ -95,7 +95,7 @@ const LEADERSHIP = [
   { year: '2023 — now', title: 'ADPList Mentor', desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.' },
   { year: '2024 — now', title: 'YouTube channel', desc: 'Design, AI and product-led growth — insights & discussions.' },
   { year: '2023 — now', title: 'VanBlum digital-print store', desc: 'AI-generated prints; a side store to stay creative.' },
-  { year: '2023', title: 'Midjourney Mastery — Udemy course', desc: 'Taught 28,682 students with SkillsBooster.' },
+  { year: '2023', title: 'Midjourney Mastery — Udemy course', desc: 'Taught 98,875 students with SkillsBooster.' },
   { year: '2018 — now', title: 'Startup advisor', desc: 'Product strategy, UX and PLG for startups, scale-ups and SMBs.' },
   { year: '2019 — 2020', title: 'Do Not Lean — podcast', desc: 'Conversations with product designers from various companies.' },
   { year: '2014 — 2018', title: 'Projector Institute — tutor', desc: '150 students mentored across "Web Design. Basics".' },
@@ -118,7 +118,7 @@ export default function About() {
         alumni and an active ADPList mentor.
       </p>
       <p className={styles.prose}>
-        Before Miro I designed and shipped Wix Groups to 200M+ users, and spent four years at
+        Before Miro I designed and shipped Wix Groups to 200M+ users, and spent 3 years 7 months at
         Star delivering end-to-end UX for Fortune 500
         clients across AdTech, HealthTech, IoT, GovTech, telematics and wearables.
       </p>
@@ -215,7 +215,8 @@ export default function About() {
         <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
         <span className={styles.metaKey}>Languages</span>
         <span className={styles.metaValue}>
-          English (C2) · Ukrainian (native) · Dutch (B1/B2) · Spanish (B1/B2)
+          Ukrainian (native) · English (full professional) · Spanish (limited working) ·
+          French/German/Dutch/Mandarin (elementary)
         </span>
       </div>
     </>

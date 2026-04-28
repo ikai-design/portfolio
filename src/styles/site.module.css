@@ -57,7 +57,7 @@
 .page {
   max-width: 1160px;
   margin: 0 auto;
-  padding-top: max(2.5rem, env(safe-area-inset-top));
+  padding-top: max(1rem, env(safe-area-inset-top));
   padding-right: max(1.5rem, env(safe-area-inset-right));
   padding-bottom: max(4rem, env(safe-area-inset-bottom));
   padding-left: max(1.5rem, env(safe-area-inset-left));
@@ -169,11 +169,16 @@
 }
 
 @media (max-width: 639px) {
+  .name {
+    font-size: 1rem;
+  }
+
   .top {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
   }
 }
 
@@ -217,9 +222,11 @@
 @media (max-width: 639px) {
   .topMeta {
     justify-content: flex-end;
-    gap: 0.5rem;
+    gap: 0.2rem;
     width: auto;
     flex-wrap: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
   }
 }
 
@@ -255,7 +262,8 @@
 
 @media (max-width: 639px) {
   .navLink {
-    min-height: 2.875rem;
+    min-height: 2.5rem;
+    padding: 0.2rem 0.35rem;
   }
 }
 
@@ -353,6 +361,10 @@
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
+  display: inline-block;
+  padding: 0.15rem 0.08rem;
+  margin: -0.15rem -0.08rem;
+  border-radius: 4px;
 }
 
 .inlineLink:hover {
@@ -377,7 +389,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #909090;
+  color: #5f5f5f;
   margin: 0 0 0.35rem;
 }
 
@@ -464,6 +476,65 @@
   }
 }
 
+@media (max-width: 360px) {
+  .page {
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  .top {
+    gap: 0.5rem;
+  }
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .topMeta {
+    gap: 0.1rem;
+    font-size: 0.875rem;
+  }
+
+  .navLink {
+    min-height: 2.25rem;
+    padding: 0.1rem 0.25rem;
+  }
+
+  .displayName,
+  .pageTitle {
+    font-size: 1.75rem;
+    line-height: 1.08;
+  }
+
+  .pageLede,
+  .introLine,
+  .bio,
+  .ctaText {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .sectionHead {
+    font-size: 1.125rem;
+  }
+
+  .workLink,
+  .caseTitle {
+    font-size: 1.125rem;
+  }
+
+  .caseDesc,
+  .prose,
+  .metaGrid {
+    font-size: 0.98rem;
+  }
+
+  .metaKey,
+  .footerMeta {
+    font-size: 0.9rem;
+  }
+}
+
 .pageLede {
   font-size: 1.75rem;
   line-height: 1.25;
@@ -536,14 +607,14 @@
 .workDesc {
   font-weight: 400;
   color: #727272;
-  opacity: 0.85;
+  opacity: 1;
   font-size: 1.125rem;
 }
 
 .workMeta {
   font-weight: 400;
-  color: #727272;
-  opacity: 0.6;
+  color: #5f5f5f;
+  opacity: 1;
   font-size: 1rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -696,8 +767,8 @@
 .tlYear {
   font-size: 1rem;
   line-height: 1.3;
-  color: #727272;
-  opacity: 0.75;
+  color: #5f5f5f;
+  opacity: 1;
   padding-top: 0.35rem;
 }
 
@@ -779,8 +850,8 @@
 }
 
 .metaKey {
-  color: #727272;
-  opacity: 0.7;
+  color: #5f5f5f;
+  opacity: 1;
   font-size: 1rem;
   padding-top: 0.25rem;
 }
@@ -850,8 +921,8 @@
 
 .skillCol li em {
   font-style: normal;
-  color: #727272;
-  opacity: 0.55;
+  color: #5f5f5f;
+  opacity: 1;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -919,8 +990,8 @@
 
 .footerMeta {
   font-size: 1rem;
-  color: #727272;
-  opacity: 0.75;
+  color: #5f5f5f;
+  opacity: 1;
 }
 
 .socials {
@@ -1060,7 +1131,7 @@
   top: 16px;
   right: 16px;
   z-index: 2;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -1093,7 +1164,7 @@
 }
 
 .caseFrameHint {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1101,7 +1172,7 @@
 }
 
 .caseFrameDims {
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -1197,7 +1268,7 @@
 .storyTooltip {
   position: absolute;
   top: -1.3rem;
-  font-size: 0.58rem;
+  font-size: 0.68rem;
   letter-spacing: 0.03em;
   white-space: nowrap;
   color: rgba(255, 255, 255, 0.42);
@@ -1528,13 +1599,13 @@
 
 .caseLockHelp {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.4;
-  color: #727272;
+  color: #5f5f5f;
 }
 
 .caseLockInput::placeholder {
-  color: #9a9a9a;
+  color: #707070;
 }
 
 .caseLockInput:hover {
@@ -1546,10 +1617,70 @@
 }
 
 .caseLockError {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: #b42318;
   margin: 0;
   line-height: 1.3;
+}
+
+@media (max-width: 639px) {
+  .name {
+    font-size: 1rem;
+  }
+
+  .topMeta {
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .pageEyebrow,
+  .caseContextHint {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+  }
+
+  .caseFrameBadge,
+  .caseFrameHint,
+  .caseFrameDims {
+    font-size: 0.875rem;
+  }
+
+  .storyNodeLabel {
+    font-size: clamp(0.75rem, 3.2vw, 0.95rem);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .page {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .top {
+    margin-bottom: 1rem;
+  }
+
+  .homeDisplayName {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .homeIntro {
+    margin-bottom: 1.75rem;
+  }
+
+  .displayName,
+  .pageTitle {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+
+  .caseCardLink {
+    gap: 1rem;
+  }
+
+  .footer {
+    gap: 0.75rem 1rem;
+  }
 }
 
 .caseLockSubmit {
