@@ -7,7 +7,7 @@ const CURRENT = [
     key: 'miro-templates',
     to: '/projects/miro-templates',
     title: 'Miro — Custom Templates',
-    desc: 'Creator tools and management workflows that let teams build and scale internal template libraries. Discovery, adoption and seat-wide rollout.',
+    desc: 'Built creator and admin flows that scaled template adoption across teams.',
     meta: 'Miro · 2023 — now',
     aspectRatio: '8 / 5',
     badge: 'Miro · Templates',
@@ -16,7 +16,7 @@ const CURRENT = [
     key: 'miro-monetization',
     to: '/projects/miro-monetization',
     title: 'Miro — Monetization & Free→Paid',
-    desc: 'Pricing experiments, paywall optimization and upgrade surfaces across self-serve. A/B tested touchpoints against conversion and ARPU.',
+    desc: 'Led free-to-paid UX and paywall optimization across core self-serve upgrade surfaces.',
     meta: 'Miro · 2022 — now',
     aspectRatio: '8 / 5',
     badge: 'Miro · Monetization',
@@ -25,7 +25,7 @@ const CURRENT = [
     key: 'miro-enterprise',
     to: '/projects/miro-enterprise',
     title: 'Miro — Enterprise Expansion',
-    desc: 'Seat growth inside existing accounts, team-wide rollout, admin & governance for enterprise customers.',
+    desc: 'Designed expansion and governance flows that supported enterprise seat growth.',
     meta: 'Miro · 2022 — now',
     aspectRatio: '8 / 5',
     badge: 'Miro · Enterprise',
@@ -34,7 +34,7 @@ const CURRENT = [
     key: 'miroverse',
     to: '/projects/miroverse',
     title: 'Miroverse — Community-Led Growth',
-    desc: 'Template ecosystem: creator & publishing flows, discovery and engagement with community content.',
+    desc: 'Shaped creator publishing and discovery loops for community-led product growth.',
     meta: 'Miro · 2021 — 2023',
     aspectRatio: '8 / 5',
     badge: 'Miroverse',
@@ -46,7 +46,7 @@ const SELECTED = [
     key: 'wix',
     to: '/projects/wix-groups',
     title: 'Wix Groups',
-    desc: 'Cross-platform micro-community for 200M+ sites — web, iOS and Android.',
+    desc: 'Designed a cross-platform community product integrated into a 200M+ site ecosystem.',
     meta: 'Wix · 2019 — 2021',
     aspectRatio: '8 / 5',
     badge: 'Wix · Case',
@@ -55,7 +55,7 @@ const SELECTED = [
     key: 'star',
     to: '/projects/star-global',
     title: 'Star (ex-Cogniance)',
-    desc: 'Fortune 500 product design — AdTech, HealthTech, IoT, GovTech, telematics, wearables.',
+    desc: 'Delivered enterprise product design across AdTech, HealthTech, IoT, GovTech, and mobility.',
     meta: 'Star · 2015 — 2019',
     aspectRatio: '8 / 5',
     badge: 'Star · NDA',
@@ -64,7 +64,7 @@ const SELECTED = [
     key: 'ciklum',
     to: '/projects/ciklum',
     title: 'Ciklum — Graphic & Web',
-    desc: 'Data visualization, infographics, training materials and web design with consultants.',
+    desc: 'Produced data-rich web and visual communication work for consulting-led delivery teams.',
     meta: 'Ciklum · 2013 — 2015',
     aspectRatio: '8 / 5',
     badge: 'Ciklum · Archive',
@@ -76,8 +76,8 @@ export default function Projects() {
     <>
       <h1 className={styles.pageTitle}>Projects</h1>
       <p className={styles.pageLede}>
-        Every tile opens an internal hi-fi wireframe case page (reference-style light frames on
-        black). Drop assets in public/cases/ and wire imageSrc when you are ready to ship pixels.
+        Focused product work across growth, platform, and enterprise contexts. Full case depth is
+        shared via private access.
       </p>
 
       <h2 className={styles.sectionHead}>

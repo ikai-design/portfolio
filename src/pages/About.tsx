@@ -15,7 +15,7 @@ const TIMELINE: Job[] = [
     company: 'Miro',
     location: 'Amsterdam · 4y 10m',
     blurb:
-      'Growth design for 80M+ users across monetization & conversion, enterprise expansion, community-led growth (Miroverse), custom templates and acquisition flows.',
+      'Growth product design for 80M+ users across Miroverse community growth, acquisition and in-product signup, enterprise expansion, and monetization.',
   },
   {
     year: '2019 — 2021',
@@ -106,15 +106,16 @@ export default function About() {
     <>
       <h1 className={styles.pageTitle}>About</h1>
       <p className={styles.pageLede}>
-        Senior Product Designer with 14+ years shaping SaaS products end-to-end — from research
-        and prototyping to growth experiments and production UI.
+        Senior Product Designer with 14+ years shaping SaaS products end-to-end — from product
+        strategy and prototyping to shipped growth systems and monetization surfaces.
       </p>
 
       <p className={styles.prose}>
         At <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">Miro</a>,
-        I work on growth initiatives for 80M+ users: Free→Paid conversion, plan upgrades, seat
-        expansion, enterprise rollout, Miroverse and custom templates. I&apos;m Reforge Growth
-        Series alumni and an active ADPList mentor.
+        I led initiatives across the full funnel for 80M+ users: Miroverse community growth,
+        SERP pre-products, in-product signup, enterprise trial and expansion, custom templates,
+        and free-to-paid conversion including checkout redesign. I&apos;m Reforge Growth Series
+        alumni and an active ADPList mentor.
       </p>
       <p className={styles.prose}>
         Before Miro I designed and shipped Wix Groups to 200M+ users, and spent four years at

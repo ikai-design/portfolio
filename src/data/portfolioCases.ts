@@ -28,7 +28,7 @@ export type PortfolioCase = {
   eyebrow?: string;
   title: string;
   lede: string;
-  /** Optional public teaser bullets (context, role, approach, outcome). Falls back to a generic template in the case page. */
+  /** Optional public teaser bullets (mandate, execution, impact). Falls back to a generic template in the case page. */
   teaserBullets?: string[];
   /** Extra confidentiality note shown on the password gate for locked cases. */
   lockDisclaimer?: string;
@@ -43,15 +43,14 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     eyebrow: 'Miro',
     title: 'Growth design — product surfaces',
     lede:
-      'End-to-end product design for growth on a widely used visual collaboration platform — community-led programs (including template ecosystems), acquisition and in-product signup, enterprise trial and expansion, and evolving self-serve monetization. This page is a portfolio-safe teaser; the full narrative, artifacts, and confidential detail sit behind the password gate.',
+      'I led growth product design across community-led acquisition, activation, expansion, and monetization at Miro. This page shows the public signal; detailed case evidence sits behind password access.',
     teaserBullets: [
-      'Context: a global collaboration product serving creators, teams, and large organizations — growth work had to connect organic community discovery, first-session value, land-and-expand motion, and trusted purchase paths.',
-      'Role: product design from framing through shipped UI, in close partnership with product, engineering, and go-to-market partners — systems-aware craft across high-stakes flows.',
-      'Approach: iterative delivery grounded in research and product learning — prototype-led exploration, careful UX and copy on conversion surfaces, and explicit attention to clarity for both end users and buyers.',
-      'Outcome: directional progress on activation, account expansion, and monetization; specifics (metrics, experiments, and proprietary mechanics) are reserved for the full case shared under NDA.',
+      'Mandate: design growth across the full funnel, from acquisition and in-product signup to enterprise expansion and monetization.',
+      'Execution: led end-to-end product design with PM, engineering, and GTM across acquisition surfaces, Miroverse, enterprise trial and admin flows, and free-to-paid/checkout UX.',
+      'Impact: strengthened acquisition, activation, engagement, expansion, and paid conversion; detailed metrics and experiment mechanics are shared privately.',
     ],
     lockDisclaimer:
-      'Public content stays generic: no non-public numbers, internal experiment detail, or unreleased product information. Teaser visuals are or will be sanitized portfolio mockups, not confidential ship shots.',
+      'This public teaser excludes non-public metrics, experiment detail, and unreleased product work.',
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
@@ -106,14 +105,21 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request access or discuss →' },
+    cta: { to: '/contact', label: 'Request full case access →' },
   },
 
   'wix-groups': {
     eyebrow: 'Wix.com',
-    title: 'Wix Groups — case template',
+    title: 'Wix Groups — community product',
     lede:
-      '[Placeholder] Product one-liner, your mandate, and the scale signal (e.g. cross-platform, 200M+ users).',
+      'I designed Wix Groups as a cross-platform community product for a global website ecosystem. The full product strategy and evidence are shared in the private case.',
+    teaserBullets: [
+      'Mandate: launch and scale community experiences across web, iOS, and Android.',
+      'Execution: led product design across member journeys, moderation, and creator-facing management flows.',
+      'Impact: strengthened engagement and repeat use; detailed product and performance data remain private.',
+    ],
+    lockDisclaimer:
+      'This teaser is NDA-safe and excludes internal metrics, roadmap detail, and proprietary artifacts.',
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Cover · Placeholder',
@@ -164,14 +170,21 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request the full case study →' },
+    cta: { to: '/contact', label: 'Request full case access →' },
   },
 
   'star-global': {
     eyebrow: 'Star (ex-Cogniance)',
-    title: 'Fortune 500 product work — case template',
+    title: 'Fortune 500 product design',
     lede:
-      '[Placeholder] NDA-safe summary: domains, your role, and engagement shape without naming clients.',
+      'I delivered product design for multiple Fortune 500 engagements across complex domains. The public version stays anonymized; the full depth is password-gated.',
+    teaserBullets: [
+      'Mandate: solve high-risk product problems in regulated and technically complex environments.',
+      'Execution: drove end-to-end design, from discovery and system definition to delivery with distributed teams.',
+      'Impact: shipped enterprise-ready outcomes across sectors; client names and measured results are confidential.',
+    ],
+    lockDisclaimer:
+      'Client identities, internal artifacts, and performance metrics are intentionally redacted in public.',
     hero: {
       aspectRatio: '16 / 9',
       badge: 'Cover · Placeholder',
@@ -208,7 +221,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request access →' },
+    cta: { to: '/contact', label: 'Request full case access →' },
   },
 };
 

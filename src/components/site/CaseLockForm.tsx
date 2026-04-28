@@ -54,7 +54,7 @@ export function CaseLockForm({ slug, onUnlocked }: CaseLockFormProps) {
             setValue(e.target.value);
             setWrong(false);
           }}
-          placeholder="Enter password"
+          placeholder="Access password"
         />
         <button
           type="button"
@@ -68,13 +68,13 @@ export function CaseLockForm({ slug, onUnlocked }: CaseLockFormProps) {
       <p className={styles.caseLockHelp}>
         Need access?{' '}
         <Link to="/contact" className={styles.inlineLink}>
-          Request password
+          Request private case entry
         </Link>
         .
       </p>
       {wrong ? (
         <p className={styles.caseLockError} role="alert">
-          Incorrect password. Please try again or request access.
+          Password rejected. Try again or request access.
         </p>
       ) : null}
       <button type="submit" className={styles.caseLockSubmit}>

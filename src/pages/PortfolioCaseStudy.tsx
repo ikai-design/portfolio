@@ -19,10 +19,9 @@ function readSessionUnlocked(slug: string): boolean {
 }
 
 const PUBLIC_TEASER_TEMPLATE = [
-  'Context: high-level product area, target users, and why this direction mattered for growth.',
-  'Role: end-to-end product design in close partnership with PM and engineering, from framing through delivery.',
-  'Approach: hypotheses, experiments, and iterative UX refinements informed by qualitative and quantitative signals.',
-  'Outcome: measurable movement in activation, conversion, and product clarity (details are shared in the full case).',
+  'Mandate: solve a high-stakes product problem with clear business and user impact.',
+  'Execution: led end-to-end product design with PM and engineering from framing to shipped UI.',
+  'Impact: drove measurable movement; full metrics and internal decision detail are private.',
 ];
 
 export default function PortfolioCaseStudy() {
@@ -90,8 +89,8 @@ export default function PortfolioCaseStudy() {
       {locked && !unlocked ? (
         <section className={styles.caseAccessGate}>
           <p className={styles.caseLockIntro}>
-            The full case study is available only with a password due to confidentiality constraints.
-            To request access, please <a href={MAILTO}>write to me</a>.
+            Full case access is password-protected for confidentiality. Request access via{' '}
+            <a href={MAILTO}>email</a>.
           </p>
           {data.lockDisclaimer ? (
             <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>

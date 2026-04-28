@@ -45,8 +45,8 @@ export default function MiroHub() {
       </Link>
       <h1 className={styles.pageTitle}>Miro</h1>
       <p className={styles.pageLede}>
-        Growth design for 80M+ users — four internal case wireframes below. Each opens a hi-fi
-        placeholder page you can swap for real screenshots.
+        Growth product design across community, acquisition, in-product signup, enterprise
+        expansion, and monetization for 80M+ users.
       </p>
       <p className={styles.prose}>
         Live product for context:{' '}

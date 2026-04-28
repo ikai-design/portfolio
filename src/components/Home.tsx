@@ -20,7 +20,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Miro',
     desc:
-      'Growth design across community and templates, acquisition and signup, enterprise expansion, and self-serve monetization — public teaser; full case on request.',
+      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case on request.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
@@ -42,7 +42,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     to: '/projects/star-global',
     external: false as const,
     title: 'Star (ex-Cogniance)',
-    desc: 'Senior UX for Fortune 500 clients — AdTech, HealthTech, IoT, GovTech, wearables.',
+    desc:
+      'Led complex B2B/B2C UX from ideation to delivery across Fortune 500 client products in AdTech, HealthTech, IoT, and telematics.',
     meta: '2015 — 2019 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 03 · Cover',
@@ -67,7 +68,7 @@ export default function Home() {
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Full-Funnel Growth Design for SaaS. Miro (80M+), Wix (200M+)
+          Full-funnel growth product design for SaaS: Miro (80M+), Wix (200M+)
         </p>
       </section>
 
