@@ -15,7 +15,7 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.footerLeft}>
         <span>© 2026 Eugene Voroniuk</span>
-        <span className={styles.footerMeta}>Amsterdam, NL · Set in PolySans</span>
+        <span className={styles.footerMeta}>Amsterdam, NL · Set in Manrope</span>
       </div>
       <div className={styles.socials}>
         {SOCIAL.map(({ label, href }) => (
