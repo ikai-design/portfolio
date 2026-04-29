@@ -674,6 +674,11 @@
   border-top: 1px solid #e5e5e5;
 }
 
+.ctaBlockNoDivider {
+  border-top: 0;
+  padding-top: 0;
+}
+
 .ctaText {
   font-size: 1.5rem;
   line-height: 1.2;
@@ -683,6 +688,10 @@
   max-width: none;
   width: 100%;
   overflow-wrap: anywhere;
+}
+
+.contactLeadCtaText {
+  margin-bottom: 24px;
 }
 
 @media (max-width: 639px) {
@@ -709,6 +718,57 @@
 
 .ctaLink:hover {
   opacity: 0.8;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.ctaRow .ctaLink {
+  margin: 0;
+  min-height: 2.75rem;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 1199px) {
+  .ctaRow .ctaLink {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 639px) {
+  .ctaRow {
+    align-items: stretch;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .ctaRow .contactLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.caseAccessChecklist {
+  margin: 0 0 var(--stack-inner-gap);
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: #5f5f5f;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.caseAccessChecklist li {
+  margin: 0;
+}
+
+.caseAccessChecklist.contactLeadChecklist {
+  margin: 24px 0 var(--stack-inner-gap);
 }
 
 /* ---------- Section heads / dividers ---------- */

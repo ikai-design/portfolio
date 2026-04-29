@@ -15,6 +15,9 @@ export function SiteHeader() {
         Eugene Voroniuk
       </Link>
       <div className={styles.topMeta}>
+        <NavLink to="/projects" className={navClass}>
+          Work
+        </NavLink>
         <NavLink to="/about" className={navClass}>
           About
         </NavLink>

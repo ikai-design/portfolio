@@ -17,8 +17,8 @@ export default function Contact() {
         <span>Hiring & contract inquiry</span>
         <small>Fastest way to connect</small>
       </h2>
-      <section className={styles.ctaBlock}>
-        <p className={styles.ctaText}>
+      <section className={`${styles.ctaBlock} ${styles.ctaBlockNoDivider}`}>
+        <p className={`${styles.prose} ${styles.contactLeadCtaText}`}>
           Book a short intro call, or email directly if you want a role-specific case deck.
         </p>
         <div className={styles.ctaRow}>
@@ -29,7 +29,7 @@ export default function Contact() {
             Email for full case deck →
           </a>
         </div>
-        <ul className={styles.caseAccessChecklist}>
+        <ul className={`${styles.caseAccessChecklist} ${styles.contactLeadChecklist}`}>
           <li>Share role/company and which case area you want to review.</li>
           <li>Typical response time: within 24 hours on business days.</li>
         </ul>
@@ -65,16 +65,20 @@ export default function Contact() {
         <small>Based in Amsterdam · CET</small>
       </h2>
       <div className={styles.metaGrid}>
-        <span className={styles.metaKey}>Work</span>
+        <span className={styles.metaKey}>Full-time</span>
         <span className={styles.metaValue}>
-          Senior growth design roles · advisory · one short engagement per quarter
+          Open to senior/lead growth design roles
         </span>
-        <span className={styles.metaKey}>Remote</span>
+        <span className={styles.metaKey}>Contract</span>
+        <span className={styles.metaValue}>
+          Selective advisory engagements (typically one short engagement per quarter)
+        </span>
+        <span className={styles.metaKey}>Timezone</span>
         <span className={styles.metaValue}>EU time zones (CET, GMT, CEST)</span>
         <span className={styles.metaKey}>Relocation</span>
         <span className={styles.metaValue}>Visa sponsorship or EOR required</span>
-        <span className={styles.metaKey}>Notice</span>
-        <span className={styles.metaValue}>Flexible</span>
+        <span className={styles.metaKey}>Start window</span>
+        <span className={styles.metaValue}>Flexible, based on role scope and process timing</span>
       </div>
 
       <h2 className={styles.sectionHead}>
