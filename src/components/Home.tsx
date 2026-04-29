@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyCard } from './site/CaseStudyCard';
 
-const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
-
 type HomeCaseItem = {
   to: string;
   external: false;
@@ -100,26 +98,18 @@ export default function Home() {
         behavioral UX, and AI-enhanced design workflows. I care about clear defaults, honest
         copy, and work that scales with real usage.
       </p>
-      <p className={styles.caseContextHint}>
-        Miro (2021 — now) · Wix · Reforge Growth Series · NN/g Certified · ADPList Mentor
-      </p>
 
       <section className={styles.ctaBlock} aria-labelledby="cta-heading">
         <h2 id="cta-heading" className={styles.visuallyHidden}>
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior/lead product design roles and selective advisory engagements for
-          growth-focused SaaS teams.
+          Open to senior growth-design roles, mentorship via ADPList, and a limited amount of
+          advisory work.
         </p>
-        <div className={styles.ctaRow}>
-          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
-            Book a 30-min intro call
-          </a>
-          <Link className={styles.ctaLink} to="/contact">
-            Or email for full case deck →
-          </Link>
-        </div>
+        <Link className={styles.ctaLink} to="/contact">
+          Get in touch →
+        </Link>
       </section>
     </>
   );
