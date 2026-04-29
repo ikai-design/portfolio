@@ -1,6 +1,7 @@
 import styles from '../styles/site.module.css';
 import { CONTACT_EMAIL, MAILTO } from '../components/site/SiteHeader';
 
+const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
 const PHONE = '+31 6 388 91 489';
 const PHONE_HREF = 'tel:+31638891489';
 
@@ -9,13 +10,34 @@ export default function Contact() {
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={styles.pageLede}>
-        Open to senior growth-design roles, mentorship via ADPList, and a short freelance
-        engagement per quarter.
+        Open to senior/lead growth-design roles and selective contract/advisory engagements.
       </p>
 
       <h2 className={styles.sectionHead}>
-        <span>Direct</span>
-        <small>Fastest route</small>
+        <span>Hiring & contract inquiry</span>
+        <small>Fastest way to connect</small>
+      </h2>
+      <section className={styles.ctaBlock}>
+        <p className={styles.ctaText}>
+          Book a short intro call, or email directly if you want a role-specific case deck.
+        </p>
+        <div className={styles.ctaRow}>
+          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+            Book a 30-min intro call
+          </a>
+          <a className={styles.ctaLink} href={MAILTO}>
+            Email for full case deck →
+          </a>
+        </div>
+        <ul className={styles.caseAccessChecklist}>
+          <li>Share role/company and which case area you want to review.</li>
+          <li>Typical response time: within 24 hours on business days.</li>
+        </ul>
+      </section>
+
+      <h2 className={styles.sectionHead}>
+        <span>Direct channels</span>
+        <small>Backup options</small>
       </h2>
       <div className={styles.metaGrid}>
         <span className={styles.metaKey}>Email</span>
@@ -34,16 +56,6 @@ export default function Contact() {
             rel="noopener noreferrer"
           >
             linkedin.com/in/eugene-voroniuk
-          </a>
-        </span>
-        <span className={styles.metaKey}>X</span>
-        <span className={styles.metaValue}>
-          <a
-            href="https://x.com/ai_euge"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @ai_euge
           </a>
         </span>
       </div>

@@ -5,6 +5,8 @@ import { MAILTO } from '../components/site/SiteHeader';
 import { PORTFOLIO_CASES } from '../data/portfolioCases';
 import { isCasePasswordProtected } from '../config/lockedCases';
 
+const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+
 const PUBLIC_TEASER_TEMPLATE = [
   'Mandate: solve a high-stakes product problem with clear business and user impact.',
   'Execution: led end-to-end product design with PM and engineering from framing to shipped UI.',
@@ -90,12 +92,21 @@ export default function PortfolioCaseStudy() {
             Full case decks with detailed process, experiments, and outcomes are shared on request
             via <a href={MAILTO}>email</a>.
           </p>
+          <ul className={styles.caseAccessChecklist}>
+            <li>Include your role, company, and the case area you want to review.</li>
+            <li>Typical response time: within 24 hours on business days.</li>
+          </ul>
           {data.lockDisclaimer ? (
             <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
           ) : null}
-          <a className={styles.ctaLink} href={MAILTO}>
-            Request full case deck via email →
-          </a>
+          <div className={styles.ctaRow}>
+            <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+              Book a 30-min intro call
+            </a>
+            <a className={styles.ctaLink} href={MAILTO}>
+              Request full case deck via email →
+            </a>
+          </div>
         </section>
       ) : (
         <>
