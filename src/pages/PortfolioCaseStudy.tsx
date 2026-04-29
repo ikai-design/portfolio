@@ -1,22 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
-import { CaseLockForm } from '../components/site/CaseLockForm';
 import { MAILTO } from '../components/site/SiteHeader';
 import { PORTFOLIO_CASES } from '../data/portfolioCases';
-import {
-  CASE_UNLOCK_STORAGE_PREFIX,
-  isCasePasswordProtected,
-} from '../config/lockedCases';
-
-function readSessionUnlocked(slug: string): boolean {
-  try {
-    return sessionStorage.getItem(`${CASE_UNLOCK_STORAGE_PREFIX}${slug}`) === '1';
-  } catch {
-    return false;
-  }
-}
+import { isCasePasswordProtected } from '../config/lockedCases';
 
 const PUBLIC_TEASER_TEMPLATE = [
   'Mandate: solve a high-stakes product problem with clear business and user impact.',
@@ -28,20 +15,6 @@ export default function PortfolioCaseStudy() {
   const { slug } = useParams<{ slug: string }>();
   const data = slug ? PORTFOLIO_CASES[slug] : undefined;
   const locked = Boolean(slug && isCasePasswordProtected(slug));
-
-  const [unlocked, setUnlocked] = useState(() => {
-    if (!slug || !locked) return true;
-    return readSessionUnlocked(slug);
-  });
-
-  useEffect(() => {
-    if (!slug) return;
-    if (!isCasePasswordProtected(slug)) {
-      setUnlocked(true);
-      return;
-    }
-    setUnlocked(readSessionUnlocked(slug));
-  }, [slug]);
 
   if (!slug) {
     return <Navigate to="/" replace />;
@@ -81,6 +54,26 @@ export default function PortfolioCaseStudy() {
         loading="eager"
       />
 
+      {data.publicTracks?.length ? (
+        <section className={styles.caseTrackMap} aria-label="Program map">
+          <h2 className={styles.caseBlockHead}>Program map</h2>
+          <ul className={styles.caseTrackPills} aria-label="Case tracks">
+            {data.publicTracks.map((track) => (
+              <li key={track.label} className={styles.caseTrackPill}>
+                {track.label}
+              </li>
+            ))}
+          </ul>
+          <div className={styles.caseTrackList}>
+            {data.publicTracks.map((track) => (
+              <p key={`${track.label}-summary`} className={styles.prose}>
+                <strong>{track.label}:</strong> {track.summary}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className={styles.caseTeaser}>
         <h2 className={styles.caseBlockHead}>Case teaser</h2>
         {(data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).map((line) => (
@@ -91,16 +84,18 @@ export default function PortfolioCaseStudy() {
       </section>
       <p className={styles.pageLede}>{data.lede}</p>
 
-      {locked && !unlocked ? (
+      {locked ? (
         <section className={styles.caseAccessGate}>
           <p className={styles.caseLockIntro}>
-            Full case access is password-protected for confidentiality. Request access via{' '}
-            <a href={MAILTO}>email</a>.
+            Full case decks with detailed process, experiments, and outcomes are shared on request
+            via <a href={MAILTO}>email</a>.
           </p>
           {data.lockDisclaimer ? (
             <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
           ) : null}
-          <CaseLockForm slug={slug} onUnlocked={() => setUnlocked(true)} />
+          <a className={styles.ctaLink} href={MAILTO}>
+            Request full case deck via email →
+          </a>
         </section>
       ) : (
         <>

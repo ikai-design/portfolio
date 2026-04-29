@@ -21,7 +21,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Miro',
     desc:
-      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case on request.',
+      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case deck shared via email.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',

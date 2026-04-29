@@ -1,5 +1,8 @@
 import styles from '../styles/site.module.css';
 
+const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
+const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
+
 type Job = {
   year: string;
   role: string;
@@ -105,23 +108,49 @@ export default function About() {
   return (
     <>
       <h1 className={styles.pageTitle}>About</h1>
-      <p className={styles.pageLede}>
-        Senior Product Designer with 14+ years shaping SaaS products end-to-end — from product
-        strategy and prototyping to shipped growth systems and monetization surfaces.
-      </p>
+      <section className={styles.aboutHero}>
+        <div className={styles.aboutHeroCopy}>
+          <p className={styles.pageLede}>
+            Senior Product Designer with 14+ years shaping SaaS products end-to-end — from product
+            strategy and prototyping to shipped growth systems and monetization surfaces.
+          </p>
+          <p className={styles.prose}>
+            At{' '}
+            <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
+              Miro
+            </a>
+            , I led initiatives across the full funnel for 80M+ users: Miroverse community growth,
+            SERP pre-products, in-product signup, enterprise trial and expansion, custom templates,
+            and free-to-paid conversion including checkout redesign. I&apos;m Reforge Growth Series
+            alumni and an active ADPList mentor.
+          </p>
+          <p className={styles.prose}>
+            Before Miro I designed and shipped Wix Groups to 200M+ users, and spent 3 years 7 months
+            at Star delivering end-to-end UX for Fortune 500 clients across AdTech, HealthTech, IoT,
+            GovTech, telematics and wearables.
+          </p>
+        </div>
 
-      <p className={styles.prose}>
-        At <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">Miro</a>,
-        I led initiatives across the full funnel for 80M+ users: Miroverse community growth,
-        SERP pre-products, in-product signup, enterprise trial and expansion, custom templates,
-        and free-to-paid conversion including checkout redesign. I&apos;m Reforge Growth Series
-        alumni and an active ADPList mentor.
-      </p>
-      <p className={styles.prose}>
-        Before Miro I designed and shipped Wix Groups to 200M+ users, and spent 3 years 7 months at
-        Star delivering end-to-end UX for Fortune 500
-        clients across AdTech, HealthTech, IoT, GovTech, telematics and wearables.
-      </p>
+        <figure className={styles.aboutPortrait}>
+          <div className={styles.aboutPortraitFrame}>
+            <img
+              src={ABOUT_PHOTO_DEFAULT}
+              alt="Portrait of Eugene Voroniuk"
+              className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgDefault}`}
+              loading="eager"
+              decoding="async"
+            />
+            <img
+              src={ABOUT_PHOTO_HOVER}
+              alt=""
+              aria-hidden="true"
+              className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgHover}`}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </figure>
+      </section>
 
       <h2 className={styles.sectionHead}>
         <span>Chronology</span>

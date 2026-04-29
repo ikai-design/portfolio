@@ -1,22 +1,23 @@
 /**
- * Password-protected case studies (slug must match `PORTFOLIO_CASES` keys).
- * Edit passwords only in this file.
+ * Cases that should stay teaser-only on the public site.
+ * Detailed evidence is shared manually via email/figma deck.
  *
- * Note: This is browseable obfuscation only — the bundle can be inspected.
- * Do not rely on this for confidential material.
+ * Slugs must match `PORTFOLIO_CASES` keys.
  */
-export const LOCKED_CASE_PASSWORDS: Record<string, string> = {
-  miro: 'changeme',
-  'wix-groups': 'changeme',
-  'star-global': 'changeme',
+export const LOCKED_CASE_SLUGS: Record<string, true> = {
+  miro: true,
+  'wix-groups': true,
+  'star-global': true,
 };
 
 export function isCasePasswordProtected(slug: string): boolean {
-  return Object.prototype.hasOwnProperty.call(LOCKED_CASE_PASSWORDS, slug);
+  return Object.prototype.hasOwnProperty.call(LOCKED_CASE_SLUGS, slug);
 }
 
+/** Legacy compatibility shim: password flow is disabled on public pages. */
 export function getCasePassword(slug: string): string | undefined {
-  return LOCKED_CASE_PASSWORDS[slug];
+  return LOCKED_CASE_SLUGS[slug] ? 'disabled' : undefined;
 }
 
+/** Legacy compatibility shim: unlock state is no longer used on public pages. */
 export const CASE_UNLOCK_STORAGE_PREFIX = 'portfolio-case-unlock:';

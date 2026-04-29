@@ -77,7 +77,7 @@ export default function Projects() {
       <h1 className={styles.pageTitle}>Projects</h1>
       <p className={styles.pageLede}>
         Focused product work across growth, platform, and enterprise contexts. Full case depth is
-        shared via private access.
+        shared via email on request.
       </p>
 
       <h2 className={styles.sectionHead}>
