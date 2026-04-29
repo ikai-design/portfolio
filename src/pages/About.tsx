@@ -111,8 +111,8 @@ export default function About() {
       <section className={styles.aboutHero}>
         <div className={styles.aboutHeroCopy}>
           <p className={styles.pageLede}>
-            Senior Product Designer with 14+ years shaping SaaS products end-to-end — from product
-            strategy and prototyping to shipped growth systems and monetization surfaces.
+            Senior Product Designer with 14+ years shipping SaaS products end-to-end, with a focus
+            on growth, experimentation, and monetization.
           </p>
           <p className={styles.prose}>
             At{' '}

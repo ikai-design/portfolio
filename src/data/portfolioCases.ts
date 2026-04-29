@@ -52,11 +52,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     period: '2021 — now',
     title: 'Growth design — product surfaces',
     lede:
-      'I led growth product design across community-led acquisition, activation, expansion, and monetization at Miro. This page shows the public signal; detailed case evidence is shared privately via email.',
+      'I led growth product design across community-led acquisition, activation, expansion, and monetization at Miro. This page shows the public signal; detailed case evidence is shared on request via email.',
     teaserBullets: [
-      'Mandate: design growth across the full funnel, from acquisition and in-product signup to enterprise expansion and monetization.',
-      'Execution: led end-to-end product design with PM, engineering, and GTM across acquisition surfaces, Miroverse, enterprise trial and admin flows, and free-to-paid/checkout UX.',
-      'Impact: strengthened acquisition, activation, engagement, expansion, and paid conversion; detailed metrics and experiment mechanics are shared privately.',
+      'Scope: I led growth design across the full funnel, from acquisition and in-product signup to enterprise expansion and monetization.',
+      'Execution: I worked end-to-end with PM, engineering, and GTM on acquisition touchpoints, Miroverse, enterprise trial/admin journeys, and free-to-paid checkout UX.',
+      'Impact: The work improved acquisition, activation, engagement, expansion, and paid conversion; detailed metrics and experiment specifics are shared on request via email.',
     ],
     publicTracks: [
       {
@@ -154,11 +154,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     period: '2019 — 2021',
     title: 'Wix Groups — community product',
     lede:
-      'I designed Wix Groups as a cross-platform community product for a global website ecosystem. The full product strategy and evidence are shared in the private case.',
+      'I designed Wix Groups as a cross-platform community product for a global website ecosystem. Full product strategy and evidence are shared on request via email.',
     teaserBullets: [
-      'Mandate: launch and scale community experiences across web, iOS, and Android.',
-      'Execution: led product design across member journeys, moderation, and creator-facing management flows.',
-      'Impact: strengthened engagement and repeat use; detailed product and performance data remain private.',
+      'Scope: I led launch and scale of community experiences across web, iOS, and Android.',
+      'Execution: I drove product design across member journeys, moderation, and creator-facing management flows.',
+      'Impact: The work improved engagement and repeat use; detailed product and performance data remain private.',
     ],
     publicTracks: [
       {
@@ -244,11 +244,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     period: '2015 — 2019',
     title: 'Fortune 500 product design',
     lede:
-      'I delivered product design for multiple Fortune 500 engagements across complex domains. The public version stays anonymized; full case evidence is shared privately via email.',
+      'I delivered product design for multiple Fortune 500 engagements across complex domains. The public version stays anonymized; full case evidence is shared on request via email.',
     teaserBullets: [
-      'Mandate: solve high-risk product problems in regulated and technically complex environments.',
-      'Execution: drove end-to-end design, from discovery and system definition to delivery with distributed teams.',
-      'Impact: shipped enterprise-ready outcomes across sectors; client names and measured results are confidential.',
+      'Scope: I tackled high-risk product problems in regulated and technically complex environments.',
+      'Execution: I led end-to-end design, from discovery and system definition to delivery with distributed teams.',
+      'Impact: The work shipped enterprise-ready outcomes across sectors; client names and measured results are confidential.',
     ],
     publicTracks: [
       {

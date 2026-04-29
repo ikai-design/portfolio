@@ -8,9 +8,9 @@ import { isCasePasswordProtected } from '../config/lockedCases';
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
 
 const PUBLIC_TEASER_TEMPLATE = [
-  'Mandate: solve a high-stakes product problem with clear business and user impact.',
-  'Execution: led end-to-end product design with PM and engineering from framing to shipped UI.',
-  'Impact: drove measurable movement; full metrics and internal decision detail are private.',
+  'Scope: solve a high-stakes product problem with clear business and user impact.',
+  'Execution: lead end-to-end product design with PM and engineering from framing to shipped UI.',
+  'Impact: drive measurable movement; full metrics and internal decision detail are shared on request via email.',
 ];
 
 export default function PortfolioCaseStudy() {
@@ -31,7 +31,7 @@ export default function PortfolioCaseStudy() {
         <h1 className={styles.pageTitle}>This case is not available</h1>
         <p className={styles.caseLockIntro}>
           The project link may be outdated. Please return to the homepage or contact me for access
-          to private case studies.
+          to full case decks shared on request via email.
         </p>
         <Link className={styles.ctaLink} to="/contact">
           Contact →

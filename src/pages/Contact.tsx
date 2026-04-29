@@ -10,7 +10,8 @@ export default function Contact() {
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={styles.pageLede}>
-        Open to senior/lead growth-design roles and selective contract/advisory engagements.
+        Open to senior/lead product design roles with a growth and experimentation focus, with
+        selective contract and advisory support.
       </p>
 
       <h2 className={styles.sectionHead}>

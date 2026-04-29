@@ -3,13 +3,20 @@ import styles from '../styles/site.module.css';
 import { CaseStudyCard } from './site/CaseStudyCard';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+const TRUST_MARKERS = [
+  'Miro (2021 — now)',
+  'Wix',
+  'Reforge Growth Series',
+  'NN/g Certified',
+  'ADPList Mentor',
+] as const;
 
 type HomeCaseItem = {
   to: string;
   external: false;
   title: string;
   desc: string;
-  meta: string;
+  meta?: string;
   aspectRatio: string;
   badge: string;
   imageSrc?: string;
@@ -23,7 +30,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Miro',
     desc:
-      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case deck shared via email.',
+      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case deck shared on request via email.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
@@ -58,7 +65,6 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Background & chronology',
     desc: 'Roles, skills, side projects, and how the work above fits together.',
-    meta: 'About',
     aspectRatio: '21 / 9',
     badge: '',
     placeholderVariant: 'chronology',
@@ -96,21 +102,25 @@ export default function Home() {
       </ul>
 
       <p className={styles.bio}>
-        14+ years designing SaaS products end-to-end — product-led growth, monetization,
-        behavioral UX, and AI-enhanced design workflows. I care about clear defaults, honest
-        copy, and work that scales with real usage.
+        14+ years designing SaaS products end-to-end. I focus on acquisition, activation,
+        expansion, and monetization, and I work closely with PM, engineering, and GTM to ship
+        measurable outcomes.
       </p>
-      <p className={styles.caseContextHint}>
-        Miro (2021 — now) · Wix · Reforge Growth Series · NN/g Certified · ADPList Mentor
-      </p>
+      <ul className={styles.trustStrip} aria-label="Selected trust markers">
+        {TRUST_MARKERS.map((marker) => (
+          <li key={marker} className={styles.trustChip}>
+            {marker}
+          </li>
+        ))}
+      </ul>
 
       <section className={styles.ctaBlock} aria-labelledby="cta-heading">
         <h2 id="cta-heading" className={styles.visuallyHidden}>
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior/lead growth-design roles and selective advisory engagements for
-          growth-focused SaaS teams.
+          Open to senior/lead product design roles with a growth and experimentation focus.
+          Selective advisory support for growth-focused SaaS teams.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">

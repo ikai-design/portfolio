@@ -4,40 +4,13 @@ import { CaseStudyCard } from '../components/site/CaseStudyCard';
 
 const CURRENT = [
   {
-    key: 'miro-templates',
-    to: '/projects/miro-templates',
-    title: 'Miro — Custom Templates',
-    desc: 'Built creator and admin flows that scaled template adoption across teams.',
-    meta: 'Miro · 2023 — now',
+    key: 'miro-hub',
+    to: '/projects/miro',
+    title: 'Miro — Growth design hub',
+    desc: 'Community-led growth, acquisition, signup, enterprise expansion, and monetization work.',
+    meta: 'Miro · 2021 — now',
     aspectRatio: '8 / 5',
-    badge: 'Miro · Templates',
-  },
-  {
-    key: 'miro-monetization',
-    to: '/projects/miro-monetization',
-    title: 'Miro — Monetization & Free→Paid',
-    desc: 'Led free-to-paid UX and paywall optimization across core self-serve upgrade surfaces.',
-    meta: 'Miro · 2022 — now',
-    aspectRatio: '8 / 5',
-    badge: 'Miro · Monetization',
-  },
-  {
-    key: 'miro-enterprise',
-    to: '/projects/miro-enterprise',
-    title: 'Miro — Enterprise Expansion',
-    desc: 'Designed expansion and governance flows that supported enterprise seat growth.',
-    meta: 'Miro · 2022 — now',
-    aspectRatio: '8 / 5',
-    badge: 'Miro · Enterprise',
-  },
-  {
-    key: 'miroverse',
-    to: '/projects/miroverse',
-    title: 'Miroverse — Community-Led Growth',
-    desc: 'Shaped creator publishing and discovery loops for community-led product growth.',
-    meta: 'Miro · 2021 — 2023',
-    aspectRatio: '8 / 5',
-    badge: 'Miroverse',
+    badge: 'Miro · Hub',
   },
 ] as const;
 
@@ -62,9 +35,9 @@ const SELECTED = [
   },
   {
     key: 'ciklum',
-    to: '/projects/ciklum',
+    to: '/about',
     title: 'Ciklum — Graphic & Web',
-    desc: 'Produced data-rich web and visual communication work for consulting-led delivery teams.',
+    desc: 'Earlier visual and web communication work; context and chronology are shared on About.',
     meta: 'Ciklum · 2013 — 2015',
     aspectRatio: '8 / 5',
     badge: 'Ciklum · Archive',
@@ -76,8 +49,8 @@ export default function Projects() {
     <>
       <h1 className={styles.pageTitle}>Projects</h1>
       <p className={styles.pageLede}>
-        Focused product work across growth, platform, and enterprise contexts. Full case depth is
-        shared via email on request.
+        Selected product work across growth, platform, and enterprise contexts. Full case depth is
+        shared on request via email.
       </p>
 
       <h2 className={styles.sectionHead}>
