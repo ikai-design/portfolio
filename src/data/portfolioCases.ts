@@ -3,6 +3,7 @@
  *   eyebrow → title → lede → full-width image → text → full-width image → text → …
  * Swap placeholder copy; add imageSrc on figures when extending the renderer.
  * Raster covers: copy full-resolution files into public/cases/ in the repo (chat uploads are recompressed).
+ * Keep each case’s `hero.aspectRatio` and all teaser/body figures on that case aligned (e.g. Miro/Wix 8∶5, Star 16∶9) so frames match on the case page.
  */
 
 /** Resolve `public/` paths for Vite `base` (e.g. `/portfolio/`). */
@@ -34,6 +35,11 @@ export type PortfolioCase = {
   period?: string;
   title: string;
   lede: string;
+  /** Short narrative: role clarity + one problem→move→outcome thread for hiring-manager scan. */
+  throughLine?: {
+    title: string;
+    paragraphs: string[];
+  };
   /** Optional public teaser bullets (mandate, execution, impact). Falls back to a generic template in the case page. */
   teaserBullets?: string[];
   /** Optional public track map shown as pills + short summaries. */
@@ -41,6 +47,8 @@ export type PortfolioCase = {
   /** Extra confidentiality note shown on the email-only access gate for locked cases. */
   lockDisclaimer?: string;
   hero: FigureSpec;
+  /** Shown on locked case pages before the access gate (real assets or wireframe placeholders). */
+  lockedTeaserFigures?: FigureSpec[];
   /** After the hero: alternate `text` and `figure` blocks (full-width stack). */
   body: CaseBlock[];
   cta?: { to: string; label: string };
@@ -51,6 +59,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     eyebrow: 'Miro',
     period: '2021 — now',
     title: 'Miro — product design at scale',
+    throughLine: {
+      title: 'Through-line',
+      paragraphs: [
+        'Role: Senior Product Designer on growth-facing surfaces (Amsterdam). I moved across five team contexts as company priorities shifted — partnering with PM, engineering, and GTM. I owned framing, UX/UI quality, and systems implications; we used experimentation where it reduced risk.',
+        'Thread: Users arrive with different intent — discovery, trial, expansion, paid add-ons. The work balanced clarity at high-stakes moments (signup, trials, templates, checkout) with governance and retention, without collapsing the product into a single funnel story. The private deck walks through trade-offs and validation.',
+      ],
+    },
     lede:
       'I led end-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization — five growth-facing team contexts — from Miroverse and pre-products to trials, templates, and paid conversion. Public signal only; full case evidence is shared on request via email.',
     teaserBullets: [
@@ -99,6 +114,22 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Miro case study cover',
       caption: 'Public teaser cover for Miro case studies.',
     },
+    lockedTeaserFigures: [
+      {
+        aspectRatio: '8 / 5',
+        badge: 'Teaser · Acquisition / activation',
+        src: caseAsset('cover_m2.png'),
+        alt: 'Miro public teaser — acquisition and activation surfaces (sanitized)',
+        caption: 'Public-safe still — high-intent entry and in-product activation context.',
+      },
+      {
+        aspectRatio: '8 / 5',
+        badge: 'Teaser · Monetization / enterprise',
+        src: caseAsset('cover_m3.png'),
+        alt: 'Miro public teaser — monetization and enterprise context (sanitized)',
+        caption: 'Public-safe still — monetization, packaging, or governance-adjacent surfaces.',
+      },
+    ],
     body: [
       {
         kind: 'text',
@@ -110,10 +141,12 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Acquisition / activation',
+          src: caseAsset('cover_m2.png'),
+          alt: 'Miro case — acquisition and activation (sanitized)',
           caption:
-            'First teaser visual — sanitized acquisition or in-product signup moment (per portfolio plan).',
+            'Public teaser — high-intent entry and in-product activation context.',
         },
       },
       {
@@ -125,10 +158,12 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Monetization / enterprise',
+          src: caseAsset('cover_m3.png'),
+          alt: 'Miro case — monetization and enterprise (sanitized)',
           caption:
-            'Second teaser visual — sanitized monetization, checkout, or enterprise expansion moment.',
+            'Public teaser — monetization, packaging, or enterprise expansion context.',
         },
       },
       {
@@ -140,7 +175,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '21 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Full case · Wide strip',
           caption: 'Optional wide flow — multi-step journey or before/after collage (sanitized).',
         },
@@ -153,6 +188,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     eyebrow: 'Wix.com',
     period: '2019 — 2021',
     title: 'Wix Groups — community product',
+    throughLine: {
+      title: 'Through-line',
+      paragraphs: [
+        'Role: Sole designer for most of the lifecycle after launch, with partial product ownership — embedded with PM and engineering across web, iOS, and Android.',
+        'Thread: A community product inside a 200M+ site ecosystem had to feel native while supporting real group behavior — discovery, participation, and moderation — without breaking platform patterns. The private deck covers milestones, trade-offs, and safe performance signals.',
+      ],
+    },
     lede:
       'Sole designer for most of the lifecycle after launch, with partial product ownership — Wix Groups is a cross-platform community product for creators, coaches, and consultants inside the Wix ecosystem (200M+ users). Full evidence is shared on request via email.',
     teaserBullets: [
@@ -191,6 +233,22 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Wix case study cover',
       caption: 'Public teaser — ecosystem context, product composite, or hero flow.',
     },
+    lockedTeaserFigures: [
+      {
+        aspectRatio: '8 / 5',
+        badge: 'Teaser · Ecosystem',
+        src: caseAsset('cover_w2.png'),
+        alt: 'Wix public teaser — ecosystem and builder context (sanitized)',
+        caption: 'Public-safe still — IA, builder context, or cross-surface journey.',
+      },
+      {
+        aspectRatio: '8 / 5',
+        badge: 'Teaser · Journeys',
+        src: caseAsset('cover_w3.png'),
+        alt: 'Wix public teaser — member journeys and community surfaces (sanitized)',
+        caption: 'Public-safe still — onboarding, moderation, or key member moments.',
+      },
+    ],
     body: [
       {
         kind: 'text',
@@ -202,9 +260,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Ecosystem',
-          caption: 'Sanitized still — IA, builder context, or cross-surface journey.',
+          src: caseAsset('cover_w2.png'),
+          alt: 'Wix case — ecosystem and builder context (sanitized)',
+          caption: 'Public teaser — IA, builder context, or cross-surface journey.',
         },
       },
       {
@@ -216,9 +276,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Journeys',
-          caption: 'Sanitized flows — onboarding, moderation, or key member moments.',
+          src: caseAsset('cover_w3.png'),
+          alt: 'Wix case — member journeys and community surfaces (sanitized)',
+          caption: 'Public teaser — onboarding, moderation, or key member moments.',
         },
       },
       {
@@ -230,7 +292,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '21 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Wide strip',
           caption: 'Optional wide collage — devices, QA, or shipped gallery (sanitized).',
         },
@@ -243,6 +305,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     eyebrow: 'Star (ex-Cogniance)',
     period: '2015 — 2019',
     title: 'Fortune 500 product design',
+    throughLine: {
+      title: 'Through-line',
+      paragraphs: [
+        'Role: UX → Senior UX Designer; client workshops, IA, prototyping, and implementation-ready handoff — I briefly led a small design group in Wrocław.',
+        'Thread (anonymized): Regulated health-adjacent workflows and telematics-style operator tools — greenfield IA, multi-step flows, and production constraints with distributed teams. Client identities and metrics stay under NDA; the deck uses redacted artifacts.',
+      ],
+    },
     lede:
       '10+ end-to-end Fortune 500 engagements — often greenfield or regulated — spanning IoT, telematics, HealthTech, wearables, GovTech, and AdTech. Client workshops, IA, and delivery under NDA; full case evidence is shared on request via email.',
     teaserBullets: [
@@ -281,6 +350,18 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Star case study cover',
       caption: 'Public teaser — abstract, redacted UI, or typographic cover.',
     },
+    lockedTeaserFigures: [
+      {
+        aspectRatio: '16 / 9',
+        badge: 'Teaser · Process (placeholder)',
+        caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI (asset TBD).',
+      },
+      {
+        aspectRatio: '16 / 9',
+        badge: 'Teaser · Systems (placeholder)',
+        caption: 'Wide strip — redacted flow, component grid, or journey map (asset TBD).',
+      },
+    ],
     body: [
       {
         kind: 'text',
@@ -306,7 +387,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '21 / 9',
+          aspectRatio: '16 / 9',
           badge: 'Teaser · Systems',
           caption: 'Wide strip — redacted flow, component grid, or journey map.',
         },

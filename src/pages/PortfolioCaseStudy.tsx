@@ -56,6 +56,17 @@ export default function PortfolioCaseStudy() {
         loading="eager"
       />
 
+      {data.throughLine ? (
+        <section className={styles.caseThroughLine} aria-label={data.throughLine.title}>
+          <h2 className={styles.caseBlockHead}>{data.throughLine.title}</h2>
+          {data.throughLine.paragraphs.map((p, i) => (
+            <p key={i} className={styles.prose}>
+              {p}
+            </p>
+          ))}
+        </section>
+      ) : null}
+
       {data.publicTracks?.length ? (
         <section className={styles.caseTrackMap} aria-label="Program map">
           <h2 className={styles.caseBlockHead}>Program map</h2>
@@ -86,6 +97,22 @@ export default function PortfolioCaseStudy() {
       </section>
       <p className={styles.pageLede}>{data.lede}</p>
 
+      {locked && data.lockedTeaserFigures?.length ? (
+        <div className={styles.caseLockedTeaserStack}>
+          {data.lockedTeaserFigures.map((spec, i) => (
+            <CaseStudyFigure
+              key={`${spec.badge}-${i}`}
+              aspectRatio={spec.aspectRatio}
+              badge={spec.badge}
+              caption={spec.caption}
+              src={spec.src}
+              alt={spec.alt ?? ''}
+              loading="lazy"
+            />
+          ))}
+        </div>
+      ) : null}
+
       {locked ? (
         <section className={styles.caseAccessGate}>
           <p className={styles.caseLockIntro}>
@@ -96,6 +123,10 @@ export default function PortfolioCaseStudy() {
           <ul className={styles.caseAccessChecklist}>
             <li>Include your role, company, and the case area you want to review.</li>
             <li>Typical response time: within 24 hours on business days.</li>
+            <li>
+              You&apos;ll receive an NDA-aware summary (PDF / Figma) tailored to the streams you name —
+              process, decisions, and outcomes where safe to share.
+            </li>
           </ul>
           {data.lockDisclaimer ? (
             <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
