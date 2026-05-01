@@ -30,7 +30,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Miro',
     desc:
-      'Growth product design across community-led acquisition, in-product signup, enterprise expansion, and monetization — public teaser; full case deck shared on request via email.',
+      'Product design across high-stakes surfaces: community, acquisition, signup, enterprise expansion, and monetization — public teaser; full case deck shared on request via email.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '8 / 5',
     badge: 'Case 01 · Hub',
@@ -41,7 +41,8 @@ const CASE_ITEMS: HomeCaseItem[] = [
     to: '/projects/wix-groups',
     external: false as const,
     title: 'Wix',
-    desc: 'Cross-platform community add-on for 200M+ Wix sites across 190 countries.',
+    desc:
+      'Sole designer for most of the lifecycle — cross-platform community product for creators and SMBs, 200M+ users, 190 countries.',
     meta: '2019 — 2021 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 02 · Cover',
@@ -53,7 +54,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Star (ex-Cogniance)',
     desc:
-      'Led complex B2B/B2C UX from ideation to delivery across Fortune 500 client products in AdTech, HealthTech, IoT, and telematics.',
+      '10+ Fortune 500 engagements — greenfield and regulated — AdTech, HealthTech, IoT, telematics, GovTech; client workshops and NDA.',
     meta: '2015 — 2019 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 03 · Cover',
@@ -78,7 +79,8 @@ export default function Home() {
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Full-funnel growth product design for SaaS: Miro (80M+), Wix (200M+)
+          Design for complex SaaS at scale — Miro (80M+), Wix (200M+) — from strategy and journeys to
+          shipped quality, with depth in lifecycle, from signup to revenue.
         </p>
       </section>
 
@@ -102,9 +104,10 @@ export default function Home() {
       </ul>
 
       <p className={styles.bio}>
-        14+ years designing SaaS products end-to-end. I focus on acquisition, activation,
-        expansion, and monetization, and I work closely with PM, engineering, and GTM to ship
-        measurable outcomes.
+        14+ years shipping SaaS end-to-end: framing ambiguous problems, designing journeys and
+        systems implications, and partnering with PM, engineering, and GTM. I have deep experience
+        in activation, expansion, and monetization — including experimentation when uncertainty is
+        high — without reducing the work to funnels alone.
       </p>
       <ul className={styles.trustStrip} aria-label="Selected trust markers">
         {TRUST_MARKERS.map((marker) => (
@@ -119,8 +122,9 @@ export default function Home() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior/lead product design roles with a growth and experimentation focus.
-          Selective advisory support for growth-focused SaaS teams.
+          Open to senior/lead product design roles — including teams with heavy monetization,
+          activation, or experimentation needs. Selective advisory for SaaS product and GTM
+          alignment.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">

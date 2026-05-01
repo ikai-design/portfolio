@@ -1,42 +1,53 @@
-# Content Update Draft (Review Before Implementation)
+# Content update draft — Senior Product Designer first
 
-This file contains the exact copy I propose to use for the light “less is more” pass.
+Canonical positioning for the site and channel copy tests.
 
 ## Positioning guardrail (applies across all pages)
 
-Use one site version only (no split versions), with one consistent positioning:
+**Primary identity:** Senior Product Designer — complex SaaS, end-to-end ownership, craft and systems implications.
 
-`Senior Product Designer (Growth / Experimentation focus)`
+**Depth (not cage):** Lifecycle work, monetization, activation, and experimentation are **proof of senior judgment**, not the job title in the hero. Growth teams should still recognize themselves in Miro tracks and skills.
 
-Working principle:
+**Working principle:**
 
 - Full-time hiring intent is primary.
 - Advisory is secondary and concise.
-- No growth-only niche framing and no generic-generalist framing.
+- No “growth-only” niche framing in hero, CTAs, or Contact availability.
+- No generic-generalist framing without proof (Wix / Star / Miro remain the anchors).
+
+---
+
+## Copy map (implemented baseline)
+
+| Location | Before (summary) | After (summary) |
+|----------|------------------|-----------------|
+| Home intro | Full-funnel growth product design for SaaS… | Senior product design for complex SaaS at scale… depth in lifecycle, monetization, validation |
+| Home bio | Focus on acquisition… measurable outcomes | Framing, journeys, systems; deep experience in activation/expansion/monetization + experimentation when uncertainty is high |
+| Home Miro card | Growth product design across… | Product design across high-stakes surfaces… |
+| Home CTA | …growth and experimentation focus | …senior/lead PD including teams with monetization, activation, experimentation needs |
+| Projects lede | growth, platform, enterprise | collaboration SaaS, platform community, enterprise |
+| Projects Miro card | Growth design hub; funnel list desc | Selected work; high-stakes surfaces list |
+| Miro case title | Growth design — product surfaces | Miro — product design at scale |
+| Miro case lede/bullets | Growth-led framing | Ownership, craft/systems, experimentation as risk reduction |
+| About lede | focus on growth, experimentation, monetization | strategy, journeys, systems; depth in lifecycle/monetization/validation |
+| About skills section | PLG column first; “full growth funnel” | Product & craft first; Lifecycle & business second; “Craft, lifecycle, execution” |
+| About Miro prose | “full funnel” | initiative list + cross-functional partnership |
+| Contact lede / Full-time | growth and experimentation focus; growth design roles | senior/lead PD including strong monetization/activation/experimentation cultures; product design roles |
+| `index.html` description | Senior PD, Growth at Miro | Senior PD at Miro; complex SaaS, journeys, lifecycle |
+| Timeline job title | _unchanged_ — factual: Senior Product Designer, Growth | — |
+| CaseStudyFigure chronology | PLG/Growth core | Lifecycle core |
+
+---
 
 ## 1) Home (`src/components/Home.tsx`)
 
-### Intro line
+**Headline:** Keep `Senior Product Designer`.
 
-Replace with:
+**Intro line:** Senior product design for complex SaaS at scale — Miro (80M+), Wix (200M+) — from strategy and journeys to shipped quality, with depth in lifecycle, monetization, and validation.
 
-`Full-funnel growth product design for SaaS: Miro (80M+) and Wix (200M+).`
+**Bio paragraph:** 14+ years shipping SaaS end-to-end: framing ambiguous problems, designing journeys and systems implications, and partnering with PM, engineering, and GTM. Deep experience in activation, expansion, and monetization — including experimentation when uncertainty is high — without reducing the work to funnels alone.
 
-### Headline
-
-Keep as:
-
-`Senior Product Designer`
-
-### Bio paragraph
-
-Replace with:
-
-`14+ years designing SaaS products end-to-end. I focus on acquisition, activation, expansion, and monetization, and I work closely with PM, engineering, and GTM to ship measurable outcomes.`
-
-### Trust chips (keep 5 max)
-
-Use exactly:
+**Trust chips (keep 5 max):**
 
 - `Miro (2021 — now)`
 - `Wix`
@@ -44,208 +55,113 @@ Use exactly:
 - `NN/g Certified`
 - `ADPList Mentor`
 
-### CTA lead sentence
+**CTA lead sentence:** Open to senior/lead product design roles — including teams with heavy monetization, activation, or experimentation needs. Selective advisory for SaaS product and GTM alignment.
 
-Replace with:
-
-`Open to senior/lead product design roles with a growth and experimentation focus. Selective advisory support for growth-focused SaaS teams.`
-
-### CTA labels
-
-Keep:
-
-- Primary: `Book a 30-min intro call`
-- Secondary: `Or email for full case deck →`
+**CTA labels:** Unchanged — primary `Book a 30-min intro call`, secondary `Or email for full case deck →`.
 
 ---
 
 ## 2) Projects (`src/pages/Projects.tsx`)
 
-### Page lede
+**Page lede:** Selected product work across collaboration SaaS, platform community, and enterprise contexts. Full case depth is shared on request via email.
 
-Replace with:
+**Current Miro card:**
 
-`Selected product work across growth, platform, and enterprise contexts. Full case depth is shared on request via email.`
-
-### Current Miro card copy
-
-Use:
-
-- Title: `Miro — Growth design hub`
-- Description: `Community-led growth, acquisition, signup, enterprise expansion, and monetization work.`
+- Title: `Miro — selected work`
+- Description: `High-stakes product surfaces: community, acquisition, signup, enterprise expansion, and monetization.`
 - Meta: `Miro · 2021 — now`
 
-### Ciklum card copy
-
-Use:
-
-- Title: `Ciklum — Graphic & Web`
-- Description: `Earlier visual and web communication work; context and chronology are shared on About.`
-- Meta: `Ciklum · 2013 — 2015`
+**Ciklum card:** Unchanged from prior draft.
 
 ---
 
-## 3) Case Teasers (`src/data/portfolioCases.ts`)
+## 3) Case teasers (`src/data/portfolioCases.ts`)
 
-Use consistent labels and plain language for all three locked cases.
+**Miro**
 
-### Miro teaser bullets
+- Title: `Miro — product design at scale`
+- Lede + teaser bullets: see repo (Scope = ownership/ambiguity; Execution = craft + systems + experimentation when appropriate; Impact = unchanged NDA-safe outcome class).
 
-- `Scope: I led growth design across the full funnel, from acquisition and in-product signup to enterprise expansion and monetization.`
-- `Execution: I worked end-to-end with PM, engineering, and GTM on acquisition touchpoints, Miroverse, enterprise trial/admin journeys, and free-to-paid checkout UX.`
-- `Impact: The work improved acquisition, activation, engagement, expansion, and paid conversion; detailed metrics and experiment specifics are shared privately.`
-
-### Wix teaser bullets
-
-- `Scope: I led launch and scale of community experiences across web, iOS, and Android.`
-- `Execution: I drove product design across member journeys, moderation, and creator-facing management flows.`
-- `Impact: The work improved engagement and repeat use; detailed product and performance data remain private.`
-
-### Star teaser bullets
-
-- `Scope: I tackled high-risk product problems in regulated and technically complex environments.`
-- `Execution: I led end-to-end design, from discovery and system definition to delivery with distributed teams.`
-- `Impact: The work shipped enterprise-ready outcomes across sectors; client names and measured results are confidential.`
+**Wix / Star:** Unchanged teaser triads unless a future pass tightens wording.
 
 ---
 
-## 4) Case Access Gate (`src/pages/PortfolioCaseStudy.tsx`)
+## 4) Case access gate (`src/pages/PortfolioCaseStudy.tsx`)
 
-### Gate lead line
-
-Use:
-
-`Full case decks with detailed process, experiments, and outcomes are shared on request via email.`
-
-### Checklist (2 bullets)
-
-Use:
-
-- `Include your role, company, and the case area you want to review.`
-- `Typical response time: within 24 hours on business days.`
-
-### Disclaimer line pattern
-
-Keep existing case-specific disclaimer text, but use this style rule:
-
-- one sentence
-- no defensive/legal tone
-- no extra qualifiers unless required by NDA
-
-### CTA labels
-
-Keep:
-
-- `Book a 30-min intro call`
-- `Request full case deck via email →`
+No change required for this strategy pass. Keep existing gate copy unless a separate polish ticket updates it.
 
 ---
 
 ## 5) Contact (`src/pages/Contact.tsx`)
 
-### Page lede
+**Page lede:** Open to senior/lead product design roles — including teams with strong monetization, activation, or experimentation cultures — with selective contract and advisory support.
 
-Use:
+**Full-time availability:** Open to senior/lead product design roles.
 
-`Open to senior/lead product design roles with a growth and experimentation focus, with selective contract and advisory support.`
-
-### Hiring block intro
-
-Use:
-
-`Book a short intro call, or email directly if you want a role-specific case deck.`
-
-### Availability block values
-
-Use exactly:
-
-- Full-time: `Open to senior/lead growth design roles`
-- Contract: `Selective advisory engagements (typically one short engagement per quarter)`
-- Timezone: `EU time zones (CET, GMT, CEST)`
-- Relocation: `Visa sponsorship or EOR required`
-- Start window: `Flexible, based on role scope and process timing`
+**Hiring block / CTAs / checklist:** Unchanged from prior draft where not superseded above.
 
 ---
 
-## 6) Canonical phrase lock (all pages)
+## 6) About (`src/pages/About.tsx`)
 
-Use this exact phrase whenever needed:
+**Opening:** Senior-first lede; Miro paragraph emphasizes initiatives + cross-functional partnership (not “full funnel” as the hook).
 
-`shared on request via email`
-
-Do not use variants like:
-
-- `shared privately via email`
-- `shared via private access`
-- `password-gated`
+**Skills grid:** Order: Product & craft (design/research list) → Lifecycle & business (PLG list) → AI · data · stack. Section subtitle: `Craft, lifecycle, and execution`.
 
 ---
 
-## 7) Optional A/B messaging test (same site, no split)
+## 7) Canonical phrase lock (all pages)
 
-Use this only for CV/LinkedIn headline testing, not for separate site versions:
-
-- Variant A: `Senior Product Designer, Growth focus`
-- Variant B: `Senior Product Designer, Experimentation / PLG / Monetization focus`
-
-Rule:
-
-- Test channels, not site architecture.
-- Keep website copy on a single consistent variant at a time.
+Use exactly: `shared on request via email` for private deck access. No variants.
 
 ---
 
-## 8) Success metrics (this cycle)
+## 8) LinkedIn parity (apply manually on LinkedIn)
 
-Track lightweight weekly metrics so content quality is tied to conversion, not subjective feel.
+Align profile with the site’s first-screen promise within one sentence.
 
-- `contact_to_call_rate`
-  - Definition: % of inbound contact conversations that become a booked intro call.
-- `case_gate_to_email_click_rate`
-  - Definition: % of case-gate views that click `Request full case deck via email`.
-- `home_cta_to_call_click_rate`
-  - Definition: % of home-page sessions that click `Book a 30-min intro call`.
+**Recommended headline (primary):**  
+Senior Product Designer at Miro · Complex SaaS, journeys, craft · Depth in monetization, activation & experimentation
 
-Target direction (first 2–3 weeks): upward trend vs current baseline, not absolute volume.
+**Alternates:**
 
----
+- Senior Product Designer · Miro — product strategy, end-to-end execution, high-stakes lifecycle work
+- Senior Product Designer (Miro) · End-to-end SaaS design; strong in monetization, enterprise & community surfaces
 
-## 9) Priority order (by business impact)
-
-### P1 (do first)
-
-- Home first-screen positioning + CTA lead sentence + CTA labels.
-- Case Access Gate hook/checklist/CTA language.
-- Contact top inquiry block + availability clarity.
-
-### P2 (do second)
-
-- Projects intro and card copy normalization.
-- Case teaser triads (`Scope / Execution / Impact`) across all locked cases.
-
-### P3 (do last)
-
-- About opening paragraph polish for hiring relevance.
-- Optional A/B variant wording for external channels (not site split).
+**About / short bio:** Reuse or tighten the Home bio paragraph; lead with product scope, then one clause on lifecycle depth.
 
 ---
 
-## 10) Out of scope (for this pass)
+## 9) Success metrics (this cycle)
 
-- No new pages or route changes.
-- No layout redesign or component restructuring.
-- No animation/style experiments beyond copy support.
-- No additional case sections beyond existing content blocks.
+Track weekly:
+
+- `contact_to_call_rate` — inbound contact → booked intro call
+- `case_gate_to_email_click_rate` — case gate → request deck click
+- `home_cta_to_call_click_rate` — home → intro call click
+
+After repositioning, compare **inquiry quality** (role types), not only volume.
 
 ---
 
-## 11) Done definition
+## 10) Priority order (maintenance)
 
-The pass is complete when all conditions are true:
+**P1:** Home first screen, Contact lede + Full-time line, Miro case title/lede/bullets.  
+**P2:** Projects lede + Miro card; About lede + skills order.  
+**P3:** Meta description; LinkedIn manual sync; optional case body polish.
 
-- Home, Projects, Case Gate, and Contact use one coherent full-time-first narrative.
-- `shared on request via email` is the only private-access phrase used site-wide.
-- Every page has one obvious primary action in the first screen.
-- Case teaser bullets follow consistent `Scope / Execution / Impact` style.
-- Copy reads naturally aloud in plain recruiter-friendly language (no stacked jargon).
-- No placeholder/dev-tone wording remains in public-facing sections.
+---
+
+## 11) Out of scope (unless requested)
+
+- New routes or layout redesign.
+- Animation or visual system changes beyond copy.
+- Removing factual job title `Senior Product Designer, Growth` from chronology.
+
+---
+
+## 12) Done definition
+
+- Home, Projects, Miro teaser, About, Contact, and meta read **Senior Product Designer first**; growth/monetization/experimentation read as **depth**.
+- No page contradicts another (e.g. Contact no longer says “growth design roles” for full-time).
+- `shared on request via email` remains the only private-access phrase.

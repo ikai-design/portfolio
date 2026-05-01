@@ -2,7 +2,7 @@ import styles from '../../styles/site.module.css';
 import { MAILTO } from './SiteHeader';
 
 const SOCIAL = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/eugene-voroniuk/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/eugenevoroniuk/' },
   { label: 'X', href: 'https://x.com/ai_euge' },
   { label: 'ADPList', href: 'https://adplist.org/mentors/eugene-voroniuk' },
   { label: 'Instagram', href: 'https://www.instagram.com/eugeneworonyuk/' },

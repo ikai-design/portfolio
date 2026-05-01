@@ -336,8 +336,9 @@
   font-weight: 400;
   line-height: 1.2;
   color: #727272;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: none;
+  width: 100%;
+  margin: 0;
   overflow-wrap: anywhere;
 }
 
@@ -434,11 +435,8 @@
 }
 
 .homeDisplayName {
-  max-width: 600px;
   margin-top: clamp(2rem, 8vw, 5.5rem);
   margin-bottom: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media (max-width: 639px) {
@@ -449,6 +447,11 @@
 
 .homeIntro {
   margin-bottom: clamp(2rem, 10vw, 6rem);
+}
+
+.homeIntro .introLine {
+  max-width: 850px;
+  margin-inline: auto;
 }
 
 .pageTitle {
@@ -1523,16 +1526,35 @@
 
 .aboutPortrait {
   margin: 0;
+  min-width: 0;
+  display: block;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: stretch;
   width: 100%;
+  align-self: start;
+}
+
+.aboutPortraitLockHeight {
+  /* Fills column 3; landscape comes from column width vs measured intro height. */
+  min-height: 0;
 }
 
 .aboutPortraitFrame {
   position: relative;
-  width: min(100%, 420px);
-  aspect-ratio: 4 / 5;
+  width: 100%;
+  height: auto;
+  max-width: 28rem;
+  aspect-ratio: 3 / 2;
   border-radius: 12px;
   overflow: hidden;
   background: #f2f2f2;
+}
+
+.aboutPortraitLockHeight .aboutPortraitFrame {
+  height: 100%;
+  max-width: none;
+  aspect-ratio: unset;
 }
 
 .aboutPortraitImg {
@@ -1547,7 +1569,7 @@
 
 .aboutPortraitImgDefault {
   opacity: 1;
-  object-position: 50% 24%;
+  object-position: 56% 24%;
   transform: scale(1.06);
 }
 
@@ -1578,37 +1600,107 @@
 }
 
 .aboutHero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 26rem);
-  gap: var(--stack-inner-gap) 2.5rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-inner-gap);
   margin: 0 0 var(--stack-between-gap);
 }
 
+.aboutHeroTitle {
+  margin-bottom: 0;
+}
+
 .aboutHeroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-inner-gap);
   min-width: 0;
+  width: 100%;
+  max-width: min(72rem, 100%);
 }
 
 .aboutHeroCopy .pageLede {
-  margin-bottom: var(--stack-inner-gap);
+  margin-bottom: 0;
 }
 
-.aboutHeroCopy .prose:last-child {
+.aboutHeroLede {
+  font-size: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
+  line-height: 1.28;
+  font-weight: 500;
+  color: #5c5c5c;
+}
+
+/* One 3-column grid: intro spans cols 1–2 (aligns with “Before Miro” right edge), photo col 3, then tripanel row. */
+.aboutHeroGrid {
+  --about-hero-col-gap: clamp(1.25rem, 2.5vw, 2rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--about-hero-col-gap);
+  row-gap: var(--stack-inner-gap);
+  min-width: 0;
+}
+
+.aboutHeroIntro {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-inner-gap);
+  min-width: 0;
+}
+
+.aboutHeroIntro .prose {
+  margin-bottom: 0;
+}
+
+.aboutGridRow2Col1 {
+  grid-column: 1;
+  grid-row: 2;
+  margin-bottom: 0;
+}
+
+.aboutGridRow2Col2 {
+  grid-column: 2;
+  grid-row: 2;
+  margin-bottom: 0;
+}
+
+.aboutGridRow2Col3 {
+  grid-column: 3;
+  grid-row: 2;
   margin-bottom: 0;
 }
 
 @media (max-width: 959px) {
-  .aboutHero {
+  .aboutHeroCopy {
+    max-width: none;
+  }
+
+  .aboutHeroGrid {
     grid-template-columns: 1fr;
-    gap: var(--stack-inner-gap);
+  }
+
+  .aboutHeroIntro {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .aboutPortrait {
+    grid-column: 1;
+    grid-row: auto;
     justify-self: start;
+    width: min(100%, 28rem);
   }
 
   .aboutPortraitFrame {
-    width: min(100%, 360px);
+    max-width: 360px;
+  }
+
+  .aboutGridRow2Col1,
+  .aboutGridRow2Col2,
+  .aboutGridRow2Col3 {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 

@@ -89,8 +89,9 @@ export default function PortfolioCaseStudy() {
       {locked ? (
         <section className={styles.caseAccessGate}>
           <p className={styles.caseLockIntro}>
-            Full case decks with detailed process, experiments, and outcomes are shared on request
-            via <a href={MAILTO}>email</a>.
+            Full case decks with detailed process, decisions, and outcomes — including experiments
+            where they were part of the work — are shared on request via{' '}
+            <a href={MAILTO}>email</a>.
           </p>
           <ul className={styles.caseAccessChecklist}>
             <li>Include your role, company, and the case area you want to review.</li>

@@ -30,10 +30,10 @@ export function CaseStudyFigure({
   loading = 'lazy',
 }: CaseStudyFigureProps) {
   const chronologyNodes = [
-    { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX craft' },
+    { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX/UI Craft' },
     { id: 'product', label: 'Product', state: 'past', tooltip: 'Product thinking' },
-    { id: 'plg', label: 'PLG/Growth', state: 'core', tooltip: 'Core growth focus' },
-    { id: 'ai', label: 'AI · Now', state: 'current', tooltip: 'AI-driven experiments' },
+    { id: 'plg', label: 'Lifecycle', state: 'core', tooltip: 'From signup to revenue' },
+    { id: 'ai', label: 'AI · Now', state: 'current', tooltip: 'AI-assisted workflows' },
   ] as const;
 
   return (

@@ -50,44 +50,44 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   miro: {
     eyebrow: 'Miro',
     period: '2021 — now',
-    title: 'Growth design — product surfaces',
+    title: 'Miro — product design at scale',
     lede:
-      'I led growth product design across community-led acquisition, activation, expansion, and monetization at Miro. This page shows the public signal; detailed case evidence is shared on request via email.',
+      'I led end-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization — five growth-facing team contexts — from Miroverse and pre-products to trials, templates, and paid conversion. Public signal only; full case evidence is shared on request via email.',
     teaserBullets: [
-      'Scope: I led growth design across the full funnel, from acquisition and in-product signup to enterprise expansion and monetization.',
-      'Execution: I worked end-to-end with PM, engineering, and GTM on acquisition touchpoints, Miroverse, enterprise trial/admin journeys, and free-to-paid checkout UX.',
-      'Impact: The work improved acquisition, activation, engagement, expansion, and paid conversion; detailed metrics and experiment specifics are shared on request via email.',
+      'Scope: Ambiguous problems across community (Miroverse), acquisition (SERP pre-products, signup), enterprise (trial, admin expansion), professional templates and shareable presentations, and monetization (free-to-paid, checkout, pricing, retention).',
+      'Execution: Partnered with PM, engineering, and GTM on journeys, UI quality, and systems implications; used experimentation where it reduced risk. AI-assisted prototyping and research synthesis.',
+      'Impact: Improved acquisition, activation, engagement, expansion, and paid conversion; metrics and experiment detail are shared on request via email.',
     ],
     publicTracks: [
       {
         label: 'Community-led growth',
         summary:
-          'Worked on Miroverse growth motions for creator participation, publishing quality, and repeat contribution loops.',
+          'Miroverse: template submission, creator profiles, and gamification to improve contributor engagement and publishing quality.',
       },
       {
         label: 'Acquisition surfaces',
         summary:
-          'Supported acquisition through intent-matched pre-product experiences that route qualified users into core journeys.',
+          'Pre-products aimed at high-intent SERP traffic; flows that route qualified users into core product journeys.',
       },
       {
         label: 'Signup and activation UX',
         summary:
-          'Designed and iterated in-product signup and activation pathways to reduce friction and improve early user momentum.',
+          'In-product signup redesign and behavioral prompts for non-registered users to reduce friction and improve early momentum.',
       },
       {
         label: 'Enterprise trial and admin',
         summary:
-          'Improved enterprise trial and admin-side expansion paths with clearer approval, access, and governance experiences.',
+          'Time-limited trials, admin-side seat expansion, and governance experiences that support team-wide adoption.',
       },
       {
-        label: 'Template and sharing workflows',
+        label: 'Templates and shareable presentations',
         summary:
-          'Led experience upgrades for template creation, organization, and sharing workflows aimed at stronger engaged-corporate usage.',
+          'Custom templates (creation, discovery, sharing) and shareable presentations for professional-service and engaged-corporate use cases.',
       },
       {
         label: 'Monetization and checkout',
         summary:
-          'Contributed to free-to-paid trigger UX and checkout redesign direction to support scalable packaging and add-ons.',
+          'Contextual free-to-paid triggers, checkout redesign for add-ons and packaging, plus pricing page and smart cancellation iterations.',
       },
     ],
     lockDisclaimer:
@@ -97,7 +97,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       badge: 'Teaser · Cover',
       src: caseAsset('cover_m.png'),
       alt: 'Miro case study cover',
-      caption: 'Public teaser cover for Miro growth case studies.',
+      caption: 'Public teaser cover for Miro case studies.',
     },
     body: [
       {
@@ -154,7 +154,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     period: '2019 — 2021',
     title: 'Wix Groups — community product',
     lede:
-      'I designed Wix Groups as a cross-platform community product for a global website ecosystem. Full product strategy and evidence are shared on request via email.',
+      'Sole designer for most of the lifecycle after launch, with partial product ownership — Wix Groups is a cross-platform community product for creators, coaches, and consultants inside the Wix ecosystem (200M+ users). Full evidence is shared on request via email.',
     teaserBullets: [
       'Scope: I led launch and scale of community experiences across web, iOS, and Android.',
       'Execution: I drove product design across member journeys, moderation, and creator-facing management flows.',
@@ -186,53 +186,53 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       'This teaser is NDA-safe and excludes internal metrics, roadmap detail, and proprietary artifacts.',
     hero: {
       aspectRatio: '8 / 5',
-      badge: 'Cover · Placeholder',
+      badge: 'Teaser · Cover',
       src: caseAsset('cover_w_2.png'),
       alt: 'Wix case study cover',
-      caption: 'Full-width hero — marketing still, product composite, or hero flow.',
+      caption: 'Public teaser — ecosystem context, product composite, or hero flow.',
     },
     body: [
       {
         kind: 'text',
         paragraphs: [
-          '[Text] Background: where this lived in the platform and why it mattered.',
-          '[Text] Who you designed for and what “good” looked like.',
+          'Wix Groups lived inside a global website ecosystem: the experience had to feel native to millions of sites while supporting real community behavior — discovery, participation, and moderation at scale.',
+          'I designed for members, group owners, and moderators, with a clear bar for first value, repeat use, and operational clarity when communities grow.',
         ],
       },
       {
         kind: 'figure',
         spec: {
           aspectRatio: '16 / 9',
-          badge: 'Fig 1 · Placeholder',
-          caption: 'Full-width image — ecosystem, IA, or builder context.',
+          badge: 'Teaser · Ecosystem',
+          caption: 'Sanitized still — IA, builder context, or cross-surface journey.',
         },
       },
       {
         kind: 'text',
         paragraphs: [
-          '[Text] Problem and constraints — user pain, business goals, technical limits.',
+          'Constraints included cross-platform parity across web, iOS, and Android, alignment with Wix platform patterns, and phased rollout across regions and site types — balanced against creator and member expectations.',
         ],
       },
       {
         kind: 'figure',
         spec: {
           aspectRatio: '16 / 9',
-          badge: 'Fig 2 · Placeholder',
-          caption: 'Full-width image — opportunity map, flows, or key screens.',
+          badge: 'Teaser · Journeys',
+          caption: 'Sanitized flows — onboarding, moderation, or key member moments.',
         },
       },
       {
         kind: 'text',
         paragraphs: [
-          '[Text] Delivery notes: scope, milestones, and signals (metrics or qualitative).',
+          'Execution ran end-to-end: discovery and alignment, iterative prototyping, and delivery with engineering. The private deck breaks down milestones, tradeoffs, and qualitative or performance signals that are safe to share.',
         ],
       },
       {
         kind: 'figure',
         spec: {
           aspectRatio: '21 / 9',
-          badge: 'Fig 3 · Placeholder',
-          caption: 'Wide strip — devices, QA, or shipped gallery.',
+          badge: 'Teaser · Wide strip',
+          caption: 'Optional wide collage — devices, QA, or shipped gallery (sanitized).',
         },
       },
     ],
@@ -244,11 +244,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     period: '2015 — 2019',
     title: 'Fortune 500 product design',
     lede:
-      'I delivered product design for multiple Fortune 500 engagements across complex domains. The public version stays anonymized; full case evidence is shared on request via email.',
+      '10+ end-to-end Fortune 500 engagements — often greenfield or regulated — spanning IoT, telematics, HealthTech, wearables, GovTech, and AdTech. Client workshops, IA, and delivery under NDA; full case evidence is shared on request via email.',
     teaserBullets: [
-      'Scope: I tackled high-risk product problems in regulated and technically complex environments.',
-      'Execution: I led end-to-end design, from discovery and system definition to delivery with distributed teams.',
-      'Impact: The work shipped enterprise-ready outcomes across sectors; client names and measured results are confidential.',
+      'Scope: 10+ Fortune 500 engagements — often greenfield — in regulated and technically complex environments (IoT, telematics, HealthTech, wearables, GovTech, AdTech).',
+      'Execution: Client workshops, IA and system definition, prototyping and validation, implementation-ready specs with distributed teams.',
+      'Impact: Enterprise-ready outcomes across sectors; client names and measured results are confidential.',
     ],
     publicTracks: [
       {
@@ -276,39 +276,39 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       'Client identities, internal artifacts, and performance metrics are intentionally redacted in public.',
     hero: {
       aspectRatio: '16 / 9',
-      badge: 'Cover · Placeholder',
+      badge: 'Teaser · Cover',
       src: caseAsset('cover_s.png'),
       alt: 'Star case study cover',
-      caption: 'Full-width hero — abstract, blurred UI, or typographic cover.',
+      caption: 'Public teaser — abstract, redacted UI, or typographic cover.',
     },
     body: [
       {
         kind: 'text',
         paragraphs: [
-          '[Text] What you can disclose: types of products, rituals (workshops, prototyping), and stack.',
+          'Engagements spanned complex B2B and B2C products — AdTech, HealthTech, IoT, telematics, and adjacent domains — typically under strict confidentiality, so public pages stay anonymized.',
+          'Day-to-day work combined stakeholder alignment, workshop-led discovery, iterative prototyping, and handoff to distributed PM and engineering teams.',
         ],
       },
       {
         kind: 'figure',
         spec: {
           aspectRatio: '16 / 9',
-          badge: 'Fig 1 · Placeholder',
-          caption: 'Full-width image — sanitised artefact if allowed.',
+          badge: 'Teaser · Process',
+          caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI.',
         },
       },
       {
         kind: 'text',
         paragraphs: [
-          '[Text] Patterns hiring managers should know: IA, systems work, research, handoff.',
-          '[Text] Leadership or multi-site context if relevant.',
+          'What the private deck emphasizes: information architecture, multi-step workflows, research-informed decisions, and implementation-ready specifications — plus leadership context when I temporarily led designers across sites.',
         ],
       },
       {
         kind: 'figure',
         spec: {
           aspectRatio: '21 / 9',
-          badge: 'Fig 2 · Placeholder',
-          caption: 'Wide strip — redacted flow or component grid.',
+          badge: 'Teaser · Systems',
+          caption: 'Wide strip — redacted flow, component grid, or journey map.',
         },
       },
     ],

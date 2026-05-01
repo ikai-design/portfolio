@@ -6,8 +6,9 @@ const CURRENT = [
   {
     key: 'miro-hub',
     to: '/projects/miro',
-    title: 'Miro — Growth design hub',
-    desc: 'Community-led growth, acquisition, signup, enterprise expansion, and monetization work.',
+    title: 'Miro — selected work',
+    desc:
+      'High-stakes product surfaces: community, acquisition, signup, enterprise expansion, and monetization.',
     meta: 'Miro · 2021 — now',
     aspectRatio: '8 / 5',
     badge: 'Miro · Hub',
@@ -49,8 +50,8 @@ export default function Projects() {
     <>
       <h1 className={styles.pageTitle}>Projects</h1>
       <p className={styles.pageLede}>
-        Selected product work across growth, platform, and enterprise contexts. Full case depth is
-        shared on request via email.
+        Selected product work across collaboration SaaS, platform community, and enterprise
+        contexts. Full case depth is shared on request via email.
       </p>
 
       <h2 className={styles.sectionHead}>

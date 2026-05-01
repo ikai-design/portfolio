@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
@@ -16,9 +17,9 @@ const TIMELINE: Job[] = [
     year: '2021 — now',
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
-    location: 'Amsterdam · 4y 10m',
+    location: 'Amsterdam · 4y 11m',
     blurb:
-      'Growth product design for 80M+ users across Miroverse community growth, acquisition and in-product signup, enterprise expansion, and monetization.',
+      'Product design across community, acquisition, enterprise, and monetization for 80M+ users; five growth-facing team contexts as priorities shifted.',
   },
   {
     year: '2019 — 2021',
@@ -26,7 +27,7 @@ const TIMELINE: Job[] = [
     company: 'Wix.com',
     location: 'Kyiv · 1y 11m',
     blurb:
-      'Designed and launched Wix Groups — a cross-platform community app for 200M+ users across web, iOS and Android.',
+      'Sole designer for most of the lifecycle after launch; partial product ownership. Wix Groups — community for creators and SMBs — 200M+ users, web, iOS, Android.',
   },
   {
     year: '2015 — 2019',
@@ -34,7 +35,7 @@ const TIMELINE: Job[] = [
     company: 'Star (ex-Cogniance)',
     location: 'Kyiv · 3y 7m',
     blurb:
-      'Fortune 500 clients across AdTech, HealthTech, IoT, GovTech, telematics and wearables. Temporarily led 4 designers in the Wrocław office.',
+      '10+ Fortune 500 engagements (IoT, telematics, HealthTech, wearables, GovTech, AdTech); greenfield and regulated work, client workshops, NDA. Led 4 designers in Wrocław briefly.',
   },
   {
     year: '2013 — 2015',
@@ -96,60 +97,122 @@ const LEADERSHIP = [
       'A fintech app built for neurodivergent people, and a browser plugin for simple demo recordings aimed at developers.',
   },
   { year: '2023 — now', title: 'ADPList Mentor', desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.' },
-  { year: '2024 — now', title: 'YouTube channel', desc: 'Design, AI and product-led growth — insights & discussions.' },
+  { year: '2024 — now', title: 'YouTube channel', desc: 'Design, AI, and product thinking — insights & discussions.' },
   { year: '2023 — now', title: 'VanBlum digital-print store', desc: 'AI-generated prints; a side store to stay creative.' },
-  { year: '2023', title: 'Midjourney Mastery — Udemy course', desc: 'Taught 98,875 students with SkillsBooster.' },
-  { year: '2018 — now', title: 'Startup advisor', desc: 'Product strategy, UX and PLG for startups, scale-ups and SMBs.' },
+  {
+    year: '2023',
+    title: 'Midjourney Mastery — Udemy',
+    desc: '28,682 students — "Midjourney Mastery: Creating Visuals Using AI".',
+  },
+  {
+    year: '2018 — now',
+    title: 'Startup advisor',
+    desc: 'UX, product strategy, go-to-market, and PLG for startups, scale-ups and SMBs.',
+  },
   { year: '2019 — 2020', title: 'Do Not Lean — podcast', desc: 'Conversations with product designers from various companies.' },
-  { year: '2014 — 2018', title: 'Projector Institute — tutor', desc: '150 students mentored across "Web Design. Basics".' },
+  {
+    year: '2014 — 2018',
+    title: 'Projector Institute — tutor',
+    desc: '150 students in person — "Web Design. Basics".',
+  },
 ];
 
 export default function About() {
+  const aboutIntroRef = useRef<HTMLDivElement>(null);
+  const [portraitHeightPx, setPortraitHeightPx] = useState<number | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    const el = aboutIntroRef.current;
+    if (!el) return;
+
+    const mq = window.matchMedia('(max-width: 959px)');
+
+    const sync = () => {
+      if (mq.matches) {
+        setPortraitHeightPx(undefined);
+        return;
+      }
+      setPortraitHeightPx(Math.round(el.getBoundingClientRect().height));
+    };
+
+    const ro = new ResizeObserver(() => sync());
+    ro.observe(el);
+    mq.addEventListener('change', sync);
+    sync();
+
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener('change', sync);
+    };
+  }, []);
+
   return (
     <>
-      <h1 className={styles.pageTitle}>About</h1>
       <section className={styles.aboutHero}>
+        <h1 className={`${styles.pageTitle} ${styles.aboutHeroTitle}`}>About</h1>
         <div className={styles.aboutHeroCopy}>
-          <p className={styles.pageLede}>
-            Senior Product Designer with 14+ years shipping SaaS products end-to-end, with a focus
-            on growth, experimentation, and monetization.
+          <p className={`${styles.pageLede} ${styles.aboutHeroLede}`}>
+            Senior Product Designer with 14+ years shipping SaaS end-to-end — strategy, journeys,
+            systems, and UI quality — with depth from signup to revenue when stakes are high.
           </p>
-          <p className={styles.prose}>
-            At{' '}
-            <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
-              Miro
-            </a>
-            , I led initiatives across the full funnel for 80M+ users: Miroverse community growth,
-            SERP pre-products, in-product signup, enterprise trial and expansion, custom templates,
-            and free-to-paid conversion including checkout redesign. I&apos;m Reforge Growth Series
-            alumni and an active ADPList mentor.
-          </p>
-          <p className={styles.prose}>
-            Before Miro I designed and shipped Wix Groups to 200M+ users, and spent 3 years 7 months
-            at Star delivering end-to-end UX for Fortune 500 clients across AdTech, HealthTech, IoT,
-            GovTech, telematics and wearables.
-          </p>
-        </div>
 
-        <figure className={styles.aboutPortrait}>
-          <div className={styles.aboutPortraitFrame}>
-            <img
-              src={ABOUT_PHOTO_DEFAULT}
-              alt="Portrait of Eugene Voroniuk"
-              className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgDefault}`}
-              loading="eager"
-              decoding="async"
-            />
-            <img
-              src={ABOUT_PHOTO_HOVER}
-              alt=""
-              aria-hidden="true"
-              className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgHover}`}
-              loading="eager"
-              decoding="async"
-            />
+          <div className={styles.aboutHeroGrid}>
+            <div ref={aboutIntroRef} className={styles.aboutHeroIntro}>
+              <p className={styles.prose}>
+                At{' '}
+                <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
+                  Miro
+                </a>
+                , I design for 80M+ users across community, acquisition, enterprise, and monetization,
+                moving between five growth-facing team contexts as priorities shifted.
+              </p>
+              <p className={styles.prose}>
+                I partner with product, engineering, and GTM. AI speeds up prototyping and research
+                synthesis. Reforge Growth Series alumni; ADPList mentor.
+              </p>
+            </div>
+
+            <figure
+              className={`${styles.aboutPortrait}${portraitHeightPx != null ? ` ${styles.aboutPortraitLockHeight}` : ''}`}
+              style={portraitHeightPx != null ? { height: portraitHeightPx } : undefined}
+            >
+              <div className={styles.aboutPortraitFrame}>
+                <img
+                  src={ABOUT_PHOTO_DEFAULT}
+                  alt="Portrait of Eugene Voroniuk"
+                  className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgDefault}`}
+                  loading="eager"
+                  decoding="async"
+                />
+                <img
+                  src={ABOUT_PHOTO_HOVER}
+                  alt=""
+                  aria-hidden="true"
+                  className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgHover}`}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+
+            <p className={`${styles.prose} ${styles.aboutGridRow2Col1}`}>
+              Recent work spans Miroverse (templates, creator profiles, gamification), SERP
+              pre-products, in-product signup and prompts for new users, enterprise trials and admin
+              expansion, custom templates and shareable presentations — and monetization: contextual
+              free-to-paid, checkout, pricing, and smart cancellation.
+            </p>
+            <p className={`${styles.prose} ${styles.aboutGridRow2Col2}`}>
+              Before Miro I was sole designer on Wix Groups for most of its lifecycle after launch, with
+              partial product ownership — a cross-platform community product for creators, coaches,
+              trainers, and consultants, shipped to 200M+ users on web, iOS, and Android.
+            </p>
+            <p className={`${styles.prose} ${styles.aboutGridRow2Col3}`}>
+              At Star (ex-Cogniance) I delivered 10+ end-to-end Fortune 500 engagements — often greenfield,
+              regulated, or technically constrained — leading client workshops, IA, and handoff to
+              distributed teams. Details under NDA.
+            </p>
           </div>
-        </figure>
+        </div>
       </section>
 
       <h2 className={styles.sectionHead}>
@@ -173,13 +236,18 @@ export default function About() {
 
       <h2 className={styles.sectionHead}>
         <span>Top skills</span>
-        <small>Depth across the full growth funnel</small>
+        <small>Craft, lifecycle, and execution</small>
       </h2>
+      <p className={styles.prose}>
+        Delivery: Agile teams (Scrum, Kanban), design sprint facilitation, stakeholder presentations,
+        production QA collaboration, async-first communication. Adobe Creative Suite when high-fidelity
+        or brand work requires it.
+      </p>
       <div className={styles.skillsGrid}>
         <div className={styles.skillCol}>
-          <h3>Product-led growth</h3>
+          <h3>Product & craft</h3>
           <ul>
-            {PLG.map(([label, n]) => (
+            {DESIGN.map(([label, n]) => (
               <li key={label}>
                 <span>{label}</span>
                 <em>{n}</em>
@@ -188,9 +256,9 @@ export default function About() {
           </ul>
         </div>
         <div className={styles.skillCol}>
-          <h3>Design & research</h3>
+          <h3>Lifecycle & business</h3>
           <ul>
-            {DESIGN.map(([label, n]) => (
+            {PLG.map(([label, n]) => (
               <li key={label}>
                 <span>{label}</span>
                 <em>{n}</em>
@@ -244,8 +312,7 @@ export default function About() {
         <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
         <span className={styles.metaKey}>Languages</span>
         <span className={styles.metaValue}>
-          Ukrainian (native) · English (full professional) · Spanish (limited working) ·
-          French/German/Dutch/Mandarin (elementary)
+          English C2 (full professional) · Ukrainian (native) · Dutch B1/B2 · Spanish B1/B2
         </span>
       </div>
     </>
