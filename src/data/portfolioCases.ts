@@ -64,16 +64,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Role: Senior Product Designer on growth-facing surfaces (Amsterdam). I moved across five team contexts as company priorities shifted — partnering with PM, engineering, and GTM. I owned framing, UX/UI quality, and systems implications; we used experimentation where it reduced risk.',
-        'Thread: Users arrive with different intent — discovery, trial, expansion, paid add-ons. The work balanced clarity at high-stakes moments (signup, trials, templates, checkout) with governance and retention, without collapsing the product into a single funnel story. The private deck walks through trade-offs and validation.',
+        'Senior Product Designer (Growth) in Amsterdam — five team contexts as priorities shifted. I owned framing through shipped UI, systems implications, and experimentation where it reduced risk, with PM, engineering, and GTM.',
+        'Thread: Different entry intents (discovery → trial → expansion → monetization). The work sharpened high-stakes moments — signup, templates, checkout, governance — without treating Miro as a single funnel. Deck: trade-offs and validation on request.',
       ],
     },
     lede:
-      'I led end-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization — five growth-facing team contexts — from Miroverse and pre-products to trials, templates, and paid conversion. Public signal only; full case evidence is shared on request via email.',
+      'End-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization (Miroverse through paid conversion). Public teaser only — full evidence via email.',
     teaserBullets: [
-      'Scope: Ambiguous problems across community (Miroverse), acquisition (SERP pre-products, signup), enterprise (trial, admin expansion), professional templates and shareable presentations, and monetization (free-to-paid, checkout, pricing, retention).',
-      'Execution: Partnered with PM, engineering, and GTM on journeys, UI quality, and systems implications; used experimentation where it reduced risk. AI-assisted prototyping and research synthesis.',
-      'Impact: Improved acquisition, activation, engagement, expansion, and paid conversion; metrics and experiment detail are shared on request via email.',
+      'Scope & execution: Community, acquisition, signup, enterprise trials and admin, templates and shareable decks, monetization (free-to-paid, checkout, pricing, retention) — journeys, UI quality, experimentation, AI-assisted prototyping.',
+      'Impact: Movement across acquisition, activation, engagement, expansion, and conversion — metrics and experiment detail shared on request.',
     ],
     publicTracks: [
       {
@@ -116,7 +115,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Miro case study cover',
       caption: 'Public teaser cover for Miro case studies.',
     },
-    lockedTeaserFigures: [
+    lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Acquisition / activation',
@@ -124,6 +123,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         alt: 'Miro public teaser — acquisition and activation surfaces (sanitized)',
         caption: 'Public-safe still — high-intent entry and in-product activation context.',
       },
+    ],
+    lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Monetization / enterprise',
@@ -193,16 +194,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Role: Sole designer for most of the lifecycle after launch, with partial product ownership — embedded with PM and engineering across web, iOS, and Android.',
-        'Thread: A community product inside a 200M+ site ecosystem had to feel native while supporting real group behavior — discovery, participation, and moderation — without breaking platform patterns. The private deck covers milestones, trade-offs, and safe performance signals.',
+        'Sole designer for most of the lifecycle after launch, with partial product ownership — web, iOS, and Android alongside PM and engineering.',
+        'Thread: Community inside a 200M+ ecosystem — native feel, real group behavior (discovery, participation, moderation), platform alignment. Deck: milestones, trade-offs, safe signals on request.',
       ],
     },
     lede:
-      'Sole designer for most of the lifecycle after launch, with partial product ownership — Wix Groups is a cross-platform community product for creators, coaches, and consultants inside the Wix ecosystem (200M+ users). Full evidence is shared on request via email.',
+      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (200M+ users). NDA-aware full deck on request.',
     teaserBullets: [
-      'Scope: I led launch and scale of community experiences across web, iOS, and Android.',
-      'Execution: I drove product design across member journeys, moderation, and creator-facing management flows.',
-      'Impact: The work improved engagement and repeat use; detailed product and performance data remain private.',
+      'Scope & execution: Launch and scale across surfaces — member journeys, moderation, creator and admin flows; cross-platform parity and phased rollout.',
+      'Impact: Stronger engagement and repeat use; detailed metrics stay private.',
     ],
     publicTracks: [
       {
@@ -312,16 +312,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Role: UX → Senior UX Designer; client workshops, IA, prototyping, and implementation-ready handoff — I briefly led a small design group in Wrocław.',
-        'Thread (anonymized): Regulated health-adjacent workflows and telematics-style operator tools — greenfield IA, multi-step flows, and production constraints with distributed teams. Client identities and metrics stay under NDA; the deck uses redacted artifacts.',
+        'UX → Senior UX Designer: workshops, IA, prototyping, implementation-ready handoff; briefly led designers in Wrocław.',
+        'Thread (anonymized): Health-adjacent and telematics-style operator work — greenfield IA, multi-step flows, distributed teams. Identities and metrics NDA; deck is redacted.',
       ],
     },
     lede:
-      '10+ end-to-end Fortune 500 engagements — often greenfield or regulated — spanning IoT, telematics, HealthTech, wearables, GovTech, and AdTech. Client workshops, IA, and delivery under NDA; full case evidence is shared on request via email.',
+      '10+ Fortune 500 engagements (greenfield / regulated) — IoT, telematics, HealthTech, wearables, GovTech, AdTech. Full evidence on request under NDA.',
     teaserBullets: [
-      'Scope: 10+ Fortune 500 engagements — often greenfield — in regulated and technically complex environments (IoT, telematics, HealthTech, wearables, GovTech, AdTech).',
-      'Execution: Client workshops, IA and system definition, prototyping and validation, implementation-ready specs with distributed teams.',
-      'Impact: Enterprise-ready outcomes across sectors; client names and measured results are confidential.',
+      'Scope & execution: Discovery, IA, prototyping, validation, specs — regulated and technically complex contexts with distributed PM and engineering.',
+      'Impact: Enterprise-ready delivery; client names and metrics confidential.',
     ],
     publicTracks: [
       {
@@ -354,12 +353,14 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Star case study cover',
       caption: 'Public teaser — abstract, redacted UI, or typographic cover.',
     },
-    lockedTeaserFigures: [
+    lockedTeaserAfterHero: [
       {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Process (placeholder)',
         caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI (asset TBD).',
       },
+    ],
+    lockedTeaserFigures: [
       {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Systems (placeholder)',

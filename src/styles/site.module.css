@@ -1815,32 +1815,70 @@
   margin: 0 0 var(--stack-between-gap);
 }
 
-.caseTrackPills {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.caseTrackMapHint {
   margin: 0 0 var(--stack-inner-gap);
-  padding: 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #727272;
 }
 
-.caseTrackPill {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.2rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid #d8d8d8;
-  background: #f8f8f8;
-  color: #5f5f5f;
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+.caseTrackAccordions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-.caseTrackList {
+.caseTrackDetails {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.caseTrackDetails[open] {
+  background: #ffffff;
+}
+
+.caseTrackSummary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f0f0f;
+  line-height: 1.35;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.caseTrackSummary::-webkit-details-marker {
+  display: none;
+}
+
+.caseTrackSummary::after {
+  content: '';
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.3rem;
+  border-right: 2px solid #727272;
+  border-bottom: 2px solid #727272;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.caseTrackDetails[open] .caseTrackSummary::after {
+  transform: rotate(-135deg);
+  margin-top: 0.45rem;
+}
+
+.caseTrackSummaryBody {
   margin: 0;
+  padding: 0 1rem 1rem;
+  font-size: 1rem;
+  color: #5a5a5a;
 }
 
 .caseAccessGate {

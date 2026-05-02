@@ -86,25 +86,20 @@ export default function PortfolioCaseStudy() {
       {data.publicTracks?.length ? (
         <section className={styles.caseTrackMap} aria-label="Program map">
           <h2 className={styles.caseBlockHead}>Program map</h2>
-          <ul className={styles.caseTrackPills} aria-label="Case tracks">
+          <p className={styles.caseTrackMapHint}>Expand a stream for a one-line summary of the work.</p>
+          <div className={styles.caseTrackAccordions}>
             {data.publicTracks.map((track) => (
-              <li key={track.label} className={styles.caseTrackPill}>
-                {track.label}
-              </li>
-            ))}
-          </ul>
-          <div className={styles.caseTrackList}>
-            {data.publicTracks.map((track) => (
-              <p key={`${track.label}-summary`} className={styles.prose}>
-                <strong>{track.label}:</strong> {track.summary}
-              </p>
+              <details key={track.label} className={styles.caseTrackDetails}>
+                <summary className={styles.caseTrackSummary}>{track.label}</summary>
+                <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
+              </details>
             ))}
           </div>
         </section>
       ) : null}
 
       <section className={styles.caseTeaser}>
-        <h2 className={styles.caseBlockHead}>Case teaser</h2>
+        <h2 className={styles.caseBlockHead}>At a glance</h2>
         {(data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).map((line) => (
           <p key={line} className={styles.prose}>
             {line}
