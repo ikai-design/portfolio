@@ -237,7 +237,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Ecosystem',
-        src: caseAsset('cover_w2.png'),
+        src: caseAsset('cover_w4.png'),
         alt: 'Wix public teaser — ecosystem and builder context (sanitized)',
         caption: 'Public-safe still — IA, builder context, or cross-surface journey.',
       },
@@ -262,7 +262,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Ecosystem',
-          src: caseAsset('cover_w2.png'),
+          src: caseAsset('cover_w4.png'),
           alt: 'Wix case — ecosystem and builder context (sanitized)',
           caption: 'Public teaser — IA, builder context, or cross-surface journey.',
         },
