@@ -1858,20 +1858,18 @@
 }
 
 .caseTrackSummary::after {
-  content: '';
+  content: '+';
   flex-shrink: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-top: 0.3rem;
-  border-right: 2px solid #727272;
-  border-bottom: 2px solid #727272;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #727272;
+  margin-top: 0.1em;
+  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
 }
 
 .caseTrackDetails[open] .caseTrackSummary::after {
-  transform: rotate(-135deg);
-  margin-top: 0.45rem;
+  content: '\2212'; /* minus sign */
 }
 
 .caseTrackSummaryBody {
