@@ -47,7 +47,9 @@ export type PortfolioCase = {
   /** Extra confidentiality note shown on the email-only access gate for locked cases. */
   lockDisclaimer?: string;
   hero: FigureSpec;
-  /** Shown on locked case pages before the access gate (real assets or wireframe placeholders). */
+  /** On locked pages: figures shown right after the hero (before through-line / map). */
+  lockedTeaserAfterHero?: FigureSpec[];
+  /** Shown on locked case pages after the lede, before the access gate. */
   lockedTeaserFigures?: FigureSpec[];
   /** After the hero: alternate `text` and `figure` blocks (full-width stack). */
   body: CaseBlock[];
@@ -233,7 +235,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       alt: 'Wix case study cover',
       caption: 'Public teaser — ecosystem context, product composite, or hero flow.',
     },
-    lockedTeaserFigures: [
+    lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Ecosystem',
@@ -241,6 +243,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         alt: 'Wix public teaser — ecosystem and builder context (sanitized)',
         caption: 'Public-safe still — IA, builder context, or cross-surface journey.',
       },
+    ],
+    lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Journeys',

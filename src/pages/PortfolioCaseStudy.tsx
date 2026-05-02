@@ -56,6 +56,22 @@ export default function PortfolioCaseStudy() {
         loading="eager"
       />
 
+      {locked && data.lockedTeaserAfterHero?.length ? (
+        <div className={styles.caseLockedTeaserStack}>
+          {data.lockedTeaserAfterHero.map((spec, i) => (
+            <CaseStudyFigure
+              key={`after-hero-${spec.badge}-${i}`}
+              aspectRatio={spec.aspectRatio}
+              badge={spec.badge}
+              caption={spec.caption}
+              src={spec.src}
+              alt={spec.alt ?? ''}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+        </div>
+      ) : null}
+
       {data.throughLine ? (
         <section className={styles.caseThroughLine} aria-label={data.throughLine.title}>
           <h2 className={styles.caseBlockHead}>{data.throughLine.title}</h2>
