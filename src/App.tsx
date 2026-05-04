@@ -5,7 +5,6 @@ import { SiteLayout } from './components/site/SiteLayout';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
-const Projects = lazy(() => import('./pages/Projects'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy'));
 
 function App() {
@@ -16,8 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<PortfolioCaseStudy />} />
+          <Route path="/projects" element={<Navigate to="/" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

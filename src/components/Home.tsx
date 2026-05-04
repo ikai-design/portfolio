@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyCard } from './site/CaseStudyCard';
 
@@ -131,9 +130,6 @@ export default function Home() {
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
           </a>
-          <Link className={styles.ctaLink} to="/contact">
-            Or email for full case deck →
-          </Link>
         </div>
       </section>
     </>

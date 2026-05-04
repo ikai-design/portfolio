@@ -20,14 +20,11 @@ export default function Contact() {
       </h2>
       <section className={`${styles.ctaBlock} ${styles.ctaBlockNoDivider}`}>
         <p className={`${styles.prose} ${styles.contactLeadCtaText}`}>
-          Book a short intro call, or email directly if you want a role-specific case deck.
+          Book a short intro call below, or reach out by email in Direct channels.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
-          </a>
-          <a className={styles.ctaLink} href={MAILTO}>
-            Email for full case deck →
           </a>
         </div>
         <ul className={`${styles.caseAccessChecklist} ${styles.contactLeadChecklist}`}>

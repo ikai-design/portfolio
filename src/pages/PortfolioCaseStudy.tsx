@@ -146,9 +146,6 @@ export default function PortfolioCaseStudy() {
             <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
               Book a 30-min intro call
             </a>
-            <a className={styles.ctaLink} href={MAILTO}>
-              Request full case deck via email →
-            </a>
           </div>
         </section>
       ) : (

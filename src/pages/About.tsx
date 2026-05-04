@@ -5,6 +5,27 @@ import styles from '../styles/site.module.css';
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
 const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
 
+const PET_TRY_WREN_URL = 'https://trywren.app/';
+const PET_SCREEN_RECORDER_URL =
+  'https://chromewebstore.google.com/detail/simple-screen-recorder/iohegjmhpfcldjhpjnafinbbjoaakooi?hl=en';
+
+const PET_PROJECTS = [
+  {
+    name: 'Try Wren',
+    href: PET_TRY_WREN_URL,
+    stack: 'Lovable · PWA · database · speech and AI-assisted input',
+    description:
+      'A Lovable-built PWA: voice and text in one place, backed by data and modern speech/AI-assisted input.',
+  },
+  {
+    name: 'Simple Screen Recorder',
+    href: PET_SCREEN_RECORDER_URL,
+    stack: 'Chrome Web Store · Cursor · Codex · Antigravity · Claude Code',
+    description:
+      'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',
+  },
+] as const;
+
 type Job = {
   year: string;
   role: string;
@@ -94,8 +115,7 @@ const LEADERSHIP = [
   {
     year: '2026',
     title: 'Pet projects — shipping',
-    desc:
-      'A fintech app built for neurodivergent people, and a browser plugin for simple demo recordings aimed at developers.',
+    desc: 'Try Wren (PWA) and Simple Screen Recorder (Chrome Web Store)—links and context in Pet projects below.',
   },
   { year: '2023 — now', title: 'ADPList Mentor', desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.' },
   { year: '2024 — now', title: 'YouTube channel', desc: 'Design, AI, and product thinking — insights & discussions.' },
@@ -244,6 +264,28 @@ export default function About() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section id="pet-projects" className={styles.aboutPetSection} aria-labelledby="pet-projects-heading">
+        <h2 id="pet-projects-heading" className={styles.sectionHead}>
+          <span>Pet projects</span>
+          <small>Shipped outside the day job</small>
+        </h2>
+        <p className={styles.prose}>
+          Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product
+          instincts alongside enterprise SaaS work.
+        </p>
+        <ul className={styles.aboutPetGrid}>
+          {PET_PROJECTS.map((p) => (
+            <li key={p.name} className={styles.aboutPetCard}>
+              <a className={styles.aboutPetTitle} href={p.href} target="_blank" rel="noopener noreferrer">
+                {p.name}
+              </a>
+              <p className={styles.aboutPetStack}>{p.stack}</p>
+              <p className={`${styles.prose} ${styles.aboutPetDesc}`}>{p.description}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <h2 className={styles.sectionHead}>

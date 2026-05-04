@@ -112,16 +112,18 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_m.png'),
-      alt: 'Miro case study cover',
-      caption: 'Public teaser cover for Miro case studies.',
+      alt: 'Miro public teaser — board with Tools & Apps and in-product signup prompts (sanitized)',
+      caption:
+        'Public teaser cover — guest-to-account activation on the board: Tools & Apps gating, identity nudges, and sign-up entry points (sanitized).',
     },
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Acquisition / activation',
+        badge: 'Teaser · Custom templates',
         src: caseAsset('cover_m2.png'),
-        alt: 'Miro public teaser — acquisition and activation surfaces (sanitized)',
-        caption: 'Public-safe still — high-intent entry and in-product activation context.',
+        alt: 'Miro public teaser — custom company template library (sanitized)',
+        caption:
+          'Public-safe still — custom template library: company- and team-scoped catalogs, discovery, and branded starting points (sanitized).',
       },
     ],
     lockedTeaserFigures: [
@@ -129,9 +131,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Shareable presentations',
         src: caseAsset('cover_m3.png'),
-        alt: 'Miro public teaser — shareable structured presentations (sanitized)',
+        alt: 'Miro public teaser — Share as presentation modal (sanitized)',
         caption:
-          'Public-safe still — linear, shareable presentation flows for clients and async viewers (sanitized).',
+          'Public-safe still — Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders (sanitized).',
       },
     ],
     body: [
@@ -146,11 +148,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'figure',
         spec: {
           aspectRatio: '8 / 5',
-          badge: 'Teaser · Acquisition / activation',
+          badge: 'Teaser · Custom templates',
           src: caseAsset('cover_m2.png'),
-          alt: 'Miro case — acquisition and activation (sanitized)',
+          alt: 'Miro case — custom company template library (sanitized)',
           caption:
-            'Public teaser — high-intent entry and in-product activation context.',
+            'Public teaser — custom template library: company- and team-scoped catalogs, discovery, and branded starting points (sanitized).',
         },
       },
       {
@@ -165,9 +167,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Shareable presentations',
           src: caseAsset('cover_m3.png'),
-          alt: 'Miro case — shareable structured presentations (sanitized)',
+          alt: 'Miro case — Share as presentation flow (sanitized)',
           caption:
-            'Public teaser — shareable structured presentations from boards for clients and async viewers (sanitized).',
+            'Public teaser — Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review (sanitized).',
         },
       },
       {
@@ -185,7 +187,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request full case deck →' },
   },
 
   'wix-groups': {
@@ -303,7 +304,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request full case deck →' },
   },
 
   'star-global': {
@@ -403,7 +403,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
-    cta: { to: '/contact', label: 'Request full case deck →' },
   },
 };
 
