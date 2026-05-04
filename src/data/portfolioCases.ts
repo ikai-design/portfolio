@@ -363,8 +363,10 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Systems (placeholder)',
-        caption: 'Wide strip — redacted flow, component grid, or journey map (asset TBD).',
+        badge: 'Teaser · Systems',
+        src: caseAsset('cover_s2.png'),
+        alt: 'Star public teaser — systems / wide strip (sanitized)',
+        caption: 'Public-safe still — redacted flow, component grid, or journey map.',
       },
     ],
     body: [
@@ -394,7 +396,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Systems',
-          caption: 'Wide strip — redacted flow, component grid, or journey map.',
+          src: caseAsset('cover_s2.png'),
+          alt: 'Star case — systems / wide strip (sanitized)',
+          caption: 'Public teaser — redacted flow, component grid, or journey map.',
         },
       },
     ],
