@@ -127,10 +127,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Monetization / enterprise',
+        badge: 'Teaser · Shareable presentations',
         src: caseAsset('cover_m3.png'),
-        alt: 'Miro public teaser — monetization and enterprise context (sanitized)',
-        caption: 'Public-safe still — monetization, packaging, or governance-adjacent surfaces.',
+        alt: 'Miro public teaser — shareable structured presentations (sanitized)',
+        caption:
+          'Public-safe still — linear, shareable presentation flows for clients and async viewers (sanitized).',
       },
     ],
     body: [
@@ -162,11 +163,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'figure',
         spec: {
           aspectRatio: '8 / 5',
-          badge: 'Teaser · Monetization / enterprise',
+          badge: 'Teaser · Shareable presentations',
           src: caseAsset('cover_m3.png'),
-          alt: 'Miro case — monetization and enterprise (sanitized)',
+          alt: 'Miro case — shareable structured presentations (sanitized)',
           caption:
-            'Public teaser — monetization, packaging, or enterprise expansion context.',
+            'Public teaser — shareable structured presentations from boards for clients and async viewers (sanitized).',
         },
       },
       {
