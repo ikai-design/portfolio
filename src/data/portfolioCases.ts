@@ -69,7 +69,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       ],
     },
     lede:
-      'End-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization (Miroverse through paid conversion). Public teaser only — full evidence via email.',
+      'End-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization (Miroverse through paid conversion). Full detail shared on request via email.',
     teaserBullets: [
       'Scope & execution: Community, acquisition, signup, enterprise trials and admin, templates and shareable decks, monetization (free-to-paid, checkout, pricing, retention) — journeys, UI quality, experimentation, AI-assisted prototyping.',
       'Impact: Movement across acquisition, activation, engagement, expansion, and conversion — metrics and experiment detail shared on request.',
@@ -107,23 +107,23 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
     ],
     lockDisclaimer:
-      'This public teaser excludes non-public metrics, experiment detail, and unreleased product work.',
+      'This page excludes non-public metrics, experiment detail, and unreleased product work.',
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_m.png'),
-      alt: 'Miro public teaser — board with Tools & Apps and in-product signup prompts (sanitized)',
+      alt: 'Miro board — Tools & Apps and in-product sign-up prompts',
       caption:
-        'Public teaser cover — guest-to-account activation on the board: Tools & Apps gating, identity nudges, and sign-up entry points (sanitized).',
+        'Guest-to-account activation: Tools & Apps gating, identity prompts, and sign-up entry points on the canvas.',
     },
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Custom templates',
         src: caseAsset('cover_m2.png'),
-        alt: 'Miro public teaser — custom company template library (sanitized)',
+        alt: 'Miro — custom company template library',
         caption:
-          'Public-safe still — custom template library: company- and team-scoped catalogs, discovery, and branded starting points (sanitized).',
+          'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
       },
     ],
     lockedTeaserFigures: [
@@ -131,9 +131,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Shareable presentations',
         src: caseAsset('cover_m3.png'),
-        alt: 'Miro public teaser — Share as presentation modal (sanitized)',
+        alt: 'Miro — Share as presentation modal',
         caption:
-          'Public-safe still — Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders (sanitized).',
+          'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
       },
     ],
     body: [
@@ -150,9 +150,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Custom templates',
           src: caseAsset('cover_m2.png'),
-          alt: 'Miro case — custom company template library (sanitized)',
+          alt: 'Miro — custom company template library',
           caption:
-            'Public teaser — custom template library: company- and team-scoped catalogs, discovery, and branded starting points (sanitized).',
+            'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
         },
       },
       {
@@ -167,9 +167,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Shareable presentations',
           src: caseAsset('cover_m3.png'),
-          alt: 'Miro case — Share as presentation flow (sanitized)',
+          alt: 'Miro — Share as presentation flow',
           caption:
-            'Public teaser — Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review (sanitized).',
+            'Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review.',
         },
       },
       {
@@ -183,7 +183,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Full case · Wide strip',
-          caption: 'Optional wide flow — multi-step journey or before/after collage (sanitized).',
+          caption: 'Wide strip — journey map, multi-step flow, or before/after (expanded in private deck).',
         },
       },
     ],
@@ -229,21 +229,22 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
     ],
     lockDisclaimer:
-      'This teaser is NDA-safe and excludes internal metrics, roadmap detail, and proprietary artifacts.',
+      'This page excludes internal metrics, roadmap detail, and proprietary artifacts.',
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_w_2.png'),
       alt: 'Wix case study cover',
-      caption: 'Public teaser — ecosystem context, product composite, or hero flow.',
+      caption: 'Cross-platform product design — React Native, web app, and site editor surfaces.',
     },
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Ecosystem',
         src: caseAsset('cover_w4.png'),
-        alt: 'Wix public teaser — ecosystem and builder context (sanitized)',
-        caption: 'Public-safe still — IA, builder context, or cross-surface journey.',
+        alt: 'Wix site dashboard — Groups admin',
+        caption:
+          'Site dashboard — Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
       },
     ],
     lockedTeaserFigures: [
@@ -251,8 +252,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Journeys',
         src: caseAsset('cover_w3.png'),
-        alt: 'Wix public teaser — member journeys and community surfaces (sanitized)',
-        caption: 'Public-safe still — onboarding, moderation, or key member moments.',
+        alt: 'Wix Groups — four-panel admin wireflows',
+        caption:
+          'Admin UX in four frames: group directory, space shell, membership, and invite flow — end-to-end owner tooling.',
       },
     ],
     body: [
@@ -269,8 +271,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Ecosystem',
           src: caseAsset('cover_w4.png'),
-          alt: 'Wix case — ecosystem and builder context (sanitized)',
-          caption: 'Public teaser — IA, builder context, or cross-surface journey.',
+          alt: 'Wix site dashboard — Groups admin',
+          caption:
+            'Site dashboard — Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
         },
       },
       {
@@ -285,8 +288,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Journeys',
           src: caseAsset('cover_w3.png'),
-          alt: 'Wix case — member journeys and community surfaces (sanitized)',
-          caption: 'Public teaser — onboarding, moderation, or key member moments.',
+          alt: 'Wix Groups — four-panel admin wireflows',
+          caption:
+            'Admin UX in four frames: group directory, space shell, membership, and invite flow — end-to-end owner tooling.',
         },
       },
       {
@@ -300,7 +304,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Wide strip',
-          caption: 'Optional wide collage — devices, QA, or shipped gallery (sanitized).',
+          caption: 'Wide collage — devices, QA stills, or shipped gallery (expanded in private deck).',
         },
       },
     ],
@@ -352,13 +356,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       badge: 'Teaser · Cover',
       src: caseAsset('cover_s.png'),
       alt: 'Star case study cover',
-      caption: 'Public teaser — abstract, redacted UI, or typographic cover.',
+      caption: 'Anonymized cover — enterprise engagements under NDA (pattern, not client-specific UI).',
     },
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Process (placeholder)',
-        caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI (asset TBD).',
+        caption: 'Process frame — workshop output, IA sketch, or redacted UI (asset TBD).',
       },
     ],
     lockedTeaserFigures: [
@@ -366,8 +370,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Systems',
         src: caseAsset('cover_s2.png'),
-        alt: 'Star public teaser — systems / wide strip (sanitized)',
-        caption: 'Public-safe still — redacted flow, component grid, or journey map.',
+        alt: 'Star — redacted systems / wide strip',
+        caption: 'Systems excerpt — multi-step flow, component density, or journey map (redacted for portfolio).',
       },
     ],
     body: [
@@ -383,7 +387,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Process',
-          caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI.',
+          caption: 'Process artifact — workshop output, IA sketch, or redacted UI.',
         },
       },
       {
@@ -398,8 +402,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Systems',
           src: caseAsset('cover_s2.png'),
-          alt: 'Star case — systems / wide strip (sanitized)',
-          caption: 'Public teaser — redacted flow, component grid, or journey map.',
+          alt: 'Star — redacted systems / wide strip',
+          caption: 'Systems excerpt — multi-step flow, component density, or journey map (redacted for portfolio).',
         },
       },
     ],
