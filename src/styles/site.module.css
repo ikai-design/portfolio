@@ -1599,6 +1599,10 @@
   }
 }
 
+.aboutChronology {
+  scroll-margin-top: 1rem;
+}
+
 .aboutHero {
   display: flex;
   flex-direction: column;

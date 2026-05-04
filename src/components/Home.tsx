@@ -62,7 +62,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     imageAlt: 'Star case cover',
   },
   {
-    to: '/about',
+    to: '/about#chronology',
     external: false as const,
     title: 'Background & chronology',
     desc: 'Roles, skills, side projects, and how the work above fits together.',

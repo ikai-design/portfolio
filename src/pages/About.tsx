@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
@@ -118,8 +119,17 @@ const LEADERSHIP = [
 ];
 
 export default function About() {
+  const { pathname, hash } = useLocation();
   const aboutIntroRef = useRef<HTMLDivElement>(null);
   const [portraitHeightPx, setPortraitHeightPx] = useState<number | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    const id = hash.replace(/^#/, '');
+    if (!id) return;
+    const el = document.getElementById(decodeURIComponent(id));
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [pathname, hash]);
 
   useLayoutEffect(() => {
     const el = aboutIntroRef.current;
@@ -215,24 +225,26 @@ export default function About() {
         </div>
       </section>
 
-      <h2 className={styles.sectionHead}>
-        <span>Chronology</span>
-        <small>2009 → now</small>
-      </h2>
-      <div className={styles.timeline}>
-        {TIMELINE.map((job) => (
-          <div key={`${job.year}-${job.company}`} style={{ display: 'contents' }}>
-            <div className={styles.tlYear}>{job.year}</div>
-            <div className={styles.tlRow}>
-              <span className={styles.tlRole}>
-                {job.role} — <em>{job.company}</em>
-              </span>
-              <span className={styles.tlMeta}>{job.location}</span>
-              {job.blurb && <span className={styles.tlBlurb}>{job.blurb}</span>}
+      <section id="chronology" className={styles.aboutChronology}>
+        <h2 className={styles.sectionHead}>
+          <span>Chronology</span>
+          <small>2009 → now</small>
+        </h2>
+        <div className={styles.timeline}>
+          {TIMELINE.map((job) => (
+            <div key={`${job.year}-${job.company}`} style={{ display: 'contents' }}>
+              <div className={styles.tlYear}>{job.year}</div>
+              <div className={styles.tlRow}>
+                <span className={styles.tlRole}>
+                  {job.role} — <em>{job.company}</em>
+                </span>
+                <span className={styles.tlMeta}>{job.location}</span>
+                {job.blurb && <span className={styles.tlBlurb}>{job.blurb}</span>}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
 
       <h2 className={styles.sectionHead}>
         <span>Top skills</span>

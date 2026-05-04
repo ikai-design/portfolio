@@ -3,7 +3,7 @@
  *   eyebrow → title → lede → full-width image → text → full-width image → text → …
  * Swap placeholder copy; add imageSrc on figures when extending the renderer.
  * Raster covers: copy full-resolution files into public/cases/ in the repo (chat uploads are recompressed).
- * Keep each case’s `hero.aspectRatio` and all teaser/body figures on that case aligned (e.g. Miro/Wix 8∶5, Star 16∶9) so frames match on the case page.
+ * Keep each case’s `hero.aspectRatio` and all teaser/body figures on that case aligned (8∶5) so frames match across case pages.
  */
 
 /** Resolve `public/` paths for Vite `base` (e.g. `/portfolio/`). */
@@ -347,7 +347,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockDisclaimer:
       'Client identities, internal artifacts, and performance metrics are intentionally redacted in public.',
     hero: {
-      aspectRatio: '16 / 9',
+      aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_s.png'),
       alt: 'Star case study cover',
@@ -355,14 +355,14 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     },
     lockedTeaserAfterHero: [
       {
-        aspectRatio: '16 / 9',
+        aspectRatio: '8 / 5',
         badge: 'Teaser · Process (placeholder)',
         caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI (asset TBD).',
       },
     ],
     lockedTeaserFigures: [
       {
-        aspectRatio: '16 / 9',
+        aspectRatio: '8 / 5',
         badge: 'Teaser · Systems (placeholder)',
         caption: 'Wide strip — redacted flow, component grid, or journey map (asset TBD).',
       },
@@ -378,7 +378,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Process',
           caption: 'Sanitized artifact — workshop output, IA sketch, or redacted UI.',
         },
@@ -392,7 +392,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '16 / 9',
+          aspectRatio: '8 / 5',
           badge: 'Teaser · Systems',
           caption: 'Wide strip — redacted flow, component grid, or journey map.',
         },
