@@ -47,30 +47,32 @@ export default function PortfolioCaseStudy() {
       </Link>
       <h1 className={styles.pageTitle}>{data.eyebrow ?? data.title}</h1>
       {data.period ? <p className={styles.pageEyebrow}>{data.period}</p> : null}
-      <CaseStudyFigure
-        aspectRatio={data.hero.aspectRatio}
-        badge={data.hero.badge}
-        caption={data.hero.caption}
-        src={data.hero.src}
-        alt={data.hero.alt}
-        loading="eager"
-      />
+      <section className={styles.caseTopTeaser} aria-label="Case teaser highlights">
+        <CaseStudyFigure
+          aspectRatio={data.hero.aspectRatio}
+          badge={data.hero.badge}
+          caption={data.hero.caption}
+          src={data.hero.src}
+          alt={data.hero.alt}
+          loading="eager"
+        />
 
-      {locked && data.lockedTeaserAfterHero?.length ? (
-        <div className={styles.caseLockedTeaserStack}>
-          {data.lockedTeaserAfterHero.map((spec, i) => (
-            <CaseStudyFigure
-              key={`after-hero-${spec.badge}-${i}`}
-              aspectRatio={spec.aspectRatio}
-              badge={spec.badge}
-              caption={spec.caption}
-              src={spec.src}
-              alt={spec.alt ?? ''}
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
-          ))}
-        </div>
-      ) : null}
+        {locked && data.lockedTeaserAfterHero?.length ? (
+          <div className={styles.caseTopTeaserStack}>
+            {data.lockedTeaserAfterHero.map((spec, i) => (
+              <CaseStudyFigure
+                key={`after-hero-${spec.badge}-${i}`}
+                aspectRatio={spec.aspectRatio}
+                badge={spec.badge}
+                caption={spec.caption}
+                src={spec.src}
+                alt={spec.alt ?? ''}
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+            ))}
+          </div>
+        ) : null}
+      </section>
 
       {data.throughLine ? (
         <section className={styles.caseThroughLine} aria-label={data.throughLine.title}>
