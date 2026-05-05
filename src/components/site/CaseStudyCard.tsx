@@ -15,6 +15,8 @@ export type CaseStudyCardProps = {
   videoSrc?: string;
   videoPoster?: string;
   playOn?: 'viewport' | 'hover';
+  /** Pass `eager` for above-the-fold media (faster first frame for hover previews). */
+  loading?: 'eager' | 'lazy';
   placeholderVariant?: 'default' | 'chronology';
 };
 
@@ -34,6 +36,7 @@ export function CaseStudyCard({
   videoSrc,
   videoPoster,
   playOn,
+  loading,
   placeholderVariant,
 }: CaseStudyCardProps) {
   const figure = (
@@ -44,6 +47,7 @@ export function CaseStudyCard({
       videoSrc={videoSrc}
       videoPoster={videoPoster}
       playOn={playOn}
+      loading={loading}
       alt={imageAlt ?? title}
       placeholderVariant={placeholderVariant}
     />

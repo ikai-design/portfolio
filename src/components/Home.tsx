@@ -23,6 +23,7 @@ type HomeCaseItem = {
   videoSrc?: string;
   videoPoster?: string;
   playOn?: 'viewport' | 'hover';
+  loading?: 'eager' | 'lazy';
   placeholderVariant?: 'default' | 'chronology';
 };
 
@@ -37,9 +38,9 @@ const CASE_ITEMS: HomeCaseItem[] = [
     aspectRatio: '16 / 9',
     badge: 'Case 01 · Hub',
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
-    videoPoster: `${import.meta.env.BASE_URL}cover_m.png`,
     imageAlt: 'Miro — in-product sign-up flow',
     playOn: 'hover' as const,
+    loading: 'eager' as const,
   },
   {
     to: '/projects/wix-groups',
@@ -105,6 +106,7 @@ export default function Home() {
               videoSrc={item.videoSrc}
               videoPoster={item.videoPoster}
               playOn={item.playOn}
+              loading={item.loading}
               placeholderVariant={item.placeholderVariant}
             />
           </li>

@@ -80,11 +80,21 @@ export function CaseStudyFigure({
   }, [videoSrc, playOn]);
 
   const handleMouseEnter = playOn === 'hover' && videoSrc
-    ? () => videoRef.current?.play().catch(() => undefined)
+    ? () => {
+        const v = videoRef.current;
+        if (!v) return;
+        v.currentTime = 0;
+        v.play().catch(() => undefined);
+      }
     : undefined;
 
   const handleMouseLeave = playOn === 'hover' && videoSrc
-    ? () => { videoRef.current?.pause(); }
+    ? () => {
+        const v = videoRef.current;
+        if (!v) return;
+        v.pause();
+        v.currentTime = 0;
+      }
     : undefined;
 
   const chronologyNodes = [
@@ -101,19 +111,31 @@ export function CaseStudyFigure({
           <video
             ref={videoRef}
             src={videoSrc}
-            poster={videoPoster}
+            poster={videoPoster || undefined}
             className={styles.caseFrameVideo}
             autoPlay={playOn === 'viewport'}
             loop
             muted
             playsInline
-            preload={playOn === 'hover' ? 'metadata' : loading === 'eager' ? 'auto' : 'metadata'}
+            preload={
+              playOn === 'hover'
+                ? 'auto'
+                : loading === 'eager'
+                  ? 'auto'
+                  : 'metadata'
+            }
             aria-label={alt}
             onLoadedMetadata={(e) => {
               const v = e.currentTarget;
               if (v.videoWidth > 0 && v.videoHeight > 0) {
                 setResolvedAspectRatio(`${v.videoWidth} / ${v.videoHeight}`);
               }
+            }}
+            onLoadedData={(e) => {
+              if (playOn !== 'hover' || videoPoster) return;
+              const v = e.currentTarget;
+              v.currentTime = 0;
+              v.pause();
             }}
           />
         ) : src ? (
