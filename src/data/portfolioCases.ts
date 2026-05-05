@@ -318,13 +318,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       title: 'Through-line',
       paragraphs: [
         'UX → Senior UX Designer: workshops, IA, prototyping, implementation-ready handoff; briefly led designers in Wrocław.',
-        'Thread (anonymized): Health-adjacent and telematics-style operator work — greenfield IA, multi-step flows, distributed teams. Identities and metrics NDA; deck is redacted.',
+        'Anchor program (anonymized): smartwatch pairing and companion mobile UX for a tier-one global consumer brand — setup, connectivity, and first-run clarity under NDA. Broader work spanned health-adjacent, telematics, and operator tools; identities and metrics redacted in public.',
       ],
     },
     lede:
-      '10+ Fortune 500 engagements (greenfield / regulated) — IoT, telematics, HealthTech, wearables, GovTech, AdTech. Full evidence on request under NDA.',
+      '10+ Fortune 500 engagements (greenfield / regulated) — including mobile–wearable pairing for flagship smartwatch hardware, plus IoT, telematics, HealthTech, GovTech, and AdTech. Full evidence on request under NDA.',
     teaserBullets: [
-      'Scope & execution: Discovery, IA, prototyping, validation, specs — regulated and technically complex contexts with distributed PM and engineering.',
+      'Scope & execution: Discovery, IA, prototyping, validation, specs — technically complex products with distributed PM and engineering; wearables pairing, onboarding, and connectivity UX for world-class consumer hardware (brand anonymized).',
       'Impact: Enterprise-ready delivery; client names and metrics confidential.',
     ],
     publicTracks: [
@@ -348,6 +348,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         summary:
           'Collaborated with distributed PM and engineering teams to deliver production-feasible design solutions.',
       },
+      {
+        label: 'Wearables and companion apps',
+        summary:
+          'Mobile pairing and setup flows for flagship smartwatch programs — clarity under hardware, OS, and brand constraints.',
+      },
     ],
     lockDisclaimer:
       'Client identities, internal artifacts, and performance metrics are intentionally redacted in public.',
@@ -355,8 +360,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_s.png'),
-      alt: 'Star case study cover',
-      caption: 'Anonymized cover — enterprise engagements under NDA (pattern, not client-specific UI).',
+      alt: 'Star case study cover — anonymized Fortune 500 program',
+      caption:
+        'Fortune 500 program work under NDA — including companion mobile UX for a flagship wearable ecosystem (brand anonymized).',
     },
     lockedTeaserAfterHero: [
       {
@@ -368,17 +374,18 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Systems',
+        badge: 'Teaser · Wearables',
         src: caseAsset('cover_s2.png'),
-        alt: 'Star — redacted systems / wide strip',
-        caption: 'Systems excerpt — multi-step flow, component density, or journey map (redacted for portfolio).',
+        alt: 'Companion mobile UI — flagship smartwatch pairing program (obscured)',
+        caption:
+          'Smartwatch pairing program: companion app flows for a tier-one global brand — UI intentionally obscured; detail in private deck.',
       },
     ],
     body: [
       {
         kind: 'text',
         paragraphs: [
-          'Engagements spanned complex B2B and B2C products — AdTech, HealthTech, IoT, telematics, and adjacent domains — typically under strict confidentiality, so public pages stay anonymized.',
+          'Engagements spanned complex B2B and B2C products — AdTech, HealthTech, IoT, telematics, wearables, and adjacent domains — typically under strict confidentiality, so public pages stay anonymized.',
           'Day-to-day work combined stakeholder alignment, workshop-led discovery, iterative prototyping, and handoff to distributed PM and engineering teams.',
         ],
       },
@@ -400,10 +407,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'figure',
         spec: {
           aspectRatio: '8 / 5',
-          badge: 'Teaser · Systems',
+          badge: 'Teaser · Wearables',
           src: caseAsset('cover_s2.png'),
-          alt: 'Star — redacted systems / wide strip',
-          caption: 'Systems excerpt — multi-step flow, component density, or journey map (redacted for portfolio).',
+          alt: 'Companion mobile UI — flagship smartwatch pairing program (obscured)',
+          caption:
+            'Smartwatch pairing program: companion app flows for a tier-one global brand — UI intentionally obscured; detail in private deck.',
         },
       },
     ],
