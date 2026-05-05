@@ -3,8 +3,8 @@
  *   eyebrow → title → lede → full-width image → text → full-width image → text → …
  * Swap placeholder copy; add imageSrc on figures when extending the renderer.
  * Raster covers: copy full-resolution files into public/cases/ in the repo (chat uploads are recompressed).
- * Short MP4 teasers: e.g. public/cases/miro/MyClip.mp4 and reference via `videoSrc`.
- * Keep each case’s `hero.aspectRatio` and all teaser/body figures on that case aligned (8∶5) so frames match across case pages.
+ * Short MP4 teasers: e.g. `public/Miro_case_01_*.mp4` and reference via `videoSrc`.
+ * Teaser aspect ratios resolve from actual media (`CaseStudyFigure`); initial `hero.aspectRatio` is a hint until metadata loads.
  */
 
 /** Resolve `public/` paths for Vite `base` (e.g. `/portfolio/`). */
@@ -68,7 +68,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Senior Product Designer (Growth) in Amsterdam — five team contexts as priorities shifted. I owned framing through shipped UI, systems implications, and experimentation where it reduced risk, with PM, engineering, and GTM.',
+        'Senior Product Designer (Growth) in Amsterdam — multiple product team contexts as priorities shifted. I owned framing through shipped UI, systems implications, and experimentation where it reduced risk, with PM, engineering, and GTM.',
         'Thread: Different entry intents (discovery → trial → expansion → monetization). The work sharpened high-stakes moments — signup, templates, checkout, governance — without treating Miro as a single funnel. Deck: trade-offs and validation on request.',
       ],
     },
@@ -87,12 +87,12 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         label: 'Acquisition surfaces',
         summary:
-          'Pre-products aimed at high-intent SERP traffic; flows that route qualified users into core product journeys.',
+          'Acquisition surfaces for high-intent search traffic; flows that route qualified users into core product journeys.',
       },
       {
         label: 'Signup and activation UX',
         summary:
-          'In-product signup redesign and behavioral prompts for non-registered users to reduce friction and improve early momentum.',
+          'In-product signup redesign and identity and action prompts for guest users to reduce friction and improve early momentum.',
       },
       {
         label: 'Enterprise trial and admin',
@@ -107,7 +107,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         label: 'Monetization and checkout',
         summary:
-          'Contextual free-to-paid triggers, checkout redesign for add-ons and packaging, plus pricing page and smart cancellation iterations.',
+          'Contextual free-to-paid triggers, checkout and upgrade flow design, plus pricing page and cancellation flow and retention UX iterations.',
       },
     ],
     lockDisclaimer:
@@ -116,17 +116,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       aspectRatio: '16 / 9',
       badge: 'Teaser · Sign-up in product',
       videoSrc: caseAsset('Miro_case_01_sign_up_in_prod.mp4'),
-      videoPoster: caseAsset('cover_m.png'),
       alt: 'Miro — in-product sign-up flow in production',
       caption:
         'Guest-to-account activation: Tools & Apps gating, identity prompts, and sign-up entry points on the canvas.',
     },
     lockedTeaserAfterHero: [
       {
-        aspectRatio: '8 / 5',
+        aspectRatio: '16 / 9',
         badge: 'Teaser · Custom templates',
         videoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
-        videoPoster: caseAsset('cover_m2.png'),
         alt: 'Miro — custom company template library',
         caption:
           'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
@@ -137,7 +135,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Shareable presentations',
         videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
-        videoPoster: caseAsset('cover_m3.png'),
         alt: 'Miro — Share as presentation modal',
         caption:
           'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
@@ -154,9 +151,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '8 / 5',
+          aspectRatio: '16 / 9',
           badge: 'Teaser · Custom templates',
-          src: caseAsset('cover_m2.png'),
+          videoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
           alt: 'Miro — custom company template library',
           caption:
             'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
@@ -171,9 +168,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'figure',
         spec: {
-          aspectRatio: '8 / 5',
+          aspectRatio: '16 / 9',
           badge: 'Teaser · Shareable presentations',
-          src: caseAsset('cover_m3.png'),
+          videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
           alt: 'Miro — Share as presentation flow',
           caption:
             'Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review.',

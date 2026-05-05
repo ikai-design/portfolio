@@ -41,7 +41,7 @@ const TIMELINE: Job[] = [
     company: 'Miro',
     location: 'Amsterdam · 4y 11m',
     blurb:
-      'Product design across community, acquisition, enterprise, and monetization for 80M+ users; five growth-facing team contexts as priorities shifted.',
+      'Product design across community, acquisition, enterprise, and monetization for 80M+ users; multiple growth-facing product team contexts as priorities shifted.',
   },
   {
     year: '2019 — 2021',
@@ -194,7 +194,7 @@ export default function About() {
                   Miro
                 </a>
                 , I design for 80M+ users across community, acquisition, enterprise, and monetization,
-                moving between five growth-facing team contexts as priorities shifted.
+                moving between multiple product team contexts as priorities shifted.
               </p>
               <p className={styles.prose}>
                 I partner with product, engineering, and GTM. AI speeds up prototyping and research
@@ -226,10 +226,11 @@ export default function About() {
             </figure>
 
             <p className={`${styles.prose} ${styles.aboutGridRow2Col1}`}>
-              Recent work spans Miroverse (templates, creator profiles, gamification), SERP
-              pre-products, in-product signup and prompts for new users, enterprise trials and admin
-              expansion, custom templates and shareable presentations — and monetization: contextual
-              free-to-paid, checkout, pricing, and smart cancellation.
+              Recent work spans Miroverse (templates, creator profiles, gamification), acquisition
+              surfaces for high-intent search traffic, in-product signup and prompts for guest users,
+              enterprise trials and admin expansion, custom templates and shareable presentations — and
+              monetization: contextual free-to-paid, checkout, pricing, and cancellation flow and
+              retention UX.
             </p>
             <p className={`${styles.prose} ${styles.aboutGridRow2Col2}`}>
               Before Miro I was sole designer on Wix Groups for most of its lifecycle after launch, with
