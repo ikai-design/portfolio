@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import styles from '../../styles/site.module.css';
 
 type CaseStudyFigureProps = {
@@ -7,6 +8,8 @@ type CaseStudyFigureProps = {
   badge?: string;
   /** Optional real image — when set, wireframe UI is hidden */
   src?: string;
+  videoSrc?: string;
+  videoPoster?: string;
   alt?: string;
   /** Shown under the frame (reference-style caption) */
   caption?: string;
@@ -24,11 +27,55 @@ export function CaseStudyFigure({
   aspectRatio = '16 / 9',
   badge = 'Placeholder',
   src,
+  videoSrc,
+  videoPoster,
   alt = '',
   caption,
   placeholderVariant = 'default',
   loading = 'lazy',
 }: CaseStudyFigureProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [resolvedAspectRatio, setResolvedAspectRatio] = useState(aspectRatio);
+
+  useEffect(() => {
+    setResolvedAspectRatio(aspectRatio);
+  }, [aspectRatio]);
+
+  useEffect(() => {
+    if (!videoSrc || !videoRef.current) return;
+
+    const video = videoRef.current;
+    let hasEnteredViewport = false;
+
+    const tryPlay = () => {
+      const p = video.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => undefined);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+
+        if (entry.isIntersecting) {
+          hasEnteredViewport = true;
+          tryPlay();
+          return;
+        }
+
+        if (hasEnteredViewport) {
+          video.pause();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [videoSrc]);
+
   const chronologyNodes = [
     { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX/UI Craft' },
     { id: 'product', label: 'Product', state: 'past', tooltip: 'Product thinking' },
@@ -38,8 +85,27 @@ export function CaseStudyFigure({
 
   return (
     <figure className={styles.caseFigure}>
-      <div className={styles.caseFrame} style={{ aspectRatio }}>
-        {src ? (
+      <div className={styles.caseFrame} style={{ aspectRatio: resolvedAspectRatio }}>
+        {videoSrc ? (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            poster={videoPoster}
+            className={styles.caseFrameVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload={loading === 'eager' ? 'auto' : 'metadata'}
+            aria-label={alt}
+            onLoadedMetadata={(e) => {
+              const v = e.currentTarget;
+              if (v.videoWidth > 0 && v.videoHeight > 0) {
+                setResolvedAspectRatio(`${v.videoWidth} / ${v.videoHeight}`);
+              }
+            }}
+          />
+        ) : src ? (
           <img
             src={src}
             alt={alt}

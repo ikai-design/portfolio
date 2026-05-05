@@ -53,6 +53,8 @@ export default function PortfolioCaseStudy() {
           badge={data.hero.badge}
           caption={data.hero.caption}
           src={data.hero.src}
+        videoSrc={data.hero.videoSrc}
+        videoPoster={data.hero.videoPoster}
           alt={data.hero.alt}
           loading="eager"
         />
@@ -66,6 +68,8 @@ export default function PortfolioCaseStudy() {
                 badge={spec.badge}
                 caption={spec.caption}
                 src={spec.src}
+                videoSrc={spec.videoSrc}
+                videoPoster={spec.videoPoster}
                 alt={spec.alt ?? ''}
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
@@ -119,6 +123,8 @@ export default function PortfolioCaseStudy() {
               badge={spec.badge}
               caption={spec.caption}
               src={spec.src}
+              videoSrc={spec.videoSrc}
+              videoPoster={spec.videoPoster}
               alt={spec.alt ?? ''}
               loading="lazy"
             />
@@ -169,6 +175,8 @@ export default function PortfolioCaseStudy() {
                   badge={block.spec.badge}
                   caption={block.spec.caption}
                   src={block.spec.src}
+                  videoSrc={block.spec.videoSrc}
+                  videoPoster={block.spec.videoPoster}
                   alt={block.spec.alt}
                   loading="lazy"
                 />

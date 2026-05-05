@@ -3,6 +3,7 @@
  *   eyebrow → title → lede → full-width image → text → full-width image → text → …
  * Swap placeholder copy; add imageSrc on figures when extending the renderer.
  * Raster covers: copy full-resolution files into public/cases/ in the repo (chat uploads are recompressed).
+ * Short MP4 teasers: e.g. public/cases/miro/MyClip.mp4 and reference via `videoSrc`.
  * Keep each case’s `hero.aspectRatio` and all teaser/body figures on that case aligned (8∶5) so frames match across case pages.
  */
 
@@ -18,6 +19,9 @@ export type FigureSpec = {
   caption?: string;
   /** Optional image under `public/` — use `caseAsset('cases/...')` */
   src?: string;
+  /** Optional video under `public/` — use `caseAsset('...')` */
+  videoSrc?: string;
+  videoPoster?: string;
   alt?: string;
 };
 
@@ -120,7 +124,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Custom templates',
-        src: caseAsset('cover_m2.png'),
+        videoSrc: caseAsset('cases/miro/Miro_2_Custom_Templates_Org_Demo.mp4'),
+        videoPoster: caseAsset('cover_m2.png'),
         alt: 'Miro — custom company template library',
         caption:
           'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
