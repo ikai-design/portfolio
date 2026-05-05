@@ -134,9 +134,10 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     ],
     lockedTeaserFigures: [
       {
-        aspectRatio: '8 / 5',
+        aspectRatio: '16 / 9',
         badge: 'Teaser · Shareable presentations',
-        src: caseAsset('cover_m3.png'),
+        videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
+        videoPoster: caseAsset('cover_m3.png'),
         alt: 'Miro — Share as presentation modal',
         caption:
           'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
