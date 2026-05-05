@@ -14,6 +14,7 @@ export type CaseStudyCardProps = {
   imageAlt?: string;
   videoSrc?: string;
   videoPoster?: string;
+  playOn?: 'viewport' | 'hover';
   placeholderVariant?: 'default' | 'chronology';
 };
 
@@ -32,6 +33,7 @@ export function CaseStudyCard({
   imageAlt,
   videoSrc,
   videoPoster,
+  playOn,
   placeholderVariant,
 }: CaseStudyCardProps) {
   const figure = (
@@ -41,6 +43,7 @@ export function CaseStudyCard({
       src={imageSrc}
       videoSrc={videoSrc}
       videoPoster={videoPoster}
+      playOn={playOn}
       alt={imageAlt ?? title}
       placeholderVariant={placeholderVariant}
     />

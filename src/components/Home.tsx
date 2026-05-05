@@ -22,6 +22,7 @@ type HomeCaseItem = {
   imageAlt?: string;
   videoSrc?: string;
   videoPoster?: string;
+  playOn?: 'viewport' | 'hover';
   placeholderVariant?: 'default' | 'chronology';
 };
 
@@ -38,6 +39,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
     videoPoster: `${import.meta.env.BASE_URL}cover_m.png`,
     imageAlt: 'Miro — in-product sign-up flow',
+    playOn: 'hover' as const,
   },
   {
     to: '/projects/wix-groups',
@@ -102,6 +104,7 @@ export default function Home() {
               imageAlt={item.imageAlt}
               videoSrc={item.videoSrc}
               videoPoster={item.videoPoster}
+              playOn={item.playOn}
               placeholderVariant={item.placeholderVariant}
             />
           </li>

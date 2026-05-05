@@ -17,6 +17,8 @@ type CaseStudyFigureProps = {
   placeholderVariant?: 'default' | 'chronology';
   /** Prefer eager only for above-the-fold hero images */
   loading?: 'eager' | 'lazy';
+  /** `viewport` (default) autoplays when scrolled into view; `hover` plays only while the cursor is over the figure */
+  playOn?: 'viewport' | 'hover';
 };
 
 /**
@@ -33,6 +35,7 @@ export function CaseStudyFigure({
   caption,
   placeholderVariant = 'default',
   loading = 'lazy',
+  playOn = 'viewport',
 }: CaseStudyFigureProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [resolvedAspectRatio, setResolvedAspectRatio] = useState(aspectRatio);
@@ -42,7 +45,7 @@ export function CaseStudyFigure({
   }, [aspectRatio]);
 
   useEffect(() => {
-    if (!videoSrc || !videoRef.current) return;
+    if (!videoSrc || !videoRef.current || playOn !== 'viewport') return;
 
     const video = videoRef.current;
     let hasEnteredViewport = false;
@@ -74,7 +77,15 @@ export function CaseStudyFigure({
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, [videoSrc]);
+  }, [videoSrc, playOn]);
+
+  const handleMouseEnter = playOn === 'hover' && videoSrc
+    ? () => videoRef.current?.play().catch(() => undefined)
+    : undefined;
+
+  const handleMouseLeave = playOn === 'hover' && videoSrc
+    ? () => { videoRef.current?.pause(); }
+    : undefined;
 
   const chronologyNodes = [
     { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX/UI Craft' },
@@ -84,7 +95,7 @@ export function CaseStudyFigure({
   ] as const;
 
   return (
-    <figure className={styles.caseFigure}>
+    <figure className={styles.caseFigure} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className={styles.caseFrame} style={{ aspectRatio: resolvedAspectRatio }}>
         {videoSrc ? (
           <video
@@ -92,11 +103,11 @@ export function CaseStudyFigure({
             src={videoSrc}
             poster={videoPoster}
             className={styles.caseFrameVideo}
-            autoPlay
+            autoPlay={playOn === 'viewport'}
             loop
             muted
             playsInline
-            preload={loading === 'eager' ? 'auto' : 'metadata'}
+            preload={playOn === 'hover' ? 'metadata' : loading === 'eager' ? 'auto' : 'metadata'}
             aria-label={alt}
             onLoadedMetadata={(e) => {
               const v = e.currentTarget;
