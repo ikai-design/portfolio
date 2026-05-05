@@ -12,6 +12,8 @@ export type CaseStudyCardProps = {
   badge?: string;
   imageSrc?: string;
   imageAlt?: string;
+  videoSrc?: string;
+  videoPoster?: string;
   placeholderVariant?: 'default' | 'chronology';
 };
 
@@ -28,6 +30,8 @@ export function CaseStudyCard({
   badge,
   imageSrc,
   imageAlt,
+  videoSrc,
+  videoPoster,
   placeholderVariant,
 }: CaseStudyCardProps) {
   const figure = (
@@ -35,6 +39,8 @@ export function CaseStudyCard({
       aspectRatio={aspectRatio}
       badge={badge}
       src={imageSrc}
+      videoSrc={videoSrc}
+      videoPoster={videoPoster}
       alt={imageAlt ?? title}
       placeholderVariant={placeholderVariant}
     />

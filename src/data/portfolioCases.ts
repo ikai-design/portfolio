@@ -113,10 +113,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockDisclaimer:
       'This page excludes non-public metrics, experiment detail, and unreleased product work.',
     hero: {
-      aspectRatio: '8 / 5',
-      badge: 'Teaser · Cover',
-      src: caseAsset('cover_m.png'),
-      alt: 'Miro board — Tools & Apps and in-product sign-up prompts',
+      aspectRatio: '16 / 9',
+      badge: 'Teaser · Sign-up in product',
+      videoSrc: caseAsset('Miro_case_01_sign_up_in_prod.mp4'),
+      videoPoster: caseAsset('cover_m.png'),
+      alt: 'Miro — in-product sign-up flow in production',
       caption:
         'Guest-to-account activation: Tools & Apps gating, identity prompts, and sign-up entry points on the canvas.',
     },
@@ -124,7 +125,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Custom templates',
-        videoSrc: caseAsset('cases/miro/Miro_2_Custom_Templates_Org_Demo.mp4'),
+        videoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
         videoPoster: caseAsset('cover_m2.png'),
         alt: 'Miro — custom company template library',
         caption:
