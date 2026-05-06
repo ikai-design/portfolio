@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 
@@ -7,7 +7,7 @@ const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
 
 const PET_TRY_WREN_URL = 'https://trywren.app/';
 const PET_SCREEN_RECORDER_URL =
-  'https://chromewebstore.google.com/detail/simple-screen-recorder/iohegjmhpfcldjhpjnafinbbjoaakooi?hl=en';
+  'https://simple-screen-recorder.com/';
 
 const PET_PROJECTS = [
   {
@@ -115,14 +115,31 @@ const LEADERSHIP = [
   {
     year: '2026',
     title: 'Pet projects — shipping',
+    href: 'https://trywren.app/',
     desc: 'Try Wren (PWA) and Simple Screen Recorder (Chrome Web Store)—links and context in Pet projects below.',
   },
-  { year: '2023 — now', title: 'ADPList Mentor', desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.' },
-  { year: '2024 — now', title: 'YouTube channel', desc: 'Design, AI, and product thinking — insights & discussions.' },
-  { year: '2023 — now', title: 'VanBlum digital-print store', desc: 'AI-generated prints; a side store to stay creative.' },
+  {
+    year: '2023 — now',
+    title: 'ADPList Mentor',
+    href: 'https://adplist.org/mentors/eugene-voroniuk',
+    desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.',
+  },
+  {
+    year: '2024 — now',
+    title: 'YouTube channel',
+    href: 'https://www.youtube.com/@EugeneVoroniuk',
+    desc: 'Design, AI, and product thinking — insights & discussions.',
+  },
+  {
+    year: '2023 — now',
+    title: 'VanBlum digital-print store',
+    href: 'https://www.instagram.com/vanblum.store/',
+    desc: 'AI-generated prints; a side store to stay creative.',
+  },
   {
     year: '2023',
     title: 'Midjourney Mastery — Udemy',
+    href: 'https://www.udemy.com/course/midjourney-comprehensive/',
     desc: '28,682 students — "Midjourney Mastery: Creating Visuals Using AI".',
   },
   {
@@ -140,8 +157,6 @@ const LEADERSHIP = [
 
 export default function About() {
   const { pathname, hash } = useLocation();
-  const aboutIntroRef = useRef<HTMLDivElement>(null);
-  const [portraitHeightPx, setPortraitHeightPx] = useState<number | undefined>(undefined);
 
   useLayoutEffect(() => {
     const id = hash.replace(/^#/, '');
@@ -150,31 +165,6 @@ export default function About() {
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [pathname, hash]);
-
-  useLayoutEffect(() => {
-    const el = aboutIntroRef.current;
-    if (!el) return;
-
-    const mq = window.matchMedia('(max-width: 959px)');
-
-    const sync = () => {
-      if (mq.matches) {
-        setPortraitHeightPx(undefined);
-        return;
-      }
-      setPortraitHeightPx(Math.round(el.getBoundingClientRect().height));
-    };
-
-    const ro = new ResizeObserver(() => sync());
-    ro.observe(el);
-    mq.addEventListener('change', sync);
-    sync();
-
-    return () => {
-      ro.disconnect();
-      mq.removeEventListener('change', sync);
-    };
-  }, []);
 
   return (
     <>
@@ -187,7 +177,7 @@ export default function About() {
           </p>
 
           <div className={styles.aboutHeroGrid}>
-            <div ref={aboutIntroRef} className={styles.aboutHeroIntro}>
+            <div className={styles.aboutHeroIntro}>
               <p className={styles.prose}>
                 At{' '}
                 <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
@@ -198,14 +188,62 @@ export default function About() {
               </p>
               <p className={styles.prose}>
                 I partner with product, engineering, and GTM. AI speeds up prototyping and research
-                synthesis. Reforge Growth Series alumni; ADPList mentor.
+                synthesis.{' '}
+                <a
+                  className={styles.inlineLink}
+                  href="https://www.reforge.com/programs/growth-series"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Reforge Growth Series
+                </a>{' '}
+                alumni;{' '}
+                <a
+                  className={styles.inlineLink}
+                  href="https://adplist.org/mentors/eugene-voroniuk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ADPList mentor
+                </a>
+                .
+              </p>
+              <p className={styles.prose}>
+                Recent work spans{' '}
+                <a
+                  className={styles.inlineLink}
+                  href="https://miro.com/templates/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Miroverse
+                </a>{' '}
+                (templates, creator profiles, gamification), acquisition surfaces for high-intent
+                search traffic, in-product signup and prompts for guest users, enterprise trials and
+                admin expansion, custom templates and shareable presentations — and monetization:
+                contextual free-to-paid, checkout, pricing, and cancellation flow and retention UX.
+              </p>
+              <p className={styles.prose}>
+                Before Miro I was sole designer on{' '}
+                <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
+                  Wix
+                </a>{' '}
+                Groups for most of its lifecycle after launch, with partial product ownership — a
+                cross-platform community product for creators, coaches, trainers, and consultants,
+                shipped to 200M+ users on web, iOS, and Android.
+              </p>
+              <p className={styles.prose}>
+                At{' '}
+                <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
+                  Star
+                </a>{' '}
+                (ex-Cogniance) I delivered 10+ end-to-end Fortune 500 engagements — often greenfield,
+                regulated, or technically constrained — leading client workshops, IA, and handoff to
+                distributed teams. Details under NDA.
               </p>
             </div>
 
-            <figure
-              className={`${styles.aboutPortrait}${portraitHeightPx != null ? ` ${styles.aboutPortraitLockHeight}` : ''}`}
-              style={portraitHeightPx != null ? { height: portraitHeightPx } : undefined}
-            >
+            <figure className={styles.aboutPortrait}>
               <div className={styles.aboutPortraitFrame}>
                 <img
                   src={ABOUT_PHOTO_DEFAULT}
@@ -224,24 +262,6 @@ export default function About() {
                 />
               </div>
             </figure>
-
-            <p className={`${styles.prose} ${styles.aboutGridRow2Col1}`}>
-              Recent work spans Miroverse (templates, creator profiles, gamification), acquisition
-              surfaces for high-intent search traffic, in-product signup and prompts for guest users,
-              enterprise trials and admin expansion, custom templates and shareable presentations — and
-              monetization: contextual free-to-paid, checkout, pricing, and cancellation flow and
-              retention UX.
-            </p>
-            <p className={`${styles.prose} ${styles.aboutGridRow2Col2}`}>
-              Before Miro I was sole designer on Wix Groups for most of its lifecycle after launch, with
-              partial product ownership — a cross-platform community product for creators, coaches,
-              trainers, and consultants, shipped to 200M+ users on web, iOS, and Android.
-            </p>
-            <p className={`${styles.prose} ${styles.aboutGridRow2Col3}`}>
-              At Star (ex-Cogniance) I delivered 10+ end-to-end Fortune 500 engagements — often greenfield,
-              regulated, or technically constrained — leading client workshops, IA, and handoff to
-              distributed teams. Details under NDA.
-            </p>
           </div>
         </div>
       </section>
@@ -343,7 +363,13 @@ export default function About() {
           <div key={item.title} style={{ display: 'contents' }}>
             <div className={styles.tlYear}>{item.year}</div>
             <div className={styles.tlRow}>
-              <span className={styles.tlRole}>{item.title}</span>
+              {item.href ? (
+                <a className={`${styles.tlRole} ${styles.inlineLink}`} href={item.href} target="_blank" rel="noopener noreferrer">
+                  {item.title}
+                </a>
+              ) : (
+                <span className={styles.tlRole}>{item.title}</span>
+              )}
               <span className={styles.tlBlurb}>{item.desc}</span>
             </div>
           </div>
@@ -367,7 +393,7 @@ export default function About() {
         <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
         <span className={styles.metaKey}>Languages</span>
         <span className={styles.metaValue}>
-          English C2 (full professional) · Ukrainian (native) · Dutch B1/B2 · Spanish B1/B2
+          English (fluent) · Ukrainian (native) · Dutch (conversational) · Spanish (conversational)
         </span>
       </div>
     </>

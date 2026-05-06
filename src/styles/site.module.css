@@ -351,17 +351,14 @@
 .inlineLink {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  display: inline-block;
-  padding: 0.15rem 0.08rem;
-  margin: -0.15rem -0.08rem;
-  border-radius: 4px;
+  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.inlineLink:hover {
-  color: #333333;
-  border-bottom-color: rgba(51, 51, 51, 0.35);
+.inlineLink:hover,
+.inlineLink:focus-visible {
+  color: inherit;
+  border-bottom-color: transparent;
 }
 
 /* ---------- Case page eyebrow (reference: small client label above title) ---------- */
@@ -898,6 +895,10 @@
   word-break: break-word;
 }
 
+.tlRole.inlineLink {
+  align-self: flex-start;
+}
+
 @media (max-width: 639px) {
   .tlRole {
     font-size: 1.25rem;
@@ -968,13 +969,15 @@
 
 .metaValue a {
   color: inherit;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
   transition: border-color 0.2s ease;
 }
 
-.metaValue a:hover {
-  color: #0f0f0f;
-  border-bottom-color: #0f0f0f;
+.metaValue a:hover,
+.metaValue a:focus-visible {
+  color: inherit;
+  border-bottom-color: transparent;
 }
 
 /* ---------- Tag chips / skills ---------- */
@@ -1111,17 +1114,16 @@
 .socials a {
   color: #0f0f0f;
   text-decoration: none;
-  transition: opacity 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.35rem 0.35rem;
-  border-radius: 4px;
+  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  transition: border-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  line-height: 1.25;
 }
 
-.socials a:hover {
-  opacity: 0.75;
+.socials a:hover,
+.socials a:focus-visible {
   color: #0f0f0f;
+  border-bottom-color: transparent;
 }
 
 /* ---------- Back link (sub-pages) ---------- */
@@ -1580,7 +1582,7 @@
   margin: 0;
   min-width: 0;
   display: block;
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1;
   justify-self: stretch;
   width: 100%;
@@ -1597,16 +1599,10 @@
   width: 100%;
   height: auto;
   max-width: 28rem;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   border-radius: 12px;
   overflow: hidden;
   background: #f2f2f2;
-}
-
-.aboutPortraitLockHeight .aboutPortraitFrame {
-  height: 100%;
-  max-width: none;
-  aspect-ratio: unset;
 }
 
 .aboutPortraitImg {
@@ -1687,12 +1683,12 @@
   font-weight: 600;
   color: #0f0f0f;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
 }
 
 .aboutPetTitle:hover,
 .aboutPetTitle:focus-visible {
-  border-bottom-color: #0f0f0f;
+  border-bottom-color: transparent;
 }
 
 .aboutPetStack {
@@ -1724,7 +1720,7 @@
 .aboutHeroCopy {
   display: flex;
   flex-direction: column;
-  gap: var(--stack-inner-gap);
+  gap: clamp(1.25rem, 2.2vw, 2rem);
   min-width: 0;
   width: 100%;
   max-width: min(72rem, 100%);
@@ -1735,51 +1731,35 @@
 }
 
 .aboutHeroLede {
-  font-size: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
-  line-height: 1.28;
-  font-weight: 500;
-  color: #5c5c5c;
+  font-size: clamp(1.3rem, 1.05rem + 0.85vw, 1.65rem);
+  line-height: 1.3;
+  font-weight: 450;
+  color: #4f4f4f;
 }
 
-/* One 3-column grid: intro spans cols 1–2 (aligns with “Before Miro” right edge), photo col 3, then tripanel row. */
 .aboutHeroGrid {
-  --about-hero-col-gap: clamp(1.25rem, 2.5vw, 2rem);
+  --about-hero-col-gap: clamp(1.75rem, 3vw, 2.75rem);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: var(--about-hero-col-gap);
-  row-gap: var(--stack-inner-gap);
+  align-items: start;
   min-width: 0;
 }
 
 .aboutHeroIntro {
-  grid-column: 1 / 3;
-  grid-row: 1;
+  grid-column: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--stack-inner-gap);
+  gap: clamp(1rem, 1.45vw, 1.25rem);
   min-width: 0;
+  max-width: none;
 }
 
 .aboutHeroIntro .prose {
   margin-bottom: 0;
-}
-
-.aboutGridRow2Col1 {
-  grid-column: 1;
-  grid-row: 2;
-  margin-bottom: 0;
-}
-
-.aboutGridRow2Col2 {
-  grid-column: 2;
-  grid-row: 2;
-  margin-bottom: 0;
-}
-
-.aboutGridRow2Col3 {
-  grid-column: 3;
-  grid-row: 2;
-  margin-bottom: 0;
+  font-size: 0.9375rem;
+  line-height: 1.48;
+  color: #525252;
 }
 
 @media (max-width: 959px) {
@@ -1789,29 +1769,22 @@
 
   .aboutHeroGrid {
     grid-template-columns: 1fr;
+    row-gap: 1rem;
   }
 
   .aboutHeroIntro {
     grid-column: 1;
-    grid-row: auto;
+    max-width: none;
   }
 
   .aboutPortrait {
     grid-column: 1;
-    grid-row: auto;
     justify-self: start;
     width: min(100%, 28rem);
   }
 
   .aboutPortraitFrame {
     max-width: 360px;
-  }
-
-  .aboutGridRow2Col1,
-  .aboutGridRow2Col2,
-  .aboutGridRow2Col3 {
-    grid-column: 1;
-    grid-row: auto;
   }
 }
 
@@ -2005,11 +1978,12 @@
 .caseLockIntro a {
   color: #0f0f0f;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
 }
 
-.caseLockIntro a:hover {
-  opacity: 0.8;
+.caseLockIntro a:hover,
+.caseLockIntro a:focus-visible {
+  border-bottom-color: transparent;
 }
 
 .caseLockForm {
