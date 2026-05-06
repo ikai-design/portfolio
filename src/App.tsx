@@ -6,6 +6,7 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/:slug" element={<PortfolioCaseStudy />} />
           <Route path="/projects" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

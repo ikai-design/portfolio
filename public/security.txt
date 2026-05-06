@@ -1,0 +1,4 @@
+Contact: mailto:evoroniuk@gmail.com
+Preferred-Languages: en, uk
+Canonical: https://eugenevoroniuk.com/security.txt
+Policy: https://eugenevoroniuk.com/contact

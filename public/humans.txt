@@ -1,0 +1,7 @@
+/* TEAM */
+Owner: Eugene Voroniuk
+Site: https://eugenevoroniuk.com
+
+/* SITE */
+Standards: HTML5, CSS3, TypeScript, React, Vite
+Hosting: GitHub Pages
