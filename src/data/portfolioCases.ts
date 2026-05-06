@@ -371,18 +371,21 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Process (placeholder)',
-        caption: 'Process frame — workshop output, IA sketch, or redacted UI (asset TBD).',
+        badge: 'Teaser · Wearable pairing',
+        src: caseAsset('cover_s2_.png'),
+        alt: 'Anonymized premium iOS wearable companion app pairing flow',
+        caption:
+          'Portfolio remake: anonymized premium iOS wearable pairing flow — discovery, confirmation, secure sync, and first health snapshot.',
       },
     ],
     lockedTeaserFigures: [
       {
         aspectRatio: '8 / 5',
-        badge: 'Teaser · Wearables',
-        src: caseAsset('cover_s2.png'),
-        alt: 'Companion mobile UI — flagship smartwatch pairing program (obscured)',
+        badge: 'Teaser · B2B cloud storage',
+        src: caseAsset('cover_s3.png'),
+        alt: 'Anonymized B2B cloud storage UX in a Microsoft ecosystem context',
         caption:
-          'Smartwatch pairing program: companion app flows for a tier-one global brand — UI intentionally obscured; detail in private deck.',
+          'Remade by me for portfolio use: anonymized B2B cloud storage workflows in a Microsoft ecosystem context. Client identity and sensitive implementation details are withheld under strict NDA.',
       },
     ],
     body: [
@@ -411,11 +414,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'figure',
         spec: {
           aspectRatio: '8 / 5',
-          badge: 'Teaser · Wearables',
-          src: caseAsset('cover_s2.png'),
-          alt: 'Companion mobile UI — flagship smartwatch pairing program (obscured)',
+          badge: 'Teaser · B2B cloud storage',
+          src: caseAsset('cover_s3.png'),
+          alt: 'Anonymized B2B cloud storage UX in a Microsoft ecosystem context',
           caption:
-            'Smartwatch pairing program: companion app flows for a tier-one global brand — UI intentionally obscured; detail in private deck.',
+            'Remade by me for portfolio use: anonymized B2B cloud storage workflows in a Microsoft ecosystem context. Client identity and sensitive implementation details are withheld under strict NDA.',
         },
       },
     ],
