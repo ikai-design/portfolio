@@ -432,7 +432,8 @@
 
 @media (max-width: 639px) {
   .homeDisplayName {
-    text-align: center;
+    text-align: left;
+    margin-inline: 0;
   }
 }
 
@@ -487,26 +488,49 @@
 @media (max-width: 639px) {
   .displayName,
   .pageTitle {
-    font-size: 2.5rem;
+    /* Match .caseDesc scale on cards (mobile only) */
+    font-size: 1.5rem;
+    line-height: 1.35;
     text-align: left;
-    letter-spacing: -3px;
+    letter-spacing: -0.02em;
   }
 
   .displayName {
-    line-height: 1.05;
+    line-height: 1.35;
   }
 
-  /* Home hero keeps centered title, while generic page titles stay left-aligned. */
   .displayName.homeDisplayName {
-    text-align: center;
-    letter-spacing: -3px;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    text-align: left;
+    letter-spacing: -0.02em;
+  }
+
+  .homeIntro {
+    text-align: left;
+  }
+
+  .homeIntro .introLine {
+    margin-inline: 0;
+  }
+
+  .introLine {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    opacity: 0.92;
   }
 }
 
 @media (max-width: 380px) {
   .displayName,
   .pageTitle {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  .displayName.homeDisplayName {
+    font-size: 1.5rem;
+    line-height: 1.35;
   }
 }
 
@@ -536,13 +560,23 @@
 
   .displayName,
   .pageTitle {
-    font-size: 1.75rem;
-    line-height: 1.08;
+    font-size: 1.5rem;
+    line-height: 1.35;
   }
 
-  .introLine {
-    font-size: 2.125rem;
-    line-height: 1.25;
+  .displayName.homeDisplayName {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  .introLine,
+  .pageLede,
+  .caseLockIntro,
+  .ctaText,
+  .bio {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    opacity: 0.92;
   }
 
   .sectionHead {
@@ -829,7 +863,21 @@
 @media (max-width: 639px) {
   .timeline {
     grid-template-columns: 1fr;
-    gap: 0.25rem 0;
+    /* Clear steps: date → role/meta → blurb → next entry (was 0.25rem and read as one blob) */
+    gap: 1.25rem 0;
+  }
+
+  .tlRow {
+    gap: 0.875rem;
+    /*
+     * ~2× space after blurb before next date: was ~(inner + 0.75rem) + row-gap;
+     * padding-bottom = 2× that inner band + one row-gap so total tail ≈ 2× previous.
+     */
+    padding-bottom: calc(2 * (var(--stack-inner-gap) + 0.75rem) + 1.25rem);
+  }
+
+  .tlBlurb {
+    margin-top: 0.5rem;
   }
 }
 
@@ -1891,6 +1939,9 @@
   border-radius: 10px;
   background: #fafafa;
   overflow: hidden;
+  /* Allow shrinking inside flex column / narrow viewports so text wraps instead of clipping */
+  min-width: 0;
+  max-width: 100%;
 }
 
 .caseTrackDetails[open] {
@@ -1909,6 +1960,13 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
+  min-width: 0;
+}
+
+.caseTrackSummaryLabel {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .caseTrackSummary::-webkit-details-marker {
@@ -1935,6 +1993,11 @@
   padding: 0 1rem 1rem;
   font-size: 1.25rem;
   color: #5a5a5a;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .caseAccessGate {
@@ -2179,6 +2242,18 @@
 
 .caseBlock .prose + figure.caseFigure {
   margin-top: var(--stack-inner-gap);
+}
+
+/* Mobile: hero / lead / lock intro — match .caseDesc on case cards (1.5rem / 1.35); base rules above would otherwise win in cascade */
+@media (max-width: 639px) {
+  .pageLede,
+  .caseLockIntro,
+  .ctaText,
+  .bio {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    opacity: 0.92;
+  }
 }
 
 /* ---------- Motion ---------- */

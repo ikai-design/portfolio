@@ -96,7 +96,9 @@ export default function PortfolioCaseStudy() {
           <div className={styles.caseTrackAccordions}>
             {data.publicTracks.map((track) => (
               <details key={track.label} className={styles.caseTrackDetails}>
-                <summary className={styles.caseTrackSummary}>{track.label}</summary>
+                <summary className={styles.caseTrackSummary}>
+                  <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
+                </summary>
                 <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
               </details>
             ))}
