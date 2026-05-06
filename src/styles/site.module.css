@@ -324,7 +324,7 @@
 .introLine {
   font-size: 2.125rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #727272;
   max-width: none;
   width: 100%;
@@ -338,18 +338,18 @@
 
 @media (max-width: 1199px) {
   .introLine {
-    font-size: 1.25rem;
+    font-size: 2.125rem;
   }
 }
 
 @media (max-width: 959px) {
   .introLine {
-    font-size: 1.125rem;
+    font-size: 2.125rem;
   }
 }
 
 .inlineLink {
-  color: inherit;
+  color: #0f0f0f;
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 15, 15, 0.35);
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -357,14 +357,14 @@
 
 .inlineLink:hover,
 .inlineLink:focus-visible {
-  color: inherit;
+  color: #0f0f0f;
   border-bottom-color: transparent;
 }
 
 /* ---------- Case page eyebrow (reference: small client label above title) ---------- */
 
 .pageEyebrow {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -374,7 +374,7 @@
 }
 
 .caseContextHint {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -489,6 +489,7 @@
   .pageTitle {
     font-size: 2.5rem;
     text-align: left;
+    letter-spacing: -3px;
   }
 
   .displayName {
@@ -498,6 +499,7 @@
   /* Home hero keeps centered title, while generic page titles stay left-aligned. */
   .displayName.homeDisplayName {
     text-align: center;
+    letter-spacing: -3px;
   }
 }
 
@@ -538,28 +540,20 @@
     line-height: 1.08;
   }
 
-  .pageLede,
-  .introLine,
-  .bio,
-  .ctaText {
-    font-size: 1rem;
-    line-height: 1.5;
+  .introLine {
+    font-size: 2.125rem;
+    line-height: 1.25;
   }
 
   .sectionHead {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 
   .workLink,
   .caseTitle {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 
-  .caseDesc,
-  .prose,
-  .metaGrid {
-    font-size: 0.98rem;
-  }
 
   .metaKey,
   .footerMeta {
@@ -568,7 +562,7 @@
 }
 
 .pageLede {
-  font-size: 1.75rem;
+  font-size: 2.125rem;
   line-height: 1.25;
   font-weight: 400;
   color: #727272;
@@ -576,20 +570,6 @@
   max-width: none;
   width: 100%;
   overflow-wrap: anywhere;
-}
-
-@media (max-width: 959px) {
-  .pageLede {
-    font-size: 1.375rem;
-    line-height: 1.35;
-  }
-}
-
-@media (max-width: 639px) {
-  .pageLede {
-    font-size: 1.25rem;
-    line-height: 1.45;
-  }
 }
 
 /* ---------- Work list rows (rec514164331-style) ---------- */
@@ -613,7 +593,7 @@
   row-gap: 0.1rem;
   padding: 1.15rem 0;
   text-decoration: none;
-  color: #727272;
+  color: #0f0f0f;
   font-size: 1.5rem;
   line-height: 1.2;
   font-weight: 400;
@@ -632,7 +612,7 @@
 
 .workTitle {
   font-weight: 500;
-  color: #727272;
+  color: #0f0f0f;
   transition: color 0.2s ease;
 }
 
@@ -640,7 +620,7 @@
   font-weight: 400;
   color: #727272;
   opacity: 1;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 
 .workMeta {
@@ -657,12 +637,12 @@
   .workLink {
     grid-template-columns: 1fr;
     row-gap: 0.25rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     padding: 1rem 0;
   }
 
   .workDesc {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .workMeta {
@@ -684,12 +664,6 @@
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 639px) {
-  .bio {
-    font-size: 1.125rem;
-    line-height: 1.5;
-  }
-}
 
 .bio + .bio {
   margin-top: var(--stack-prose-gap);
@@ -726,12 +700,6 @@
   margin-bottom: var(--stack-cta-gap);
 }
 
-@media (max-width: 639px) {
-  .ctaText {
-    font-size: 1.125rem;
-    line-height: 1.5;
-  }
-}
 
 .ctaLink {
   font-size: 1.5rem;
@@ -799,7 +767,7 @@
   flex-direction: column;
   gap: 0.35rem;
   color: #5f5f5f;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.45;
 }
 
@@ -829,7 +797,7 @@
 }
 
 .sectionHead small {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #727272;
   letter-spacing: 0.02em;
@@ -840,11 +808,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .sectionHead small {
-    font-size: 0.9375rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -901,7 +869,7 @@
 
 @media (max-width: 639px) {
   .tlRole {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -919,19 +887,12 @@
 }
 
 .tlBlurb {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   color: #727272;
-  line-height: 1.4;
+  line-height: 1.45;
   margin-top: 0.35rem;
   max-width: none;
   width: 100%;
-}
-
-@media (max-width: 639px) {
-  .tlBlurb {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
 }
 
 /* ---------- Two-column meta grid (Contact) ---------- */
@@ -949,8 +910,8 @@
   .metaGrid {
     grid-template-columns: 1fr;
     gap: 0.35rem;
-    font-size: 1.125rem;
-    line-height: 1.4;
+    font-size: 1.5rem;
+    line-height: 1.45;
   }
 }
 
@@ -1007,7 +968,7 @@
 }
 
 .skillCol li {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.3;
   color: #727272;
   padding: 0.4rem 0;
@@ -1034,7 +995,7 @@
   font-style: normal;
   color: #5f5f5f;
   opacity: 1;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -1042,7 +1003,7 @@
 /* ---------- Prose paragraphs ---------- */
 
 .prose {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.45;
   color: #727272;
   max-width: none;
@@ -1053,7 +1014,7 @@
 
 @media (max-width: 639px) {
   .prose {
-    font-size: 1.0625rem;
+    font-size: 1.5rem;
     line-height: 1.6;
   }
 }
@@ -1065,6 +1026,11 @@
 .prose strong {
   color: #333333;
   font-weight: 500;
+}
+
+.prose :is(ul, ol) {
+  font-size: 1.25rem;
+  line-height: 1.45;
 }
 
 /* ---------- Footer (rec553655259) ---------- */
@@ -1087,7 +1053,7 @@
   .footer {
     flex-direction: column;
     align-items: stretch;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     gap: 1.5rem;
     padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
   }
@@ -1133,7 +1099,7 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 1.25rem;
-  color: #727272;
+  color: #0f0f0f;
   margin-bottom: var(--stack-inner-gap);
   text-decoration: none;
   min-height: 2.75rem;
@@ -1141,7 +1107,7 @@
 }
 
 .backLink:hover {
-  color: #333333;
+  color: #0f0f0f;
 }
 
 /* ---------- Case study wireframes (dark placeholder frame on #fff, caption below) ---------- */
@@ -1260,7 +1226,7 @@
   top: 16px;
   right: 16px;
   z-index: 2;
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -1293,7 +1259,7 @@
 }
 
 .caseFrameHint {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1301,7 +1267,7 @@
 }
 
 .caseFrameDims {
-  font-size: 13px;
+  font-size: 1rem;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -1582,7 +1548,7 @@
   margin: 0;
   min-width: 0;
   display: block;
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   justify-self: stretch;
   width: 100%;
@@ -1598,8 +1564,8 @@
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 28rem;
-  aspect-ratio: 4 / 3;
+  max-width: none;
+  aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
   background: #f2f2f2;
@@ -1651,6 +1617,10 @@
   scroll-margin-top: 1rem;
 }
 
+.aboutChronologyHead {
+  margin-bottom: 24px;
+}
+
 .aboutPetSection {
   margin: 0 0 var(--stack-between-gap);
   scroll-margin-top: 1rem;
@@ -1658,7 +1628,7 @@
 
 .aboutPetSection > .prose {
   margin-bottom: var(--stack-inner-gap);
-  max-width: min(42rem, 100%);
+  max-width: none;
 }
 
 .aboutPetGrid {
@@ -1679,7 +1649,7 @@
 }
 
 .aboutPetTitle {
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #0f0f0f;
   text-decoration: none;
@@ -1693,17 +1663,15 @@
 
 .aboutPetStack {
   margin: 0.5rem 0 0.35rem;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.35;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: #727272;
 }
 
 .aboutPetDesc {
   margin: 0;
-  font-size: 0.9375rem;
-  color: #4a4a4a;
 }
 
 .aboutHero {
@@ -1720,7 +1688,7 @@
 .aboutHeroCopy {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.25rem, 2.2vw, 2rem);
+  gap: 64px;
   min-width: 0;
   width: 100%;
   max-width: min(72rem, 100%);
@@ -1731,23 +1699,22 @@
 }
 
 .aboutHeroLede {
-  font-size: clamp(1.3rem, 1.05rem + 0.85vw, 1.65rem);
-  line-height: 1.3;
-  font-weight: 450;
-  color: #4f4f4f;
+  width: 100%;
+  max-width: 100%;
 }
 
 .aboutHeroGrid {
-  --about-hero-col-gap: clamp(1.75rem, 3vw, 2.75rem);
+  --about-hero-col-gap: clamp(2.25rem, 4vw, 4rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: var(--about-hero-col-gap);
+  grid-template-columns: 1fr;
+  row-gap: var(--stack-inner-gap);
   align-items: start;
   min-width: 0;
 }
 
 .aboutHeroIntro {
   grid-column: 1;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 1.45vw, 1.25rem);
@@ -1757,12 +1724,16 @@
 
 .aboutHeroIntro .prose {
   margin-bottom: 0;
-  font-size: 0.9375rem;
   line-height: 1.48;
   color: #525252;
+  text-wrap: pretty;
 }
 
 @media (max-width: 959px) {
+  .aboutHeroLede {
+    max-width: none;
+  }
+
   .aboutHeroCopy {
     max-width: none;
   }
@@ -1779,12 +1750,13 @@
 
   .aboutPortrait {
     grid-column: 1;
+    grid-row: 1;
     justify-self: start;
-    width: min(100%, 28rem);
+    width: 100%;
   }
 
   .aboutPortraitFrame {
-    max-width: 360px;
+    max-width: none;
   }
 }
 
@@ -1822,16 +1794,12 @@
 
 @media (max-width: 639px) {
   .caseTitle {
-    font-size: 1.25rem;
-  }
-
-  .caseDesc {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 .caseMetaLine {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #727272;
   opacity: 0.65;
   margin: 1rem 0 0;
@@ -1867,8 +1835,8 @@
 /* ---------- Access gate (locked case studies) ---------- */
 
 .caseLockIntro {
-  font-size: 1.25rem;
-  line-height: 1.4;
+  font-size: 1.5rem;
+  line-height: 1.45;
   color: #727272;
   margin: 0 0 var(--stack-inner-gap);
   max-width: none;
@@ -1907,7 +1875,7 @@
 
 .caseTrackMapHint {
   margin: 0 0 var(--stack-inner-gap);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: #727272;
 }
@@ -1933,7 +1901,7 @@
   list-style: none;
   cursor: pointer;
   padding: 0.75rem 1rem;
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #0f0f0f;
   line-height: 1.35;
@@ -1965,7 +1933,7 @@
 .caseTrackSummaryBody {
   margin: 0;
   padding: 0 1rem 1rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #5a5a5a;
 }
 
@@ -2089,14 +2057,14 @@
 
   .pageEyebrow,
   .caseContextHint {
-    font-size: 0.875rem;
+    font-size: 1rem;
     letter-spacing: 0.1em;
   }
 
   .caseFrameBadge,
   .caseFrameHint,
   .caseFrameDims {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .storyNodeLabel {
@@ -2195,19 +2163,13 @@
 }
 
 .caseBlockHead {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #0f0f0f;
   margin: 0 0 var(--stack-prose-gap);
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
   word-break: break-word;
-}
-
-@media (max-width: 639px) {
-  .caseBlockHead {
-    font-size: 1.125rem;
-  }
 }
 
 /* Running text then figure — same inner gap as project cover → title */

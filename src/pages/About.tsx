@@ -20,7 +20,7 @@ const PET_PROJECTS = [
   {
     name: 'Simple Screen Recorder',
     href: PET_SCREEN_RECORDER_URL,
-    stack: 'Chrome Web Store · Cursor · Codex · Antigravity · Claude Code',
+    stack: 'Chrome · Cursor · Codex · Antigravity · Claude Code',
     description:
       'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',
   },
@@ -267,7 +267,7 @@ export default function About() {
       </section>
 
       <section id="chronology" className={styles.aboutChronology}>
-        <h2 className={styles.sectionHead}>
+        <h2 className={`${styles.sectionHead} ${styles.aboutChronologyHead}`}>
           <span>Chronology</span>
           <small>2009 → now</small>
         </h2>
