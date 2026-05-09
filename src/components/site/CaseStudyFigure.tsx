@@ -117,13 +117,7 @@ export function CaseStudyFigure({
             loop
             muted
             playsInline
-            preload={
-              playOn === 'hover'
-                ? 'auto'
-                : loading === 'eager'
-                  ? 'auto'
-                  : 'metadata'
-            }
+            preload="metadata"
             aria-label={alt}
             onLoadedMetadata={(e) => {
               const v = e.currentTarget;
