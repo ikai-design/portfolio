@@ -38,6 +38,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     aspectRatio: '16 / 9',
     badge: 'Case 01 · Hub',
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
+    videoPoster: `${import.meta.env.BASE_URL}miro_case_01_poster.jpg`,
     imageAlt: 'Miro — in-product sign-up flow',
     playOn: 'hover' as const,
     loading: 'eager' as const,
