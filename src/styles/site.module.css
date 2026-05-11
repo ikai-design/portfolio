@@ -717,6 +717,7 @@
 .ctaBlockNoDivider {
   border-top: 0;
   padding-top: 0;
+  margin: 0;
 }
 
 .ctaText {
@@ -810,7 +811,11 @@
 }
 
 .caseAccessChecklist.contactLeadChecklist {
-  margin: var(--stack-cta-gap) 0 var(--stack-inner-gap);
+  margin: var(--stack-cta-gap) 0 0;
+}
+
+.pageLedeNoBottom {
+  margin-bottom: 0;
 }
 
 /* ---------- Section heads / dividers ---------- */
@@ -837,6 +842,16 @@
   letter-spacing: 0.02em;
 }
 
+@media (min-width: 640px) {
+  /*
+   * Vertical rhythm: distance from previous block end → divider line (border-top)
+   * should be consistent across About sections.
+   */
+  .sectionHead {
+    margin-top: 144px;
+  }
+}
+
 @media (max-width: 639px) {
   .sectionHead {
     flex-direction: column;
@@ -857,7 +872,7 @@
   grid-template-columns: 9rem 1fr;
   align-items: start;
   gap: 1rem 2rem;
-  margin: 0 0 var(--stack-between-gap);
+  margin: 0;
 }
 
 @media (max-width: 639px) {
@@ -949,7 +964,7 @@
   display: grid;
   grid-template-columns: 9rem 1fr;
   gap: 0.75rem 2rem;
-  margin: 0 0 var(--stack-between-gap);
+  margin: 0;
   font-size: 1.5rem;
   line-height: 1.2;
 }
@@ -995,7 +1010,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   gap: var(--stack-inner-gap) 2rem;
-  margin: 0 0 var(--stack-between-gap);
+  margin: 0;
 }
 
 .prose + .skillsGrid {
@@ -1058,6 +1073,22 @@
   width: 100%;
   margin: 0 0 var(--stack-prose-gap);
   overflow-wrap: anywhere;
+}
+
+.proseNoBottom {
+  margin-bottom: 0;
+}
+
+.pageBottomSpacer {
+  /* Consistent air above the site footer (matches Home's last CTA bottom spacing). */
+  height: var(--stack-between-gap);
+}
+
+@media (min-width: 640px) {
+  .pageBottomSpacer {
+    /* Match the current divider rhythm on About/Contact (sectionHead margin-top = 144px desktop). */
+    height: 144px;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1670,7 +1701,7 @@
 }
 
 .aboutPetSection {
-  margin: 0 0 var(--stack-between-gap);
+  margin: 0;
   scroll-margin-top: 1rem;
 }
 
@@ -1726,7 +1757,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--stack-inner-gap);
-  margin: 0 0 var(--stack-between-gap);
+  margin: 0;
 }
 
 .aboutHeroTitle {

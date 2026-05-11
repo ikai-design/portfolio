@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
-      <p className={styles.pageLede}>
+      <p className={`${styles.pageLede} ${styles.pageLedeNoBottom}`}>
         Open to senior/lead product design roles — including teams with strong monetization,
         activation, or experimentation cultures — with selective contract and advisory support.
       </p>
@@ -83,7 +83,7 @@ export default function Contact() {
         <span>Mentorship</span>
         <small>Free — 2–3 slots / week</small>
       </h2>
-      <p className={styles.prose}>
+      <p className={`${styles.prose} ${styles.proseNoBottom}`}>
         Free 30-minute sessions on{' '}
         <a
           className={styles.inlineLink}

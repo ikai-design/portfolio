@@ -8,6 +8,7 @@ import { RouteSkeleton } from './RouteSkeleton';
 
 export function SiteLayout() {
   const { pathname } = useLocation();
+  const showPageBottomSpacer = pathname !== '/';
 
   return (
     <div className={styles.shell}>
@@ -20,6 +21,7 @@ export function SiteLayout() {
             </div>
           </Suspense>
         </main>
+        {showPageBottomSpacer && <div className={styles.pageBottomSpacer} aria-hidden="true" />}
         <SiteFooter />
       </div>
     </div>
