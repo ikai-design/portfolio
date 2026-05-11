@@ -52,8 +52,11 @@ const CASE_ITEMS: HomeCaseItem[] = [
     meta: '2019 — 2021 · Kyiv',
     aspectRatio: '8 / 5',
     badge: 'Case 02 · Cover',
-    imageSrc: `${import.meta.env.BASE_URL}cover_w_2.png`,
-    imageAlt: 'Wix case cover',
+    videoSrc: `${import.meta.env.BASE_URL}Wix_case_01.mp4`,
+    videoPoster: `${import.meta.env.BASE_URL}wix_case_01_poster.png`,
+    imageAlt: 'Wix Groups — product screen recording',
+    playOn: 'hover' as const,
+    loading: 'lazy' as const,
   },
   {
     to: '/projects/star-global',

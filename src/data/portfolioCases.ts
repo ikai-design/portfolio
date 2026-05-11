@@ -237,8 +237,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     hero: {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
-      src: caseAsset('cover_w_2.png'),
-      alt: 'Wix case study cover',
+      videoSrc: caseAsset('Wix_case_01.mp4'),
+      videoPoster: caseAsset('wix_case_01_poster.png'),
+      alt: 'Wix Groups — product screen recording',
       caption: 'Cross-platform product design — React Native, web app, and site editor surfaces.',
     },
     lockedTeaserAfterHero: [
@@ -255,10 +256,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Journeys',
-        src: caseAsset('cover_w3.png'),
-        alt: 'Wix Groups — four-panel admin wireflows',
-        caption:
-          'Admin UX in four frames: group directory, space shell, membership, and invite flow — end-to-end owner tooling.',
+        src: caseAsset('cover_w_2.png'),
+        alt: 'Wix Groups — cross-platform product (React Native)',
+        caption: 'Cross-platform product design — React Native',
       },
     ],
     body: [
@@ -291,10 +291,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Journeys',
-          src: caseAsset('cover_w3.png'),
-          alt: 'Wix Groups — four-panel admin wireflows',
-          caption:
-            'Admin UX in four frames: group directory, space shell, membership, and invite flow — end-to-end owner tooling.',
+          src: caseAsset('cover_w_2.png'),
+          alt: 'Wix Groups — cross-platform product (React Native)',
+          caption: 'Cross-platform product design — React Native',
         },
       },
       {
