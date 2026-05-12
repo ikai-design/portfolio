@@ -1950,6 +1950,7 @@
 
 .caseTrackMap {
   margin: 0 0 var(--stack-between-gap);
+  scroll-margin-top: 1.25rem;
 }
 
 .caseTrackMapHint {

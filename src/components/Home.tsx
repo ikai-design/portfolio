@@ -33,7 +33,7 @@ const CASE_ITEMS: HomeCaseItem[] = [
     external: false as const,
     title: 'Miro',
     desc:
-      'Product design across high-stakes surfaces: community, acquisition, signup, enterprise expansion, and monetization — public teaser; full case deck shared on request via email.',
+      'End-to-end design for 80M+ users across community, acquisition, enterprise, and monetization. Public teaser: signup, templates, and share-as-presentation—full deck on request via email.',
     meta: '2021 — now · Amsterdam',
     aspectRatio: '16 / 9',
     badge: 'Case 01 · Hub',

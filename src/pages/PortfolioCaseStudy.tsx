@@ -2,10 +2,26 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
 import { MAILTO } from '../components/site/SiteHeader';
-import { PORTFOLIO_CASES } from '../data/portfolioCases';
+import { LEDE_PROGRAM_MAP_LINK_TOKEN, PORTFOLIO_CASES } from '../data/portfolioCases';
 import { isCasePasswordProtected } from '../config/lockedCases';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+
+function renderLedeWithOptionalProgramMapLink(lede: string) {
+  if (!lede.includes(LEDE_PROGRAM_MAP_LINK_TOKEN)) {
+    return lede;
+  }
+  const [before, after] = lede.split(LEDE_PROGRAM_MAP_LINK_TOKEN);
+  return (
+    <>
+      {before}
+      <a href="#program-map" className={styles.inlineLink}>
+        Program map
+      </a>
+      {after}
+    </>
+  );
+}
 
 const PUBLIC_TEASER_TEMPLATE = [
   'Scope: solve a high-stakes product problem with clear business and user impact.',
@@ -90,7 +106,7 @@ export default function PortfolioCaseStudy() {
       ) : null}
 
       {data.publicTracks?.length ? (
-        <section className={styles.caseTrackMap} aria-label="Program map">
+        <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
           <h2 className={styles.caseBlockHead}>Program map</h2>
           <p className={styles.caseTrackMapHint}>Expand a stream for a one-line summary of the work.</p>
           <div className={styles.caseTrackAccordions}>
@@ -114,7 +130,7 @@ export default function PortfolioCaseStudy() {
           </p>
         ))}
       </section>
-      <p className={styles.pageLede}>{data.lede}</p>
+      <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
 
       {locked && data.lockedTeaserFigures?.length ? (
         <div className={styles.caseLockedTeaserStack}>

@@ -13,6 +13,9 @@ export function caseAsset(path: string): string {
   return `${import.meta.env.BASE_URL}${p}`;
 }
 
+/** In `PortfolioCaseStudy`, replaced with an in-page link to `#program-map`. */
+export const LEDE_PROGRAM_MAP_LINK_TOKEN = '{{PROGRAM_MAP_LINK}}' as const;
+
 export type FigureSpec = {
   aspectRatio: string;
   badge: string;
@@ -68,15 +71,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Senior Product Designer (Growth) in Amsterdam — multiple product team contexts as priorities shifted. I owned framing through shipped UI, systems implications, and experimentation where it reduced risk, with PM, engineering, and GTM.',
-        'Thread: Different entry intents (discovery → trial → expansion → monetization). The work sharpened high-stakes moments — signup, templates, checkout, governance — without treating Miro as a single funnel. Deck: trade-offs and validation on request.',
+        'Senior Product Designer in Amsterdam — solo designer embedded across cross-functional teams as priorities shifted. Framing through shipped UI, systems implications, and experimentation where it reduced risk.',
+        'Teaser focus: signup, in-product templates (create, find, organize), and share-as-presentation. Adjacent streams are one line each in the Program map below; trade-offs and deeper narrative on request via email.',
       ],
     },
-    lede:
-      'End-to-end product design for 80M+ users across community, acquisition, enterprise, and monetization (Miroverse through paid conversion). Full detail shared on request via email.',
+    lede: `End-to-end product design for 80M+ users across the full product journey. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes what is public here; full process, decisions, and additional streams are shared on request via email.`,
     teaserBullets: [
-      'Scope & execution: Community, acquisition, signup, enterprise trials and admin, templates and shareable decks, monetization (free-to-paid, checkout, pricing, retention) — journeys, UI quality, experimentation, AI-assisted prototyping.',
-      'Impact: Movement across acquisition, activation, engagement, expansion, and conversion — metrics and experiment detail shared on request.',
+      'Collaboration: PM, engineering, and GTM — from problem framing through shipped UI, including targeted experimentation when it reduced delivery risk.',
+      'Teaser surfaces: in-product signup and guest-to-account paths; templates (create, find, organize, standardize); share-as-presentation for stakeholder-ready output.',
+      'Constraints: technical feasibility; enterprise B2B sensitivity; guardrails and cross-stream alignment. Outcomes stay NDA-safe here — research-informed shipping, clearer templates direction and roadmap, and segment-led beta to rollout where it mattered; detailed narrative on request.',
     ],
     publicTracks: [
       {
@@ -144,8 +147,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'text',
         paragraphs: [
-          'Full case (private): role and timeline, team shape, problem framing, and how success was defined without over-sharing.',
-          'What moved the work forward — constraints, trade-offs, and the narrative that ties the streams together.',
+          'The clips below are the same three production surfaces at a slightly lower altitude than the hero — registration, template library and organization, and share-as-presentation.',
         ],
       },
       {
@@ -162,7 +164,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'text',
         paragraphs: [
-          'Deeper process and decisions: exploration breadth, what was validated, and how the UX held up in production.',
+          'Private deck on request covers team shape, problem framing, trade-offs, success criteria, and streams beyond these teasers — without non-public metrics or unreleased product detail.',
         ],
       },
       {
@@ -175,12 +177,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           caption:
             'Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review.',
         },
-      },
-      {
-        kind: 'text',
-        paragraphs: [
-          'Ship and learn: collaboration model, what shipped, and what you would iterate next — written for hiring-manager review.',
-        ],
       },
       {
         kind: 'figure',
