@@ -93,7 +93,7 @@ export default function Contact() {
         >
           ADPList
         </a>
-        : CV reviews, portfolio critiques, interview prep and whiteboard exercises for designers
+        : CV reviews, portfolio critiques, interview preparation and whiteboard exercises for designers
         early- to mid-career.
       </p>
 
