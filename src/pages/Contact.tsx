@@ -94,7 +94,7 @@ export default function Contact() {
           ADPList
         </a>
         : CV reviews, portfolio critiques, interview prep and whiteboard exercises for designers
-        early- to mid-career. Mentoring there since 2023.
+        early- to mid-career.
       </p>
 
       <h2 className={styles.sectionHead}>
