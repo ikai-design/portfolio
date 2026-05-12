@@ -69,7 +69,7 @@ export default function Contact() {
         </span>
         <span className={styles.metaKey}>Contract</span>
         <span className={styles.metaValue}>
-          Selective advisory engagements (typically one short engagement per quarter)
+          Selective advisory engagements
         </span>
         <span className={styles.metaKey}>Timezone</span>
         <span className={styles.metaValue}>EU time zones (CET, GMT, CEST)</span>
