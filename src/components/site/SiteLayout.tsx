@@ -5,6 +5,7 @@ import '../../styles/site.css';
 import { SiteHeader } from './SiteHeader';
 import { SiteFooter } from './SiteFooter';
 import { RouteSkeleton } from './RouteSkeleton';
+import { SeoHead } from './SeoHead';
 
 export function SiteLayout() {
   const { pathname, hash } = useLocation();
@@ -20,6 +21,7 @@ export function SiteLayout() {
 
   return (
     <div className={styles.shell}>
+      <SeoHead />
       <div className={styles.page}>
         <SiteHeader />
         <main className={styles.mainColumn}>
