@@ -54,6 +54,7 @@ export const PET_HOME_ITEMS: HomeCaseItem[] = PET_PROJECTS.map((p) => ({
   aspectRatio: p.aspectRatio,
   badge: p.badge,
   videoSrc: petAsset(p.videoFile),
+  videoPoster: petAsset(p.posterFile),
   imageAlt: `${p.name} — product demo`,
   playOn: 'hover' as const,
   loading: 'lazy' as const,

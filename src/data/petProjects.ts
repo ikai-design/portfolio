@@ -11,6 +11,8 @@ export type PetProject = {
   meta: string;
   badge: string;
   videoFile: string;
+  /** Still shown until video is ready (important on mobile). */
+  posterFile: string;
   aspectRatio: string;
 };
 
@@ -31,6 +33,7 @@ export const PET_PROJECTS: PetProject[] = [
     meta: '2026 · Live PWA · Solo ship',
     badge: 'Shipped · Pet project',
     videoFile: 'Wren_demo_video.mp4',
+    posterFile: 'Wren_case_poster.png',
     aspectRatio: '16 / 9',
   },
   {
@@ -45,6 +48,7 @@ export const PET_PROJECTS: PetProject[] = [
     meta: '2026 · Chrome Web Store · Solo ship',
     badge: 'Shipped · Pet project',
     videoFile: 'Recording_Demo.mp4',
+    posterFile: 'Screen_recorder_poster.png',
     aspectRatio: '16 / 9',
   },
 ];
