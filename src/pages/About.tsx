@@ -1,30 +1,10 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { PET_PROJECTS } from '../data/petProjects';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
 const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
-
-const PET_TRY_WREN_URL = 'https://trywren.app/';
-const PET_SCREEN_RECORDER_URL =
-  'https://simple-screen-recorder.com/';
-
-const PET_PROJECTS = [
-  {
-    name: 'Try Wren',
-    href: PET_TRY_WREN_URL,
-    stack: 'Lovable · PWA · database · speech and AI-assisted input',
-    description:
-      'A Lovable-built PWA: voice and text in one place, backed by data and modern speech/AI-assisted input.',
-  },
-  {
-    name: 'Simple Screen Recorder',
-    href: PET_SCREEN_RECORDER_URL,
-    stack: 'Chrome · Cursor · Codex · Antigravity · Claude Code',
-    description:
-      'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',
-  },
-] as const;
 
 type Job = {
   year: string;

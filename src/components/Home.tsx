@@ -1,5 +1,6 @@
 import styles from '../styles/site.module.css';
 import { CaseStudyCard } from './site/CaseStudyCard';
+import { PET_PROJECTS, petAsset } from '../data/petProjects';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
 const TRUST_MARKERS = [
@@ -12,7 +13,7 @@ const TRUST_MARKERS = [
 
 type HomeCaseItem = {
   to: string;
-  external: false;
+  external?: boolean;
   title: string;
   desc: string;
   meta?: string;
@@ -27,10 +28,9 @@ type HomeCaseItem = {
   placeholderVariant?: 'default' | 'chronology';
 };
 
-const CASE_ITEMS: HomeCaseItem[] = [
+const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
   {
     to: '/projects/miro',
-    external: false as const,
     title: 'Miro',
     desc:
       'End-to-end design for 80M+ users across community, acquisition, enterprise, and monetization. Public teaser: signup, templates, and share-as-presentation—full deck on request via email.',
@@ -40,12 +40,11 @@ const CASE_ITEMS: HomeCaseItem[] = [
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
     videoPoster: `${import.meta.env.BASE_URL}miro_case_01_poster.jpg`,
     imageAlt: 'Miro — in-product sign-up flow',
-    playOn: 'hover' as const,
-    loading: 'eager' as const,
+    playOn: 'hover',
+    loading: 'eager',
   },
   {
     to: '/projects/wix-groups',
-    external: false as const,
     title: 'Wix',
     desc:
       'Sole designer for most of the lifecycle — cross-platform community product for creators and SMBs, 200M+ users, 190 countries.',
@@ -55,12 +54,11 @@ const CASE_ITEMS: HomeCaseItem[] = [
     videoSrc: `${import.meta.env.BASE_URL}Wix_case_01.mp4`,
     videoPoster: `${import.meta.env.BASE_URL}wix_case_01_poster.png`,
     imageAlt: 'Wix Groups — product screen recording',
-    playOn: 'hover' as const,
-    loading: 'lazy' as const,
+    playOn: 'hover',
+    loading: 'lazy',
   },
   {
     to: '/projects/star-global',
-    external: false as const,
     title: 'Star (ex-Cogniance)',
     desc:
       '10+ Fortune 500 engagements — greenfield and regulated — AdTech, HealthTech, IoT, telematics, GovTech; client workshops and NDA.',
@@ -70,16 +68,51 @@ const CASE_ITEMS: HomeCaseItem[] = [
     imageSrc: `${import.meta.env.BASE_URL}cover_s.png`,
     imageAlt: 'Star case cover',
   },
-  {
-    to: '/about#chronology',
-    external: false as const,
-    title: 'Background & chronology',
-    desc: 'Roles, skills, side projects, and how the work above fits together.',
-    aspectRatio: '21 / 9',
-    badge: '',
-    placeholderVariant: 'chronology',
-  },
 ];
+
+const PET_HOME_ITEMS: HomeCaseItem[] = PET_PROJECTS.map((p) => ({
+  to: p.href,
+  external: true,
+  title: p.name,
+  desc: p.homeDesc,
+  meta: p.meta,
+  aspectRatio: p.aspectRatio,
+  badge: p.badge,
+  videoSrc: petAsset(p.videoFile),
+  imageAlt: `${p.name} — product demo`,
+  playOn: 'hover' as const,
+  loading: 'lazy' as const,
+}));
+
+const CHRONOLOGY_ITEM: HomeCaseItem = {
+  to: '/about#chronology',
+  title: 'Background & chronology',
+  desc: 'Roles, skills, side projects, and how the work above fits together.',
+  aspectRatio: '21 / 9',
+  badge: '',
+  placeholderVariant: 'chronology',
+};
+
+function renderCaseCard(item: HomeCaseItem) {
+  return (
+    <CaseStudyCard
+      to={item.to}
+      external={item.external}
+      title={item.title}
+      desc={item.desc}
+      meta={item.meta}
+      aspectRatio={item.aspectRatio}
+      badge={item.badge}
+      imageSrc={item.imageSrc}
+      imageAlt={item.imageAlt}
+      videoSrc={item.videoSrc}
+      videoPoster={item.videoPoster}
+      playOn={item.playOn}
+      loading={item.loading}
+      placeholderVariant={item.placeholderVariant}
+    />
+  );
+}
 
 export default function Home() {
   return (
@@ -95,26 +128,25 @@ export default function Home() {
       </section>
 
       <ul className={styles.caseStack}>
-        {CASE_ITEMS.map((item) => (
-          <li key={item.title}>
-            <CaseStudyCard
-              to={item.to}
-              external={item.external}
-              title={item.title}
-              desc={item.desc}
-              meta={item.meta}
-              aspectRatio={item.aspectRatio}
-              badge={item.badge}
-              imageSrc={item.imageSrc}
-              imageAlt={item.imageAlt}
-              videoSrc={item.videoSrc}
-              videoPoster={item.videoPoster}
-              playOn={item.playOn}
-              loading={item.loading}
-              placeholderVariant={item.placeholderVariant}
-            />
-          </li>
+        {ENTERPRISE_CASE_ITEMS.map((item) => (
+          <li key={item.title}>{renderCaseCard(item)}</li>
         ))}
+
+        <li className={styles.homePetIntro}>
+          <h2 className={styles.sectionHead}>
+            <span>Pet projects</span>
+            <small>Shipped outside the day job</small>
+          </h2>
+          <p className={`${styles.prose} ${styles.homePetLede}`}>
+            Live products built end-to-end with AI-assisted tooling — open in a new tab.
+          </p>
+        </li>
+
+        {PET_HOME_ITEMS.map((item) => (
+          <li key={item.title}>{renderCaseCard(item)}</li>
+        ))}
+
+        <li key={CHRONOLOGY_ITEM.title}>{renderCaseCard(CHRONOLOGY_ITEM)}</li>
       </ul>
 
       <p className={styles.bio}>
