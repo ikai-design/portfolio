@@ -132,6 +132,14 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         caption:
           'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
       },
+      {
+        aspectRatio: '16 / 9',
+        badge: 'Teaser · Multi-product checkout',
+        videoSrc: caseAsset('Miro_case_02_2_Checkout.mp4'),
+        alt: 'Miro — multi-product checkout flow',
+        caption:
+          'Multi-product checkout: seats, add-ons in one purchase flow, transparent pricing steps, and a smoother path to confirmation.',
+      },
     ],
     lockedTeaserFigures: [
       {
