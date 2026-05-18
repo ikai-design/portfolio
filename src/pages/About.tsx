@@ -1,6 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PET_PROJECTS } from '../data/petProjects';
+import { PageSection } from '../components/site/PageSection';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
@@ -246,11 +247,13 @@ export default function About() {
         </div>
       </section>
 
-      <section id="chronology" className={styles.aboutChronology}>
-        <h2 className={`${styles.sectionHead} ${styles.aboutChronologyHead}`}>
-          <span>Chronology</span>
-          <small>2009 → now</small>
-        </h2>
+      <PageSection
+        id="chronology"
+        sectionClassName={styles.aboutChronology}
+        title="Chronology"
+        subtitle="2009 → now"
+        headClassName={styles.aboutChronologyHead}
+      >
         <div className={styles.timeline}>
           {TIMELINE.map((job) => (
             <div key={`${job.year}-${job.company}`} style={{ display: 'contents' }}>
@@ -265,17 +268,15 @@ export default function About() {
             </div>
           ))}
         </div>
-      </section>
+      </PageSection>
 
-      <section id="pet-projects" className={styles.aboutPetSection} aria-labelledby="pet-projects-heading">
-        <h2 id="pet-projects-heading" className={styles.sectionHead}>
-          <span>Pet projects</span>
-          <small>Shipped outside the day job</small>
-        </h2>
-        <p className={styles.prose}>
-          Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product
-          instincts alongside enterprise SaaS work.
-        </p>
+      <PageSection
+        id="pet-projects"
+        sectionClassName={styles.aboutPetSection}
+        title="Pet projects"
+        subtitle="Shipped outside the day job"
+        lede="Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product instincts alongside enterprise SaaS work."
+      >
         <ul className={styles.aboutPetGrid}>
           {PET_PROJECTS.map((p) => (
             <li key={p.name} className={styles.aboutPetCard}>
@@ -287,7 +288,7 @@ export default function About() {
             </li>
           ))}
         </ul>
-      </section>
+      </PageSection>
 
       <h2 className={styles.sectionHead}>
         <span>Top skills</span>

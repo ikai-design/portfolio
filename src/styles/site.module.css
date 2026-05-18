@@ -1206,19 +1206,26 @@
   margin-bottom: 0;
 }
 
-.homePetIntro {
-  list-style: none;
+.pageSection {
   margin: 0;
-  padding: calc(var(--stack-between-gap) * 0.35) 0 0;
+  scroll-margin-top: 1rem;
 }
 
-.homePetIntro .sectionHead {
-  margin-bottom: var(--stack-inner-gap);
-}
-
-.homePetLede {
+.pageSectionLede {
   margin: 0 0 var(--stack-inner-gap);
   max-width: 42rem;
+}
+
+.caseStackNested,
+.caseStackFlush {
+  margin-bottom: 0;
+}
+
+.homeChronologyLink {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #727272;
 }
 
 .caseCardLink {
@@ -1716,12 +1723,10 @@
 }
 
 .aboutPetSection {
-  margin: 0;
   scroll-margin-top: 1rem;
 }
 
-.aboutPetSection > .prose {
-  margin-bottom: var(--stack-inner-gap);
+.aboutPetSection .pageSectionLede {
   max-width: none;
 }
 
