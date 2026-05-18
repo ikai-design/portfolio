@@ -60,8 +60,11 @@ export function SeoHead() {
     upsertMetaName('twitter:title', meta.title);
     upsertMetaName('twitter:description', meta.description);
 
-    const ogImage = `${SITE_ORIGIN}/about/eugene-default.png`;
+    const ogImage = `${SITE_ORIGIN}/OG.jpg`;
     upsertMetaProperty('og:image', ogImage);
+    upsertMetaProperty('og:image:width', '1200');
+    upsertMetaProperty('og:image:height', '630');
+    upsertMetaProperty('og:image:alt', 'Eugene Voroniuk — Senior Product Designer');
     upsertMetaName('twitter:image', ogImage);
   }, [pathname]);
 
