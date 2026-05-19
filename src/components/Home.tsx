@@ -30,6 +30,7 @@ export default function Home() {
 
       <PageSection
         id="pet-projects"
+        sectionClassName={styles.homePetSection}
         title="Pet projects"
         subtitle="Shipped outside the day job"
         lede="Live products built end-to-end with AI-assisted tooling — open in a new tab."
