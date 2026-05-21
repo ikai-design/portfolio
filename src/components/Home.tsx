@@ -21,7 +21,7 @@ export default function Home() {
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Complex SaaS at scale — Miro (80M+), Wix (200M+) — strategy to shipped UI, with depth in
+          Complex SaaS at scale: Miro (80M+), Wix (200M+); strategy to shipped UI, with depth in
           lifecycle and monetization.
         </p>
       </section>
