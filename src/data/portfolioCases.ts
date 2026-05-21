@@ -75,11 +75,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         'Teaser focus: signup, in-product templates (create, find, organize), and share-as-presentation. Adjacent streams are one line each in the Program map below; trade-offs and deeper narrative on request via email.',
       ],
     },
-    lede: `End-to-end product design for 80M+ users across the full product journey. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes what is public here; full process, decisions, and additional streams are shared on request via email.`,
+    lede: `Product design for 80M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser; full process and outcomes are shared on request via email.`,
     teaserBullets: [
-      'Collaboration: PM, engineering, and GTM — from problem framing through shipped UI, including targeted experimentation when it reduced delivery risk.',
-      'Teaser surfaces: in-product signup and guest-to-account paths; templates (create, find, organize, standardize); share-as-presentation for stakeholder-ready output.',
-      'Constraints: technical feasibility; enterprise B2B sensitivity; guardrails and cross-stream alignment. Outcomes stay NDA-safe here — research-informed shipping, clearer templates direction and roadmap, and segment-led beta to rollout where it mattered; detailed narrative on request.',
+      'Role: solo designer embedded with PM, engineering, and GTM — framing through shipped UI and targeted experimentation.',
+      'Surfaces: in-product signup, custom templates, share-as-presentation, and monetization/checkout flows.',
+      'Outcomes: NDA-safe here — research-informed shipping and segment-led rollout where it mattered; detail on request.',
     ],
     publicTracks: [
       {
@@ -211,8 +211,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lede:
       'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (200M+ users). NDA-aware full deck on request.',
     teaserBullets: [
-      'Scope & execution: Launch and scale across surfaces — member journeys, moderation, creator and admin flows; cross-platform parity and phased rollout.',
-      'Impact: Stronger engagement and repeat use; detailed metrics stay private.',
+      'Role: sole designer with partial product ownership — web, iOS, and Android with PM and engineering.',
+      'Execution: member journeys, moderation, and creator/admin flows with cross-platform parity.',
+      'Impact: stronger engagement and repeat use; metrics stay private.',
     ],
     publicTracks: [
       {
@@ -331,8 +332,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
     lede:
       '10+ Fortune 500 engagements (greenfield / regulated) — including mobile–wearable pairing for flagship smartwatch hardware, plus IoT, telematics, HealthTech, GovTech, and AdTech. Full evidence on request under NDA.',
     teaserBullets: [
-      'Scope & execution: Discovery, IA, prototyping, validation, specs — technically complex products with distributed PM and engineering; wearables pairing, onboarding, and connectivity UX for world-class consumer hardware (brand anonymized).',
-      'Impact: Enterprise-ready delivery; client names and metrics confidential.',
+      'Role: UX → Senior UX — workshops, IA, prototyping, and handoff to distributed engineering.',
+      'Execution: greenfield and regulated programs, including anonymized wearable companion UX under NDA.',
+      'Impact: enterprise-ready delivery; client names and metrics confidential.',
     ],
     publicTracks: [
       {

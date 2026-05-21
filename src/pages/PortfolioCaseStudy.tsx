@@ -24,10 +24,12 @@ function renderLedeWithOptionalProgramMapLink(lede: string) {
 }
 
 const PUBLIC_TEASER_TEMPLATE = [
-  'Scope: solve a high-stakes product problem with clear business and user impact.',
-  'Execution: lead end-to-end product design with PM and engineering from framing to shipped UI.',
-  'Impact: drive measurable movement; full metrics and internal decision detail are shared on request via email.',
+  'Scope: high-stakes product problem with clear user and business impact.',
+  'Execution: end-to-end product design with PM and engineering through shipped UI.',
+  'Impact: measurable movement where safe to share; full detail on request via email.',
 ];
+
+const MAX_TEASER_BULLETS = 3;
 
 export default function PortfolioCaseStudy() {
   const { slug } = useParams<{ slug: string }>();
@@ -56,6 +58,8 @@ export default function PortfolioCaseStudy() {
     );
   }
 
+  const teaserBullets = (data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).slice(0, MAX_TEASER_BULLETS);
+
   return (
     <>
       <Link className={styles.backLink} to="/">
@@ -69,8 +73,8 @@ export default function PortfolioCaseStudy() {
           badge={data.hero.badge}
           caption={data.hero.caption}
           src={data.hero.src}
-        videoSrc={data.hero.videoSrc}
-        videoPoster={data.hero.videoPoster}
+          videoSrc={data.hero.videoSrc}
+          videoPoster={data.hero.videoPoster}
           alt={data.hero.alt}
           loading="eager"
         />
@@ -94,88 +98,129 @@ export default function PortfolioCaseStudy() {
         ) : null}
       </section>
 
-      {data.throughLine ? (
-        <section className={styles.caseThroughLine} aria-label={data.throughLine.title}>
-          <h2 className={styles.caseBlockHead}>{data.throughLine.title}</h2>
-          {data.throughLine.paragraphs.map((p, i) => (
-            <p key={i} className={styles.prose}>
-              {p}
-            </p>
-          ))}
-        </section>
-      ) : null}
-
-      {data.publicTracks?.length ? (
-        <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
-          <h2 className={styles.caseBlockHead}>Program map</h2>
-          <p className={styles.caseTrackMapHint}>Expand a stream for a one-line summary of the work.</p>
-          <div className={styles.caseTrackAccordions}>
-            {data.publicTracks.map((track) => (
-              <details key={track.label} className={styles.caseTrackDetails}>
-                <summary className={styles.caseTrackSummary}>
-                  <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
-                </summary>
-                <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      <section className={styles.caseTeaser}>
-        <h2 className={styles.caseBlockHead}>At a glance</h2>
-        {(data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).map((line) => (
-          <p key={line} className={styles.prose}>
-            {line}
-          </p>
-        ))}
-      </section>
-      <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
-
-      {locked && data.lockedTeaserFigures?.length ? (
-        <div className={styles.caseLockedTeaserStack}>
-          {data.lockedTeaserFigures.map((spec, i) => (
-            <CaseStudyFigure
-              key={`${spec.badge}-${i}`}
-              aspectRatio={spec.aspectRatio}
-              badge={spec.badge}
-              caption={spec.caption}
-              src={spec.src}
-              videoSrc={spec.videoSrc}
-              videoPoster={spec.videoPoster}
-              alt={spec.alt ?? ''}
-              loading="lazy"
-            />
-          ))}
-        </div>
-      ) : null}
-
       {locked ? (
-        <section className={styles.caseAccessGate}>
-          <p className={styles.caseLockIntro}>
-            Full case decks with detailed process, decisions, and outcomes — including experiments
-            where they were part of the work — are shared on request via{' '}
-            <a href={MAILTO}>email</a>.
-          </p>
-          <ul className={styles.caseAccessChecklist}>
-            <li>Include your role, company, and the case area you want to review.</li>
-            <li>Typical response time: within 24 hours on business days.</li>
-            <li>
-              You&apos;ll receive an NDA-aware summary (PDF / Figma) tailored to the streams you name —
-              process, decisions, and outcomes where safe to share.
-            </li>
-          </ul>
-          {data.lockDisclaimer ? (
-            <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
+        <>
+          <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
+
+          <section className={styles.caseTeaser}>
+            <h2 className={styles.caseBlockHead}>At a glance</h2>
+            {teaserBullets.map((line) => (
+              <p key={line} className={styles.prose}>
+                {line}
+              </p>
+            ))}
+          </section>
+
+          {data.publicTracks?.length ? (
+            <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
+              <h2 className={styles.caseBlockHead}>Program map</h2>
+              <p className={styles.caseTrackMapHint}>
+                Expand a stream for a one-line summary of the work.
+              </p>
+              <div className={styles.caseTrackAccordions}>
+                {data.publicTracks.map((track) => (
+                  <details key={track.label} className={styles.caseTrackDetails}>
+                    <summary className={styles.caseTrackSummary}>
+                      <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
+                    </summary>
+                    <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
           ) : null}
-          <div className={styles.ctaRow}>
-            <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
-              Book a 30-min intro call
-            </a>
-          </div>
-        </section>
+
+          {data.lockedTeaserFigures?.length ? (
+            <div className={styles.caseLockedTeaserStack}>
+              {data.lockedTeaserFigures.map((spec, i) => (
+                <CaseStudyFigure
+                  key={`${spec.badge}-${i}`}
+                  aspectRatio={spec.aspectRatio}
+                  badge={spec.badge}
+                  caption={spec.caption}
+                  src={spec.src}
+                  videoSrc={spec.videoSrc}
+                  videoPoster={spec.videoPoster}
+                  alt={spec.alt ?? ''}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          ) : null}
+
+          <section className={styles.caseAccessGate}>
+            <p className={styles.caseLockIntro}>
+              Full case decks — process, decisions, and outcomes — are shared on request via{' '}
+              <a href={MAILTO}>email</a>.
+            </p>
+            <ul className={styles.caseAccessChecklist}>
+              <li>Include your role, company, and the case area you want to review.</li>
+              <li>Typical response time: within 24 hours on business days.</li>
+              <li>
+                NDA-aware summary (PDF / Figma) tailored to the streams you name — shared on request
+                via email.
+              </li>
+            </ul>
+            {data.lockDisclaimer ? (
+              <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
+            ) : null}
+            <div className={styles.ctaRow}>
+              <a className={styles.contactLink} href={MAILTO}>
+                Request full case deck via email
+              </a>
+              <a
+                className={styles.ctaLink}
+                href={CALENDLY_30}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a 30-min intro call
+              </a>
+            </div>
+          </section>
+        </>
       ) : (
         <>
+          {data.throughLine ? (
+            <section className={styles.caseThroughLine} aria-label={data.throughLine.title}>
+              <h2 className={styles.caseBlockHead}>{data.throughLine.title}</h2>
+              {data.throughLine.paragraphs.map((p, i) => (
+                <p key={i} className={styles.prose}>
+                  {p}
+                </p>
+              ))}
+            </section>
+          ) : null}
+
+          {data.publicTracks?.length ? (
+            <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
+              <h2 className={styles.caseBlockHead}>Program map</h2>
+              <p className={styles.caseTrackMapHint}>
+                Expand a stream for a one-line summary of the work.
+              </p>
+              <div className={styles.caseTrackAccordions}>
+                {data.publicTracks.map((track) => (
+                  <details key={track.label} className={styles.caseTrackDetails}>
+                    <summary className={styles.caseTrackSummary}>
+                      <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
+                    </summary>
+                    <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          <section className={styles.caseTeaser}>
+            <h2 className={styles.caseBlockHead}>At a glance</h2>
+            {teaserBullets.map((line) => (
+              <p key={line} className={styles.prose}>
+                {line}
+              </p>
+            ))}
+          </section>
+          <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
+
           <div className={styles.caseStream}>
             {data.body.map((block, i) =>
               block.kind === 'text' ? (

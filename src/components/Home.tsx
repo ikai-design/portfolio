@@ -2,6 +2,7 @@ import styles from '../styles/site.module.css';
 import { CaseStack } from './site/CaseStack';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
+import { MAILTO } from './site/SiteHeader';
 import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
@@ -20,9 +21,11 @@ export default function Home() {
 
       <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
         <p className={styles.introLine}>
-          Design for complex SaaS at scale — Miro (80M+),
-          <br />
-          Wix (200M+) — from strategy and journeys to shipped quality, with depth in lifecycle, from signup to revenue.
+          Complex SaaS at scale — Miro (80M+), Wix (200M+) — strategy to shipped UI, with depth in
+          lifecycle and monetization.
+        </p>
+        <p className={styles.homeShipped}>
+          Shipped in prod at Miro and Wix; also live pet products (Try Wren, Simple Screen Recorder).
         </p>
       </section>
 
@@ -48,10 +51,9 @@ export default function Home() {
       </PageSection>
 
       <p className={styles.bio}>
-        14+ years shipping SaaS end-to-end: framing ambiguous problems, designing journeys and
-        systems implications, and partnering with PM, engineering, and GTM. I have deep experience
-        in activation, expansion, and monetization — including experimentation when uncertainty is
-        high — without reducing the work to funnels alone.
+        14+ years end-to-end SaaS design — framing, journeys, systems, and UI quality. Deep
+        experience in activation, expansion, and monetization, including experimentation when stakes
+        are high.
       </p>
       <ul className={styles.trustStrip} aria-label="Selected trust markers">
         {TRUST_MARKERS.map((marker) => (
@@ -73,6 +75,9 @@ export default function Home() {
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
+          </a>
+          <a className={styles.ctaLink} href={MAILTO}>
+            Full case deck — shared on request via email →
           </a>
         </div>
       </section>

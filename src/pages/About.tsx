@@ -163,22 +163,18 @@ export default function About() {
                 At{' '}
                 <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
                   Miro
-                </a>
-                , I design for 80M+ users across community, acquisition, enterprise, and monetization,
-                moving between multiple product team contexts as priorities shifted.
-              </p>
-              <p className={styles.prose}>
-                I partner with product, engineering, and GTM. AI speeds up prototyping and research
-                synthesis.{' '}
+                </a>{' '}
+                I design for 80M+ users across community, acquisition, enterprise, and monetization
+                — solo designer across product teams as priorities shifted. AI speeds prototyping;{' '}
                 <a
                   className={styles.inlineLink}
                   href="https://www.reforge.com/programs/growth-series"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Reforge Growth Series
+                  Reforge
                 </a>{' '}
-                alumni;{' '}
+                alumni and{' '}
                 <a
                   className={styles.inlineLink}
                   href="https://adplist.org/mentors/eugene-voroniuk"
@@ -187,40 +183,22 @@ export default function About() {
                 >
                   ADPList mentor
                 </a>
-                .
-              </p>
-              <p className={styles.prose}>
-                Recent work spans{' '}
-                <a
-                  className={styles.inlineLink}
-                  href="https://miro.com/templates/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Miroverse
+                . See the{' '}
+                <a className={styles.inlineLink} href="/projects/miro">
+                  Miro case teaser
                 </a>{' '}
-                (templates, creator profiles, gamification), acquisition surfaces for high-intent
-                search traffic, in-product signup and prompts for guest users, enterprise trials and
-                admin expansion, custom templates and shareable presentations — and monetization:
-                contextual free-to-paid, checkout, pricing, and cancellation flow and retention UX.
+                for production surfaces.
               </p>
               <p className={styles.prose}>
-                Before Miro I was sole designer on{' '}
+                Before Miro: sole designer on{' '}
                 <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
                   Wix
                 </a>{' '}
-                Groups for most of its lifecycle after launch, with partial product ownership — a
-                cross-platform community product for creators, coaches, trainers, and consultants,
-                shipped to 200M+ users on web, iOS, and Android.
-              </p>
-              <p className={styles.prose}>
-                At{' '}
+                Groups (200M+ users, web/iOS/Android). Earlier at{' '}
                 <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
                   Star
                 </a>{' '}
-                (ex-Cogniance) I delivered 10+ end-to-end Fortune 500 engagements — often greenfield,
-                regulated, or technically constrained — leading client workshops, IA, and handoff to
-                distributed teams. Details under NDA.
+                (ex-Cogniance) — 10+ Fortune 500 engagements, workshops, IA, and handoff under NDA.
               </p>
             </div>
 

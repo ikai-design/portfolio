@@ -441,6 +441,14 @@
   margin-bottom: clamp(2rem, 10vw, 6rem);
 }
 
+.homeShipped {
+  margin: 0.75rem 0 0;
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #727272;
+}
+
 .homeIntro .introLine {
   width: 100%;
   max-width: none;

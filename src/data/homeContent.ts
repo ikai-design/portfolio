@@ -8,8 +8,8 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     to: '/projects/miro',
     title: 'Miro',
     desc:
-      'End-to-end design for 80M+ users across community, acquisition, enterprise, and monetization. Public teaser: signup, templates, and share-as-presentation—full deck on request via email.',
-    meta: '2021 — now · Amsterdam',
+      'Product design for 80M+ users — community, acquisition, enterprise, and monetization surfaces.',
+    meta: '2021 — now · Amsterdam · Solo designer across teams',
     aspectRatio: '16 / 9',
     badge: 'Case 01 · Hub',
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
@@ -22,8 +22,8 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     to: '/projects/wix-groups',
     title: 'Wix',
     desc:
-      'Sole designer for most of the lifecycle — cross-platform community product for creators and SMBs, 200M+ users, 190 countries.',
-    meta: '2019 — 2021 · Kyiv',
+      'Cross-platform community for creators and SMBs — 200M+ users, web, iOS, and Android.',
+    meta: '2019 — 2021 · Kyiv · Sole designer, partial product ownership',
     aspectRatio: '8 / 5',
     badge: 'Case 02 · Cover',
     videoSrc: `${import.meta.env.BASE_URL}Wix_case_01.mp4`,
@@ -36,8 +36,8 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     to: '/projects/star-global',
     title: 'Star (ex-Cogniance)',
     desc:
-      '10+ Fortune 500 engagements — greenfield and regulated — AdTech, HealthTech, IoT, telematics, GovTech; client workshops and NDA.',
-    meta: '2015 — 2019 · Kyiv',
+      '10+ Fortune 500 engagements — greenfield and regulated product work across IoT, HealthTech, and AdTech.',
+    meta: '2015 — 2019 · Kyiv · Workshops, IA, handoff to distributed teams',
     aspectRatio: '8 / 5',
     badge: 'Case 03 · Cover',
     imageSrc: `${import.meta.env.BASE_URL}cover_s.png`,
