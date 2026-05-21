@@ -24,9 +24,6 @@ export default function Home() {
           Complex SaaS at scale — Miro (80M+), Wix (200M+) — strategy to shipped UI, with depth in
           lifecycle and monetization.
         </p>
-        <p className={styles.homeShipped}>
-          Shipped in prod at Miro and Wix; also live pet products (Try Wren, Simple Screen Recorder).
-        </p>
       </section>
 
       <CaseStack items={ENTERPRISE_CASE_ITEMS} flush />
