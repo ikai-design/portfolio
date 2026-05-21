@@ -2,7 +2,6 @@ import styles from '../styles/site.module.css';
 import { CaseStack } from './site/CaseStack';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
-import { MAILTO } from './site/SiteHeader';
 import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
@@ -72,9 +71,6 @@ export default function Home() {
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
-          </a>
-          <a className={styles.ctaLink} href={MAILTO}>
-            Full case deck — shared on request via email →
           </a>
         </div>
       </section>
