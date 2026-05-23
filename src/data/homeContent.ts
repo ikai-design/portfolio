@@ -9,7 +9,7 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     title: 'Miro',
     desc:
       'Product design for 80M+ users — community, acquisition, enterprise, and monetization surfaces.',
-    meta: '2021 — now · Amsterdam · Solo designer across teams',
+    meta: '2021 — now · Amsterdam · Solo designer, cross functional teams',
     aspectRatio: '16 / 9',
     badge: 'Case 01 · Hub',
     videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
@@ -23,7 +23,7 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     title: 'Wix',
     desc:
       'Cross-platform community for creators and SMBs — 200M+ users, web, iOS, and Android.',
-    meta: '2019 — 2021 · Kyiv · Sole designer, partial product ownership',
+    meta: '2019 — 2021 · Kyiv · Solo designer, cross functional teams',
     aspectRatio: '8 / 5',
     badge: 'Case 02 · Cover',
     videoSrc: `${import.meta.env.BASE_URL}Wix_case_01.mp4`,
@@ -37,7 +37,7 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
     title: 'Star (ex-Cogniance)',
     desc:
       '10+ Fortune 500 engagements — greenfield and regulated product work across IoT, HealthTech, and AdTech.',
-    meta: '2015 — 2019 · Kyiv · Workshops, IA, handoff to distributed teams',
+    meta: '2015 — 2019 · Kyiv · Design, workshops, IA, handoff to distributed teams',
     aspectRatio: '8 / 5',
     badge: 'Case 03 · Cover',
     imageSrc: `${import.meta.env.BASE_URL}cover_s.png`,
