@@ -8,6 +8,10 @@ export type PetProject = {
   stack: string;
   description: string;
   homeDesc: string;
+  /** Home card line under title (date · channel). */
+  homeMeta: string;
+  /** Frame corner label on Home only. */
+  homeBadge: string;
   meta: string;
   badge: string;
   videoFile: string;
@@ -28,8 +32,9 @@ export const PET_PROJECTS: PetProject[] = [
     stack: 'Lovable · PWA · database · speech and AI-assisted input',
     description:
       'A Lovable-built PWA: voice and text in one place, backed by data and modern speech/AI-assisted input.',
-    homeDesc:
-      'Privacy-first expense PWA for ADHD workflows — voice/text capture, no bank connection.',
+    homeDesc: 'ADHD-friendly expense PWA · voice/text · no bank sync.',
+    homeMeta: '2026 · Live',
+    homeBadge: 'Live · PWA',
     meta: '2026 · Live PWA · Solo ship',
     badge: 'Shipped · Pet project',
     videoFile: 'Wren_demo_video.mp4',
@@ -43,8 +48,9 @@ export const PET_PROJECTS: PetProject[] = [
     stack: 'Chrome · Cursor · Codex · Antigravity · Claude Code',
     description:
       'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',
-    homeDesc:
-      'Chrome extension for fast screen recordings — clean UI, local MP4, browser frames and Spotlight-friendly flow.',
+    homeDesc: 'Chrome extension · local MP4 · quick screen capture.',
+    homeMeta: '2026 · Web Store',
+    homeBadge: 'Live · Chrome',
     meta: '2026 · Chrome Web Store · Solo ship',
     badge: 'Shipped · Pet project',
     videoFile: 'Recording_Demo.mp4',

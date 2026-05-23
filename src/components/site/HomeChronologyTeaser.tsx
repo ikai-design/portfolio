@@ -17,10 +17,8 @@ export function HomeChronologyTeaser() {
           loading="lazy"
         />
         <div className={styles.caseCaption}>
-          <p className={styles.caseDesc}>
-            Roles, skills, side projects, and how the work above fits together.
-          </p>
-          <p className={styles.homeChronologyLink}>View full chronology →</p>
+          <p className={styles.caseDesc}>Career timeline — roles, skills, and side work.</p>
+          <p className={styles.homeChronologyLink}>View chronology →</p>
         </div>
       </Link>
     </article>
