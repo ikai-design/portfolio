@@ -58,7 +58,7 @@ export function resolvePageMeta(pathname: string): PageMeta {
     return {
       title: 'Contact — Eugene Voroniuk',
       description:
-        'Book an intro call or reach out by email. Open to senior/lead product design roles and selective contract or advisory work.',
+        'Book an intro call or reach out by email. Open to senior, staff, and principal IC product design roles and selective contract or advisory work.',
     };
   }
 

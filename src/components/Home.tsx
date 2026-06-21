@@ -64,9 +64,9 @@ export default function Home() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior/lead product design roles — including teams with heavy monetization,
-          activation, or experimentation needs. Selective advisory for SaaS product and GTM
-          alignment.
+          Open to senior, staff, and principal IC product design roles — including teams with
+          heavy monetization, activation, or experimentation needs. Selective advisory for SaaS
+          product and GTM alignment.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">

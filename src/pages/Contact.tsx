@@ -10,8 +10,9 @@ export default function Contact() {
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={`${styles.pageLede} ${styles.pageLedeNoBottom}`}>
-        Open to senior/lead product design roles — including teams with strong monetization,
-        activation, or experimentation cultures — with selective contract and advisory support.
+        Open to senior, staff, and principal IC product design roles — including teams with heavy
+        monetization, activation, or experimentation needs. Selective advisory for SaaS product
+        and GTM alignment.
       </p>
 
       <h2 className={styles.sectionHead}>
@@ -65,7 +66,7 @@ export default function Contact() {
       <div className={styles.metaGrid}>
         <span className={styles.metaKey}>Full-time</span>
         <span className={styles.metaValue}>
-          Open to senior/lead product design roles
+          Senior, staff, and principal IC product design roles
         </span>
         <span className={styles.metaKey}>Contract</span>
         <span className={styles.metaValue}>
