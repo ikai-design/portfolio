@@ -26,22 +26,6 @@ export function petAsset(path: string): string {
 
 export const PET_PROJECTS: PetProject[] = [
   {
-    id: 'try-wren',
-    name: 'Try Wren',
-    href: PET_TRY_WREN_URL,
-    stack: 'Lovable · PWA · database · speech and AI-assisted input',
-    description:
-      'A Lovable-built PWA: voice and text in one place, backed by data and modern speech/AI-assisted input.',
-    homeDesc: 'ADHD-friendly expense PWA · voice/text · no bank sync.',
-    homeMeta: '2026 · Live',
-    homeBadge: 'Live · PWA',
-    meta: '2026 · Live PWA · Solo ship',
-    badge: 'Shipped · Pet project',
-    videoFile: 'Wren_demo_video.mp4',
-    posterFile: 'Wren_case_poster.png',
-    aspectRatio: '16 / 9',
-  },
-  {
     id: 'simple-screen-recorder',
     name: 'Simple Screen Recorder',
     href: PET_SCREEN_RECORDER_URL,
@@ -52,9 +36,25 @@ export const PET_PROJECTS: PetProject[] = [
     homeMeta: '2026 · Web Store',
     homeBadge: 'Live · Chrome',
     meta: '2026 · Chrome Web Store · Solo ship',
-    badge: 'Shipped · Pet project',
+    badge: 'Shipped · Independent',
     videoFile: 'Recording_Demo.mp4',
     posterFile: 'Screen_recorder_poster.png',
+    aspectRatio: '16 / 9',
+  },
+  {
+    id: 'try-wren',
+    name: 'Try Wren',
+    href: PET_TRY_WREN_URL,
+    stack: 'Lovable · PWA · database · speech and AI-assisted input',
+    description:
+      'A Lovable-built PWA: voice and text in one place, backed by data and modern speech/AI-assisted input.',
+    homeDesc: 'ADHD-friendly expense PWA · voice/text · no bank sync.',
+    homeMeta: '2026 · Live',
+    homeBadge: 'Live · PWA',
+    meta: '2026 · Live PWA · Solo ship',
+    badge: 'Shipped · Independent',
+    videoFile: 'Wren_demo_video.mp4',
+    posterFile: 'Wren_case_poster.png',
     aspectRatio: '16 / 9',
   },
 ];

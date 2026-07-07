@@ -14,7 +14,7 @@ export type PageMeta = {
 };
 
 const HOME: PageMeta = {
-  title: 'Eugene Voroniuk — Senior Product Designer · Miro · Amsterdam',
+  title: 'Eugene Voroniuk — Senior Product Designer | Growth, Monetization & SaaS',
   description: DEFAULT_DESCRIPTION,
 };
 

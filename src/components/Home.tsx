@@ -30,8 +30,8 @@ export default function Home() {
       <PageSection
         id="pet-projects"
         sectionClassName={styles.homePetSection}
-        title="Pet projects"
-        subtitle="Shipped outside the day job"
+        title="Independent products"
+        subtitle="Built and shipped independently"
         lede="Live products built end-to-end with AI-assisted tooling — open in a new tab."
       >
         <CaseStack items={PET_HOME_ITEMS} nested />

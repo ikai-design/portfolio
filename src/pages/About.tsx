@@ -95,9 +95,9 @@ const AI = [
 const LEADERSHIP = [
   {
     year: '2026',
-    title: 'Pet projects — shipping',
-    href: 'https://trywren.app/',
-    desc: 'Try Wren (PWA) and Simple Screen Recorder (Chrome Web Store)—links and context in Pet projects below.',
+    title: 'Independent products — shipping',
+    href: 'https://simple-screen-recorder.com/',
+    desc: 'Simple Screen Recorder (Chrome Web Store) and Try Wren (PWA)—links and context in Independent products below.',
   },
   {
     year: '2023 — now',
@@ -251,8 +251,8 @@ export default function About() {
       <PageSection
         id="pet-projects"
         sectionClassName={styles.aboutPetSection}
-        title="Pet projects"
-        subtitle="Shipped outside the day job"
+        title="Independent products"
+        subtitle="Built and shipped independently"
         lede="Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product instincts alongside enterprise SaaS work."
       >
         <ul className={styles.aboutPetGrid}>
