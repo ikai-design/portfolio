@@ -1,26 +1,70 @@
+import { Fragment, type ReactNode } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
 import { MAILTO } from '../components/site/SiteHeader';
-import { LEDE_PROGRAM_MAP_LINK_TOKEN, PORTFOLIO_CASES } from '../data/portfolioCases';
+import {
+  LEDE_PROGRAM_MAP_LINK_TOKEN,
+  PORTFOLIO_CASES,
+  SSR_CWS_LINK_TOKEN,
+  SSR_SITE_LINK_TOKEN,
+} from '../data/portfolioCases';
 import { isCasePasswordProtected } from '../config/lockedCases';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
 
-function renderLedeWithOptionalProgramMapLink(lede: string) {
-  if (!lede.includes(LEDE_PROGRAM_MAP_LINK_TOKEN)) {
-    return lede;
+const SSR_SITE_URL = 'https://simple-screen-recorder.com/';
+const SSR_CWS_URL =
+  'https://chromewebstore.google.com/detail/simple-screen-recorder/iohegjmhpfcldjhpjnafinbbjoaakooi';
+
+type InlineLinkSpec = { token: string; href: string; label: string; external?: boolean };
+
+const INLINE_LINK_SPECS: InlineLinkSpec[] = [
+  {
+    token: LEDE_PROGRAM_MAP_LINK_TOKEN,
+    href: '#program-map',
+    label: 'Program map',
+  },
+  {
+    token: SSR_SITE_LINK_TOKEN,
+    href: SSR_SITE_URL,
+    label: 'simple-screen-recorder.com',
+    external: true,
+  },
+  {
+    token: SSR_CWS_LINK_TOKEN,
+    href: SSR_CWS_URL,
+    label: 'Chrome Web Store',
+    external: true,
+  },
+];
+
+function renderCaseCopyWithInlineLinks(text: string): ReactNode {
+  for (const spec of INLINE_LINK_SPECS) {
+    if (!text.includes(spec.token)) continue;
+
+    const parts = text.split(spec.token);
+    return parts.map((part, index) => (
+      <Fragment key={`${spec.token}-${index}`}>
+        {part ? renderCaseCopyWithInlineLinks(part) : null}
+        {index < parts.length - 1 ? (
+          <a
+            href={spec.href}
+            className={styles.inlineLink}
+            {...(spec.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {spec.label}
+          </a>
+        ) : null}
+      </Fragment>
+    ));
   }
-  const [before, after] = lede.split(LEDE_PROGRAM_MAP_LINK_TOKEN);
-  return (
-    <>
-      {before}
-      <a href="#program-map" className={styles.inlineLink}>
-        Program map
-      </a>
-      {after}
-    </>
-  );
+
+  return text;
+}
+
+function renderLedeWithOptionalProgramMapLink(lede: string) {
+  return renderCaseCopyWithInlineLinks(lede);
 }
 
 const PUBLIC_TEASER_TEMPLATE = [
@@ -222,16 +266,50 @@ export default function PortfolioCaseStudy() {
           <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
 
           <div className={styles.caseStream}>
-            {data.body.map((block, i) =>
-              block.kind === 'text' ? (
-                <div key={`text-${i}`} className={styles.caseTextBlock}>
-                  {block.paragraphs.map((p, j) => (
-                    <p key={j} className={styles.prose}>
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              ) : (
+            {data.body.map((block, i) => {
+              if (block.kind === 'text') {
+                return (
+                  <div key={`text-${i}`} className={styles.caseTextBlock}>
+                    {block.heading ? (
+                      <h2 className={styles.caseBlockHead}>{block.heading}</h2>
+                    ) : null}
+                    {block.paragraphs.map((p, j) => (
+                      <p key={j} className={styles.prose}>
+                        {renderCaseCopyWithInlineLinks(p)}
+                      </p>
+                    ))}
+                  </div>
+                );
+              }
+
+              if (block.kind === 'quote') {
+                return (
+                  <figure key={`quote-${i}`} className={styles.caseQuote}>
+                    <blockquote className={styles.caseQuoteText}>{block.text}</blockquote>
+                    <figcaption className={styles.caseQuoteAttr}>{block.attribution}</figcaption>
+                  </figure>
+                );
+              }
+
+              if (block.kind === 'shipList') {
+                return (
+                  <div key={`ship-${i}`} className={styles.caseShipList}>
+                    {block.heading ? (
+                      <h2 className={styles.caseBlockHead}>{block.heading}</h2>
+                    ) : null}
+                    <dl className={styles.caseShipRows}>
+                      {block.rows.map((row, j) => (
+                        <div key={j} className={styles.caseShipRow}>
+                          <dt className={styles.caseShipSignal}>{row.signal}</dt>
+                          <dd className={styles.caseShipShipped}>{row.shipped}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                );
+              }
+
+              return (
                 <CaseStudyFigure
                   key={`fig-${i}`}
                   aspectRatio={block.spec.aspectRatio}
@@ -243,14 +321,18 @@ export default function PortfolioCaseStudy() {
                   alt={block.spec.alt}
                   loading="lazy"
                 />
-              ),
-            )}
+              );
+            })}
           </div>
 
           {data.cta ? (
-            <Link className={styles.ctaLink} to={data.cta.to}>
-              {data.cta.label}
-            </Link>
+            <section className={styles.caseAccessGate} aria-label="Next steps">
+              <div className={styles.ctaRow}>
+                <Link className={styles.contactLink} to={data.cta.to}>
+                  {data.cta.label}
+                </Link>
+              </div>
+            </section>
           ) : null}
         </>
       )}

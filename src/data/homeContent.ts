@@ -45,8 +45,8 @@ export const ENTERPRISE_CASE_ITEMS: HomeCaseItem[] = [
 ];
 
 export const PET_HOME_ITEMS: HomeCaseItem[] = PET_PROJECTS.map((p) => ({
-  to: p.href,
-  external: true,
+  to: p.caseSlug ? `/projects/${p.caseSlug}` : p.href,
+  external: !p.caseSlug,
   title: p.name,
   desc: p.homeDesc,
   meta: p.homeMeta,

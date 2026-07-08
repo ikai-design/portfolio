@@ -5,6 +5,8 @@ export type PetProject = {
   id: string;
   name: string;
   href: string;
+  /** When set, Home links to the internal portfolio case instead of the external product URL. */
+  caseSlug?: string;
   stack: string;
   description: string;
   homeDesc: string;
@@ -29,6 +31,7 @@ export const PET_PROJECTS: PetProject[] = [
     id: 'simple-screen-recorder',
     name: 'Simple Screen Recorder',
     href: PET_SCREEN_RECORDER_URL,
+    caseSlug: 'simple-screen-recorder',
     stack: 'Chrome · Cursor · Codex · Antigravity · Claude Code',
     description:
       'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',

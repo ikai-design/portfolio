@@ -1,4 +1,9 @@
-import { LEDE_PROGRAM_MAP_LINK_TOKEN, PORTFOLIO_CASES } from '../data/portfolioCases';
+import {
+  LEDE_PROGRAM_MAP_LINK_TOKEN,
+  PORTFOLIO_CASES,
+  SSR_CWS_LINK_TOKEN,
+  SSR_SITE_LINK_TOKEN,
+} from '../data/portfolioCases';
 
 /** Production site origin — matches `public/sitemap.xml` and Search Console property. */
 export const SITE_ORIGIN = 'https://eugenevoroniuk.com' as const;
@@ -21,6 +26,8 @@ const HOME: PageMeta = {
 function stripLedeForMeta(lede: string): string {
   return lede
     .replace(LEDE_PROGRAM_MAP_LINK_TOKEN, 'program map')
+    .replace(SSR_SITE_LINK_TOKEN, 'simple-screen-recorder.com')
+    .replace(SSR_CWS_LINK_TOKEN, 'Chrome Web Store')
     .replace(/\s+/g, ' ')
     .trim();
 }

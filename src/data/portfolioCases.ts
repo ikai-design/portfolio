@@ -16,6 +16,10 @@ export function caseAsset(path: string): string {
 /** In `PortfolioCaseStudy`, replaced with an in-page link to `#program-map`. */
 export const LEDE_PROGRAM_MAP_LINK_TOKEN = '{{PROGRAM_MAP_LINK}}' as const;
 
+/** SSR case only — replaced with external inline links in `PortfolioCaseStudy`. */
+export const SSR_SITE_LINK_TOKEN = '{{SSR_SITE}}' as const;
+export const SSR_CWS_LINK_TOKEN = '{{SSR_CWS}}' as const;
+
 export type FigureSpec = {
   aspectRatio: string;
   badge: string;
@@ -29,8 +33,12 @@ export type FigureSpec = {
 };
 
 export type CaseBlock =
-  | { kind: 'text'; paragraphs: string[] }
-  | { kind: 'figure'; spec: FigureSpec };
+  | { kind: 'text'; heading?: string; paragraphs: string[] }
+  | { kind: 'figure'; spec: FigureSpec }
+  /** Pull-quote from user research / testimonials. */
+  | { kind: 'quote'; text: string; attribution: string }
+  /** "From feedback to shipped" — each row pairs a user signal with what was built. */
+  | { kind: 'shipList'; heading?: string; rows: { signal: string; shipped: string }[] };
 
 export type PublicTrack = {
   label: string;
@@ -427,6 +435,190 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         },
       },
     ],
+  },
+  'simple-screen-recorder': {
+    eyebrow: 'Simple Screen Recorder',
+    period: '2026 — now · Independent product',
+    title: 'Simple Screen Recorder — an independent product in active validation',
+    throughLine: {
+      title: 'Through-line',
+      paragraphs: [
+        'Solo: design, build, ship to the Chrome Web Store, iterate on real use with AI-assisted tooling (Cursor, Codex, Antigravity, Claude Code).',
+        'The thread I kept pulling: predictable zoom for browser walkthroughs — local-first, nothing leaves the device.',
+      ],
+    },
+    teaserBullets: [
+      'Role: solo — framing, UX, build, distribution, iteration.',
+      'Shipped: local-first Chrome extension — recordings library, pause/resume, auto-zoom timeline, camera overlay, local MP4 export.',
+      'Validation: 5.0 from 12 Chrome Web Store reviews (Jul 2026) + beta feedback on zoom clarity and trust.',
+    ],
+    lede:
+      'A local-first Chrome extension for browser walkthrough recordings — {{SSR_SITE}} has a short demo. Actively iterating on reliability, zoom clarity, and onboarding.',
+    hero: {
+      aspectRatio: '16 / 9',
+      badge: 'Demo · Auto-zoom recording',
+      videoSrc: caseAsset('Recording_Demo.mp4'),
+      videoPoster: caseAsset('Screen_recorder_poster.png'),
+      alt: 'Simple Screen Recorder — browser walkthrough with auto-zoom',
+      caption: 'Recording demo — click-based zoom guides attention; export stays on-device.',
+    },
+    body: [
+      {
+        kind: 'text',
+        heading: 'Why this exists',
+        paragraphs: [
+          'Walkthrough recordings should be fast to make and safe to share — but most tools force cloud upload, accounts, or a separate editor, and zoom is a black box: you click, hope, re-record. Testers who’d used Cursorful kept saying the same thing — zoom boundaries were invisible until export.',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'The hypothesis',
+        paragraphs: [
+          'A local-first recorder could win on trust — no account, no cloud — while making zoom predictable: visible on the timeline, editable, obvious before you export. Predictable zoom means fewer re-records.',
+        ],
+      },
+      {
+        kind: 'figure',
+        spec: {
+          aspectRatio: '16 / 9',
+          badge: 'Auto-zoom · click to zoom',
+          videoSrc: caseAsset('cases/ssr/01_SSR_case.mp4'),
+          videoPoster: caseAsset('ssr_click_to_zoom.png'),
+          alt: 'Before and after a click — the recorder zooms toward the cursor automatically.',
+          caption: 'Every click becomes a smooth zoom toward the action — no keyframing.',
+        },
+      },
+      {
+        kind: 'text',
+        heading: 'What I built',
+        paragraphs: [
+          'A Manifest V3 Chrome extension: records browser flows, turns clicks into zoom, exports MP4 locally. Recordings persist in an on-device library, pause/resume works mid-take, a camera overlay composites at export. Built in plain JS with AI-assisted iteration (Cursor / Codex / Antigravity / Claude Code) — design calls stay mine.',
+        ],
+      },
+      {
+        kind: 'figure',
+        spec: {
+          aspectRatio: '16 / 9',
+          badge: 'On-device library',
+          videoSrc: caseAsset('cases/ssr/02_SSR_case.mp4'),
+          videoPoster: caseAsset('ssr_library.png'),
+          alt: 'Recordings library — a grid of saved takes with thumbnails and durations.',
+          caption: 'The top ask from testers: a home for every take. Stored locally — reopen, re-edit, or export later.',
+        },
+      },
+      {
+        kind: 'text',
+        heading: 'The problem I kept solving — predictable zoom',
+        paragraphs: [
+          'One ex-Cursorful tester re-recorded the same clip 15–20 times because she couldn’t tell where a zoom would start or end until the export. So I made zoom an editable object: timeline blocks you can see and adjust, with spring easing that settles out instead of snapping.',
+        ],
+      },
+      {
+        kind: 'figure',
+        spec: {
+          aspectRatio: '16 / 9',
+          badge: 'Timeline · zoom blocks',
+          videoSrc: caseAsset('cases/ssr/03_SSR_case.mp4'),
+          videoPoster: caseAsset('ssr_zoom_timeline.png'),
+          alt: 'Editor timeline with three editable zoom blocks along the playhead.',
+          caption: 'Each zoom is a visible block — drag the edges, change the depth, delete it — before you export.',
+        },
+      },
+      {
+        kind: 'quote',
+        text: "Pause / restart — that's so convenient, that's class. Cursorful doesn't have this.",
+        attribution: 'Beta tester · former Cursorful user',
+      },
+      {
+        kind: 'text',
+        heading: 'The technical part',
+        paragraphs: [
+          'Two details made it more than a recorder wrapper. Zoom settles with a damped spring (stiffness 200, damping 30) so its end reads as intentional, not a glitch — and the same math runs identically in preview and the exported MP4 via requestVideoFrameCallback. Manifest V3 also kills the service worker mid-recording, so chunks checkpoint to OPFS and recover on reload — which fixed a first-run data-loss bug.',
+        ],
+      },
+      {
+        kind: 'figure',
+        spec: {
+          aspectRatio: '16 / 9',
+          badge: 'Backgrounds & browser frames',
+          videoSrc: caseAsset('cases/ssr/04_SSR_case.mp4'),
+          videoPoster: caseAsset('ssr_frames.png'),
+          alt: 'Six background presets — gradients, solid, and dark — with a browser frame around the recording.',
+          caption: 'A browser frame hides messy tabs; gradients turn a raw capture into a product demo.',
+        },
+      },
+      {
+        kind: 'text',
+        heading: 'How I validate',
+        paragraphs: [
+          '5.0 from 12 Chrome Web Store reviews (Jul 2026), plus a living feedback log from designers and PMs, grouped by theme. Twelve conversations kept pointing at the same few problems — I treat small-N signal as direction, not proof of scale.',
+        ],
+      },
+      {
+        kind: 'quote',
+        text: 'Love it. Used it today for a demo, actually. Other than a camera — perfect.',
+        attribution: 'Product designer · Mollie',
+      },
+      {
+        kind: 'figure',
+        spec: {
+          aspectRatio: '16 / 9',
+          badge: 'Local export · no cloud',
+          videoSrc: caseAsset('cases/ssr/05_SSR_case.mp4'),
+          videoPoster: caseAsset('ssr_export_local.png'),
+          alt: 'Export panel — MP4 or WebM, resolution and aspect ratio, processed locally.',
+          caption: 'Processed on-device with FFmpeg WebAssembly, exported as MP4 or WebM. Nothing is uploaded.',
+        },
+      },
+      {
+        kind: 'shipList',
+        heading: 'From feedback to shipped',
+        rows: [
+          {
+            signal: 'A former Cursorful user missed “a home for all my recordings.”',
+            shipped: 'On-device recordings library (OPFS) — reopen and re-edit before export.',
+          },
+          {
+            signal: 'A product designer wished she could record with a camera.',
+            shipped: 'Camera overlay — dual-track record, composited at export.',
+          },
+          {
+            signal: 'A tester re-recorded 15–20× because zoom boundaries were invisible.',
+            shipped: 'Visible, editable zoom blocks on the timeline + spring-settle easing.',
+          },
+          {
+            signal: 'A PM couldn’t see the toolbar icon in dark mode.',
+            shipped: 'Programmatic dark-mode toolbar icon.',
+          },
+          {
+            signal: '“I didn’t know when the recording started.”',
+            shipped: 'Clearer start indicator; controls hardened against MV3 service-worker restarts.',
+          },
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'What is still unproven',
+        paragraphs: [
+          'Open questions: whether zoom clarity closes the re-record loop at scale, distribution beyond early adopters, and whether local-first converts people who default to Loom. Next: sharper first-run clarity and more visible zoom boundaries in preview.',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'What this shows',
+        paragraphs: [
+          'Almost everything shipped traces to watching one person struggle, not a roadmap. The part I care about as a product designer: turning a vague “this feels off” into a concrete, editable object on screen — and keeping positioning honest, including dropping a competitor claim when research stopped supporting it.',
+        ],
+      },
+      {
+        kind: 'text',
+        heading: 'Try it',
+        paragraphs: [
+          'Install free from the {{SSR_CWS}} — no account. More on {{SSR_SITE}}.',
+        ],
+      },
+    ],
+    cta: { to: '/contact', label: 'Get in touch →' },
   },
 };
 
