@@ -623,3 +623,34 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 };
 
 export const PORTFOLIO_SLUGS = Object.keys(PORTFOLIO_CASES);
+
+/** Home scroll order for case-to-case pager (enterprise cases, then SSR). */
+export const CASE_NAV_ORDER = [
+  'miro',
+  'wix-groups',
+  'star-global',
+  'simple-screen-recorder',
+] as const;
+
+export type CaseNavSlug = (typeof CASE_NAV_ORDER)[number];
+
+export type CaseNavNeighbors = {
+  prev: CaseNavSlug | null;
+  next: CaseNavSlug | 'home' | null;
+};
+
+export function getCaseNavLabel(navSlug: CaseNavSlug): string {
+  const caseData = PORTFOLIO_CASES[navSlug];
+  return caseData.eyebrow ?? caseData.title;
+}
+
+export function getCaseNavNeighbors(slug: string): CaseNavNeighbors | null {
+  const index = CASE_NAV_ORDER.indexOf(slug as CaseNavSlug);
+  if (index === -1) return null;
+
+  const prev = index > 0 ? CASE_NAV_ORDER[index - 1] : null;
+  const next =
+    index < CASE_NAV_ORDER.length - 1 ? CASE_NAV_ORDER[index + 1] : ('home' as const);
+
+  return { prev, next };
+}

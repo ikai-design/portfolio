@@ -2,6 +2,7 @@ import { Fragment, type ReactNode } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
+import { CaseStudyPager } from '../components/site/CaseStudyPager';
 import { MAILTO } from '../components/site/SiteHeader';
 import {
   LEDE_PROGRAM_MAP_LINK_TOKEN,
@@ -265,7 +266,7 @@ export default function PortfolioCaseStudy() {
           </section>
           <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
 
-          <div className={styles.caseStream}>
+          <div className={`${styles.caseStream} ${data.cta ? styles.caseStreamBeforeNext : ''}`}>
             {data.body.map((block, i) => {
               if (block.kind === 'text') {
                 return (
@@ -326,7 +327,7 @@ export default function PortfolioCaseStudy() {
           </div>
 
           {data.cta ? (
-            <section className={styles.caseAccessGate} aria-label="Next steps">
+            <section className={styles.caseNextSteps} aria-label="Next steps">
               <div className={styles.ctaRow}>
                 <Link className={styles.contactLink} to={data.cta.to}>
                   {data.cta.label}
@@ -336,6 +337,8 @@ export default function PortfolioCaseStudy() {
           ) : null}
         </>
       )}
+
+      <CaseStudyPager slug={slug} />
     </>
   );
 }
