@@ -850,6 +850,11 @@
   .sectionHead {
     margin-top: 144px;
   }
+
+  /* Home: last pet card → chronology uses inner gap, not a full section break. */
+  .homePetSection + .homeChronologySection > .sectionHead {
+    margin-top: var(--stack-inner-gap);
+  }
 }
 
 @media (max-width: 639px) {
@@ -1223,9 +1228,9 @@
 
 .homeChronologyLink {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #727272;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: #0f0f0f;
 }
 
 .caseCardLink {
@@ -1727,8 +1732,13 @@
 }
 
 .aboutPetSection .pageSectionLede,
-.homePetSection .pageSectionLede {
+.homePetSection .pageSectionLede,
+.homeChronologySection .pageSectionLede {
   max-width: none;
+}
+
+.homePetSection + .homeChronologySection > .sectionHead {
+  margin-top: var(--stack-inner-gap);
 }
 
 .aboutPetGrid {

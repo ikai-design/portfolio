@@ -5,13 +5,6 @@ import { PageSection } from './site/PageSection';
 import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
 
 const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
-const TRUST_MARKERS = [
-  'Miro (2021 — now)',
-  'Wix',
-  'Reforge Growth Series',
-  'NN/g Certified',
-  'ADPList Mentor',
-] as const;
 
 export default function Home() {
   return (
@@ -39,25 +32,14 @@ export default function Home() {
 
       <PageSection
         id="chronology"
+        sectionClassName={styles.homeChronologySection}
         title="Chronology"
         subtitle="2009 → now"
         headClassName={styles.aboutChronologyHead}
+        lede="14+ years end-to-end SaaS design — framing, journeys, systems, and UI quality. Deep experience in activation, expansion, and monetization, including experimentation when stakes are high."
       >
         <HomeChronologyTeaser />
       </PageSection>
-
-      <p className={styles.bio}>
-        14+ years end-to-end SaaS design — framing, journeys, systems, and UI quality. Deep
-        experience in activation, expansion, and monetization, including experimentation when stakes
-        are high.
-      </p>
-      <ul className={styles.trustStrip} aria-label="Selected trust markers">
-        {TRUST_MARKERS.map((marker) => (
-          <li key={marker} className={styles.trustChip}>
-            {marker}
-          </li>
-        ))}
-      </ul>
 
       <section className={styles.ctaBlock} aria-labelledby="cta-heading">
         <h2 id="cta-heading" className={styles.visuallyHidden}>

@@ -16,10 +16,7 @@ export function HomeChronologyTeaser() {
           placeholderVariant="chronology"
           loading="lazy"
         />
-        <div className={styles.caseCaption}>
-          <p className={styles.caseDesc}>Career timeline — roles, skills, and side work.</p>
-          <p className={styles.homeChronologyLink}>View chronology →</p>
-        </div>
+        <p className={styles.homeChronologyLink}>View chronology →</p>
       </Link>
     </article>
   );
