@@ -1,4 +1,4 @@
-import { copyFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
@@ -7,20 +7,43 @@ import react from '@vitejs/plugin-react';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
- * GitHub Pages has no server rewrites: a hard refresh on /projects/miro requests that path as a file.
- * Serving the SPA shell as 404.html makes GH Pages return the app for unknown paths so React Router can run.
+ * Paths that must return HTTP 200 on GitHub Pages (not the SPA 404.html fallback).
+ * Keep in sync with `public/sitemap.xml` and `src/App.tsx` routes.
  */
-function copyIndexAs404() {
+const SPA_SHELL_ROUTES = [
+  'about',
+  'contact',
+  'projects/miro',
+  'projects/wix-groups',
+  'projects/star-global',
+  'projects/simple-screen-recorder',
+] as const;
+
+/**
+ * GitHub Pages has no server rewrites. Two things are required:
+ * 1) 404.html = SPA shell for unknown paths (client NotFound still works).
+ * 2) Real route/index.html files for known routes so Google gets HTTP 200, not 404.
+ *    (Serving only via 404.html keeps a 404 status — Search Console marks those as Not found.)
+ */
+function emitSpaShellsForGitHubPages() {
   return {
-    name: 'copy-index-as-404',
+    name: 'emit-spa-shells-for-github-pages',
     closeBundle() {
       const dist = resolve(__dirname, 'dist');
-      copyFileSync(resolve(dist, 'index.html'), resolve(dist, '404.html'));
+      const indexHtml = resolve(dist, 'index.html');
+
+      copyFileSync(indexHtml, resolve(dist, '404.html'));
+
+      for (const route of SPA_SHELL_ROUTES) {
+        const dir = resolve(dist, route);
+        mkdirSync(dir, { recursive: true });
+        copyFileSync(indexHtml, resolve(dir, 'index.html'));
+      }
     },
   };
 }
 
 export default defineConfig({
   base: '/',
-  plugins: [react(), copyIndexAs404()],
+  plugins: [react(), emitSpaShellsForGitHubPages()],
 });
