@@ -21,4 +21,8 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+# Local-only portfolio strategy docs (not for GitHub)
+docs/local/
+
+# QA / scratch screenshots (optional local captures)
+assets/

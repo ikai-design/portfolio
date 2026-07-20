@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CaseStudyFigure } from '../components/site/CaseStudyFigure';
 import { CaseStudyPager } from '../components/site/CaseStudyPager';
+import { CaseTrackAccordion } from '../components/site/CaseTrackAccordion';
 import { MAILTO } from '../components/site/SiteHeader';
 import {
   LEDE_PROGRAM_MAP_LINK_TOKEN,
@@ -162,16 +163,7 @@ export default function PortfolioCaseStudy() {
               <p className={styles.caseTrackMapHint}>
                 Expand a stream for a one-line summary of the work.
               </p>
-              <div className={styles.caseTrackAccordions}>
-                {data.publicTracks.map((track) => (
-                  <details key={track.label} className={styles.caseTrackDetails}>
-                    <summary className={styles.caseTrackSummary}>
-                      <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
-                    </summary>
-                    <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
-                  </details>
-                ))}
-              </div>
+              <CaseTrackAccordion tracks={data.publicTracks} />
             </section>
           ) : null}
 
@@ -243,16 +235,7 @@ export default function PortfolioCaseStudy() {
               <p className={styles.caseTrackMapHint}>
                 Expand a stream for a one-line summary of the work.
               </p>
-              <div className={styles.caseTrackAccordions}>
-                {data.publicTracks.map((track) => (
-                  <details key={track.label} className={styles.caseTrackDetails}>
-                    <summary className={styles.caseTrackSummary}>
-                      <span className={styles.caseTrackSummaryLabel}>{track.label}</span>
-                    </summary>
-                    <p className={`${styles.prose} ${styles.caseTrackSummaryBody}`}>{track.summary}</p>
-                  </details>
-                ))}
-              </div>
+              <CaseTrackAccordion tracks={data.publicTracks} />
             </section>
           ) : null}
 

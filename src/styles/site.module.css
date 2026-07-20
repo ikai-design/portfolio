@@ -1,16 +1,62 @@
 /*
- * Stack rhythm (project cards + same pattern site-wide):
- *   --stack-inner-gap   = cover / figure → copy below (36px); also used for same “media then text” rhythm
- *   --stack-between-gap = 2× inner — space between separate blocks / sections (72px)
- *   --stack-tight-gap   = title → subtitle lines within a block
+ * Design tokens + stack rhythm.
+ * Type scale (shipped): display 5.25 / title 5 / lede 2.125 / body 1.5 / ui 1.25 / meta 1 / quote 1.75 (rem).
+ * Mobile ≤639: display & title floor 2rem; lede/quote 1.75rem (above body 1.5rem).
+ * Colors: ink / muted / meta / emphasis / faint / bg / danger / rule.
  */
 :global(:root) {
+  /* Spacing */
   --stack-inner-gap: 36px;
   --stack-between-gap: calc(2 * var(--stack-inner-gap));
   --stack-tight-gap: 0.625rem;
   --stack-cta-gap: 32px;
-  /* Running copy: looser than tight, tighter than inner (not full “card” rhythm) */
   --stack-prose-gap: 1.25rem;
+  --stack-section-gap: 144px;
+
+  /* Color */
+  --color-bg: #ffffff;
+  --color-ink: #0f0f0f;
+  --color-muted: #727272;
+  --color-meta: #5f5f5f;
+  --color-emphasis: #333333;
+  --color-faint: #8a8a8a;
+  --color-danger: #b42318;
+  --color-rule: #e5e5e5;
+
+  /* Type sizes */
+  --text-display: 5.25rem;
+  --text-title: 5rem;
+  --text-lede: 2.125rem;
+  --text-quote: 1.75rem;
+  --text-body: 1.5rem;
+  --text-ui: 1.25rem;
+  --text-meta: 1rem;
+  --text-caption: 0.82rem;
+
+  /* Type weight / leading / tracking */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --leading-display: 1;
+  --leading-tight: 1.2;
+  --leading-body: 1.45;
+  --tracking-display: -0.03em;
+  --tracking-display-home: -0.06em;
+  --tracking-eyebrow: 0.12em;
+}
+
+@media (max-width: 1199px) {
+  :global(:root) {
+    --text-display: 4.5rem;
+    --text-title: 4.5rem;
+  }
+}
+
+@media (max-width: 959px) {
+  :global(:root) {
+    --text-display: 3.5rem;
+    --text-title: 3.5rem;
+  }
 }
 
 @media (max-width: 639px) {
@@ -18,30 +64,11 @@
     --stack-inner-gap: 24px;
     --stack-between-gap: 48px;
     --stack-prose-gap: 1rem;
+    --text-display: 2rem;
+    --text-title: 2rem;
+    --text-lede: 1.75rem;
+    --text-quote: 1.75rem;
   }
-}
-
-/*
- * Light (inverted) chrome — line-height 1.2
- *   - Page bg #ffffff
- *   - Links #727272, hover #333333; primary text #0f0f0f
- *   - Font Manrope 400 / 500 / 600
- *   - Intro copy 40 → 32 → 28 px (rec513670084)
- *   - Display name 80 → 72 → 56 → 40 px, weight 600, line-height 1 (rec512144076)
- *   - Body / work / footer 24 px, line-height 1.2
- *   - Header text 24 → 20 → 16 → 14 px, weight 500 (rec513660026)
- */
-
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* ---------- Layout shell ---------- */
@@ -51,7 +78,7 @@
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--color-bg);
   overflow-x: clip;
 }
 
@@ -171,7 +198,7 @@
 
 @media (max-width: 639px) {
   .name {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 
   .top {
@@ -184,11 +211,11 @@
 }
 
 .name {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   transition: opacity 0.2s cubic-bezier(0.19, 1, 0.22, 1);
   display: inline-flex;
@@ -200,12 +227,12 @@
 
 .name:hover {
   opacity: 0.75;
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 @media (max-width: 1199px) {
   .name {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
   }
 }
 
@@ -215,7 +242,7 @@
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.2;
 }
@@ -233,24 +260,24 @@
 
 @media (max-width: 1199px) {
   .topMeta {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
   }
 }
 
 @media (max-width: 959px) {
   .topMeta {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 }
 
 @media (max-width: 479px) {
   .topMeta {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 }
 
 .navLink {
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   font-weight: 400;
   transition: opacity 0.2s ease;
@@ -270,12 +297,12 @@
 
 .navLink:hover,
 .navLink:focus-visible {
-  color: #0f0f0f;
+  color: var(--color-ink);
   opacity: 0.75;
 }
 
 .navLinkActive {
-  color: #0f0f0f;
+  color: var(--color-ink);
   opacity: 0.6;
 }
 
@@ -287,10 +314,10 @@
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
   border: 1px solid transparent;
-  color: #ffffff;
-  background-color: #0f0f0f;
+  color: var(--color-bg);
+  background-color: var(--color-ink);
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.3;
   transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, color 0.2s ease;
@@ -304,13 +331,13 @@
 
 .contactLink:hover,
 .contactLink:focus-visible {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--color-emphasis);
+  color: var(--color-bg);
 }
 
 @media (max-width: 1199px) {
   .contactLink {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 }
 
@@ -322,10 +349,10 @@
 }
 
 .introLine {
-  font-size: 2.125rem;
+  font-size: var(--text-lede);
   font-weight: 400;
   line-height: 1.25;
-  color: #727272;
+  color: var(--color-muted);
   max-width: none;
   width: 100%;
   margin: 0;
@@ -338,18 +365,18 @@
 
 @media (max-width: 1199px) {
   .introLine {
-    font-size: 2.125rem;
+    font-size: var(--text-lede);
   }
 }
 
 @media (max-width: 959px) {
   .introLine {
-    font-size: 2.125rem;
+    font-size: var(--text-lede);
   }
 }
 
 .inlineLink {
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 15, 15, 0.35);
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -357,28 +384,28 @@
 
 .inlineLink:hover,
 .inlineLink:focus-visible {
-  color: #0f0f0f;
+  color: var(--color-ink);
   border-bottom-color: transparent;
 }
 
 /* ---------- Case page eyebrow (reference: small client label above title) ---------- */
 
 .pageEyebrow {
-  font-size: 1rem;
+  font-size: var(--text-meta);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: #727272;
+  color: var(--color-muted);
   margin: 0 0 var(--stack-tight-gap);
   line-height: 1.3;
 }
 
 .caseContextHint {
-  font-size: 1rem;
+  font-size: var(--text-meta);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: #5f5f5f;
+  color: var(--color-meta);
   margin: 0 0 0.35rem;
 }
 
@@ -399,8 +426,8 @@
   border-radius: 999px;
   border: 1px solid #d8d8d8;
   background: #f8f8f8;
-  color: #5f5f5f;
-  font-size: 0.82rem;
+  color: var(--color-meta);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.2;
@@ -409,12 +436,12 @@
 /* ---------- Display title (rec512144076) ---------- */
 
 .displayName {
-  font-size: 5.25rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: var(--text-display);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
   text-align: center;
-  color: #0f0f0f;
+  color: var(--color-ink);
   margin: 0 0 var(--stack-between-gap);
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -426,7 +453,7 @@
   max-width: 100%;
   margin-top: clamp(2rem, 8vw, 5.5rem);
   margin-bottom: 1.5rem;
-  letter-spacing: -5px;
+  letter-spacing: var(--tracking-display-home);
   margin-inline: auto;
 }
 
@@ -456,11 +483,11 @@
 }
 
 .pageTitle {
-  font-size: 5rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #0f0f0f;
+  font-size: var(--text-title);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
   margin: 0 0 var(--stack-inner-gap);
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -471,25 +498,11 @@
   .displayName.homeDisplayName {
     font-size: 3rem;
   }
-
-  .displayName,
-  .pageTitle {
-    font-size: 4.5rem;
-  }
-}
-
-@media (max-width: 959px) {
-  .displayName,
-  .pageTitle {
-    font-size: 3.5rem;
-  }
 }
 
 @media (max-width: 639px) {
   .displayName,
   .pageTitle {
-    /* Match .caseDesc scale on cards (mobile only) */
-    font-size: 1.5rem;
     line-height: 1.35;
     text-align: left;
     letter-spacing: -0.02em;
@@ -500,7 +513,8 @@
   }
 
   .displayName.homeDisplayName {
-    font-size: 1.5rem;
+    /* Win over ≤1199 hardcode (3rem) so phones use the display token floor */
+    font-size: var(--text-display);
     line-height: 1.35;
     text-align: left;
     letter-spacing: -0.02em;
@@ -515,7 +529,7 @@
   }
 
   .introLine {
-    font-size: 1.5rem;
+    font-size: var(--text-lede);
     line-height: 1.35;
     opacity: 0.92;
   }
@@ -523,13 +537,8 @@
 
 @media (max-width: 380px) {
   .displayName,
-  .pageTitle {
-    font-size: 1.5rem;
-    line-height: 1.35;
-  }
-
+  .pageTitle,
   .displayName.homeDisplayName {
-    font-size: 1.5rem;
     line-height: 1.35;
   }
 }
@@ -545,7 +554,7 @@
   }
 
   .name {
-    font-size: 1.25rem;
+    font-size: var(--text-ui);
   }
 
   .topMeta {
@@ -558,36 +567,27 @@
     padding: 0.1rem 0.25rem;
   }
 
+  /* Keep H1 on display/title tokens (do not collapse to body) */
   .displayName,
-  .pageTitle {
-    font-size: 1.5rem;
-    line-height: 1.35;
-  }
-
+  .pageTitle,
   .displayName.homeDisplayName {
-    font-size: 1.5rem;
     line-height: 1.35;
   }
 
   .introLine,
-  .pageLede,
-  .caseLockIntro,
-  .ctaText,
-  .bio {
-    font-size: 1.5rem;
+  .pageLede {
+    font-size: var(--text-lede);
     line-height: 1.35;
     opacity: 0.92;
   }
 
-  .sectionHead {
-    font-size: 1.5rem;
+  .caseLockIntro,
+  .ctaText,
+  .bio {
+    font-size: var(--text-body);
+    line-height: 1.35;
+    opacity: 0.92;
   }
-
-  .workLink,
-  .caseTitle {
-    font-size: 1.5rem;
-  }
-
 
   .metaKey,
   .footerMeta {
@@ -596,10 +596,10 @@
 }
 
 .pageLede {
-  font-size: 2.125rem;
+  font-size: var(--text-lede);
   line-height: 1.25;
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   margin: 0 0 var(--stack-between-gap);
   max-width: none;
   width: 100%;
@@ -612,11 +612,11 @@
   list-style: none;
   margin: 0 0 var(--stack-between-gap);
   padding: 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-rule);
 }
 
 .workRow {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-rule);
 }
 
 .workLink {
@@ -627,8 +627,8 @@
   row-gap: 0.1rem;
   padding: 1.15rem 0;
   text-decoration: none;
-  color: #0f0f0f;
-  font-size: 1.5rem;
+  color: var(--color-ink);
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 400;
   transition: opacity 0.25s cubic-bezier(0.19, 1, 0.22, 1),
@@ -641,27 +641,27 @@
 }
 
 .workLink:hover .workTitle {
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 .workTitle {
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   transition: color 0.2s ease;
 }
 
 .workDesc {
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   opacity: 1;
-  font-size: 1.5rem;
+  font-size: var(--text-ui);
 }
 
 .workMeta {
   font-weight: 400;
-  color: #5f5f5f;
+  color: var(--color-meta);
   opacity: 1;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   letter-spacing: 0.02em;
   white-space: nowrap;
   justify-self: end;
@@ -671,12 +671,12 @@
   .workLink {
     grid-template-columns: 1fr;
     row-gap: 0.25rem;
-    font-size: 1.5rem;
+    font-size: var(--text-body);
     padding: 1rem 0;
   }
 
   .workDesc {
-    font-size: 1.5rem;
+    font-size: var(--text-ui);
   }
 
   .workMeta {
@@ -688,10 +688,10 @@
 /* ---------- Body / CTA ---------- */
 
 .bio {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   margin: 0 0 var(--stack-between-gap);
   max-width: none;
   width: 100%;
@@ -704,14 +704,14 @@
 }
 
 .bio em {
-  color: #333333;
+  color: var(--color-emphasis);
   font-style: normal;
 }
 
 .ctaBlock {
   margin: 0 0 var(--stack-between-gap);
   padding-top: var(--stack-inner-gap);
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-rule);
 }
 
 .ctaBlockNoDivider {
@@ -721,10 +721,10 @@
 }
 
 .ctaText {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   margin: 0 0 var(--stack-cta-gap);
   max-width: none;
   width: 100%;
@@ -737,10 +737,10 @@
 
 
 .ctaLink {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 500;
   line-height: 1.2;
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   transition: opacity 0.2s ease;
   display: inline-flex;
@@ -766,19 +766,19 @@
   margin: 0;
   min-height: 2.75rem;
   padding: 0.5rem 0;
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
 }
 
 .ctaRow .contactLink {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
 }
 
 @media (max-width: 1199px) {
   .ctaRow .ctaLink,
   .ctaRow .contactLink {
-    font-size: 1rem;
+    font-size: var(--text-meta);
     line-height: 1.3;
   }
 }
@@ -801,8 +801,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  color: #5f5f5f;
-  font-size: 1.25rem;
+  color: var(--color-meta);
+  font-size: var(--text-ui);
   line-height: 1.45;
 }
 
@@ -827,18 +827,18 @@
   gap: 1rem;
   margin: var(--stack-between-gap) 0 var(--stack-inner-gap);
   padding-top: var(--stack-inner-gap);
-  border-top: 1px solid #e5e5e5;
-  font-size: 1.5rem;
+  border-top: 1px solid var(--color-rule);
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   flex-wrap: wrap;
 }
 
 .sectionHead small {
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   letter-spacing: 0.02em;
 }
 
@@ -848,7 +848,7 @@
    * should be consistent across About sections.
    */
   .sectionHead {
-    margin-top: 144px;
+    margin-top: var(--stack-section-gap);
   }
 
   /* Home: last pet card → chronology uses inner gap, not a full section break. */
@@ -862,11 +862,11 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
-    font-size: 1.5rem;
+    font-size: var(--text-body);
   }
 
   .sectionHead small {
-    font-size: 1.25rem;
+    font-size: var(--text-ui);
   }
 }
 
@@ -902,9 +902,9 @@
 }
 
 .tlYear {
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.3;
-  color: #5f5f5f;
+  color: var(--color-meta);
   opacity: 1;
   padding-top: 0;
 }
@@ -914,7 +914,7 @@
   flex-direction: column;
   gap: var(--stack-tight-gap);
   padding: 0 0 var(--stack-inner-gap);
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-rule);
 }
 
 .tlRow:last-child {
@@ -923,9 +923,9 @@
 }
 
 .tlRole {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   line-height: 1.2;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -937,26 +937,26 @@
 
 @media (max-width: 639px) {
   .tlRole {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
   }
 }
 
 .tlRole em {
-  color: #727272;
+  color: var(--color-muted);
   font-style: normal;
   font-weight: 400;
 }
 
 .tlMeta {
-  font-size: 1rem;
-  color: #727272;
+  font-size: var(--text-meta);
+  color: var(--color-muted);
   opacity: 0.85;
   line-height: 1.3;
 }
 
 .tlBlurb {
-  font-size: 1.5rem;
-  color: #727272;
+  font-size: var(--text-ui);
+  color: var(--color-muted);
   line-height: 1.45;
   margin-top: 0.35rem;
   max-width: none;
@@ -970,7 +970,7 @@
   grid-template-columns: 9rem 1fr;
   gap: 0.75rem 2rem;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
 }
 
@@ -978,20 +978,20 @@
   .metaGrid {
     grid-template-columns: 1fr;
     gap: 0.35rem;
-    font-size: 1.5rem;
+    font-size: var(--text-body);
     line-height: 1.45;
   }
 }
 
 .metaKey {
-  color: #5f5f5f;
+  color: var(--color-meta);
   opacity: 1;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   padding-top: 0.25rem;
 }
 
 .metaValue {
-  color: #0f0f0f;
+  color: var(--color-ink);
   font-weight: 500;
   overflow-wrap: anywhere;
 }
@@ -1023,9 +1023,9 @@
 }
 
 .skillCol h3 {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   margin: 0 0 var(--stack-tight-gap);
 }
 
@@ -1036,11 +1036,11 @@
 }
 
 .skillCol li {
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   line-height: 1.3;
-  color: #727272;
+  color: var(--color-muted);
   padding: 0.4rem 0;
-  border-bottom: 1px dashed #e5e5e5;
+  border-bottom: 1px dashed var(--color-rule);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -1061,9 +1061,9 @@
 
 .skillCol li em {
   font-style: normal;
-  color: #5f5f5f;
+  color: var(--color-meta);
   opacity: 1;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -1071,9 +1071,9 @@
 /* ---------- Prose paragraphs ---------- */
 
 .prose {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.45;
-  color: #727272;
+  color: var(--color-muted);
   max-width: none;
   width: 100%;
   margin: 0 0 var(--stack-prose-gap);
@@ -1091,14 +1091,14 @@
 
 @media (min-width: 640px) {
   .pageBottomSpacer {
-    /* Match the current divider rhythm on About/Contact (sectionHead margin-top = 144px desktop). */
-    height: 144px;
+    /* Match About/Contact sectionHead margin-top (stack-section-gap). */
+    height: var(--stack-section-gap);
   }
 }
 
 @media (max-width: 639px) {
   .prose {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
     line-height: 1.6;
   }
 }
@@ -1108,12 +1108,12 @@
 }
 
 .prose strong {
-  color: #333333;
+  color: var(--color-emphasis);
   font-weight: 500;
 }
 
 .prose :is(ul, ol) {
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   line-height: 1.45;
 }
 
@@ -1126,18 +1126,18 @@
   justify-content: space-between;
   gap: 1.25rem 1.5rem;
   padding: var(--stack-inner-gap) 0 0;
-  border-top: 1px solid #e5e5e5;
-  font-size: 1.5rem;
+  border-top: 1px solid var(--color-rule);
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 400;
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 @media (max-width: 639px) {
   .footer {
     flex-direction: column;
     align-items: stretch;
-    font-size: 1.5rem;
+    font-size: var(--text-body);
     gap: 1.5rem;
     padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
   }
@@ -1150,8 +1150,8 @@
 }
 
 .footerMeta {
-  font-size: 1rem;
-  color: #5f5f5f;
+  font-size: var(--text-meta);
+  color: var(--color-meta);
   opacity: 1;
 }
 
@@ -1162,7 +1162,7 @@
 }
 
 .socials a {
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 15, 15, 0.35);
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -1172,7 +1172,7 @@
 
 .socials a:hover,
 .socials a:focus-visible {
-  color: #0f0f0f;
+  color: var(--color-ink);
   border-bottom-color: transparent;
 }
 
@@ -1182,8 +1182,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 1.25rem;
-  color: #0f0f0f;
+  font-size: var(--text-ui);
+  color: var(--color-ink);
   margin-bottom: var(--stack-inner-gap);
   text-decoration: none;
   min-height: 2.75rem;
@@ -1191,10 +1191,10 @@
 }
 
 .backLink:hover {
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
-/* ---------- Case study wireframes (dark placeholder frame on #fff, caption below) ---------- */
+/* ---------- Case study wireframes (dark placeholder frame on var(--color-bg), caption below) ---------- */
 
 .caseStack {
   list-style: none;
@@ -1228,9 +1228,9 @@
 
 .homeChronologyLink {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   line-height: 1.3;
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 .caseCardLink {
@@ -1248,11 +1248,11 @@
 }
 
 .caseCardLink:hover .caseTitle {
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 .caseCardLink:focus-visible {
-  outline: 2px solid #0f0f0f;
+  outline: 2px solid var(--color-ink);
   outline-offset: 4px;
   border-radius: 12px;
 }
@@ -1332,8 +1332,8 @@
   top: 16px;
   right: 16px;
   z-index: 2;
-  font-size: 1rem;
-  letter-spacing: 0.14em;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
@@ -1365,15 +1365,15 @@
 }
 
 .caseFrameHint {
-  font-size: 1rem;
+  font-size: var(--text-meta);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
 }
 
 .caseFrameDims {
-  font-size: 1rem;
+  font-size: var(--text-meta);
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -1527,7 +1527,7 @@
 .storyNodeDotCurrent::after {
   width: 8px;
   height: 8px;
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .storyNodeLabel {
@@ -1619,9 +1619,9 @@
 
 .caseFigCaption {
   margin: var(--stack-tight-gap) 0 0;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.35;
-  color: #727272;
+  color: var(--color-muted);
   max-width: none;
   width: 100%;
 }
@@ -1759,9 +1759,9 @@
 }
 
 .aboutPetTitle {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 600;
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 15, 15, 0.35);
 }
@@ -1773,11 +1773,11 @@
 
 .aboutPetStack {
   margin: 0.5rem 0 0.35rem;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.35;
   letter-spacing: 0;
   text-transform: none;
-  color: #727272;
+  color: var(--color-muted);
 }
 
 .aboutPetDesc {
@@ -1814,7 +1814,6 @@
 }
 
 .aboutHeroGrid {
-  --about-hero-col-gap: clamp(2.25rem, 4vw, 4rem);
   display: grid;
   grid-template-columns: 1fr;
   row-gap: var(--stack-inner-gap);
@@ -1835,7 +1834,7 @@
 .aboutHeroIntro .prose {
   margin-bottom: 0;
   line-height: 1.48;
-  color: #525252;
+  color: var(--color-meta);
   text-wrap: pretty;
 }
 
@@ -1882,10 +1881,10 @@
 .caseTitle {
   display: inline-block;
   width: fit-content;
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.2;
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   margin: 0;
   transition: color 0.2s ease;
   overflow-wrap: anywhere;
@@ -1893,10 +1892,10 @@
 }
 
 .caseDesc {
-  font-size: 1.5rem;
+  font-size: var(--text-ui);
   line-height: 1.35;
   font-weight: 400;
-  color: #727272;
+  color: var(--color-muted);
   opacity: 0.92;
   margin: 0;
   overflow-wrap: anywhere;
@@ -1904,13 +1903,21 @@
 
 @media (max-width: 639px) {
   .caseTitle {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
+  }
+
+  .caseDesc {
+    font-size: var(--text-ui);
+  }
+
+  .caseMetaLine {
+    font-size: var(--text-meta);
   }
 }
 
 .caseMetaLine {
-  font-size: 1.5rem;
-  color: #727272;
+  font-size: var(--text-meta);
+  color: var(--color-muted);
   opacity: 0.65;
   margin: 0;
   line-height: 1.35;
@@ -1945,9 +1952,9 @@
 /* ---------- Access gate (locked case studies) ---------- */
 
 .caseLockIntro {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   line-height: 1.45;
-  color: #727272;
+  color: var(--color-muted);
   margin: 0 0 var(--stack-inner-gap);
   max-width: none;
   width: 100%;
@@ -1986,9 +1993,9 @@
 
 .caseTrackMapHint {
   margin: 0 0 var(--stack-inner-gap);
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.4;
-  color: #727272;
+  color: var(--color-muted);
 }
 
 .caseTrackAccordions {
@@ -1998,26 +2005,33 @@
 }
 
 .caseTrackDetails {
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-rule);
   border-radius: 10px;
   background: #fafafa;
   overflow: hidden;
   /* Allow shrinking inside flex column / narrow viewports so text wraps instead of clipping */
   min-width: 0;
   max-width: 100%;
+  transition: background-color 280ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.caseTrackDetails[open] {
-  background: #ffffff;
+.caseTrackDetails[data-open] {
+  background: var(--color-bg);
 }
 
 .caseTrackSummary {
-  list-style: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font: inherit;
   cursor: pointer;
   padding: 0.75rem 1rem;
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   font-weight: 600;
-  color: #0f0f0f;
+  color: var(--color-ink);
   line-height: 1.35;
   display: flex;
   align-items: flex-start;
@@ -2026,47 +2040,99 @@
   min-width: 0;
 }
 
+.caseTrackSummary:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
 .caseTrackSummaryLabel {
   flex: 1 1 auto;
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
-.caseTrackSummary::-webkit-details-marker {
-  display: none;
-}
-
-.caseTrackSummary::after {
-  content: '+';
+.caseTrackSummaryIcon {
   flex-shrink: 0;
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1;
-  color: #727272;
-  margin-top: 0.1em;
-  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.15em;
+  position: relative;
+  color: var(--color-muted);
 }
 
-.caseTrackDetails[open] .caseTrackSummary::after {
-  content: '\2212'; /* minus sign */
+.caseTrackSummaryIcon::before,
+.caseTrackSummaryIcon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 280ms cubic-bezier(0.19, 1, 0.22, 1), opacity 200ms ease;
+}
+
+/* Horizontal bar of + */
+.caseTrackSummaryIcon::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+/* Vertical bar of + */
+.caseTrackSummaryIcon::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+}
+
+.caseTrackDetails[data-open] .caseTrackSummaryIcon::after {
+  transform: translateX(-50%) scaleY(0);
+  opacity: 0;
+}
+
+.caseTrackPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.caseTrackDetails[data-open] .caseTrackPanel {
+  grid-template-rows: 1fr;
+}
+
+.caseTrackPanelInner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .caseTrackSummaryBody {
   margin: 0;
   padding: 0 1rem 1rem;
-  font-size: 1.25rem;
-  color: #5a5a5a;
+  font-size: var(--text-ui);
+  color: var(--color-meta);
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
   overflow-wrap: anywhere;
   word-break: break-word;
+  opacity: 0;
+  transform: translateY(-0.2rem);
+  transition:
+    opacity 220ms cubic-bezier(0.19, 1, 0.22, 1),
+    transform 280ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.caseTrackDetails[data-open] .caseTrackSummaryBody {
+  opacity: 1;
+  transform: none;
 }
 
 .caseAccessGate {
   margin: 0 0 var(--stack-between-gap);
   padding-top: var(--stack-inner-gap);
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-rule);
 }
 
 .caseNextSteps {
@@ -2081,7 +2147,7 @@
   gap: 0.75rem 1.25rem;
   margin: 0 0 var(--stack-between-gap);
   padding-top: var(--stack-inner-gap);
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-rule);
 }
 
 .caseStudyPagerSlot {
@@ -2097,8 +2163,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 1.25rem;
-  color: #0f0f0f;
+  font-size: var(--text-ui);
+  color: var(--color-ink);
   text-decoration: none;
   min-height: 2.75rem;
   padding: 0.35rem 0;
@@ -2109,11 +2175,11 @@
 .caseStudyPagerLink:hover,
 .caseStudyPagerLink:focus-visible {
   opacity: 0.85;
-  color: #0f0f0f;
+  color: var(--color-ink);
 }
 
 .caseLockIntro a {
-  color: #0f0f0f;
+  color: var(--color-ink);
   text-decoration: none;
   border-bottom: 1px solid rgba(15, 15, 15, 0.35);
 }
@@ -2134,11 +2200,11 @@
 }
 
 .caseLockLabel {
-  font-size: 0.8125rem;
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #727272;
+  color: var(--color-muted);
 }
 
 .caseLockInput {
@@ -2147,9 +2213,9 @@
   padding: 0.65rem 0.85rem;
   min-height: 44px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.3;
-  color: #0f0f0f;
+  color: var(--color-ink);
   background: #f5f5f5;
   border: 1px solid #c8c8c8;
   border-radius: 4px;
@@ -2171,7 +2237,7 @@
   border-radius: 999px;
   border: 1px solid #c8c8c8;
   background: #f0f0f0;
-  color: #0f0f0f;
+  color: var(--color-ink);
   font-family: inherit;
   font-size: 0.9375rem;
   line-height: 1.2;
@@ -2180,19 +2246,19 @@
 }
 
 .caseLockReveal:hover {
-  border-color: #8a8a8a;
+  border-color: var(--color-faint);
 }
 
 .caseLockReveal:focus-visible {
-  outline: 2px solid #0f0f0f;
+  outline: 2px solid var(--color-ink);
   outline-offset: 3px;
 }
 
 .caseLockHelp {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   line-height: 1.4;
-  color: #5f5f5f;
+  color: var(--color-meta);
 }
 
 .caseLockInput::placeholder {
@@ -2200,23 +2266,23 @@
 }
 
 .caseLockInput:hover {
-  border-color: #8a8a8a;
+  border-color: var(--color-faint);
 }
 
 .caseLockInput:focus {
-  border-color: #0f0f0f;
+  border-color: var(--color-ink);
 }
 
 .caseLockError {
-  font-size: 1rem;
-  color: #b42318;
+  font-size: var(--text-meta);
+  color: var(--color-danger);
   margin: 0;
   line-height: 1.3;
 }
 
 @media (max-width: 639px) {
   .name {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 
   .topMeta {
@@ -2226,14 +2292,14 @@
 
   .pageEyebrow,
   .caseContextHint {
-    font-size: 1rem;
+    font-size: var(--text-meta);
     letter-spacing: 0.1em;
   }
 
   .caseFrameBadge,
   .caseFrameHint,
   .caseFrameDims {
-    font-size: 1rem;
+    font-size: var(--text-meta);
   }
 
   .storyNodeLabel {
@@ -2279,25 +2345,25 @@
   padding: 0.55rem 1.35rem;
   min-height: 44px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: var(--text-meta);
   font-weight: 500;
   line-height: 1.2;
-  color: #ffffff;
-  background: #0f0f0f;
-  border: 1px solid #0f0f0f;
+  color: var(--color-bg);
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 }
 
 .caseLockSubmit:hover {
-  background: #333333;
-  border-color: #333333;
-  color: #ffffff;
+  background: var(--color-emphasis);
+  border-color: var(--color-emphasis);
+  color: var(--color-bg);
 }
 
 .caseLockSubmit:focus-visible {
-  outline: 2px solid #0f0f0f;
+  outline: 2px solid var(--color-ink);
   outline-offset: 3px;
 }
 
@@ -2336,9 +2402,9 @@
 }
 
 .caseBlockHead {
-  font-size: 1.5rem;
+  font-size: var(--text-body);
   font-weight: 500;
-  color: #0f0f0f;
+  color: var(--color-ink);
   margin: 0 0 var(--stack-prose-gap);
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
@@ -2353,10 +2419,10 @@
 }
 
 .caseQuoteText {
-  font-size: 1.75rem;
+  font-size: var(--text-quote);
   line-height: 1.3;
   letter-spacing: -0.01em;
-  color: #333333;
+  color: var(--color-emphasis);
   margin: 0;
 }
 
@@ -2370,14 +2436,8 @@
 
 .caseQuoteAttr {
   margin-top: 0.75rem;
-  font-size: 1.125rem;
-  color: #9a9a9a;
-}
-
-@media (max-width: 639px) {
-  .caseQuoteText {
-    font-size: 1.5rem;
-  }
+  font-size: var(--text-meta);
+  color: var(--color-faint);
 }
 
 /* "From feedback to shipped" — signal → what was built */
@@ -2402,16 +2462,16 @@
 
 .caseShipSignal {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   line-height: 1.4;
-  color: #8a8a8a;
+  color: var(--color-faint);
 }
 
 .caseShipShipped {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: var(--text-ui);
   line-height: 1.4;
-  color: #333333;
+  color: var(--color-emphasis);
   font-weight: 500;
 }
 
@@ -2432,13 +2492,18 @@
   margin-top: var(--stack-inner-gap);
 }
 
-/* Mobile: hero / lead / lock intro — match .caseDesc on case cards (1.5rem / 1.35); base rules above would otherwise win in cascade */
+/* Mobile: keep page lede on lede token; body-role blocks stay at body */
 @media (max-width: 639px) {
-  .pageLede,
+  .pageLede {
+    font-size: var(--text-lede);
+    line-height: 1.35;
+    opacity: 0.92;
+  }
+
   .caseLockIntro,
   .ctaText,
   .bio {
-    font-size: 1.5rem;
+    font-size: var(--text-body);
     line-height: 1.35;
     opacity: 0.92;
   }
@@ -2474,5 +2539,22 @@
 
   .workLink:hover {
     transform: none;
+  }
+
+  .caseTrackDetails,
+  .caseTrackPanel,
+  .caseTrackSummaryBody,
+  .caseTrackSummaryIcon::before,
+  .caseTrackSummaryIcon::after {
+    transition: none;
+  }
+
+  .caseTrackSummaryBody {
+    opacity: 1;
+    transform: none;
+  }
+
+  .caseTrackDetails:not([data-open]) .caseTrackSummaryBody {
+    opacity: 0;
   }
 }
