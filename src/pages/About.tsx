@@ -1,11 +1,13 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { PET_PROJECTS } from '../data/petProjects';
+import { CaseStack } from '../components/site/CaseStack';
 import { PageSection } from '../components/site/PageSection';
+import { PET_HOME_ITEMS } from '../data/homeContent';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
 const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
+const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
 
 type Job = {
   year: string;
@@ -63,33 +65,33 @@ const TIMELINE: Job[] = [
 ];
 
 const PLG = [
-  ['Acquisition & signup optimisation', '01'],
-  ['Activation & onboarding', '02'],
-  ['Free → Paid · paywalls', '03'],
-  ['Seat & enterprise expansion', '04'],
-  ['Retention · behavioral UX', '05'],
-  ['Community-led growth', '06'],
-  ['A/B testing · experimentation', '07'],
+  'Acquisition & signup optimisation',
+  'Activation & onboarding',
+  'Free → Paid · paywalls',
+  'Seat & enterprise expansion',
+  'Retention · behavioral UX',
+  'Community-led growth',
+  'A/B testing · experimentation',
 ] as const;
 
 const DESIGN = [
-  ['Product & interface design', '01'],
-  ['Design systems (Material · Carbon · Atlassian)', '02'],
-  ['Customer journey mapping', '03'],
-  ['Interactive prototypes · wireframes', '04'],
-  ['User research & usability testing', '05'],
-  ['Figma · Sketch · Axure · Maze · UserZoom', '06'],
-  ['WCAG · accessibility', '07'],
+  'Product & interface design',
+  'Design systems (Material · Carbon · Atlassian)',
+  'Customer journey mapping',
+  'Interactive prototypes · wireframes',
+  'User research & usability testing',
+  'Figma · Sketch · Axure · Maze · UserZoom',
+  'WCAG · accessibility',
 ] as const;
 
 const AI = [
-  ['Miro AI · ChatGPT · Claude', '01'],
-  ['Cursor · Replit', '02'],
-  ['HTML · CSS · JS', '03'],
-  ['Mixpanel · Amplitude · GA4', '04'],
-  ['Looker · Tableau · Snowflake', '05'],
-  ['Reforge Growth Series Alumni', '06'],
-  ['NN/g UX Certification (2021)', '07'],
+  'Miro AI · ChatGPT · Claude',
+  'Cursor · Replit',
+  'HTML · CSS · JS',
+  'Mixpanel · Amplitude · GA4',
+  'Looker · Tableau · Snowflake',
+  'Reforge Growth Series Alumni',
+  'NN/g UX Certification (2021)',
 ] as const;
 
 const LEADERSHIP = [
@@ -149,81 +151,78 @@ export default function About() {
 
   return (
     <>
-      <section className={styles.aboutHero}>
-        <h1 className={`${styles.pageTitle} ${styles.aboutHeroTitle}`}>About</h1>
-        <div className={styles.aboutHeroCopy}>
-          <p className={`${styles.pageLede} ${styles.aboutHeroLede}`}>
-            Senior Product Designer with 14+ years shipping SaaS end-to-end — strategy, journeys,
-            systems, and UI quality — with depth from signup to revenue when stakes are high.
+      <section className={styles.aboutHero} aria-labelledby="about-heading">
+        <h1 id="about-heading" className={styles.pageTitle}>
+          About
+        </h1>
+        <p className={styles.pageLede}>
+          Senior Product Designer with 14+ years shipping SaaS end-to-end — strategy, journeys,
+          systems, and UI quality — with depth from signup to revenue when stakes are high.
+        </p>
+        <div className={styles.aboutHeroIntro}>
+          <p className={styles.prose}>
+            At{' '}
+            <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
+              Miro
+            </a>{' '}
+            I design for 80M+ users across community, acquisition, enterprise, and monetization
+            — solo designer across product teams as priorities shifted. AI speeds prototyping;{' '}
+            <a
+              className={styles.inlineLink}
+              href="https://www.reforge.com/programs/growth-series"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reforge
+            </a>{' '}
+            alumni and{' '}
+            <a
+              className={styles.inlineLink}
+              href="https://adplist.org/mentors/eugene-voroniuk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ADPList mentor
+            </a>
+            . See the{' '}
+            <a className={styles.inlineLink} href="/projects/miro">
+              Miro case teaser
+            </a>{' '}
+            for production surfaces.
           </p>
-
-          <div className={styles.aboutHeroGrid}>
-            <div className={styles.aboutHeroIntro}>
-              <p className={styles.prose}>
-                At{' '}
-                <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
-                  Miro
-                </a>{' '}
-                I design for 80M+ users across community, acquisition, enterprise, and monetization
-                — solo designer across product teams as priorities shifted. AI speeds prototyping;{' '}
-                <a
-                  className={styles.inlineLink}
-                  href="https://www.reforge.com/programs/growth-series"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Reforge
-                </a>{' '}
-                alumni and{' '}
-                <a
-                  className={styles.inlineLink}
-                  href="https://adplist.org/mentors/eugene-voroniuk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ADPList mentor
-                </a>
-                . See the{' '}
-                <a className={styles.inlineLink} href="/projects/miro">
-                  Miro case teaser
-                </a>{' '}
-                for production surfaces.
-              </p>
-              <p className={styles.prose}>
-                Before Miro: sole designer on{' '}
-                <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
-                  Wix
-                </a>{' '}
-                Groups (200M+ users, web/iOS/Android). Earlier at{' '}
-                <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
-                  Star
-                </a>{' '}
-                (ex-Cogniance) — 10+ Fortune 500 engagements, workshops, IA, and handoff under NDA.
-              </p>
-            </div>
-
-            <figure className={styles.aboutPortrait}>
-              <div className={styles.aboutPortraitFrame}>
-                <img
-                  src={ABOUT_PHOTO_DEFAULT}
-                  alt="Portrait of Eugene Voroniuk"
-                  className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgDefault}`}
-                  loading="eager"
-                  decoding="async"
-                />
-                <img
-                  src={ABOUT_PHOTO_HOVER}
-                  alt=""
-                  aria-hidden="true"
-                  className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgHover}`}
-                  loading="eager"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-          </div>
+          <p className={`${styles.prose} ${styles.proseNoBottom}`}>
+            Before Miro: sole designer on{' '}
+            <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
+              Wix
+            </a>{' '}
+            Groups (200M+ users, web/iOS/Android). Earlier at{' '}
+            <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
+              Star
+            </a>{' '}
+            (ex-Cogniance) — 10+ Fortune 500 engagements, workshops, IA, and handoff under NDA.
+          </p>
         </div>
       </section>
+
+      <figure className={styles.aboutPortrait}>
+        <div className={styles.aboutPortraitFrame}>
+          <img
+            src={ABOUT_PHOTO_DEFAULT}
+            alt="Portrait of Eugene Voroniuk"
+            className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgDefault}`}
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src={ABOUT_PHOTO_HOVER}
+            alt=""
+            aria-hidden="true"
+            className={`${styles.aboutPortraitImg} ${styles.aboutPortraitImgHover}`}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </figure>
 
       <PageSection
         id="chronology"
@@ -255,106 +254,108 @@ export default function About() {
         subtitle="Built and shipped independently"
         lede="Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product instincts alongside enterprise SaaS work."
       >
-        <ul className={styles.aboutPetGrid}>
-          {PET_PROJECTS.map((p) => (
-            <li key={p.name} className={styles.aboutPetCard}>
-              <a className={styles.aboutPetTitle} href={p.href} target="_blank" rel="noopener noreferrer">
-                {p.name}
-              </a>
-              <p className={styles.aboutPetStack}>{p.stack}</p>
-              <p className={`${styles.prose} ${styles.aboutPetDesc}`}>{p.description}</p>
-            </li>
-          ))}
-        </ul>
+        <CaseStack items={PET_HOME_ITEMS} nested />
       </PageSection>
 
-      <h2 className={styles.sectionHead}>
-        <span>Top skills</span>
-        <small>Craft, lifecycle, and execution</small>
-      </h2>
-      <p className={styles.prose}>
-        Delivery: Agile teams (Scrum, Kanban), design sprint facilitation, stakeholder presentations,
-        production QA collaboration, async-first communication. Adobe Creative Suite when high-fidelity
-        or brand work requires it.
-      </p>
-      <div className={styles.skillsGrid}>
-        <div className={styles.skillCol}>
-          <h3>Product & craft</h3>
-          <ul>
-            {DESIGN.map(([label, n]) => (
-              <li key={label}>
-                <span>{label}</span>
-                <em>{n}</em>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.skillCol}>
-          <h3>Lifecycle & business</h3>
-          <ul>
-            {PLG.map(([label, n]) => (
-              <li key={label}>
-                <span>{label}</span>
-                <em>{n}</em>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.skillCol}>
-          <h3>AI · data · stack</h3>
-          <ul>
-            {AI.map(([label, n]) => (
-              <li key={label}>
-                <span>{label}</span>
-                <em>{n}</em>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <h2 className={styles.sectionHead}>
-        <span>Leadership & side-work</span>
-        <small>Beyond the day-job</small>
-      </h2>
-      <div className={styles.timeline}>
-        {LEADERSHIP.map((item) => (
-          <div key={item.title} style={{ display: 'contents' }}>
-            <div className={styles.tlYear}>{item.year}</div>
-            <div className={styles.tlRow}>
-              {item.href ? (
-                <a className={`${styles.tlRole} ${styles.inlineLink}`} href={item.href} target="_blank" rel="noopener noreferrer">
-                  {item.title}
-                </a>
-              ) : (
-                <span className={styles.tlRole}>{item.title}</span>
-              )}
-              <span className={styles.tlBlurb}>{item.desc}</span>
-            </div>
+      <PageSection
+        id="skills"
+        title="Top skills"
+        subtitle="Craft, lifecycle, and execution"
+        lede="Delivery: Agile teams (Scrum, Kanban), design sprint facilitation, stakeholder presentations, production QA collaboration, async-first communication. Adobe Creative Suite when high-fidelity or brand work requires it."
+      >
+        <div className={styles.skillsGrid}>
+          <div className={styles.skillCol}>
+            <h3>Product & craft</h3>
+            <ul>
+              {DESIGN.map((label) => (
+                <li key={label}>
+                  <span>{label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
-      </div>
+          <div className={styles.skillCol}>
+            <h3>Lifecycle & business</h3>
+            <ul>
+              {PLG.map((label) => (
+                <li key={label}>
+                  <span>{label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.skillCol}>
+            <h3>AI · data · stack</h3>
+            <ul>
+              {AI.map((label) => (
+                <li key={label}>
+                  <span>{label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </PageSection>
 
-      <h2 className={styles.sectionHead}>
-        <span>Education & languages</span>
-        <small>Kyiv → Amsterdam</small>
-      </h2>
-      <div className={styles.metaGrid}>
-        <span className={styles.metaKey}>Education</span>
-        <span className={styles.metaValue}>
-          BA Graphic Design — Kyiv National University of Technologies & Design (2009–2013)
-        </span>
-        <span className={styles.metaKey}>Continuing</span>
-        <span className={styles.metaValue}>Reforge Growth Series Alumni (2022–2023)</span>
-        <span className={styles.metaKey}>Certification</span>
-        <span className={styles.metaValue}>NN/g UX Certification — ID 1046980 (2021)</span>
-        <span className={styles.metaKey}>Award</span>
-        <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
-        <span className={styles.metaKey}>Languages</span>
-        <span className={styles.metaValue}>
-          English (fluent) · Ukrainian (native) · Dutch (conversational) · Spanish (conversational)
-        </span>
-      </div>
+      <PageSection id="leadership" title="Leadership & side-work" subtitle="Beyond the day-job">
+        <div className={styles.timeline}>
+          {LEADERSHIP.map((item) => (
+            <div key={item.title} style={{ display: 'contents' }}>
+              <div className={styles.tlYear}>{item.year}</div>
+              <div className={styles.tlRow}>
+                {item.href ? (
+                  <a
+                    className={`${styles.tlRole} ${styles.inlineLink}`}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <span className={styles.tlRole}>{item.title}</span>
+                )}
+                <span className={styles.tlBlurb}>{item.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection id="education" title="Education & languages" subtitle="Kyiv → Amsterdam">
+        <div className={styles.metaGrid}>
+          <span className={styles.metaKey}>Education</span>
+          <span className={styles.metaValue}>
+            BA Graphic Design — Kyiv National University of Technologies & Design (2009–2013)
+          </span>
+          <span className={styles.metaKey}>Continuing</span>
+          <span className={styles.metaValue}>Reforge Growth Series Alumni (2022–2023)</span>
+          <span className={styles.metaKey}>Certification</span>
+          <span className={styles.metaValue}>NN/g UX Certification — ID 1046980 (2021)</span>
+          <span className={styles.metaKey}>Award</span>
+          <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
+          <span className={styles.metaKey}>Languages</span>
+          <span className={styles.metaValue}>
+            English (fluent) · Ukrainian (native) · Dutch (conversational) · Spanish (conversational)
+          </span>
+        </div>
+      </PageSection>
+
+      <section className={styles.ctaBlock} aria-labelledby="about-cta-heading">
+        <h2 id="about-cta-heading" className={styles.visuallyHidden}>
+          Stay in touch
+        </h2>
+        <p className={styles.ctaText}>
+          Open to senior, staff, and principal IC product design roles — including teams with
+          heavy monetization, activation, or experimentation needs. Selective advisory for SaaS
+          product and GTM alignment.
+        </p>
+        <div className={styles.ctaRow}>
+          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+            Book a 30-min intro call
+          </a>
+        </div>
+      </section>
     </>
   );
 }
