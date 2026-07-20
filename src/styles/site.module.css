@@ -540,6 +540,10 @@
     margin-inline: 0;
   }
 
+  .introLineLead {
+    display: none;
+  }
+
   .introLine {
     font-size: var(--text-lede);
     line-height: 1.35;
