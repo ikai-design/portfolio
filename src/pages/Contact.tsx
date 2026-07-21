@@ -1,7 +1,7 @@
 import styles from '../styles/site.module.css';
 import { CONTACT_EMAIL, MAILTO } from '../components/site/SiteHeader';
 
-const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 const PHONE = '+31 6 388 91 489';
 const PHONE_HREF = 'tel:+31638891489';
 

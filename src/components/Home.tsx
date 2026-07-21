@@ -4,7 +4,7 @@ import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
 import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
 
-const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
 export default function Home() {
   return (

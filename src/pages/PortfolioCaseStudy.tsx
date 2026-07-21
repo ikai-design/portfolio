@@ -13,7 +13,7 @@ import {
 } from '../data/portfolioCases';
 import { isCasePasswordProtected } from '../config/lockedCases';
 
-const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
 const SSR_SITE_URL = 'https://simple-screen-recorder.com/';
 const SSR_CWS_URL =

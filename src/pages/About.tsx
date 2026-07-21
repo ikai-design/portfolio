@@ -7,7 +7,7 @@ import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
 const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
-const CALENDLY_30 = 'https://calendly.com/eugene_vo/30-min-call';
+const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
 type Job = {
   year: string;
