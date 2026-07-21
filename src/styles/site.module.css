@@ -512,9 +512,11 @@
   text-align: center;
   color: var(--color-ink);
   margin: 0 0 var(--stack-between-gap);
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
+  /* Wrap at word boundaries only — avoid "Design-er" on narrow iPhones */
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .homeDisplayName {
@@ -562,9 +564,10 @@
   letter-spacing: var(--tracking-display);
   color: var(--color-ink);
   margin: 0 0 var(--stack-inner-gap);
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 /* Home display uses the same --text-display cascade as other titles (no 3rem hardcode). */
