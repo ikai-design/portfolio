@@ -3,40 +3,38 @@ import { CaseStack } from './site/CaseStack';
 import { HeroDiffusion } from './site/HeroDiffusion';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
-import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
+import { HOME_CASE_ITEMS } from '../data/homeContent';
 
-const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
+const CAL_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
 export default function Home() {
   return (
     <>
       <div className={styles.homeHero}>
         <HeroDiffusion />
-        <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Senior Product Designer</h1>
+        <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>
+          Product design from signup to revenue
+        </h1>
 
         <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
           <p className={styles.introLine}>
             <span className={styles.introLineLead}>
-              Complex SaaS at scale: Miro (80M+), Wix (200M+).{' '}
+              Senior Product Designer — Miro (80M+), Wix (200M+).{' '}
             </span>
             <span className={styles.introLineTail}>
-              Strategy to shipped UI, with depth in lifecycle and monetization.
+              Systems, journeys, and shipped UI across acquisition, activation, and monetization.
             </span>
           </p>
         </section>
+
+        <div className={`${styles.homeHeroCta} ${styles.ctaRow}`}>
+          <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">
+            Book a 30-min intro call
+          </a>
+        </div>
       </div>
 
-      <CaseStack items={ENTERPRISE_CASE_ITEMS} flush />
-
-      <PageSection
-        id="pet-projects"
-        sectionClassName={styles.homePetSection}
-        title="Independent products"
-        subtitle="Built and shipped independently"
-        lede="Live products built end-to-end with AI-assisted tooling — open in a new tab."
-      >
-        <CaseStack items={PET_HOME_ITEMS} nested />
-      </PageSection>
+      <CaseStack items={HOME_CASE_ITEMS} flush />
 
       <PageSection
         id="chronology"
@@ -44,7 +42,7 @@ export default function Home() {
         title="Chronology"
         subtitle="2009 → now"
         headClassName={styles.aboutChronologyHead}
-        lede="14+ years end-to-end SaaS design — framing, journeys, systems, and UI quality. Deep experience in activation, expansion, and monetization, including experimentation when stakes are high."
+        lede="Full timeline on About — roles and employers from 2009 to now."
       >
         <HomeChronologyTeaser />
       </PageSection>
@@ -55,11 +53,10 @@ export default function Home() {
         </h2>
         <p className={styles.ctaText}>
           Open to senior, staff, and principal IC product design roles — including teams with
-          heavy monetization, activation, or experimentation needs. Selective advisory for SaaS
-          product and GTM alignment.
+          heavy monetization, activation, or experimentation needs.
         </p>
         <div className={styles.ctaRow}>
-          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+          <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
           </a>
         </div>

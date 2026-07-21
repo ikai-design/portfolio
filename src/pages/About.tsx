@@ -1,13 +1,11 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CaseStack } from '../components/site/CaseStack';
 import { PageSection } from '../components/site/PageSection';
-import { PET_HOME_ITEMS } from '../data/homeContent';
 import styles from '../styles/site.module.css';
 
 const ABOUT_PHOTO_DEFAULT = `${import.meta.env.BASE_URL}about/eugene-default.png`;
 const ABOUT_PHOTO_HOVER = `${import.meta.env.BASE_URL}about/eugene-hover.png`;
-const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
+const CAL_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
 type Job = {
   year: string;
@@ -23,32 +21,27 @@ const TIMELINE: Job[] = [
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
     location: 'Amsterdam · 4y 11m',
-    blurb:
-      'Product design across community, acquisition, enterprise, and monetization for 80M+ users; multiple growth-facing product team contexts as priorities shifted.',
+    blurb: 'Community, acquisition, enterprise, and monetization for 80M+ users.',
   },
   {
     year: '2019 — 2021',
     role: 'Senior Product Designer',
     company: 'Wix.com',
     location: 'Kyiv · 1y 11m',
-    blurb:
-      'Sole designer for most of the lifecycle after launch; partial product ownership. Wix Groups — community for creators and SMBs — 200M+ users, web, iOS, Android.',
+    blurb: 'Sole designer on Wix Groups — 200M+ users, web, iOS, Android.',
   },
   {
     year: '2015 — 2019',
     role: 'UX → Senior UX Designer',
     company: 'Star (ex-Cogniance)',
     location: 'Kyiv · 3y 7m',
-    blurb:
-      '10+ Fortune 500 engagements (IoT, telematics, HealthTech, wearables, GovTech, AdTech); greenfield and regulated work, client workshops, NDA. Led 4 designers in Wrocław briefly.',
+    blurb: '10+ Fortune 500 programs under NDA; briefly led 4 designers in Wrocław.',
   },
   {
     year: '2013 — 2015',
     role: 'Graphic & Web Designer',
     company: 'Ciklum',
     location: 'Kyiv · 2y',
-    blurb:
-      'Data visualisation, infographics, training materials and web design with a management-consulting team.',
   },
   {
     year: '2011 — 2013',
@@ -65,76 +58,55 @@ const TIMELINE: Job[] = [
 ];
 
 const PLG = [
-  'Acquisition & signup optimisation',
+  'Acquisition & signup',
   'Activation & onboarding',
   'Free → Paid · paywalls',
   'Seat & enterprise expansion',
   'Retention · behavioral UX',
-  'Community-led growth',
-  'A/B testing · experimentation',
+  'Experimentation',
 ] as const;
 
 const DESIGN = [
-  'Product & interface design',
-  'Design systems (Material · Carbon · Atlassian)',
+  'Design systems',
   'Customer journey mapping',
-  'Interactive prototypes · wireframes',
-  'User research & usability testing',
-  'Figma · Sketch · Axure · Maze · UserZoom',
-  'WCAG · accessibility',
+  'Research & usability testing',
+  'Accessibility (WCAG)',
 ] as const;
 
 const AI = [
-  'Miro AI · ChatGPT · Claude',
-  'Cursor · Replit',
-  'HTML · CSS · JS',
+  'AI-assisted prototyping',
   'Mixpanel · Amplitude · GA4',
   'Looker · Tableau · Snowflake',
-  'Reforge Growth Series Alumni',
-  'NN/g UX Certification (2021)',
 ] as const;
 
 const LEADERSHIP = [
   {
-    year: '2026',
-    title: 'Independent products — shipping',
-    href: 'https://simple-screen-recorder.com/',
-    desc: 'Simple Screen Recorder (Chrome Web Store) and Try Wren (PWA)—links and context in Independent products below.',
-  },
-  {
     year: '2023 — now',
     title: 'ADPList Mentor',
     href: 'https://adplist.org/mentors/eugene-voroniuk',
-    desc: 'Career advice, CV & portfolio reviews, interview prep, whiteboard sessions.',
+    desc: 'CV, portfolio, and interview prep for early- to mid-career designers.',
   },
   {
     year: '2024 — now',
     title: 'YouTube channel',
     href: 'https://www.youtube.com/@EugeneVoroniuk',
-    desc: 'Design, AI, and product thinking — insights & discussions.',
-  },
-  {
-    year: '2023 — now',
-    title: 'VanBlum digital-print store',
-    href: 'https://www.instagram.com/vanblum.store/',
-    desc: 'AI-generated prints; a side store to stay creative.',
+    desc: 'Design, AI, and product thinking.',
   },
   {
     year: '2023',
     title: 'Midjourney Mastery — Udemy',
     href: 'https://www.udemy.com/course/midjourney-comprehensive/',
-    desc: '28,682 students — "Midjourney Mastery: Creating Visuals Using AI".',
+    desc: '28,682 students — AI visuals course.',
   },
   {
     year: '2018 — now',
     title: 'Startup advisor',
-    desc: 'UX, product strategy, go-to-market, and PLG for startups, scale-ups and SMBs.',
+    desc: 'UX, product strategy, and PLG for startups and SMBs.',
   },
-  { year: '2019 — 2020', title: 'Do Not Lean — podcast', desc: 'Conversations with product designers from various companies.' },
   {
     year: '2014 — 2018',
     title: 'Projector Institute — tutor',
-    desc: '150 students in person — "Web Design. Basics".',
+    desc: '150 students — Web Design. Basics.',
   },
 ];
 
@@ -156,50 +128,32 @@ export default function About() {
           About
         </h1>
         <p className={styles.pageLede}>
-          Senior Product Designer with 14+ years shipping SaaS end-to-end — strategy, journeys,
-          systems, and UI quality — with depth from signup to revenue when stakes are high.
+          Senior Product Designer with 14+ years shipping SaaS — strategy, journeys, systems, and
+          UI — with depth from signup to revenue.
         </p>
         <div className={styles.aboutHeroIntro}>
-          <p className={styles.prose}>
+          <p className={`${styles.prose} ${styles.proseNoBottom}`}>
             At{' '}
             <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
               Miro
             </a>{' '}
-            I design for 80M+ users across community, acquisition, enterprise, and monetization
-            — solo designer across product teams as priorities shifted. AI speeds prototyping;{' '}
-            <a
-              className={styles.inlineLink}
-              href="https://www.reforge.com/programs/growth-series"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Reforge
+            I design for 80M+ users across growth surfaces. Before that: sole designer on{' '}
+            <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
+              Wix
             </a>{' '}
-            alumni and{' '}
-            <a
-              className={styles.inlineLink}
-              href="https://adplist.org/mentors/eugene-voroniuk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ADPList mentor
+            Groups (200M+), and Fortune 500 product work at{' '}
+            <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
+              Star
             </a>
             . See the{' '}
             <a className={styles.inlineLink} href="/projects/miro">
               Miro case teaser
             </a>{' '}
-            for production surfaces.
-          </p>
-          <p className={`${styles.prose} ${styles.proseNoBottom}`}>
-            Before Miro: sole designer on{' '}
-            <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
-              Wix
-            </a>{' '}
-            Groups (200M+ users, web/iOS/Android). Earlier at{' '}
-            <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
-              Star
-            </a>{' '}
-            (ex-Cogniance) — 10+ Fortune 500 engagements, workshops, IA, and handoff under NDA.
+            for production surfaces; shipped products live on the{' '}
+            <a className={styles.inlineLink} href="/">
+              home page
+            </a>
+            .
           </p>
         </div>
       </section>
@@ -247,22 +201,7 @@ export default function About() {
         </div>
       </PageSection>
 
-      <PageSection
-        id="pet-projects"
-        sectionClassName={styles.aboutPetSection}
-        title="Independent products"
-        subtitle="Built and shipped independently"
-        lede="Small products built end-to-end with AI-assisted tooling—useful for demonstrating builder-product instincts alongside enterprise SaaS work."
-      >
-        <CaseStack items={PET_HOME_ITEMS} nested />
-      </PageSection>
-
-      <PageSection
-        id="skills"
-        title="Top skills"
-        subtitle="Craft, lifecycle, and execution"
-        lede="Delivery: Agile teams (Scrum, Kanban), design sprint facilitation, stakeholder presentations, production QA collaboration, async-first communication. Adobe Creative Suite when high-fidelity or brand work requires it."
-      >
+      <PageSection id="skills" title="Top skills" subtitle="Craft, lifecycle, and execution">
         <div className={styles.skillsGrid}>
           <div className={styles.skillCol}>
             <h3>Product & craft</h3>
@@ -347,11 +286,10 @@ export default function About() {
         </h2>
         <p className={styles.ctaText}>
           Open to senior, staff, and principal IC product design roles — including teams with
-          heavy monetization, activation, or experimentation needs. Selective advisory for SaaS
-          product and GTM alignment.
+          heavy monetization, activation, or experimentation needs.
         </p>
         <div className={styles.ctaRow}>
-          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+          <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
           </a>
         </div>

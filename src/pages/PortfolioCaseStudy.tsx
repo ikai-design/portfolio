@@ -77,6 +77,15 @@ const PUBLIC_TEASER_TEMPLATE = [
 
 const MAX_TEASER_BULLETS = 3;
 
+function parseGlanceLine(line: string): { label: string; body: string } {
+  const idx = line.indexOf(':');
+  if (idx === -1) return { label: '', body: line };
+  return {
+    label: line.slice(0, idx).trim(),
+    body: line.slice(idx + 1).trim(),
+  };
+}
+
 export default function PortfolioCaseStudy() {
   const { slug } = useParams<{ slug: string }>();
   const data = slug ? PORTFOLIO_CASES[slug] : undefined;
@@ -105,6 +114,7 @@ export default function PortfolioCaseStudy() {
   }
 
   const teaserBullets = (data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).slice(0, MAX_TEASER_BULLETS);
+  const teaserPlaybackRate = slug === 'miro' ? 2 : 1;
 
   return (
     <>
@@ -123,6 +133,7 @@ export default function PortfolioCaseStudy() {
           videoPoster={data.hero.videoPoster}
           alt={data.hero.alt}
           loading="eager"
+          playbackRate={teaserPlaybackRate}
         />
 
         {locked && data.lockedTeaserAfterHero?.length ? (
@@ -138,6 +149,7 @@ export default function PortfolioCaseStudy() {
                 videoPoster={spec.videoPoster}
                 alt={spec.alt ?? ''}
                 loading={i === 0 ? 'eager' : 'lazy'}
+                playbackRate={teaserPlaybackRate}
               />
             ))}
           </div>
@@ -150,20 +162,26 @@ export default function PortfolioCaseStudy() {
 
           <section className={styles.caseTeaser}>
             <h2 className={styles.caseBlockHead}>At a glance</h2>
-            {teaserBullets.map((line) => (
-              <p key={line} className={styles.prose}>
-                {line}
-              </p>
-            ))}
+            <div className={styles.caseGlanceGrid}>
+              {teaserBullets.map((line) => {
+                const { label, body } = parseGlanceLine(line);
+                return (
+                  <div key={line} className={styles.caseGlanceItem}>
+                    {label ? <p className={styles.caseGlanceLabel}>{label}</p> : null}
+                    <p className={styles.caseGlanceBody}>{body}</p>
+                  </div>
+                );
+              })}
+            </div>
           </section>
 
           {data.publicTracks?.length ? (
             <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
               <h2 className={styles.caseBlockHead}>Program map</h2>
               <p className={styles.caseTrackMapHint}>
-                Expand a stream for a one-line summary of the work.
+                Expand a stream — the preview on the right updates with that work.
               </p>
-              <CaseTrackAccordion tracks={data.publicTracks} />
+              <CaseTrackAccordion tracks={data.publicTracks} playbackRate={teaserPlaybackRate} />
             </section>
           ) : null}
 
@@ -180,6 +198,7 @@ export default function PortfolioCaseStudy() {
                   videoPoster={spec.videoPoster}
                   alt={spec.alt ?? ''}
                   loading="lazy"
+                  playbackRate={teaserPlaybackRate}
                 />
               ))}
             </div>
@@ -193,25 +212,22 @@ export default function PortfolioCaseStudy() {
             <ul className={styles.caseAccessChecklist}>
               <li>Include your role, company, and the case area you want to review.</li>
               <li>Typical response time: within 24 hours on business days.</li>
-              <li>
-                NDA-aware summary (PDF / Figma) tailored to the streams you name — shared on request
-                via email.
-              </li>
+              <li>You receive an NDA-aware PDF / Figma summary tailored to the streams you name.</li>
             </ul>
             {data.lockDisclaimer ? (
               <p className={styles.caseLockIntro}>{data.lockDisclaimer}</p>
             ) : null}
             <div className={styles.ctaRow}>
-              <a className={styles.contactLink} href={MAILTO}>
-                Request full case deck via email
-              </a>
               <a
-                className={styles.ctaLink}
+                className={styles.contactLink}
                 href={CALENDLY_30}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Book a 30-min intro call
+              </a>
+              <a className={styles.ctaLink} href={MAILTO}>
+                Request full case deck via email
               </a>
             </div>
           </section>
@@ -233,19 +249,25 @@ export default function PortfolioCaseStudy() {
             <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
               <h2 className={styles.caseBlockHead}>Program map</h2>
               <p className={styles.caseTrackMapHint}>
-                Expand a stream for a one-line summary of the work.
+                Expand a stream — the preview on the right updates with that work.
               </p>
-              <CaseTrackAccordion tracks={data.publicTracks} />
+              <CaseTrackAccordion tracks={data.publicTracks} playbackRate={teaserPlaybackRate} />
             </section>
           ) : null}
 
           <section className={styles.caseTeaser}>
             <h2 className={styles.caseBlockHead}>At a glance</h2>
-            {teaserBullets.map((line) => (
-              <p key={line} className={styles.prose}>
-                {line}
-              </p>
-            ))}
+            <div className={styles.caseGlanceGrid}>
+              {teaserBullets.map((line) => {
+                const { label, body } = parseGlanceLine(line);
+                return (
+                  <div key={line} className={styles.caseGlanceItem}>
+                    {label ? <p className={styles.caseGlanceLabel}>{label}</p> : null}
+                    <p className={styles.caseGlanceBody}>{body}</p>
+                  </div>
+                );
+              })}
+            </div>
           </section>
           <p className={styles.pageLede}>{renderLedeWithOptionalProgramMapLink(data.lede)}</p>
 
@@ -304,6 +326,7 @@ export default function PortfolioCaseStudy() {
                   videoPoster={block.spec.videoPoster}
                   alt={block.spec.alt}
                   loading="lazy"
+                  playbackRate={teaserPlaybackRate}
                 />
               );
             })}
@@ -312,7 +335,15 @@ export default function PortfolioCaseStudy() {
           {data.cta ? (
             <section className={styles.caseNextSteps} aria-label="Next steps">
               <div className={styles.ctaRow}>
-                <Link className={styles.contactLink} to={data.cta.to}>
+                <a
+                  className={styles.contactLink}
+                  href={CALENDLY_30}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a 30-min intro call
+                </a>
+                <Link className={styles.ctaLink} to={data.cta.to}>
                   {data.cta.label}
                 </Link>
               </div>

@@ -19,6 +19,8 @@ type CaseStudyFigureProps = {
   loading?: 'eager' | 'lazy';
   /** `viewport` (default) autoplays when scrolled into view; `hover` plays only while the cursor is over the figure */
   playOn?: 'viewport' | 'hover';
+  /** HTMLMediaElement.playbackRate — e.g. 2 for faster case teasers */
+  playbackRate?: number;
 };
 
 /**
@@ -36,6 +38,7 @@ export function CaseStudyFigure({
   placeholderVariant = 'default',
   loading = 'lazy',
   playOn = 'viewport',
+  playbackRate = 1,
 }: CaseStudyFigureProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [resolvedAspectRatio, setResolvedAspectRatio] = useState(aspectRatio);
@@ -45,12 +48,19 @@ export function CaseStudyFigure({
   }, [aspectRatio]);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !videoSrc) return;
+    video.playbackRate = playbackRate;
+  }, [videoSrc, playbackRate]);
+
+  useEffect(() => {
     if (!videoSrc || !videoRef.current || playOn !== 'viewport') return;
 
     const video = videoRef.current;
     let hasEnteredViewport = false;
 
     const tryPlay = () => {
+      video.playbackRate = playbackRate;
       const p = video.play();
       if (p && typeof p.catch === 'function') {
         p.catch(() => undefined);
@@ -77,12 +87,13 @@ export function CaseStudyFigure({
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, [videoSrc, playOn]);
+  }, [videoSrc, playOn, playbackRate]);
 
   const handleMouseEnter = playOn === 'hover' && videoSrc
     ? () => {
         const v = videoRef.current;
         if (!v) return;
+        v.playbackRate = playbackRate;
         v.currentTime = 0;
         v.play().catch(() => undefined);
       }
