@@ -206,6 +206,8 @@
   justify-content: space-between;
   gap: 1rem 1.5rem;
   margin-bottom: var(--stack-inner-gap);
+  /* Let hero dust breathe into the header — no opaque plate */
+  background: transparent;
 }
 
 @media (max-width: 639px) {
@@ -443,6 +445,61 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.2;
+}
+
+/* ---------- Home hero + cursor diffusion ---------- */
+
+.homeHero {
+  position: relative;
+  /* Allow the diffusion layer to paint into the header above */
+  overflow: visible;
+}
+
+.heroDiffusion {
+  position: absolute;
+  /* Reach under the non-sticky header; leave room below before case cards */
+  top: -5.75rem;
+  right: -6%;
+  bottom: -8%;
+  left: -6%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+  /* Soft dissolve before the case cards — no hard clip line */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 62%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 62%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+}
+
+.heroDiffusionCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.homeHero .displayName,
+.homeHero .intro {
+  position: relative;
+  z-index: 1;
+}
+
+/* Case cards sit above any leftover dust at the soft fade — see .caseStack z-index */
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .heroDiffusion {
+    display: none;
+  }
 }
 
 /* ---------- Display title (rec512144076) ---------- */
@@ -1199,6 +1256,8 @@
   list-style: none;
   margin: 0 0 var(--stack-between-gap);
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .caseCard {

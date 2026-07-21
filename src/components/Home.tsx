@@ -1,5 +1,6 @@
 import styles from '../styles/site.module.css';
 import { CaseStack } from './site/CaseStack';
+import { HeroDiffusion } from './site/HeroDiffusion';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
 import { ENTERPRISE_CASE_ITEMS, PET_HOME_ITEMS } from '../data/homeContent';
@@ -9,18 +10,21 @@ const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 export default function Home() {
   return (
     <>
-      <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Senior Product Designer</h1>
+      <div className={styles.homeHero}>
+        <HeroDiffusion />
+        <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>Senior Product Designer</h1>
 
-      <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
-        <p className={styles.introLine}>
-          <span className={styles.introLineLead}>
-            Complex SaaS at scale: Miro (80M+), Wix (200M+).{' '}
-          </span>
-          <span className={styles.introLineTail}>
-            Strategy to shipped UI, with depth in lifecycle and monetization.
-          </span>
-        </p>
-      </section>
+        <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
+          <p className={styles.introLine}>
+            <span className={styles.introLineLead}>
+              Complex SaaS at scale: Miro (80M+), Wix (200M+).{' '}
+            </span>
+            <span className={styles.introLineTail}>
+              Strategy to shipped UI, with depth in lifecycle and monetization.
+            </span>
+          </p>
+        </section>
+      </div>
 
       <CaseStack items={ENTERPRISE_CASE_ITEMS} flush />
 
