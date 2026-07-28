@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from '../../styles/site.module.css';
+import { VideoLightbox } from './VideoLightbox';
 
 type CaseStudyFigureProps = {
   /** CSS aspect-ratio value, e.g. `16 / 9` */
@@ -19,6 +20,13 @@ type CaseStudyFigureProps = {
   loading?: 'eager' | 'lazy';
   /** `viewport` (default) autoplays when scrolled into view; `hover` plays only while the cursor is over the figure */
   playOn?: 'viewport' | 'hover';
+  /** HTMLMediaElement.playbackRate — e.g. 2 for faster case teasers */
+  playbackRate?: number;
+  /**
+   * Opt-in lightbox for case pages. Leave off on Home cards so hover-play /
+   * card links stay undisturbed.
+   */
+  allowLightbox?: boolean;
 };
 
 /**
@@ -36,13 +44,25 @@ export function CaseStudyFigure({
   placeholderVariant = 'default',
   loading = 'lazy',
   playOn = 'viewport',
+  playbackRate = 1,
+  allowLightbox = false,
 }: CaseStudyFigureProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [resolvedAspectRatio, setResolvedAspectRatio] = useState(aspectRatio);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const wasPlayingBeforeLightbox = useRef(false);
+
+  const canExpand = Boolean(allowLightbox && videoSrc);
 
   useEffect(() => {
     setResolvedAspectRatio(aspectRatio);
   }, [aspectRatio]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !videoSrc) return;
+    video.playbackRate = playbackRate;
+  }, [videoSrc, playbackRate]);
 
   useEffect(() => {
     if (!videoSrc || !videoRef.current || playOn !== 'viewport') return;
@@ -51,6 +71,8 @@ export function CaseStudyFigure({
     let hasEnteredViewport = false;
 
     const tryPlay = () => {
+      if (lightboxOpen) return;
+      video.playbackRate = playbackRate;
       const p = video.play();
       if (p && typeof p.catch === 'function') {
         p.catch(() => undefined);
@@ -77,25 +99,47 @@ export function CaseStudyFigure({
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, [videoSrc, playOn]);
+  }, [videoSrc, playOn, playbackRate, lightboxOpen]);
 
-  const handleMouseEnter = playOn === 'hover' && videoSrc
-    ? () => {
-        const v = videoRef.current;
-        if (!v) return;
-        v.currentTime = 0;
-        v.play().catch(() => undefined);
-      }
-    : undefined;
+  const openLightbox = () => {
+    if (!canExpand) return;
+    const v = videoRef.current;
+    wasPlayingBeforeLightbox.current = Boolean(v && !v.paused);
+    v?.pause();
+    setLightboxOpen(true);
+  };
 
-  const handleMouseLeave = playOn === 'hover' && videoSrc
-    ? () => {
-        const v = videoRef.current;
-        if (!v) return;
-        v.pause();
-        v.currentTime = 0;
-      }
-    : undefined;
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    const v = videoRef.current;
+    if (!v) return;
+    v.playbackRate = playbackRate;
+    if (wasPlayingBeforeLightbox.current && playOn === 'viewport') {
+      v.play().catch(() => undefined);
+    }
+  };
+
+  const handleMouseEnter =
+    playOn === 'hover' && videoSrc
+      ? () => {
+          if (lightboxOpen) return;
+          const v = videoRef.current;
+          if (!v) return;
+          v.playbackRate = playbackRate;
+          v.currentTime = 0;
+          v.play().catch(() => undefined);
+        }
+      : undefined;
+
+  const handleMouseLeave =
+    playOn === 'hover' && videoSrc
+      ? () => {
+          const v = videoRef.current;
+          if (!v) return;
+          v.pause();
+          v.currentTime = 0;
+        }
+      : undefined;
 
   const chronologyNodes = [
     { id: 'design', label: 'Design', state: 'past', tooltip: 'Foundational UX/UI Craft' },
@@ -106,32 +150,45 @@ export function CaseStudyFigure({
 
   return (
     <figure className={styles.caseFigure} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <div className={styles.caseFrame} style={{ aspectRatio: resolvedAspectRatio }}>
+      <div
+        className={`${styles.caseFrame}${canExpand ? ` ${styles.caseFrameExpandable}` : ''}`}
+        style={{ aspectRatio: resolvedAspectRatio }}
+      >
         {videoSrc ? (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            poster={videoPoster || undefined}
-            className={styles.caseFrameVideo}
-            autoPlay={playOn === 'viewport'}
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            aria-label={alt}
-            onLoadedMetadata={(e) => {
-              const v = e.currentTarget;
-              if (v.videoWidth > 0 && v.videoHeight > 0) {
-                setResolvedAspectRatio(`${v.videoWidth} / ${v.videoHeight}`);
-              }
-            }}
-            onLoadedData={(e) => {
-              if (playOn !== 'hover' || videoPoster) return;
-              const v = e.currentTarget;
-              v.currentTime = 0;
-              v.pause();
-            }}
-          />
+          <>
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              poster={videoPoster || undefined}
+              className={styles.caseFrameVideo}
+              autoPlay={playOn === 'viewport'}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label={alt}
+              onLoadedMetadata={(e) => {
+                const v = e.currentTarget;
+                if (v.videoWidth > 0 && v.videoHeight > 0) {
+                  setResolvedAspectRatio(`${v.videoWidth} / ${v.videoHeight}`);
+                }
+              }}
+              onLoadedData={(e) => {
+                if (playOn !== 'hover' || videoPoster) return;
+                const v = e.currentTarget;
+                v.currentTime = 0;
+                v.pause();
+              }}
+            />
+            {canExpand ? (
+              <button
+                type="button"
+                className={styles.caseFrameExpandHit}
+                onClick={openLightbox}
+                aria-label={`Expand video${alt ? `: ${alt}` : ''}`}
+              />
+            ) : null}
+          </>
         ) : src ? (
           <img
             src={src}
@@ -180,7 +237,6 @@ export function CaseStudyFigure({
                 ))}
               </div>
             </div>
-
           </div>
         ) : (
           <>
@@ -194,6 +250,16 @@ export function CaseStudyFigure({
         )}
       </div>
       {caption && <figcaption className={styles.caseFigCaption}>{caption}</figcaption>}
+
+      {lightboxOpen && videoSrc ? (
+        <VideoLightbox
+          src={videoSrc}
+          poster={videoPoster}
+          alt={alt || caption || 'Case video'}
+          playbackRate={playbackRate}
+          onClose={closeLightbox}
+        />
+      ) : null}
     </figure>
   );
 }

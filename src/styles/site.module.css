@@ -1,7 +1,9 @@
 /*
  * Design tokens + stack rhythm.
  * Type scale (shipped): display 5.25 / title 5 / lede 2.125 / body 1.5 / ui 1.25 / meta 1 / quote 1.75 (rem).
- * Mobile ≤639: display & title floor 2rem; lede/quote 1.75rem (above body 1.5rem).
+ * Mobile ≤639: display & title floor 2rem; secondary muted prose (hero lede / CTA) → ui 1.25rem;
+ *   case long-form prose / glance → ui 1.25rem (readable volume); quote stays 1.75rem;
+ *   About body-role / lock intro stay at body 1.5rem where short.
  * Colors: ink / muted / meta / emphasis / faint / bg / danger / rule.
  */
 :global(:root) {
@@ -453,6 +455,8 @@
   position: relative;
   /* Allow the diffusion layer to paint into the header above */
   overflow: visible;
+  /* Space above H1 (excl. .top margin) — mirrored below the lede with .top’s gap */
+  --home-hero-breath: clamp(2rem, 8vw, 5.5rem);
 }
 
 .heroDiffusion {
@@ -505,6 +509,9 @@
 /* ---------- Display title (rec512144076) ---------- */
 
 .displayName {
+  /* Same face as global h1 — keep explicit so peers (e.g. case titles) can match */
+  font-family: 'Space Grotesk', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Arial, sans-serif;
   font-size: var(--text-display);
   font-weight: var(--font-semibold);
   line-height: var(--leading-display);
@@ -520,38 +527,40 @@
 }
 
 .homeDisplayName {
-  width: fit-content;
-  max-width: 100%;
-  margin-top: clamp(2rem, 8vw, 5.5rem);
+  width: 100%;
+  max-width: none;
+  margin-top: var(--home-hero-breath);
   margin-bottom: 1.5rem;
   letter-spacing: var(--tracking-display-home);
-  margin-inline: auto;
-}
-
-@media (max-width: 639px) {
-  .homeDisplayName {
-    text-align: left;
-    margin-inline: 0;
-  }
+  text-align: left;
+  margin-inline: 0;
 }
 
 .homeIntro {
-  margin-bottom: clamp(2rem, 10vw, 6rem);
+  /* Match header → H1: .top margin-bottom + H1 margin-top */
+  margin-bottom: calc(var(--stack-inner-gap) + var(--home-hero-breath));
+  text-align: left;
 }
 
 .homeIntro .introLine {
   width: 100%;
   max-width: none;
-  margin-inline: auto;
+  margin-inline: 0;
+  /* Prefer whole-word wraps — avoid orphan “and” / mid-word breaks from .introLine */
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: pretty;
 }
 
 @media (min-width: 640px) {
   .homeDisplayName,
   .homeIntro {
-    width: min(100%, 900px);
-    margin-inline: auto;
+    width: 75%;
+    max-width: 75%;
   }
 }
+
+/* Home hero text spans full page content width (same as About / Contact). */
 
 .pageTitle {
   font-size: var(--text-title);
@@ -566,38 +575,51 @@
   -webkit-hyphens: none;
 }
 
-@media (max-width: 1199px) {
-  .displayName.homeDisplayName {
-    font-size: 3rem;
-  }
-}
+/* Home display uses the same --text-display cascade as other titles (no 3rem hardcode). */
 
 @media (max-width: 639px) {
+  /* Shared mobile H1 metrics: Home display + About/Contact page titles */
   .displayName,
   .pageTitle {
-    line-height: 1.35;
+    line-height: 1.3;
     text-align: left;
     letter-spacing: -0.02em;
-  }
-
-  .displayName {
-    line-height: 1.35;
   }
 
   .displayName.homeDisplayName {
-    /* Win over ≤1199 hardcode (3rem) so phones use the display token floor */
     font-size: var(--text-display);
-    line-height: 1.35;
+    line-height: 1.2;
     text-align: left;
     letter-spacing: -0.02em;
+  }
+
+  /* Same header → H1 drop on Home, About, Contact (and other page titles) */
+  .homeDisplayName,
+  .pageTitle {
+    margin-top: clamp(1.25rem, 6vw, 2.5rem);
+  }
+
+  .homeHero {
+    --home-hero-breath: clamp(1.25rem, 6vw, 2.5rem);
+  }
+
+  .homeDisplayName {
+    margin-bottom: 1rem;
   }
 
   .homeIntro {
     text-align: left;
+    margin-bottom: calc(var(--stack-inner-gap) + var(--home-hero-breath));
   }
 
   .homeIntro .introLine {
     margin-inline: 0;
+    /* Match case card description under project titles */
+    font-size: var(--text-ui);
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--color-muted);
+    opacity: 0.92;
   }
 
   .introLineLead {
@@ -613,9 +635,12 @@
 
 @media (max-width: 380px) {
   .displayName,
-  .pageTitle,
+  .pageTitle {
+    line-height: 1.3;
+  }
+
   .displayName.homeDisplayName {
-    line-height: 1.35;
+    line-height: 1.2;
   }
 }
 
@@ -635,7 +660,7 @@
 
   .topMeta {
     gap: 0.1rem;
-    font-size: 0.875rem;
+    font-size: var(--text-caption);
   }
 
   .navLink {
@@ -645,20 +670,25 @@
 
   /* Keep H1 on display/title tokens (do not collapse to body) */
   .displayName,
-  .pageTitle,
-  .displayName.homeDisplayName {
-    line-height: 1.35;
+  .pageTitle {
+    line-height: 1.3;
   }
 
+  .displayName.homeDisplayName {
+    line-height: 1.2;
+  }
+
+  /* Secondary muted prose stays on UI — same as ≤639 */
   .introLine,
-  .pageLede {
-    font-size: var(--text-lede);
+  .homeIntro .introLine,
+  .pageLede,
+  .ctaText {
+    font-size: var(--text-ui);
     line-height: 1.35;
     opacity: 0.92;
   }
 
   .caseLockIntro,
-  .ctaText,
   .bio {
     font-size: var(--text-body);
     line-height: 1.35;
@@ -667,7 +697,7 @@
 
   .metaKey,
   .footerMeta {
-    font-size: 0.9rem;
+    font-size: var(--text-meta);
   }
 }
 
@@ -785,9 +815,22 @@
 }
 
 .ctaBlock {
-  margin: 0 0 var(--stack-between-gap);
+  /* Top margin clears previous content before the divider (same idea as .sectionHead).
+     padding-top is space *below* the border for CTA copy. */
+  margin: var(--stack-between-gap) 0;
   padding-top: var(--stack-inner-gap);
   border-top: 1px solid var(--color-rule);
+}
+
+@media (min-width: 640px) {
+  .ctaBlock {
+    margin-top: var(--stack-section-gap);
+  }
+
+  /* Home: chronology is already a section; don't stack another 144px before the closing CTA. */
+  .homeChronologySection + .ctaBlock {
+    margin-top: var(--stack-between-gap);
+  }
 }
 
 .ctaBlockNoDivider {
@@ -925,11 +968,6 @@
    */
   .sectionHead {
     margin-top: var(--stack-section-gap);
-  }
-
-  /* Home: last pet card → chronology uses inner gap, not a full section break. */
-  .homePetSection + .homeChronologySection > .sectionHead {
-    margin-top: var(--stack-inner-gap);
   }
 }
 
@@ -1375,6 +1413,130 @@
   transition: transform 360ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.caseFrameExpandable {
+  cursor: zoom-in;
+}
+
+.caseFrameExpandHit {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.caseFrameExpandHit:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -4px;
+  border-radius: 12px;
+}
+
+/* ---------- Video lightbox (case pages) ---------- */
+
+.videoLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  box-sizing: border-box;
+  background: rgba(15, 15, 15, 0.72);
+}
+
+.videoLightboxDialog {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1120px);
+  max-height: min(92vh, 900px);
+  background: #101010;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+.videoLightboxBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.9rem 0.75rem 1rem;
+  border-bottom: 1px solid #2a2a2a;
+  flex-shrink: 0;
+}
+
+.videoLightboxTitle {
+  margin: 0;
+  min-width: 0;
+  font-size: var(--text-meta);
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.62);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.videoLightboxClose {
+  appearance: none;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #4a4a4a;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.88);
+  font: inherit;
+  font-size: var(--text-meta);
+  cursor: pointer;
+}
+
+.videoLightboxClose:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.videoLightboxClose:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 2px;
+}
+
+.videoLightboxStage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+  padding: 0.5rem;
+}
+
+.videoLightboxVideo {
+  display: block;
+  width: 100%;
+  max-height: min(78vh, 780px);
+  height: auto;
+  object-fit: contain;
+  background: #000;
+}
+
+@media (max-width: 639px) {
+  .videoLightboxDialog {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: 10px;
+  }
+
+  .videoLightboxVideo {
+    max-height: min(70vh, 640px);
+  }
+}
+
 .caseFrame:has(.caseFrameImg) .caseFrameImg,
 .caseFrame:has(.caseFrameVideo) .caseFrameVideo {
   object-fit: contain;
@@ -1779,18 +1941,13 @@
   margin-bottom: var(--stack-inner-gap);
 }
 
-.aboutPetSection {
-  scroll-margin-top: 1rem;
-}
-
-.aboutPetSection .pageSectionLede,
-.homePetSection .pageSectionLede,
 .homeChronologySection .pageSectionLede {
   max-width: none;
 }
 
-.homePetSection + .homeChronologySection > .sectionHead {
-  margin-top: var(--stack-inner-gap);
+/* Teaser card must not add a second bottom gap before .ctaBlock */
+.homeChronologySection .caseCard {
+  margin-bottom: 0;
 }
 
 .aboutHero {
@@ -1817,6 +1974,22 @@
 
 .aboutHeroIntro .prose {
   text-wrap: pretty;
+}
+
+@media (max-width: 639px) {
+  /* Hide role/title lede — keep Miro→homepage intro as the only hero body copy */
+  .aboutHero .pageLede {
+    display: none;
+  }
+
+  /* Match Home hero secondary lede ("14+ years…") — muted UI size */
+  .aboutHeroIntro .prose {
+    font-size: var(--text-ui);
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--color-muted);
+    opacity: 0.92;
+  }
 }
 
 .caseCaption {
@@ -1852,16 +2025,37 @@
 }
 
 @media (max-width: 639px) {
+  /*
+   * Match home hero H1 optically — same face + metrics.
+   * (h1 was Space Grotesk; h2.caseTitle was Manrope at the same rem → looked larger.)
+   */
   .caseTitle {
-    font-size: var(--text-body);
+    font-family: 'Space Grotesk', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Arial, sans-serif;
+    font-size: var(--text-display);
+    font-weight: var(--font-semibold);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
   }
 
   .caseDesc {
     font-size: var(--text-ui);
+    line-height: 1.35;
   }
 
   .caseMetaLine {
     font-size: var(--text-meta);
+  }
+
+  /* Home chronology lede — CTA blurbs share the global mobile .ctaText → UI rule */
+  .homeChronologySection .prose {
+    font-size: var(--text-ui);
+    line-height: 1.35;
+    opacity: 0.92;
   }
 }
 
@@ -1914,6 +2108,84 @@
   margin: 0 0 var(--stack-between-gap);
 }
 
+.caseGlanceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--stack-inner-gap) 1.5rem;
+  margin-top: 0.35rem;
+}
+
+.caseGlanceItem {
+  min-width: 0;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--color-rule);
+}
+
+.caseGlanceLabel {
+  margin: 0 0 0.4rem;
+  font-size: var(--text-meta);
+  font-weight: var(--font-semibold);
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.caseGlanceBody {
+  margin: 0;
+  font-size: var(--text-ui);
+  line-height: 1.4;
+  color: var(--color-muted);
+  max-width: 36ch;
+}
+
+@media (max-width: 959px) {
+  .caseGlanceGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .caseGlanceBody {
+    max-width: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .caseGlanceLabel {
+    letter-spacing: 0.06em;
+  }
+
+  /* Stay on UI — do not upsize glance to body on narrow screens */
+  .caseGlanceBody {
+    font-size: var(--text-ui);
+    line-height: 1.5;
+  }
+
+  /*
+   * Case long-form reading → UI (matches Home chronology / About hero secondary).
+   * Scoped to case containers so About/PageSection .prose can stay at body.
+   * Hierarchy: pageTitle display > caseBlockHead body > prose/glance/lede ui.
+   */
+  .caseThroughLine .prose,
+  .caseTextBlock .prose,
+  .caseBlock .prose {
+    font-size: var(--text-ui);
+    line-height: 1.55;
+  }
+
+  .caseTrackMapHint {
+    margin-bottom: var(--stack-tight-gap);
+  }
+
+  .caseTrackMapLayout {
+    gap: var(--stack-inner-gap);
+  }
+
+  .caseTrackVisual .caseFigCaption {
+    font-size: var(--text-meta);
+  }
+}
+
 .caseThroughLine {
   margin: 0 0 var(--stack-between-gap);
 }
@@ -1948,16 +2220,119 @@
   color: var(--color-muted);
 }
 
+.caseTrackMapLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--stack-inner-gap) 1.75rem;
+  align-items: start;
+  /* Default / Miro enterprise — quiet warm-neutral mist */
+  --placeholder-from: #f6f6f5;
+  --placeholder-to: #f1f1ef;
+}
+
+.caseTrackMapLayout[data-placeholder-tone='warm'] {
+  /* Wix — warm stone / parchment */
+  --placeholder-from: #f7f5f2;
+  --placeholder-to: #f3f1ee;
+}
+
+.caseTrackMapLayout[data-placeholder-tone='cool'] {
+  /* Star — cool chalk / blue-gray */
+  --placeholder-from: #f5f6f8;
+  --placeholder-to: #f0f2f5;
+}
+
+.caseTrackMapLayout[data-placeholder-tone='neutral'] {
+  /* Miro enterprise — quiet warm-neutral mist */
+  --placeholder-from: #f6f6f5;
+  --placeholder-to: #f1f1ef;
+}
+
 .caseTrackAccordions {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  min-width: 0;
+}
+
+.caseTrackVisual {
+  min-width: 0;
+  position: sticky;
+  top: 1.25rem;
+}
+
+.caseTrackVisual .caseFigure {
+  margin: 0;
+}
+
+/* Recruiter-facing empty stream preview — intentional blank, not unfinished.
+   Case tones via data-placeholder-tone on .caseTrackMapLayout (near-white mist). */
+.caseTrackVisualPlaceholder {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(
+    148deg,
+    var(--placeholder-from) 0%,
+    var(--placeholder-to) 100%
+  );
+  border: none;
+  box-shadow: none;
+}
+
+.caseTrackVisualPlaceholder .caseFrameBadge {
+  color: rgba(15, 15, 15, 0.38);
+}
+
+.caseTrackVisualPlaceholderBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 42%,
+    var(--placeholder-to) 100%
+  );
+}
+
+.caseTrackVisualPlaceholderLabel {
+  margin: 0;
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  line-height: 1.25;
+  color: var(--color-ink);
+  max-width: 22ch;
+}
+
+.caseTrackVisualPlaceholderHint {
+  margin: 0;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+@media (max-width: 959px) {
+  .caseTrackMapLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .caseTrackVisual {
+    position: static;
+    order: -1;
+  }
 }
 
 .caseTrackDetails {
   border: 1px solid var(--color-rule);
   border-radius: 10px;
-  background: #fafafa;
+  background: var(--color-bg);
   overflow: hidden;
   /* Allow shrinking inside flex column / narrow viewports so text wraps instead of clipping */
   min-width: 0;
@@ -1967,6 +2342,7 @@
 
 .caseTrackDetails[data-open] {
   background: var(--color-bg);
+  border-color: var(--color-faint);
 }
 
 .caseTrackSummary {
@@ -2185,11 +2561,11 @@
   min-height: 44px;
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid #c8c8c8;
-  background: #f0f0f0;
+  border: 1px solid var(--color-rule);
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: var(--text-meta);
   line-height: 1.2;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -2212,7 +2588,7 @@
 }
 
 .caseLockInput::placeholder {
-  color: #707070;
+  color: var(--color-faint);
 }
 
 .caseLockInput:hover {
@@ -2267,18 +2643,27 @@
     margin-bottom: 1rem;
   }
 
-  .homeDisplayName {
+  .homeDisplayName,
+  .pageTitle {
     margin-top: 1rem;
+  }
+
+  .homeDisplayName {
     margin-bottom: 1rem;
   }
 
+  .homeHero {
+    --home-hero-breath: 1rem;
+  }
+
   .homeIntro {
-    margin-bottom: 1.75rem;
+    /* .top uses 1rem here, not --stack-inner-gap */
+    margin-bottom: calc(1rem + var(--home-hero-breath));
   }
 
   .displayName,
   .pageTitle {
-    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-size: var(--text-display);
   }
 
   .caseCardLink {
@@ -2442,16 +2827,21 @@
   margin-top: var(--stack-inner-gap);
 }
 
-/* Mobile: keep page lede on lede token; body-role blocks stay at body */
+/*
+ * Mobile secondary muted prose → --text-ui (matches Home hero lede / case desc / CTA).
+ * Case long-form prose is stepped down separately under .caseThroughLine / .caseTextBlock.
+ * Body-role blocks (case lock intro, bio) stay at body.
+ * About hero intro prose is styled with the Home lede treatment (see .aboutHeroIntro).
+ */
 @media (max-width: 639px) {
-  .pageLede {
-    font-size: var(--text-lede);
+  .pageLede,
+  .ctaText {
+    font-size: var(--text-ui);
     line-height: 1.35;
     opacity: 0.92;
   }
 
   .caseLockIntro,
-  .ctaText,
   .bio {
     font-size: var(--text-body);
     line-height: 1.35;
@@ -2506,5 +2896,13 @@
 
   .caseTrackDetails:not([data-open]) .caseTrackSummaryBody {
     opacity: 0;
+  }
+
+  .videoLightbox {
+    transition: none;
+  }
+
+  .videoLightboxDialog {
+    box-shadow: none;
   }
 }

@@ -1,7 +1,7 @@
 import styles from '../styles/site.module.css';
 import { CONTACT_EMAIL, MAILTO } from '../components/site/SiteHeader';
 
-const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
+const CAL_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 const PHONE = '+31 6 388 91 489';
 const PHONE_HREF = 'tel:+31638891489';
 
@@ -11,20 +11,16 @@ export default function Contact() {
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={`${styles.pageLede} ${styles.pageLedeNoBottom}`}>
         Open to senior, staff, and principal IC product design roles — including teams with heavy
-        monetization, activation, or experimentation needs. Selective advisory for SaaS product
-        and GTM alignment.
+        monetization, activation, or experimentation needs.
       </p>
 
       <h2 className={styles.sectionHead}>
-        <span>Hiring & contract inquiry</span>
+        <span>Hiring inquiry</span>
         <small>Fastest way to connect</small>
       </h2>
       <section className={`${styles.ctaBlock} ${styles.ctaBlockNoDivider}`}>
-        <p className={`${styles.prose} ${styles.contactLeadCtaText}`}>
-          Book a short intro call below, or reach out by email in Direct channels.
-        </p>
         <div className={styles.ctaRow}>
-          <a className={styles.contactLink} href={CALENDLY_30} target="_blank" rel="noopener noreferrer">
+          <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">
             Book a 30-min intro call
           </a>
         </div>
@@ -64,14 +60,6 @@ export default function Contact() {
         <small>Based in Amsterdam · CET</small>
       </h2>
       <div className={styles.metaGrid}>
-        <span className={styles.metaKey}>Full-time</span>
-        <span className={styles.metaValue}>
-          Senior, staff, and principal IC product design roles
-        </span>
-        <span className={styles.metaKey}>Contract</span>
-        <span className={styles.metaValue}>
-          Selective advisory engagements
-        </span>
         <span className={styles.metaKey}>Timezone</span>
         <span className={styles.metaValue}>EU time zones (CET, GMT, CEST)</span>
         <span className={styles.metaKey}>Relocation</span>
@@ -79,24 +67,6 @@ export default function Contact() {
         <span className={styles.metaKey}>Start window</span>
         <span className={styles.metaValue}>Flexible, based on role scope and process timing</span>
       </div>
-
-      <h2 className={styles.sectionHead}>
-        <span>Mentorship</span>
-        <small>Free — 2–3 slots / week</small>
-      </h2>
-      <p className={`${styles.prose} ${styles.proseNoBottom}`}>
-        Free 30-minute sessions on{' '}
-        <a
-          className={styles.inlineLink}
-          href="https://adplist.org/mentors/eugene-voroniuk"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ADPList
-        </a>
-        : CV reviews, portfolio critiques, interview preparation and whiteboard exercises for designers
-        early- to mid-career.
-      </p>
 
       <h2 className={styles.sectionHead}>
         <span>Elsewhere</span>
@@ -119,14 +89,14 @@ export default function Contact() {
             @eugeneworonyuk
           </a>
         </span>
-        <span className={styles.metaKey}>ADPList</span>
+        <span className={styles.metaKey}>Mentorship</span>
         <span className={styles.metaValue}>
           <a
             href="https://adplist.org/mentors/eugene-voroniuk"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Book a session
+            ADPList — free 30-min sessions
           </a>
         </span>
         <span className={styles.metaKey}>VanBlum</span>

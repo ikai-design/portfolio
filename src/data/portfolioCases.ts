@@ -43,7 +43,17 @@ export type CaseBlock =
 export type PublicTrack = {
   label: string;
   summary: string;
+  /** Optional still for program-map visual panel */
+  visualSrc?: string;
+  /** Optional video for program-map visual panel */
+  visualVideoSrc?: string;
+  visualPoster?: string;
+  visualAlt?: string;
+  visualBadge?: string;
 };
+
+/** Near-white mist for program-map empty previews. */
+export type VisualPlaceholderTone = 'warm' | 'cool' | 'neutral';
 
 export type PortfolioCase = {
   eyebrow?: string;
@@ -59,6 +69,11 @@ export type PortfolioCase = {
   teaserBullets?: string[];
   /** Optional public track map shown as pills + short summaries. */
   publicTracks?: PublicTrack[];
+  /**
+   * Near-white tint for program-map empty previews (no media).
+   * warm = Wix parchment · cool = Star chalk · neutral = Miro enterprise default.
+   */
+  visualPlaceholderTone?: VisualPlaceholderTone;
   /** Extra confidentiality note shown on the email-only access gate for locked cases. */
   lockDisclaimer?: string;
   hero: FigureSpec;
@@ -83,42 +98,61 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         'Teaser focus: signup, in-product templates (create, find, organize), and share-as-presentation. Adjacent streams are one line each in the Program map below; trade-offs and deeper narrative on request via email.',
       ],
     },
-    lede: `Product design for 80M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser; full process and outcomes are shared on request via email.`,
+    lede: `Product design for 80M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser.`,
     teaserBullets: [
-      'Role: solo designer embedded with PM, engineering, and GTM — framing through shipped UI and targeted experimentation.',
-      'Surfaces: in-product signup, custom templates, share-as-presentation, and monetization/checkout flows.',
-      'Outcomes: NDA-safe here — research-informed shipping and segment-led rollout where it mattered; detail on request.',
+      'Role: Solo designer with PM, engineering, and GTM — framing through shipped UI and targeted experiments.',
+      'Surfaces: In-product signup, custom templates, share-as-presentation, and monetization/checkout.',
+      'Focus: Research-informed shipping and segment-led rollout on high-stakes growth surfaces.',
     ],
+    visualPlaceholderTone: 'neutral',
     publicTracks: [
       {
         label: 'Community-led growth',
         summary:
           'Miroverse: template submission, creator profiles, and gamification to improve contributor engagement and publishing quality.',
+        visualVideoSrc: caseAsset('Miro_case_Miroverse_case_04.mp4'),
+        visualBadge: 'Stream · Community',
+        visualAlt: 'Community-led growth stream',
       },
       {
         label: 'Acquisition surfaces',
         summary:
           'Acquisition surfaces for high-intent search traffic; flows that route qualified users into core product journeys.',
+        visualVideoSrc: caseAsset('Miro_case_Acquisition_WWB_05.mp4'),
+        visualBadge: 'Stream · Acquisition',
+        visualAlt: 'Acquisition surfaces stream',
       },
       {
         label: 'Signup and activation UX',
         summary:
           'In-product signup redesign and identity and action prompts for guest users to reduce friction and improve early momentum.',
+        visualVideoSrc: caseAsset('Miro_case_01_sign_up_in_prod.mp4'),
+        visualPoster: caseAsset('miro_case_01_poster.jpg'),
+        visualBadge: 'Stream · Signup',
+        visualAlt: 'Miro — in-product sign-up flow',
       },
       {
         label: 'Enterprise trial and admin',
         summary:
           'Time-limited trials, admin-side seat expansion, and governance experiences that support team-wide adoption.',
+        visualBadge: 'Stream · Enterprise',
+        visualAlt: 'Enterprise trial and admin stream',
       },
       {
         label: 'Templates and shareable presentations',
         summary:
           'Custom templates (creation, discovery, sharing) and shareable presentations for professional-service and engaged-corporate use cases.',
+        visualVideoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
+        visualBadge: 'Stream · Templates',
+        visualAlt: 'Miro — custom company template library',
       },
       {
         label: 'Monetization and checkout',
         summary:
           'Contextual free-to-paid triggers, checkout and upgrade flow design, plus pricing page and cancellation flow and retention UX iterations.',
+        visualVideoSrc: caseAsset('Miro_case_02_2_Checkout.mp4'),
+        visualBadge: 'Stream · Monetization',
+        visualAlt: 'Miro — multi-product checkout flow',
       },
     ],
     lockDisclaimer:
@@ -154,7 +188,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Shareable presentations',
         videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
-        alt: 'Miro — Share as presentation modal',
+        alt: 'Miro — Share as presentation',
         caption:
           'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
       },
@@ -217,12 +251,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       ],
     },
     lede:
-      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (200M+ users). NDA-aware full deck on request.',
+      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (200M+ users).',
     teaserBullets: [
-      'Role: sole designer with partial product ownership — web, iOS, and Android with PM and engineering.',
-      'Execution: member journeys, moderation, and creator/admin flows with cross-platform parity.',
-      'Impact: stronger engagement and repeat use; metrics stay private.',
+      'Role: Sole designer with partial product ownership — web, iOS, and Android with PM and engineering.',
+      'Execution: Member journeys, moderation, and creator/admin flows with cross-platform parity.',
+      'Focus: Engagement and repeat use inside a large website ecosystem.',
     ],
+    visualPlaceholderTone: 'warm',
     publicTracks: [
       {
         label: 'Cross-platform community',
@@ -338,12 +373,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       ],
     },
     lede:
-      '10+ Fortune 500 engagements (greenfield / regulated) — including mobile–wearable pairing for flagship smartwatch hardware, plus IoT, telematics, HealthTech, GovTech, and AdTech. Full evidence on request under NDA.',
+      '10+ Fortune 500 engagements under NDA — flagship wearables plus complex B2B (IoT, HealthTech, GovTech).',
     teaserBullets: [
       'Role: UX → Senior UX — workshops, IA, prototyping, and handoff to distributed engineering.',
-      'Execution: greenfield and regulated programs, including anonymized wearable companion UX under NDA.',
-      'Impact: enterprise-ready delivery; client names and metrics confidential.',
+      'Execution: Greenfield and regulated programs, including anonymized wearable companion UX.',
+      'Focus: Enterprise-ready delivery; client names and metrics stay confidential.',
     ],
+    visualPlaceholderTone: 'cool',
     publicTracks: [
       {
         label: 'Discovery and framing',
@@ -438,18 +474,18 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   },
   'simple-screen-recorder': {
     eyebrow: 'Simple Screen Recorder',
-    period: '2026 — now · Independent product',
-    title: 'Simple Screen Recorder — an independent product in active validation',
+    period: '2026 — now · Shipped product',
+    title: 'Simple Screen Recorder — product in active validation',
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Solo: design, build, ship to the Chrome Web Store, iterate on real use with AI-assisted tooling (Cursor, Codex, Antigravity, Claude Code).',
-        'The thread I kept pulling: predictable zoom for browser walkthroughs — local-first, nothing leaves the device.',
+        'Solo: design, build, ship to the Chrome Web Store, iterate on real use with AI-assisted tooling.',
+        'The thread: predictable zoom for browser walkthroughs — local-first, nothing leaves the device.',
       ],
     },
     teaserBullets: [
-      'Role: solo — framing, UX, build, distribution, iteration.',
-      'Shipped: local-first Chrome extension — recordings library, pause/resume, auto-zoom timeline, camera overlay, local MP4 export.',
+      'Role: Solo — framing, UX, build, distribution, iteration.',
+      'Shipped: Local-first Chrome extension — library, pause/resume, zoom timeline, camera overlay, local MP4.',
       'Validation: 5.0 from 12 Chrome Web Store reviews (Jul 2026) + beta feedback on zoom clarity and trust.',
     ],
     lede:
@@ -467,14 +503,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'text',
         heading: 'Why this exists',
         paragraphs: [
-          'Walkthrough recordings should be fast to make and safe to share — but most tools force cloud upload, accounts, or a separate editor, and zoom is a black box: you click, hope, re-record. Testers who’d used Cursorful kept saying the same thing — zoom boundaries were invisible until export.',
-        ],
-      },
-      {
-        kind: 'text',
-        heading: 'The hypothesis',
-        paragraphs: [
-          'A local-first recorder could win on trust — no account, no cloud — while making zoom predictable: visible on the timeline, editable, obvious before you export. Predictable zoom means fewer re-records.',
+          'Walkthrough tools often force cloud upload or a black-box zoom — click, hope, re-record. Hypothesis: a local-first recorder wins on trust while making zoom visible and editable before export.',
         ],
       },
       {
@@ -492,7 +521,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'text',
         heading: 'What I built',
         paragraphs: [
-          'A Manifest V3 Chrome extension: records browser flows, turns clicks into zoom, exports MP4 locally. Recordings persist in an on-device library, pause/resume works mid-take, a camera overlay composites at export. Built in plain JS with AI-assisted iteration (Cursor / Codex / Antigravity / Claude Code) — design calls stay mine.',
+          'A Manifest V3 Chrome extension: records browser flows, turns clicks into zoom, exports MP4 locally. On-device library, pause/resume, camera overlay at export. AI-assisted iteration (Cursor / Codex / Claude Code) — design calls stay mine.',
         ],
       },
       {
@@ -508,9 +537,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
       {
         kind: 'text',
-        heading: 'The problem I kept solving — predictable zoom',
+        heading: 'Predictable zoom',
         paragraphs: [
-          'One ex-Cursorful tester re-recorded the same clip 15–20 times because she couldn’t tell where a zoom would start or end until the export. So I made zoom an editable object: timeline blocks you can see and adjust, with spring easing that settles out instead of snapping.',
+          'One ex-Cursorful tester re-recorded the same clip 15–20× because zoom bounds were invisible until export. Zoom became an editable object: timeline blocks you can see and adjust, with spring easing that settles instead of snaps.',
         ],
       },
       {
@@ -531,9 +560,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
       {
         kind: 'text',
-        heading: 'The technical part',
+        heading: 'Technical credibility',
         paragraphs: [
-          'Two details made it more than a recorder wrapper. Zoom settles with a damped spring (stiffness 200, damping 30) so its end reads as intentional, not a glitch — and the same math runs identically in preview and the exported MP4 via requestVideoFrameCallback. Manifest V3 also kills the service worker mid-recording, so chunks checkpoint to OPFS and recover on reload — which fixed a first-run data-loss bug.',
+          'Zoom settles with a damped spring (stiffness 200, damping 30) so the end reads intentional — same math in preview and exported MP4 via requestVideoFrameCallback. MV3 service-worker kills mid-recording are handled by OPFS checkpoints, which fixed first-run data loss.',
         ],
       },
       {
@@ -549,9 +578,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
       {
         kind: 'text',
-        heading: 'How I validate',
+        heading: 'Validation',
         paragraphs: [
-          '5.0 from 12 Chrome Web Store reviews (Jul 2026), plus a living feedback log from designers and PMs, grouped by theme. Twelve conversations kept pointing at the same few problems — I treat small-N signal as direction, not proof of scale.',
+          '5.0 from 12 Chrome Web Store reviews (Jul 2026), plus a living feedback log from designers and PMs. Small-N signal is direction, not proof of scale.',
         ],
       },
       {
@@ -587,10 +616,6 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
             shipped: 'Visible, editable zoom blocks on the timeline + spring-settle easing.',
           },
           {
-            signal: 'A PM couldn’t see the toolbar icon in dark mode.',
-            shipped: 'Programmatic dark-mode toolbar icon.',
-          },
-          {
             signal: '“I didn’t know when the recording started.”',
             shipped: 'Clearer start indicator; controls hardened against MV3 service-worker restarts.',
           },
@@ -598,23 +623,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
       {
         kind: 'text',
-        heading: 'What is still unproven',
+        heading: 'Where this stands',
         paragraphs: [
-          'Open questions: whether zoom clarity closes the re-record loop at scale, distribution beyond early adopters, and whether local-first converts people who default to Loom. Next: sharper first-run clarity and more visible zoom boundaries in preview.',
-        ],
-      },
-      {
-        kind: 'text',
-        heading: 'What this shows',
-        paragraphs: [
-          'Almost everything shipped traces to watching one person struggle, not a roadmap. The part I care about as a product designer: turning a vague “this feels off” into a concrete, editable object on screen — and keeping positioning honest, including dropping a competitor claim when research stopped supporting it.',
-        ],
-      },
-      {
-        kind: 'text',
-        heading: 'Try it',
-        paragraphs: [
-          'Install free from the {{SSR_CWS}} — no account. More on {{SSR_SITE}}.',
+          'Still open: whether zoom clarity closes the re-record loop at scale, and whether local-first converts Loom defaults. Almost everything shipped came from watching one person struggle — turning “this feels off” into an editable object on screen, and dropping claims research stopped supporting.',
         ],
       },
     ],
@@ -624,12 +635,12 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
 export const PORTFOLIO_SLUGS = Object.keys(PORTFOLIO_CASES);
 
-/** Home scroll order for case-to-case pager (enterprise cases, then SSR). */
+/** Home scroll order for case-to-case pager (matches Home stack, Wren excluded — external). */
 export const CASE_NAV_ORDER = [
   'miro',
+  'simple-screen-recorder',
   'wix-groups',
   'star-global',
-  'simple-screen-recorder',
 ] as const;
 
 export type CaseNavSlug = (typeof CASE_NAV_ORDER)[number];
