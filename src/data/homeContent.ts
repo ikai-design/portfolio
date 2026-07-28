@@ -17,7 +17,7 @@ const SSR_HOME: HomeCaseItem = (() => {
     videoPoster: petAsset(p.posterFile),
     imageAlt: `${p.name} — product demo`,
     playOn: 'hover' as const,
-    loading: 'eager' as const,
+    loading: 'lazy' as const,
   };
 })();
 
@@ -32,7 +32,7 @@ const MIRO_HOME: HomeCaseItem = {
   videoPoster: `${import.meta.env.BASE_URL}miro_case_01_poster.jpg`,
   imageAlt: 'Miro — in-product sign-up flow',
   playOn: 'hover',
-  loading: 'lazy',
+  loading: 'eager',
 };
 
 const WREN_HOME: HomeCaseItem = (() => {
@@ -79,10 +79,10 @@ const STAR_HOME: HomeCaseItem = {
   imageAlt: 'Star case cover',
 };
 
-/** Home case order (Wave 1): SSR → Miro → Wren → Wix → Star — one peer stack. */
+/** Home case order: Miro first for recruiter scan, then SSR peer, then Wren → Wix → Star. */
 export const HOME_CASE_ITEMS: HomeCaseItem[] = [
-  SSR_HOME,
   MIRO_HOME,
+  SSR_HOME,
   WREN_HOME,
   WIX_HOME,
   STAR_HOME,

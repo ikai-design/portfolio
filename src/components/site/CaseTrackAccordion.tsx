@@ -1,12 +1,16 @@
 import { useId, useState } from 'react';
 import styles from '../../styles/site.module.css';
-import type { PublicTrack } from '../../data/portfolioCases';
+import type { PublicTrack, VisualPlaceholderTone } from '../../data/portfolioCases';
 import { CaseStudyFigure } from './CaseStudyFigure';
 
 type CaseTrackAccordionProps = {
   tracks: PublicTrack[];
   /** Faster teasers on Miro, etc. */
   playbackRate?: number;
+  /** Opt-in video lightbox for program-map previews (case pages only). */
+  allowLightbox?: boolean;
+  /** Near-white tint for empty stream previews (case-level). */
+  placeholderTone?: VisualPlaceholderTone;
 };
 
 function firstVisualIndex(tracks: PublicTrack[]) {
@@ -14,7 +18,38 @@ function firstVisualIndex(tracks: PublicTrack[]) {
   return withMedia >= 0 ? withMedia : 0;
 }
 
-export function CaseTrackAccordion({ tracks, playbackRate = 1 }: CaseTrackAccordionProps) {
+/** Quiet recruiter-facing empty preview — intentional, not unfinished. */
+function TrackVisualPlaceholder({
+  label,
+  badge = 'Stream',
+}: {
+  label: string;
+  badge?: string;
+}) {
+  return (
+    <figure className={styles.caseFigure}>
+      <div
+        className={`${styles.caseFrame} ${styles.caseTrackVisualPlaceholder}`}
+        style={{ aspectRatio: '16 / 9' }}
+        role="img"
+        aria-label={`${label} — available on request`}
+      >
+        <span className={styles.caseFrameBadge}>{badge}</span>
+        <div className={styles.caseTrackVisualPlaceholderBody}>
+          <p className={styles.caseTrackVisualPlaceholderLabel}>{label}</p>
+          <p className={styles.caseTrackVisualPlaceholderHint}>Available on request</p>
+        </div>
+      </div>
+    </figure>
+  );
+}
+
+export function CaseTrackAccordion({
+  tracks,
+  playbackRate = 1,
+  allowLightbox = false,
+  placeholderTone = 'neutral',
+}: CaseTrackAccordionProps) {
   const [activeIndex, setActiveIndex] = useState(() => firstVisualIndex(tracks));
   const active = tracks[activeIndex] ?? tracks[0];
   const baseId = useId();
@@ -22,7 +57,7 @@ export function CaseTrackAccordion({ tracks, playbackRate = 1 }: CaseTrackAccord
   if (!tracks.length || !active) return null;
 
   return (
-    <div className={styles.caseTrackMapLayout}>
+    <div className={styles.caseTrackMapLayout} data-placeholder-tone={placeholderTone}>
       <div className={styles.caseTrackAccordions}>
         {tracks.map((track, index) => {
           const open = index === activeIndex;
@@ -75,17 +110,14 @@ export function CaseTrackAccordion({ tracks, playbackRate = 1 }: CaseTrackAccord
             alt={active.visualAlt ?? active.label}
             loading="lazy"
             playbackRate={playbackRate}
+            allowLightbox={allowLightbox}
           />
         ) : (
-          <figure className={styles.caseFigure}>
-            <div className={`${styles.caseFrame} ${styles.caseTrackVisualPlaceholder}`}>
-              <span className={styles.caseFrameBadge}>{active.visualBadge ?? 'Stream'}</span>
-              <p className={styles.caseTrackVisualPlaceholderLabel}>{active.label}</p>
-              <p className={styles.caseTrackVisualPlaceholderHint}>
-                Teaser visual for this stream — production UI in the private deck.
-              </p>
-            </div>
-          </figure>
+          <TrackVisualPlaceholder
+            key={active.label}
+            label={active.label}
+            badge={active.visualBadge ?? 'Stream'}
+          />
         )}
       </div>
     </div>

@@ -134,6 +134,7 @@ export default function PortfolioCaseStudy() {
           alt={data.hero.alt}
           loading="eager"
           playbackRate={teaserPlaybackRate}
+          allowLightbox
         />
 
         {locked && data.lockedTeaserAfterHero?.length ? (
@@ -150,6 +151,7 @@ export default function PortfolioCaseStudy() {
                 alt={spec.alt ?? ''}
                 loading={i === 0 ? 'eager' : 'lazy'}
                 playbackRate={teaserPlaybackRate}
+                allowLightbox
               />
             ))}
           </div>
@@ -181,7 +183,12 @@ export default function PortfolioCaseStudy() {
               <p className={styles.caseTrackMapHint}>
                 Expand a stream — the preview on the right updates with that work.
               </p>
-              <CaseTrackAccordion tracks={data.publicTracks} playbackRate={teaserPlaybackRate} />
+              <CaseTrackAccordion
+                tracks={data.publicTracks}
+                playbackRate={teaserPlaybackRate}
+                allowLightbox
+                placeholderTone={data.visualPlaceholderTone}
+              />
             </section>
           ) : null}
 
@@ -199,6 +206,7 @@ export default function PortfolioCaseStudy() {
                   alt={spec.alt ?? ''}
                   loading="lazy"
                   playbackRate={teaserPlaybackRate}
+                  allowLightbox
                 />
               ))}
             </div>
@@ -251,7 +259,12 @@ export default function PortfolioCaseStudy() {
               <p className={styles.caseTrackMapHint}>
                 Expand a stream — the preview on the right updates with that work.
               </p>
-              <CaseTrackAccordion tracks={data.publicTracks} playbackRate={teaserPlaybackRate} />
+              <CaseTrackAccordion
+                tracks={data.publicTracks}
+                playbackRate={teaserPlaybackRate}
+                allowLightbox
+                placeholderTone={data.visualPlaceholderTone}
+              />
             </section>
           ) : null}
 
@@ -327,6 +340,7 @@ export default function PortfolioCaseStudy() {
                   alt={block.spec.alt}
                   loading="lazy"
                   playbackRate={teaserPlaybackRate}
+                  allowLightbox
                 />
               );
             })}

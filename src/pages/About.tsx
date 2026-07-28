@@ -137,7 +137,7 @@ export default function About() {
             <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
               Miro
             </a>{' '}
-            I design for 80M+ users across growth surfaces. Before that: sole designer on{' '}
+            I design for 80M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
             <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
               Wix
             </a>{' '}

@@ -52,6 +52,9 @@ export type PublicTrack = {
   visualBadge?: string;
 };
 
+/** Near-white mist for program-map empty previews. */
+export type VisualPlaceholderTone = 'warm' | 'cool' | 'neutral';
+
 export type PortfolioCase = {
   eyebrow?: string;
   period?: string;
@@ -66,6 +69,11 @@ export type PortfolioCase = {
   teaserBullets?: string[];
   /** Optional public track map shown as pills + short summaries. */
   publicTracks?: PublicTrack[];
+  /**
+   * Near-white tint for program-map empty previews (no media).
+   * warm = Wix parchment · cool = Star chalk · neutral = Miro enterprise default.
+   */
+  visualPlaceholderTone?: VisualPlaceholderTone;
   /** Extra confidentiality note shown on the email-only access gate for locked cases. */
   lockDisclaimer?: string;
   hero: FigureSpec;
@@ -96,11 +104,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       'Surfaces: In-product signup, custom templates, share-as-presentation, and monetization/checkout.',
       'Focus: Research-informed shipping and segment-led rollout on high-stakes growth surfaces.',
     ],
+    visualPlaceholderTone: 'neutral',
     publicTracks: [
       {
         label: 'Community-led growth',
         summary:
           'Miroverse: template submission, creator profiles, and gamification to improve contributor engagement and publishing quality.',
+        visualVideoSrc: caseAsset('Miro_case_Miroverse_case_04.mp4'),
         visualBadge: 'Stream · Community',
         visualAlt: 'Community-led growth stream',
       },
@@ -108,6 +118,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         label: 'Acquisition surfaces',
         summary:
           'Acquisition surfaces for high-intent search traffic; flows that route qualified users into core product journeys.',
+        visualVideoSrc: caseAsset('Miro_case_Acquisition_WWB_05.mp4'),
         visualBadge: 'Stream · Acquisition',
         visualAlt: 'Acquisition surfaces stream',
       },
@@ -177,7 +188,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Shareable presentations',
         videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
-        alt: 'Miro — Share as presentation modal',
+        alt: 'Miro — Share as presentation',
         caption:
           'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
       },
@@ -246,6 +257,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       'Execution: Member journeys, moderation, and creator/admin flows with cross-platform parity.',
       'Focus: Engagement and repeat use inside a large website ecosystem.',
     ],
+    visualPlaceholderTone: 'warm',
     publicTracks: [
       {
         label: 'Cross-platform community',
@@ -367,6 +379,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       'Execution: Greenfield and regulated programs, including anonymized wearable companion UX.',
       'Focus: Enterprise-ready delivery; client names and metrics stay confidential.',
     ],
+    visualPlaceholderTone: 'cool',
     publicTracks: [
       {
         label: 'Discovery and framing',
@@ -622,10 +635,10 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
 export const PORTFOLIO_SLUGS = Object.keys(PORTFOLIO_CASES);
 
-/** Home scroll order for case-to-case pager (enterprise cases, then SSR). */
+/** Home scroll order for case-to-case pager (matches Home stack, Wren excluded — external). */
 export const CASE_NAV_ORDER = [
-  'simple-screen-recorder',
   'miro',
+  'simple-screen-recorder',
   'wix-groups',
   'star-global',
 ] as const;

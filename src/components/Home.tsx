@@ -18,20 +18,11 @@ export default function Home() {
 
         <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
           <p className={styles.introLine}>
-            <span className={styles.introLineLead}>
-              Senior Product Designer — Miro (80M+), Wix (200M+).{' '}
-            </span>
             <span className={styles.introLineTail}>
-              Systems, journeys, and shipped UI across acquisition, activation, and monetization.
+              14+ years across Miro (80M+), Wix (200M+), and{'\u00A0'}independently shipped products
             </span>
           </p>
         </section>
-
-        <div className={`${styles.homeHeroCta} ${styles.ctaRow}`}>
-          <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">
-            Book a 30-min intro call
-          </a>
-        </div>
       </div>
 
       <CaseStack items={HOME_CASE_ITEMS} flush />
