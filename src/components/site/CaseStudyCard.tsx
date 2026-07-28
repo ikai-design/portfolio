@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from '../../styles/site.module.css';
+import { CASE_VIDEO_PLAYBACK_RATE } from '../../config/media';
 import { CaseStudyFigure } from './CaseStudyFigure';
 
 export type CaseStudyCardProps = {
@@ -18,6 +19,8 @@ export type CaseStudyCardProps = {
   /** Pass `eager` for above-the-fold media (faster first frame for hover previews). */
   loading?: 'eager' | 'lazy';
   placeholderVariant?: 'default' | 'chronology';
+  /** Defaults to shared case teaser rate when a video is present. */
+  playbackRate?: number;
 };
 
 /**
@@ -38,6 +41,7 @@ export function CaseStudyCard({
   playOn,
   loading,
   placeholderVariant,
+  playbackRate = videoSrc ? CASE_VIDEO_PLAYBACK_RATE : 1,
 }: CaseStudyCardProps) {
   const figure = (
     <CaseStudyFigure
@@ -50,6 +54,7 @@ export function CaseStudyCard({
       loading={loading}
       alt={imageAlt ?? title}
       placeholderVariant={placeholderVariant}
+      playbackRate={playbackRate}
     />
   );
 

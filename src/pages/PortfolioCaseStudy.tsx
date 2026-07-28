@@ -12,6 +12,7 @@ import {
   SSR_SITE_LINK_TOKEN,
 } from '../data/portfolioCases';
 import { isCasePasswordProtected } from '../config/lockedCases';
+import { CASE_VIDEO_PLAYBACK_RATE } from '../config/media';
 
 const CALENDLY_30 = 'https://cal.com/eugene-vo-zjgfze/30min';
 
@@ -114,7 +115,7 @@ export default function PortfolioCaseStudy() {
   }
 
   const teaserBullets = (data.teaserBullets ?? PUBLIC_TEASER_TEMPLATE).slice(0, MAX_TEASER_BULLETS);
-  const teaserPlaybackRate = slug === 'miro' ? 2 : 1;
+  const teaserPlaybackRate = CASE_VIDEO_PLAYBACK_RATE;
 
   return (
     <>

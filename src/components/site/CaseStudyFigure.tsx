@@ -20,7 +20,7 @@ type CaseStudyFigureProps = {
   loading?: 'eager' | 'lazy';
   /** `viewport` (default) autoplays when scrolled into view; `hover` plays only while the cursor is over the figure */
   playOn?: 'viewport' | 'hover';
-  /** HTMLMediaElement.playbackRate — e.g. 2 for faster case teasers */
+  /** HTMLMediaElement.playbackRate — e.g. 1.5 for case teasers */
   playbackRate?: number;
   /**
    * Opt-in lightbox for case pages. Leave off on Home cards so hover-play /
