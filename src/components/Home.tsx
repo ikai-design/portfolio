@@ -19,7 +19,7 @@ export default function Home() {
         <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
           <p className={styles.introLine}>
             <span className={styles.introLineTail}>
-              14+ years across Miro (80M+), Wix (200M+), and{'\u00A0'}independently shipped products
+              14+ years across Miro (100M+), Wix (300M+), and{'\u00A0'}independently shipped products
             </span>
           </p>
         </section>

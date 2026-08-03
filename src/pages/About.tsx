@@ -21,14 +21,14 @@ const TIMELINE: Job[] = [
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
     location: 'Amsterdam · 4y 11m',
-    blurb: 'Community, acquisition, enterprise, and monetization for 80M+ users.',
+    blurb: 'Community, acquisition, enterprise, and monetization for 100M+ users.',
   },
   {
     year: '2019 — 2021',
     role: 'Senior Product Designer',
     company: 'Wix.com',
     location: 'Kyiv · 1y 11m',
-    blurb: 'Sole designer on Wix Groups — 200M+ users, web, iOS, Android.',
+    blurb: 'Sole designer on Wix Groups — 300M+ users, web, iOS, Android.',
   },
   {
     year: '2015 — 2019',
@@ -137,11 +137,11 @@ export default function About() {
             <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
               Miro
             </a>{' '}
-            I design for 80M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
+            I design for 100M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
             <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
               Wix
             </a>{' '}
-            Groups (200M+), and Fortune 500 product work at{' '}
+            Groups (300M+), and Fortune 500 product work at{' '}
             <a className={styles.inlineLink} href="https://star.global/" target="_blank" rel="noopener noreferrer">
               Star
             </a>

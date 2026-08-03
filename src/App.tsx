@@ -4,6 +4,7 @@ import { SiteLayout } from './components/site/SiteLayout';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
+const Advisory = lazy(() => import('./pages/Advisory'));
 const Contact = lazy(() => import('./pages/Contact'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -15,6 +16,7 @@ function App() {
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/advisory" element={<Advisory />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects/:slug" element={<PortfolioCaseStudy />} />
           <Route path="/projects" element={<Navigate to="/" replace />} />

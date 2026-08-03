@@ -98,7 +98,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         'Teaser focus: signup, in-product templates (create, find, organize), and share-as-presentation. Adjacent streams are one line each in the Program map below; trade-offs and deeper narrative on request via email.',
       ],
     },
-    lede: `Product design for 80M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser.`,
+    lede: `Product design for 100M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser.`,
     teaserBullets: [
       'Role: Solo designer with PM, engineering, and GTM — framing through shipped UI and targeted experiments.',
       'Surfaces: In-product signup, custom templates, share-as-presentation, and monetization/checkout.',
@@ -247,11 +247,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       title: 'Through-line',
       paragraphs: [
         'Sole designer for most of the lifecycle after launch, with partial product ownership — web, iOS, and Android alongside PM and engineering.',
-        'Thread: Community inside a 200M+ ecosystem — native feel, real group behavior (discovery, participation, moderation), platform alignment. Deck: milestones, trade-offs, safe signals on request.',
+        'Thread: Community inside a 300M+ ecosystem — native feel, real group behavior (discovery, participation, moderation), platform alignment. Deck: milestones, trade-offs, safe signals on request.',
       ],
     },
     lede:
-      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (200M+ users).',
+      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (300M+ users).',
     teaserBullets: [
       'Role: Sole designer with partial product ownership — web, iOS, and Android with PM and engineering.',
       'Execution: Member journeys, moderation, and creator/admin flows with cross-platform parity.',

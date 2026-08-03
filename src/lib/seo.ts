@@ -61,6 +61,14 @@ export function resolvePageMeta(pathname: string): PageMeta {
     };
   }
 
+  if (path === '/advisory') {
+    return {
+      title: 'Advisory — Eugene Voroniuk · Product Design',
+      description:
+        'Product design advisory for signup, activation, and monetization surfaces, from a designer who shipped them at Miro. Audits, scoped sprints, and fractional retainers — annotated flows and specs your team can build from, not a deck.',
+    };
+  }
+
   if (path === '/contact') {
     return {
       title: 'Contact — Eugene Voroniuk',

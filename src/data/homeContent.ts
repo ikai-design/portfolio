@@ -24,7 +24,7 @@ const SSR_HOME: HomeCaseItem = (() => {
 const MIRO_HOME: HomeCaseItem = {
   to: '/projects/miro',
   title: 'Miro',
-  desc: 'Product design for 80M+ users — community, acquisition, enterprise, monetization.',
+  desc: 'Product design for 100M+ users — community, acquisition, enterprise, monetization.',
   meta: '2021 — now · Amsterdam · Solo designer, cross-functional teams',
   aspectRatio: '16 / 9',
   badge: 'Case · Hub',
@@ -57,7 +57,7 @@ const WREN_HOME: HomeCaseItem = (() => {
 const WIX_HOME: HomeCaseItem = {
   to: '/projects/wix-groups',
   title: 'Wix',
-  desc: 'Product design — cross-platform community for creators and SMBs, 200M+ users.',
+  desc: 'Product design — cross-platform community for creators and SMBs, 300M+ users.',
   meta: '2019 — 2021 · Kyiv · Solo designer, product ownership',
   aspectRatio: '8 / 5',
   badge: 'Case · Cover',

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from '../styles/site.module.css';
 import { CONTACT_EMAIL, MAILTO } from '../components/site/SiteHeader';
 
@@ -27,6 +28,13 @@ export default function Contact() {
         <ul className={`${styles.caseAccessChecklist} ${styles.contactLeadChecklist}`}>
           <li>Share role/company and which case area you want to review.</li>
           <li>Typical response time: within 24 hours on business days.</li>
+          <li>
+            For selective advisory, see{' '}
+            <Link className={styles.inlineLink} to="/advisory">
+              Advisory
+            </Link>
+            .
+          </li>
         </ul>
       </section>
 
