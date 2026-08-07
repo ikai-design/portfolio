@@ -18,9 +18,6 @@ export function SiteHeader() {
         <NavLink to="/about" className={navClass}>
           About
         </NavLink>
-        <NavLink to="/advisory" className={navClass}>
-          Advisory
-        </NavLink>
         <NavLink to="/contact" className={navClass}>
           Contact
         </NavLink>
