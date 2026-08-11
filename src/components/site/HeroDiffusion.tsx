@@ -89,8 +89,11 @@ export function HeroDiffusion() {
       vy: number,
       energetic: boolean,
     ): Particle => {
-      // Chaos shifts the palette from sky-blue toward indigo
-      const hue = 198 + Math.random() * 22 + chaos * 26;
+      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      // Light: sky-blue → indigo. Dark: warm filament amber → soft gold.
+      const hue = dark
+        ? 32 + Math.random() * 18 + chaos * 12
+        : 198 + Math.random() * 22 + chaos * 26;
       const star = energetic && Math.random() < 0.08;
       return {
         x,
@@ -105,8 +108,8 @@ export function HeroDiffusion() {
             ? 0.3 + Math.random() * 0.7
             : 1.0 + Math.random() * 0.5,
         hue,
-        sat: 55 + Math.random() * 30 + chaos * 10,
-        light: 55 + Math.random() * 18,
+        sat: dark ? 70 + Math.random() * 25 + chaos * 10 : 55 + Math.random() * 30 + chaos * 10,
+        light: dark ? 62 + Math.random() * 16 : 55 + Math.random() * 18,
         twinklePhase: Math.random() * Math.PI * 2,
         twinkleSpeed: 0.1 + Math.random() * 0.22,
         star,
@@ -274,13 +277,19 @@ export function HeroDiffusion() {
 
       // Whisper-faint halo, smaller than before — fades near bottom edge
       if (cursor.active) {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
         const edgePad = Math.max(48, height * 0.22);
         const edgeY =
           cursor.y > height - edgePad ? Math.max(0, (height - cursor.y) / edgePad) : 1;
         const haloR = 55 + chaos * 25;
         const halo = ctx.createRadialGradient(cursor.x, cursor.y, 0, cursor.x, cursor.y, haloR);
-        halo.addColorStop(0, `rgba(150, 200, 240, ${(0.05 + chaos * 0.03) * edgeY})`);
-        halo.addColorStop(1, 'rgba(150, 200, 240, 0)');
+        if (dark) {
+          halo.addColorStop(0, `rgba(255, 170, 70, ${(0.07 + chaos * 0.04) * edgeY})`);
+          halo.addColorStop(1, 'rgba(255, 170, 70, 0)');
+        } else {
+          halo.addColorStop(0, `rgba(150, 200, 240, ${(0.05 + chaos * 0.03) * edgeY})`);
+          halo.addColorStop(1, 'rgba(150, 200, 240, 0)');
+        }
         ctx.fillStyle = halo;
         ctx.beginPath();
         ctx.arc(cursor.x, cursor.y, haloR, 0, Math.PI * 2);
@@ -301,7 +310,10 @@ export function HeroDiffusion() {
         const edgePad = Math.max(48, height * 0.22);
         const edgeY =
           ring.y > height - edgePad ? Math.max(0, (height - ring.y) / edgePad) : 1;
-        ctx.strokeStyle = `hsla(205, 70%, 65%, ${(1 - t) * 0.35 * edgeY})`;
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.strokeStyle = dark
+          ? `hsla(35, 85%, 62%, ${(1 - t) * 0.4 * edgeY})`
+          : `hsla(205, 70%, 65%, ${(1 - t) * 0.35 * edgeY})`;
         ctx.lineWidth = 1 - t * 0.6;
         ctx.beginPath();
         ctx.arc(ring.x, ring.y, radius, 0, Math.PI * 2);

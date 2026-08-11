@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import styles from '../../styles/site.module.css';
 import {
   getCaseNavLabel,
   getCaseNavNeighbors,
 } from '../../data/portfolioCases';
+import { AppLink } from './AppLink';
 
 type CaseStudyPagerProps = {
   slug: string;
@@ -19,20 +19,20 @@ export function CaseStudyPager({ slug }: CaseStudyPagerProps) {
     <nav aria-label="Case study navigation" className={styles.caseStudyPager}>
       <span className={styles.caseStudyPagerSlot} aria-hidden={prev ? undefined : true}>
         {prev ? (
-          <Link className={styles.caseStudyPagerLink} to={`/projects/${prev}`}>
+          <AppLink className={styles.caseStudyPagerLink} to={`/projects/${prev}`}>
             ← {getCaseNavLabel(prev)}
-          </Link>
+          </AppLink>
         ) : null}
       </span>
       <span className={styles.caseStudyPagerSlot}>
         {next === 'home' ? (
-          <Link className={styles.caseStudyPagerLink} to="/">
+          <AppLink className={styles.caseStudyPagerLink} to="/">
             All work →
-          </Link>
+          </AppLink>
         ) : next ? (
-          <Link className={styles.caseStudyPagerLink} to={`/projects/${next}`}>
+          <AppLink className={styles.caseStudyPagerLink} to={`/projects/${next}`}>
             {getCaseNavLabel(next)} →
-          </Link>
+          </AppLink>
         ) : null}
       </span>
     </nav>

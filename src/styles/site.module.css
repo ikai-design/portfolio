@@ -47,6 +47,21 @@
   --tracking-eyebrow: 0.12em;
 }
 
+/*
+ * Dark theme tokens — experiment/theme-pull-chain.
+ * Tune these to change the “night studio” feel; keep contrast readable.
+ */
+:global(:root[data-theme='dark']) {
+  --color-bg: #0f0f0f;
+  --color-ink: #f2f2f2;
+  --color-muted: #a3a3a3;
+  --color-meta: #9a9a9a;
+  --color-emphasis: #d4d4d4;
+  --color-faint: #7a7a7a;
+  --color-danger: #f97066;
+  --color-rule: #2a2a2a;
+}
+
 .visuallyHidden {
   position: absolute;
   width: 1px;
@@ -117,57 +132,122 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+  /* Isolate route crossfade so header/footer stay put */
+  view-transition-name: main-column;
 }
 
-/* Route content: gentle staggered entrance (re-runs when pathname changes) */
+/* Soft crossfade between routes (Chrome, Safari, Edge) */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  ::view-transition-group(main-column) {
+    animation-duration: 0.42s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  ::view-transition-old(main-column) {
+    animation: routeFadeOut 0.28s ease both;
+  }
+
+  ::view-transition-new(main-column) {
+    animation: routeFadeIn 0.42s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+}
+
+@keyframes routeFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes routeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Route content: soft entrance (fallback when View Transitions unavailable) */
 .pageEnter {
   flex: 1 1 auto;
   min-width: 0;
   display: flex;
   flex-direction: column;
+  animation: pageFadeEnter 0.45s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+/* Avoid stacking enter animation on top of View Transitions */
+@supports (view-transition-name: none) {
+  .pageEnter {
+    animation: none;
+  }
 }
 
 .pageEnter > * {
-  --enter-shift: 12px;
-  --enter-dur: 0.58s;
+  --enter-shift: 8px;
+  --enter-dur: 0.5s;
   animation: pageBlockEnter var(--enter-dur) cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@supports (view-transition-name: none) {
+  .pageEnter > * {
+    animation: none;
+  }
 }
 
 .pageEnter > *:nth-child(1) {
   animation-delay: 0.02s;
 }
 .pageEnter > *:nth-child(2) {
-  animation-delay: 0.05s;
+  animation-delay: 0.06s;
 }
 .pageEnter > *:nth-child(3) {
-  animation-delay: 0.08s;
+  animation-delay: 0.1s;
 }
 .pageEnter > *:nth-child(4) {
-  animation-delay: 0.11s;
-}
-.pageEnter > *:nth-child(5) {
   animation-delay: 0.14s;
 }
+.pageEnter > *:nth-child(5) {
+  animation-delay: 0.18s;
+}
 .pageEnter > *:nth-child(6) {
-  animation-delay: 0.17s;
+  animation-delay: 0.22s;
 }
 .pageEnter > *:nth-child(7) {
-  animation-delay: 0.2s;
-}
-.pageEnter > *:nth-child(8) {
-  animation-delay: 0.23s;
-}
-.pageEnter > *:nth-child(9) {
   animation-delay: 0.26s;
 }
+.pageEnter > *:nth-child(8) {
+  animation-delay: 0.3s;
+}
+.pageEnter > *:nth-child(9) {
+  animation-delay: 0.34s;
+}
 .pageEnter > *:nth-child(10) {
-  animation-delay: 0.29s;
+  animation-delay: 0.38s;
 }
 .pageEnter > *:nth-child(11) {
-  animation-delay: 0.32s;
+  animation-delay: 0.42s;
 }
 .pageEnter > *:nth-child(12) {
-  animation-delay: 0.35s;
+  animation-delay: 0.46s;
+}
+
+@keyframes pageFadeEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pageBlockEnter {
@@ -202,6 +282,9 @@
 /* ---------- Header (rec513660026) ---------- */
 
 .top {
+  position: sticky;
+  top: 0;
+  z-index: 40;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -210,6 +293,37 @@
   margin-bottom: var(--stack-inner-gap);
   /* Let hero dust breathe into the header — no opaque plate */
   background: transparent;
+  transform: translateY(0);
+  transition:
+    transform 0.38s cubic-bezier(0.19, 1, 0.22, 1),
+    background-color 0.28s ease,
+    border-color 0.28s ease;
+  border-bottom: 1px solid transparent;
+}
+
+/* Deep scroll + scroll-up: solid sticky bar */
+.topPinned {
+  background-color: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--color-rule);
+  /* Pull to edges of .page padding so the bar feels full-width within the column */
+  margin-inline: -1.5rem;
+  padding-inline: 1.5rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+
+@media (min-width: 640px) {
+  .topPinned {
+    margin-inline: -2rem;
+    padding-inline: 2rem;
+  }
+}
+
+.topHidden {
+  transform: translateY(calc(-100% - 12px));
+  pointer-events: none;
 }
 
 @media (max-width: 639px) {
@@ -394,7 +508,7 @@
 .inlineLink {
   color: var(--color-ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -496,6 +610,111 @@
 .homeHero .intro {
   position: relative;
   z-index: 1;
+}
+
+/* Theme toggle — outline pill with sun/moon (header chrome) */
+.themeToggle {
+  /* Equal gap: top = bottom = outer side (left in light, right in dark) */
+  --toggle-inset: 3px;
+  --toggle-h: 30px;
+  --toggle-w: 60px;
+  --toggle-thumb: calc(var(--toggle-h) - 2px - 2 * var(--toggle-inset));
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--toggle-w);
+  height: var(--toggle-h);
+  margin: 0 0 0 0.2rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.themeToggle:hover {
+  opacity: 0.75;
+}
+
+.themeToggle:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.themeToggleIcon {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.themeToggleSun,
+.themeToggleMoon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.themeToggleLight .themeToggleSun,
+.themeToggleDark .themeToggleMoon {
+  opacity: 1;
+}
+
+.themeToggleThumb {
+  position: absolute;
+  box-sizing: border-box;
+  top: var(--toggle-inset);
+  left: var(--toggle-inset);
+  z-index: 0;
+  width: var(--toggle-thumb);
+  height: var(--toggle-thumb);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  transform: translateX(0);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease;
+  pointer-events: none;
+}
+
+/* Move by (width − height) so the right inset matches top/bottom/left */
+.themeToggleDark .themeToggleThumb {
+  transform: translateX(calc(var(--toggle-w) - var(--toggle-h)));
+}
+
+@media (max-width: 639px) {
+  .themeToggle {
+    --toggle-inset: 2.5px;
+    --toggle-h: 26px;
+    --toggle-w: 52px;
+    margin-left: 0.1rem;
+  }
+
+  .themeToggleIcon {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .themeToggle,
+  .themeToggleSun,
+  .themeToggleMoon,
+  .themeToggleThumb {
+    transition: none;
+  }
 }
 
 /* Case cards sit above any leftover dust at the soft fade — see .caseStack z-index */
@@ -1113,7 +1332,7 @@
 .metaValue a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
   transition: border-color 0.2s ease;
 }
 
@@ -1261,7 +1480,7 @@
 .socials a {
   color: var(--color-ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
   transition: border-color 0.2s ease, color 0.2s ease;
   display: inline-block;
   line-height: 1.25;
@@ -2284,7 +2503,7 @@
 }
 
 .caseTrackVisualPlaceholder .caseFrameBadge {
-  color: rgba(15, 15, 15, 0.38);
+  color: color-mix(in srgb, var(--color-ink) 38%, transparent);
 }
 
 .caseTrackVisualPlaceholderBody {
@@ -2507,7 +2726,7 @@
 .caseLockIntro a {
   color: var(--color-ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.35);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
 }
 
 .caseLockIntro a:hover,
@@ -2852,10 +3071,25 @@
 /* ---------- Motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
+  .pageEnter,
   .pageEnter > * {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .mainColumn {
+    view-transition-name: none;
+  }
+
+  .top,
+  .topHidden {
+    transition: none;
+  }
+
+  .topHidden {
+    transform: none;
+    pointer-events: auto;
   }
 
   .workLink,

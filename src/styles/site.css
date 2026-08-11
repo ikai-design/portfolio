@@ -1,4 +1,4 @@
-/* Site-wide light theme — tokens defined in site.module.css :root */
+/* Site-wide theme — tokens defined in site.module.css :root / [data-theme] */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
@@ -9,6 +9,14 @@
   --color-ink: #0f0f0f;
   --color-muted: #727272;
   --color-emphasis: #333333;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0f0f0f;
+  --color-ink: #f2f2f2;
+  --color-muted: #a3a3a3;
+  --color-emphasis: #d4d4d4;
 }
 
 html {
@@ -24,6 +32,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 body {

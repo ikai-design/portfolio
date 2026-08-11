@@ -1,11 +1,13 @@
-import { lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 import { SiteLayout } from './components/site/SiteLayout';
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
+/* Eager primary nav pages — avoids Suspense skeleton flash on About/Contact */
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+
 const Advisory = lazy(() => import('./pages/Advisory'));
-const Contact = lazy(() => import('./pages/Contact'));
 const PortfolioCaseStudy = lazy(() => import('./pages/PortfolioCaseStudy'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 

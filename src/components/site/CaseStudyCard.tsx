@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { AppLink } from './AppLink';
 import styles from '../../styles/site.module.css';
 import { CASE_VIDEO_PLAYBACK_RATE } from '../../config/media';
 import { CaseStudyFigure } from './CaseStudyFigure';
@@ -79,10 +79,10 @@ export function CaseStudyCard({
 
   return (
     <article className={styles.caseCard}>
-      <Link to={to} className={styles.caseCardLink}>
+      <AppLink to={to} className={styles.caseCardLink}>
         {figure}
         {text}
-      </Link>
+      </AppLink>
     </article>
   );
 }

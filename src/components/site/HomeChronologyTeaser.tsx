@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import styles from '../../styles/site.module.css';
 import { CaseStudyFigure } from './CaseStudyFigure';
+import { AppLink } from './AppLink';
 
 /**
  * Chronology entry on Home — section title lives in `PageSection`; this is media + short link copy only.
@@ -8,7 +8,7 @@ import { CaseStudyFigure } from './CaseStudyFigure';
 export function HomeChronologyTeaser() {
   return (
     <article className={styles.caseCard}>
-      <Link to="/about#chronology" className={styles.caseCardLink}>
+      <AppLink to="/about#chronology" className={styles.caseCardLink}>
         <CaseStudyFigure
           aspectRatio="21 / 9"
           badge=""
@@ -17,7 +17,7 @@ export function HomeChronologyTeaser() {
           loading="lazy"
         />
         <p className={styles.homeChronologyLink}>View chronology →</p>
-      </Link>
+      </AppLink>
     </article>
   );
 }
