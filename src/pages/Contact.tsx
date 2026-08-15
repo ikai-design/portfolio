@@ -54,11 +54,11 @@ export default function Contact() {
         <span className={styles.metaKey}>LinkedIn</span>
         <span className={styles.metaValue}>
           <a
-            href="https://www.linkedin.com/in/eugenevoroniuk/"
+            href="https://www.linkedin.com/in/eugene-voroniuk/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            linkedin.com/in/eugenevoroniuk
+            linkedin.com/in/eugene-voroniuk
           </a>
         </span>
       </div>
