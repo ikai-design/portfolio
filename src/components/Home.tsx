@@ -1,6 +1,5 @@
 import styles from '../styles/site.module.css';
 import { CaseStack } from './site/CaseStack';
-import { HeroDiffusion } from './site/HeroDiffusion';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
 import { HOME_CASE_ITEMS } from '../data/homeContent';
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <>
       <div className={styles.homeHero}>
-        <HeroDiffusion />
         <h1 className={`${styles.displayName} ${styles.homeDisplayName}`}>
           Product design from signup to revenue
         </h1>

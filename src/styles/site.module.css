@@ -103,6 +103,7 @@
 /* ---------- Layout shell ---------- */
 
 .shell {
+  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
@@ -112,6 +113,8 @@
 }
 
 .page {
+  position: relative;
+  z-index: 1;
   max-width: 1160px;
   margin: 0 auto;
   padding-top: max(1rem, env(safe-area-inset-top));
@@ -567,19 +570,18 @@
 
 .homeHero {
   position: relative;
-  /* Allow the diffusion layer to paint into the header above */
   overflow: visible;
   /* Space above H1 (excl. .top margin) — mirrored below the lede with .top’s gap */
   --home-hero-breath: clamp(2rem, 8vw, 5.5rem);
 }
 
+/* Full-bleed to the shell (viewport) edges — not clipped by .page padding */
 .heroDiffusion {
   position: absolute;
-  /* Reach under the non-sticky header; leave room below before case cards */
-  top: -5.75rem;
-  right: -6%;
-  bottom: -8%;
-  left: -6%;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 110vh;
   z-index: 0;
   pointer-events: none;
   overflow: visible;
@@ -587,14 +589,14 @@
   -webkit-mask-image: linear-gradient(
     to bottom,
     #000 0%,
-    #000 62%,
+    #000 58%,
     rgba(0, 0, 0, 0.55) 78%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     #000 0%,
-    #000 62%,
+    #000 58%,
     rgba(0, 0, 0, 0.55) 78%,
     transparent 100%
   );

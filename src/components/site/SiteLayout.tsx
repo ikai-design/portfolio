@@ -6,10 +6,12 @@ import { SiteHeader } from './SiteHeader';
 import { SiteFooter } from './SiteFooter';
 import { RouteSkeleton } from './RouteSkeleton';
 import { SeoHead } from './SeoHead';
+import { HeroDiffusion } from './HeroDiffusion';
 
 export function SiteLayout() {
   const { pathname, hash } = useLocation();
   const showPageBottomSpacer = pathname !== '/';
+  const isHome = pathname === '/';
 
   // SPA navigations keep window scroll by default — reset so in-app links (e.g. case covers)
   // land at the top of the new page. Skip when a hash is present so routes like /about#chronology
@@ -22,6 +24,7 @@ export function SiteLayout() {
   return (
     <div className={styles.shell}>
       <SeoHead />
+      {isHome ? <HeroDiffusion /> : null}
       <div className={styles.page}>
         <SiteHeader />
         <main className={styles.mainColumn}>

@@ -339,18 +339,11 @@ export function HeroDiffusion() {
 
         const twinkle = 0.5 + 0.5 * Math.sin(p.twinklePhase + p.life * p.twinkleSpeed);
         const fade = age < 0.1 ? age / 0.1 : 1 - (age - 0.1) / 0.9;
-        // Soft dissolve near canvas edges so dust never hard-cuts
+        // Dissolve only toward the bottom of the canvas; sides/top stay full-bleed
         const edgePad = Math.max(48, height * 0.22);
         const edgeY =
-          p.y < edgePad * 0.35
-            ? p.y / (edgePad * 0.35)
-            : p.y > height - edgePad
-              ? (height - p.y) / edgePad
-              : 1;
-        const edgeX =
-          p.x < 40 ? p.x / 40 : p.x > width - 40 ? (width - p.x) / 40 : 1;
-        const edgeFade = Math.max(0, Math.min(1, edgeY)) * Math.max(0, Math.min(1, edgeX));
-        const alpha = Math.max(0, fade) * twinkle * edgeFade;
+          p.y > height - edgePad ? Math.max(0, (height - p.y) / edgePad) : 1;
+        const alpha = Math.max(0, fade) * twinkle * edgeY;
 
         if (alpha < 0.01) continue;
 
