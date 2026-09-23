@@ -28,6 +28,9 @@ export function SiteFooter() {
             {label}
           </a>
         ))}
+        <a href="/Ievgen_Voroniuk_CV.pdf" download="Ievgen_Voroniuk_CV.pdf">
+          Download CV
+        </a>
       </div>
     </footer>
   );
