@@ -63,9 +63,9 @@ export function resolvePageMeta(pathname: string): PageMeta {
 
   if (path === '/advisory') {
     return {
-      title: 'Advisory — Eugene Voroniuk · Product Design',
+      title: 'Product Design & Advisory — Eugene Voroniuk',
       description:
-        'Product design advisory for signup, activation, and monetization surfaces, from a designer who shipped them at Miro. Audits, scoped sprints, and fractional retainers — annotated flows and specs your team can build from, not a deck.',
+        'Help for founders and SaaS teams: test a new product idea, design a first version, or improve onboarding and upgrade journeys.',
     };
   }
 

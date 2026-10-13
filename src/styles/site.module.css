@@ -3142,3 +3142,128 @@
     box-shadow: none;
   }
 }
+
+/* ---------- Advisory (page-local; does not touch shared tokens) ---------- */
+
+.advisoryLede {
+  max-width: 34ch;
+  margin-bottom: var(--stack-inner-gap);
+}
+
+.advisoryHelper {
+  margin: var(--stack-cta-gap) 0 0;
+  max-width: 64ch;
+  font-size: var(--text-ui);
+  line-height: var(--leading-body);
+  color: var(--color-meta);
+}
+
+/* Tighter rhythm than the global 144px so services sit close to the hero. */
+.advisorySectionHead {
+  margin-top: var(--stack-between-gap);
+}
+
+.advisoryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--stack-inner-gap);
+  max-width: 40rem;
+}
+
+@media (min-width: 960px) {
+  .advisoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--stack-inner-gap) 4rem;
+    max-width: none;
+  }
+}
+
+.advisoryPath,
+.advisoryItem {
+  min-width: 0;
+  max-width: 34rem;
+}
+
+.advisoryPathTitle {
+  margin: 0 0 var(--stack-tight-gap);
+  font-size: var(--text-body);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+.advisoryItemTitle {
+  margin: 0 0 var(--stack-tight-gap);
+  font-size: var(--text-body);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+.advisorySituation,
+.advisoryText {
+  margin: 0 0 var(--stack-prose-gap);
+  font-size: var(--text-ui);
+  line-height: var(--leading-body);
+  overflow-wrap: break-word;
+}
+
+.advisorySituation {
+  color: var(--color-emphasis);
+}
+
+.advisoryText {
+  color: var(--color-muted);
+}
+
+.advisoryItem .advisoryText:last-child {
+  margin-bottom: 0;
+}
+
+.advisoryLabel {
+  margin: 0 0 var(--stack-tight-gap);
+  font-size: var(--text-meta);
+  font-weight: var(--font-medium);
+  line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.advisoryList {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: var(--text-ui);
+  line-height: var(--leading-body);
+  color: var(--color-muted);
+}
+
+.advisoryList + .advisoryText {
+  margin-top: var(--stack-prose-gap);
+}
+
+.advisoryItemLink {
+  display: inline-block;
+  font-size: var(--text-ui);
+  line-height: 1.3;
+}
+
+.advisoryNote {
+  margin: var(--stack-inner-gap) 0 0;
+  font-size: var(--text-meta);
+  line-height: var(--leading-body);
+  color: var(--color-meta);
+}
+
+.advisoryClosing {
+  margin-top: var(--stack-between-gap);
+  padding-top: var(--stack-inner-gap);
+  border-top: 1px solid var(--color-rule);
+}
+
+@media (max-width: 639px) {
+  .advisoryGrid {
+    gap: var(--stack-between-gap);
+  }
+}
