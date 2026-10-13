@@ -1,4 +1,5 @@
 import styles from '../styles/site.module.css';
+import { AppLink } from './site/AppLink';
 import { CaseStack } from './site/CaseStack';
 import { HomeChronologyTeaser } from './site/HomeChronologyTeaser';
 import { PageSection } from './site/PageSection';
@@ -49,6 +50,12 @@ export default function Home() {
             Book a 30-min intro call
           </a>
         </div>
+        <p className={styles.homeAdvisoryLine}>
+          Testing a product idea or improving onboarding?{' '}
+          <AppLink className={styles.inlineLink} to="/advisory">
+            See{'\u00A0'}Advisory{'\u00A0'}→
+          </AppLink>
+        </p>
       </section>
     </>
   );

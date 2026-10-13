@@ -1553,6 +1553,14 @@
   color: var(--color-ink);
 }
 
+/* Secondary path under the Home closing CTA — same treatment as Contact's helper under its CTA. */
+.homeAdvisoryLine {
+  margin: var(--stack-cta-gap) 0 0;
+  font-size: var(--text-ui);
+  line-height: var(--leading-body);
+  color: var(--color-meta);
+}
+
 .caseCardLink {
   display: flex;
   flex-direction: column;

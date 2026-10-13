@@ -1,4 +1,5 @@
 import styles from '../../styles/site.module.css';
+import { AppLink } from './AppLink';
 import { MAILTO } from './SiteHeader';
 
 const SOCIAL = [
@@ -31,6 +32,7 @@ export function SiteFooter() {
         <a href="/Ievgen_Voroniuk_CV.pdf" download="Ievgen_Voroniuk_CV.pdf">
           Download CV
         </a>
+        <AppLink to="/advisory">Advisory</AppLink>
       </div>
     </footer>
   );

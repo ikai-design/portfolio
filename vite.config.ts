@@ -13,6 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SPA_SHELL_ROUTES = [
   'about',
   'contact',
+  'advisory',
   'projects/miro',
   'projects/wix-groups',
   'projects/star-global',
