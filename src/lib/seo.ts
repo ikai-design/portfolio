@@ -39,15 +39,26 @@ function truncateMetaDescription(text: string, max = 158): string {
   return (lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
 }
 
-/** Full canonical URL for the current path (supports Vite `base` / React Router `basename`). */
+/** Route key without a trailing slash (`/about/` → `/about`); root stays `/`. */
+function routePath(pathname: string): string {
+  const trimmed = pathname.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed;
+}
+
+/**
+ * Full canonical URL for the current path (supports Vite `base` / React Router `basename`).
+ * GitHub Pages serves each route from `route/index.html` and 301-redirects `/route` → `/route/`,
+ * so the trailing-slash URL is the one that returns 200 and must be canonical.
+ */
 export function canonicalUrlForPathname(pathname: string): string {
   const base = import.meta.env.BASE_URL;
   const normalizedBase = base === '/' ? '' : base.replace(/\/$/, '');
-  return `${SITE_ORIGIN}${normalizedBase}${pathname === '' ? '/' : pathname}`;
+  const path = routePath(pathname);
+  return `${SITE_ORIGIN}${normalizedBase}${path === '/' ? '/' : `${path}/`}`;
 }
 
 export function resolvePageMeta(pathname: string): PageMeta {
-  const path = pathname === '' ? '/' : pathname;
+  const path = routePath(pathname);
 
   if (path === '/') {
     return HOME;
