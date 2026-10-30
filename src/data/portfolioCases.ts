@@ -89,7 +89,7 @@ export type PortfolioCase = {
 export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   miro: {
     eyebrow: 'Miro',
-    period: '2021 — now',
+    period: '2021 — 2026',
     title: 'Miro — product design at scale',
     throughLine: {
       title: 'Through-line',

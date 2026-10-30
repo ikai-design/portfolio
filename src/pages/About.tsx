@@ -17,7 +17,7 @@ type Job = {
 
 const TIMELINE: Job[] = [
   {
-    year: '2021 — now',
+    year: '2021 — 2026',
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
     location: 'Amsterdam · 4y 11m',
@@ -137,7 +137,7 @@ export default function About() {
             <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
               Miro
             </a>{' '}
-            I design for 100M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
+            I designed for 100M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
             <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
               Wix
             </a>{' '}

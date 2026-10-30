@@ -25,7 +25,7 @@ const MIRO_HOME: HomeCaseItem = {
   to: '/projects/miro',
   title: 'Miro',
   desc: 'Product design for 100M+ users — community, acquisition, enterprise, monetization.',
-  meta: '2021 — now · Amsterdam · Solo designer, cross-functional teams',
+  meta: '2021 — 2026 · Amsterdam · Solo designer, cross-functional teams',
   aspectRatio: '16 / 9',
   badge: 'Case · Hub',
   videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
