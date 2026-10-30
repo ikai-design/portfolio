@@ -20,7 +20,7 @@ const TIMELINE: Job[] = [
     year: '2021 — 2026',
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
-    location: 'Amsterdam · 4y 11m',
+    location: 'Amsterdam · 5y 4m',
     blurb: 'Community, acquisition, enterprise, and monetization for 100M+ users.',
   },
   {
