@@ -64,7 +64,7 @@ export function SeoHead() {
     upsertMetaProperty('og:image', ogImage);
     upsertMetaProperty('og:image:width', '1200');
     upsertMetaProperty('og:image:height', '630');
-    upsertMetaProperty('og:image:alt', 'Eugene Voroniuk — Senior Product Designer');
+    upsertMetaProperty('og:image:alt', 'Eugene Voroniuk | Senior Product Designer');
     upsertMetaName('twitter:image', ogImage);
   }, [pathname]);
 

@@ -41,7 +41,7 @@ const PROOF = [
   },
   {
     title: 'Miro',
-    desc: 'Product design across signup, feature discovery, and upgrade journeys — working with product, research, and engineering.',
+    desc: 'Product design across signup, feature discovery, and upgrade journeys, working with product, research, and engineering.',
     linkLabel: 'See selected work',
     to: '/projects/miro',
   },

@@ -32,7 +32,7 @@ export default function Home() {
         title="Chronology"
         subtitle="2009 → now"
         headClassName={styles.aboutChronologyHead}
-        lede="Full timeline on About — roles and employers from 2009 to now."
+        lede="Full timeline on About: roles and employers from 2009 to now."
       >
         <HomeChronologyTeaser />
       </PageSection>
@@ -42,7 +42,7 @@ export default function Home() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior, staff, and principal IC product design roles — including teams with
+          Open to senior, staff, and principal IC product design roles, including teams with
           heavy monetization, activation, or experimentation needs.
         </p>
         <div className={styles.ctaRow}>

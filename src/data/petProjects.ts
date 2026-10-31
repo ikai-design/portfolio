@@ -34,7 +34,7 @@ export const PET_PROJECTS: PetProject[] = [
     caseSlug: 'simple-screen-recorder',
     stack: 'Chrome · Cursor · Codex · Antigravity · Claude Code',
     description:
-      'Minimal Chrome extension for quick screen recordings—shipped to the Web Store and iterated with AI-assisted dev tools.',
+      'Minimal Chrome extension for quick screen recordings, shipped to the Web Store and iterated with AI-assisted dev tools.',
     homeDesc: 'Chrome extension · local MP4 · quick screen capture.',
     homeMeta: '2026 · Web Store',
     homeBadge: 'Live · Chrome',

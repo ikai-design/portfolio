@@ -89,18 +89,18 @@ export type PortfolioCase = {
 export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   miro: {
     eyebrow: 'Miro',
-    period: '2021 — 2026',
-    title: 'Miro — product design at scale',
+    period: '2021–2026',
+    title: 'Miro: product design at scale',
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Senior Product Designer in Amsterdam — solo designer embedded across cross-functional teams as priorities shifted. Framing through shipped UI, systems implications, and experimentation where it reduced risk.',
+        'Senior Product Designer in Amsterdam, solo designer embedded across cross-functional teams as priorities shifted. Framing through shipped UI, systems implications, and experimentation where it reduced risk.',
         'Teaser focus: signup, in-product templates (create, find, organize), and share-as-presentation. Adjacent streams are one line each in the Program map below; trade-offs and deeper narrative on request via email.',
       ],
     },
     lede: `Product design for 100M+ users. The ${LEDE_PROGRAM_MAP_LINK_TOKEN} scopes the public teaser.`,
     teaserBullets: [
-      'Role: Solo designer with PM, engineering, and GTM — framing through shipped UI and targeted experiments.',
+      'Role: Solo designer with PM, engineering, and GTM, framing through shipped UI and targeted experiments.',
       'Surfaces: In-product signup, custom templates, share-as-presentation, and monetization/checkout.',
       'Focus: Research-informed shipping and segment-led rollout on high-stakes growth surfaces.',
     ],
@@ -129,7 +129,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         visualVideoSrc: caseAsset('Miro_case_01_sign_up_in_prod.mp4'),
         visualPoster: caseAsset('miro_case_01_poster.jpg'),
         visualBadge: 'Stream · Signup',
-        visualAlt: 'Miro — in-product sign-up flow',
+        visualAlt: 'Miro: in-product sign-up flow',
       },
       {
         label: 'Enterprise trial and admin',
@@ -144,7 +144,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           'Custom templates (creation, discovery, sharing) and shareable presentations for professional-service and engaged-corporate use cases.',
         visualVideoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
         visualBadge: 'Stream · Templates',
-        visualAlt: 'Miro — custom company template library',
+        visualAlt: 'Miro: custom company template library',
       },
       {
         label: 'Monetization and checkout',
@@ -152,7 +152,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           'Contextual free-to-paid triggers, checkout and upgrade flow design, plus pricing page and cancellation flow and retention UX iterations.',
         visualVideoSrc: caseAsset('Miro_case_02_2_Checkout.mp4'),
         visualBadge: 'Stream · Monetization',
-        visualAlt: 'Miro — multi-product checkout flow',
+        visualAlt: 'Miro: multi-product checkout flow',
       },
     ],
     lockDisclaimer:
@@ -161,7 +161,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       aspectRatio: '16 / 9',
       badge: 'Teaser · Sign-up in product',
       videoSrc: caseAsset('Miro_case_01_sign_up_in_prod.mp4'),
-      alt: 'Miro — in-product sign-up flow in production',
+      alt: 'Miro: in-product sign-up flow in production',
       caption:
         'Guest-to-account activation: Tools & Apps gating, identity prompts, and sign-up entry points on the canvas.',
     },
@@ -170,7 +170,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Custom templates',
         videoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
-        alt: 'Miro — custom company template library',
+        alt: 'Miro: custom company template library',
         caption:
           'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
       },
@@ -178,7 +178,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Multi-product checkout',
         videoSrc: caseAsset('Miro_case_02_2_Checkout.mp4'),
-        alt: 'Miro — multi-product checkout flow',
+        alt: 'Miro: multi-product checkout flow',
         caption:
           'Multi-product checkout: seats, add-ons in one purchase flow, transparent pricing steps, and a smoother path to confirmation.',
       },
@@ -188,7 +188,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '16 / 9',
         badge: 'Teaser · Shareable presentations',
         videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
-        alt: 'Miro — Share as presentation',
+        alt: 'Miro: Share as presentation',
         caption:
           'Share as presentation: board content as structured, link-shareable slides for clients and async stakeholders.',
       },
@@ -197,7 +197,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'text',
         paragraphs: [
-          'The clips below are the same three production surfaces at a slightly lower altitude than the hero — registration, template library and organization, and share-as-presentation.',
+          'The clips below are the same three production surfaces at a slightly lower altitude than the hero: registration, template library and organization, and share-as-presentation.',
         ],
       },
       {
@@ -206,7 +206,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '16 / 9',
           badge: 'Teaser · Custom templates',
           videoSrc: caseAsset('Miro_case_02_custom_templates.mp4'),
-          alt: 'Miro — custom company template library',
+          alt: 'Miro: custom company template library',
           caption:
             'Custom template library: company- and team-scoped catalogs, discovery, and branded defaults for rollout.',
         },
@@ -214,7 +214,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'text',
         paragraphs: [
-          'Private deck on request covers team shape, problem framing, trade-offs, success criteria, and streams beyond these teasers — without non-public metrics or unreleased product detail.',
+          'Private deck on request covers team shape, problem framing, trade-offs, success criteria, and streams beyond these teasers, without non-public metrics or unreleased product detail.',
         ],
       },
       {
@@ -223,7 +223,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '16 / 9',
           badge: 'Teaser · Shareable presentations',
           videoSrc: caseAsset('Miro_case_03_Shareable_Presentation.mp4'),
-          alt: 'Miro — Share as presentation flow',
+          alt: 'Miro: Share as presentation flow',
           caption:
             'Share as presentation: board-to-slide structure, link sharing, and browser preview for stakeholder review.',
         },
@@ -233,7 +233,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Full case · Wide strip',
-          caption: 'Wide strip — journey map, multi-step flow, or before/after (expanded in private deck).',
+          caption: 'Wide strip: journey map, multi-step flow, or before/after (expanded in private deck).',
         },
       },
     ],
@@ -241,19 +241,19 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
   'wix-groups': {
     eyebrow: 'Wix.com',
-    period: '2019 — 2021',
-    title: 'Wix Groups — community product',
+    period: '2019–2021',
+    title: 'Wix Groups: community product',
     throughLine: {
       title: 'Through-line',
       paragraphs: [
-        'Sole designer for most of the lifecycle after launch, with partial product ownership — web, iOS, and Android alongside PM and engineering.',
-        'Thread: Community inside a 300M+ ecosystem — native feel, real group behavior (discovery, participation, moderation), platform alignment. Deck: milestones, trade-offs, safe signals on request.',
+        'Sole designer for most of the lifecycle after launch, with partial product ownership across web, iOS, and Android alongside PM and engineering.',
+        'Thread: Community inside a 300M+ ecosystem: native feel, real group behavior (discovery, participation, moderation), platform alignment. Deck: milestones, trade-offs, safe signals on request.',
       ],
     },
     lede:
-      'Wix Groups — cross-platform community for creators and consultants in the Wix ecosystem (300M+ users).',
+      'Wix Groups: cross-platform community for creators and consultants in the Wix ecosystem (300M+ users).',
     teaserBullets: [
-      'Role: Sole designer with partial product ownership — web, iOS, and Android with PM and engineering.',
+      'Role: Sole designer with partial product ownership across web, iOS, and Android with PM and engineering.',
       'Execution: Member journeys, moderation, and creator/admin flows with cross-platform parity.',
       'Focus: Engagement and repeat use inside a large website ecosystem.',
     ],
@@ -287,17 +287,17 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       badge: 'Teaser · Cover',
       videoSrc: caseAsset('Wix_case_01.mp4'),
       videoPoster: caseAsset('wix_case_01_poster.png'),
-      alt: 'Wix Groups — product screen recording',
-      caption: 'Cross-platform product design — React Native, web app, and site editor surfaces.',
+      alt: 'Wix Groups: product screen recording',
+      caption: 'Cross-platform product design: React Native, web app, and site editor surfaces.',
     },
     lockedTeaserAfterHero: [
       {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Ecosystem',
         src: caseAsset('cover_w4.png'),
-        alt: 'Wix site dashboard — Groups admin',
+        alt: 'Wix site dashboard: Groups admin',
         caption:
-          'Site dashboard — Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
+          'Site dashboard for Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
       },
     ],
     lockedTeaserFigures: [
@@ -305,15 +305,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         aspectRatio: '8 / 5',
         badge: 'Teaser · Journeys',
         src: caseAsset('cover_w_2.png'),
-        alt: 'Wix Groups — cross-platform product (React Native)',
-        caption: 'Cross-platform product design — React Native',
+        alt: 'Wix Groups: cross-platform product (React Native)',
+        caption: 'Cross-platform product design in React Native',
       },
     ],
     body: [
       {
         kind: 'text',
         paragraphs: [
-          'Wix Groups lived inside a global website ecosystem: the experience had to feel native to millions of sites while supporting real community behavior — discovery, participation, and moderation at scale.',
+          'Wix Groups lived inside a global website ecosystem: the experience had to feel native to millions of sites while supporting real community behavior: discovery, participation, and moderation at scale.',
           'I designed for members, group owners, and moderators, with a clear bar for first value, repeat use, and operational clarity when communities grow.',
         ],
       },
@@ -323,15 +323,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Ecosystem',
           src: caseAsset('cover_w4.png'),
-          alt: 'Wix site dashboard — Groups admin',
+          alt: 'Wix site dashboard: Groups admin',
           caption:
-            'Site dashboard — Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
+            'Site dashboard for Groups: data-dense roster, filters, search, and owner actions (create, manage, privacy states).',
         },
       },
       {
         kind: 'text',
         paragraphs: [
-          'Constraints included cross-platform parity across web, iOS, and Android, alignment with Wix platform patterns, and phased rollout across regions and site types — balanced against creator and member expectations.',
+          'Constraints included cross-platform parity across web, iOS, and Android, alignment with Wix platform patterns, and phased rollout across regions and site types, balanced against creator and member expectations.',
         ],
       },
       {
@@ -340,8 +340,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Journeys',
           src: caseAsset('cover_w_2.png'),
-          alt: 'Wix Groups — cross-platform product (React Native)',
-          caption: 'Cross-platform product design — React Native',
+          alt: 'Wix Groups: cross-platform product (React Native)',
+          caption: 'Cross-platform product design in React Native',
         },
       },
       {
@@ -355,7 +355,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Wide strip',
-          caption: 'Wide collage — devices, QA stills, or shipped gallery (expanded in private deck).',
+          caption: 'Wide collage: devices, QA stills, or shipped gallery (expanded in private deck).',
         },
       },
     ],
@@ -363,19 +363,19 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
 
   'star-global': {
     eyebrow: 'Star (ex-Cogniance)',
-    period: '2015 — 2019',
+    period: '2015–2019',
     title: 'Fortune 500 product design',
     throughLine: {
       title: 'Through-line',
       paragraphs: [
         'UX → Senior UX Designer: workshops, IA, prototyping, implementation-ready handoff; briefly led designers in Wrocław.',
-        'Anchor program (anonymized): smartwatch pairing and companion mobile UX for a tier-one global consumer brand — setup, connectivity, and first-run clarity under NDA. Broader work spanned health-adjacent, telematics, and operator tools; identities and metrics redacted in public.',
+        'Anchor program (anonymized): smartwatch pairing and companion mobile UX for a tier-one global consumer brand: setup, connectivity, and first-run clarity under NDA. Broader work spanned health-adjacent, telematics, and operator tools; identities and metrics redacted in public.',
       ],
     },
     lede:
-      '10+ Fortune 500 engagements under NDA — flagship wearables plus complex B2B (IoT, HealthTech, GovTech).',
+      '10+ Fortune 500 engagements under NDA: flagship wearables plus complex B2B (IoT, HealthTech, GovTech).',
     teaserBullets: [
-      'Role: UX → Senior UX — workshops, IA, prototyping, and handoff to distributed engineering.',
+      'Role: UX → Senior UX: workshops, IA, prototyping, and handoff to distributed engineering.',
       'Execution: Greenfield and regulated programs, including anonymized wearable companion UX.',
       'Focus: Enterprise-ready delivery; client names and metrics stay confidential.',
     ],
@@ -404,7 +404,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         label: 'Wearables and companion apps',
         summary:
-          'Mobile pairing and setup flows for flagship smartwatch programs — clarity under hardware, OS, and brand constraints.',
+          'Mobile pairing and setup flows for flagship smartwatch programs, with clarity under hardware, OS, and brand constraints.',
       },
     ],
     lockDisclaimer:
@@ -413,9 +413,9 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       aspectRatio: '8 / 5',
       badge: 'Teaser · Cover',
       src: caseAsset('cover_s.png'),
-      alt: 'Star case study cover — anonymized Fortune 500 program',
+      alt: 'Star case study cover: anonymized Fortune 500 program',
       caption:
-        'Fortune 500 program work under NDA — including companion mobile UX for a flagship wearable ecosystem (brand anonymized).',
+        'Fortune 500 program work under NDA, including companion mobile UX for a flagship wearable ecosystem (brand anonymized).',
     },
     lockedTeaserAfterHero: [
       {
@@ -424,7 +424,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         src: caseAsset('cover_s2_.png'),
         alt: 'Anonymized premium iOS wearable companion app pairing flow',
         caption:
-          'Portfolio remake: anonymized premium iOS wearable pairing flow — discovery, confirmation, secure sync, and first health snapshot.',
+          'Portfolio remake: anonymized premium iOS wearable pairing flow: discovery, confirmation, secure sync, and first health snapshot.',
       },
     ],
     lockedTeaserFigures: [
@@ -441,7 +441,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       {
         kind: 'text',
         paragraphs: [
-          'Engagements spanned complex B2B and B2C products — AdTech, HealthTech, IoT, telematics, wearables, and adjacent domains — typically under strict confidentiality, so public pages stay anonymized.',
+          'Engagements spanned complex B2B and B2C products (AdTech, HealthTech, IoT, telematics, wearables, and adjacent domains), typically under strict confidentiality, so public pages stay anonymized.',
           'Day-to-day work combined stakeholder alignment, workshop-led discovery, iterative prototyping, and handoff to distributed PM and engineering teams.',
         ],
       },
@@ -450,13 +450,13 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         spec: {
           aspectRatio: '8 / 5',
           badge: 'Teaser · Process',
-          caption: 'Process artifact — workshop output, IA sketch, or redacted UI.',
+          caption: 'Process artifact: workshop output, IA sketch, or redacted UI.',
         },
       },
       {
         kind: 'text',
         paragraphs: [
-          'What the private deck emphasizes: information architecture, multi-step workflows, research-informed decisions, and implementation-ready specifications — plus leadership context when I temporarily led designers across sites.',
+          'What the private deck emphasizes: information architecture, multi-step workflows, research-informed decisions, and implementation-ready specifications, plus leadership context when I temporarily led designers across sites.',
         ],
       },
       {
@@ -474,36 +474,36 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
   },
   'simple-screen-recorder': {
     eyebrow: 'Simple Screen Recorder',
-    period: '2026 — now · Shipped product',
-    title: 'Simple Screen Recorder — product in active validation',
+    period: '2026–now · Shipped product',
+    title: 'Simple Screen Recorder: product in active validation',
     throughLine: {
       title: 'Through-line',
       paragraphs: [
         'Solo: design, build, ship to the Chrome Web Store, iterate on real use with AI-assisted tooling.',
-        'The thread: predictable zoom for browser walkthroughs — local-first, nothing leaves the device.',
+        'The thread: predictable zoom for browser walkthroughs. Local-first, nothing leaves the device.',
       ],
     },
     teaserBullets: [
-      'Role: Solo — framing, UX, build, distribution, iteration.',
-      'Shipped: Local-first Chrome extension — library, pause/resume, zoom timeline, camera overlay, local MP4.',
+      'Role: Solo. Framing, UX, build, distribution, iteration.',
+      'Shipped: Local-first Chrome extension with library, pause/resume, zoom timeline, camera overlay, local MP4.',
       'Validation: 5.0 from 12 Chrome Web Store reviews (Jul 2026) + beta feedback on zoom clarity and trust.',
     ],
     lede:
-      'A local-first Chrome extension for browser walkthrough recordings — {{SSR_SITE}} has a short demo. Actively iterating on reliability, zoom clarity, and onboarding.',
+      'A local-first Chrome extension for browser walkthrough recordings. {{SSR_SITE}} has a short demo. Actively iterating on reliability, zoom clarity, and onboarding.',
     hero: {
       aspectRatio: '16 / 9',
       badge: 'Demo · Auto-zoom recording',
       videoSrc: caseAsset('Recording_Demo.mp4'),
       videoPoster: caseAsset('Screen_recorder_poster.png'),
-      alt: 'Simple Screen Recorder — browser walkthrough with auto-zoom',
-      caption: 'Recording demo — click-based zoom guides attention; export stays on-device.',
+      alt: 'Simple Screen Recorder: browser walkthrough with auto-zoom',
+      caption: 'Recording demo: click-based zoom guides attention; export stays on-device.',
     },
     body: [
       {
         kind: 'text',
         heading: 'Why this exists',
         paragraphs: [
-          'Walkthrough tools often force cloud upload or a black-box zoom — click, hope, re-record. Hypothesis: a local-first recorder wins on trust while making zoom visible and editable before export.',
+          'Walkthrough tools often force cloud upload or a black-box zoom: click, hope, re-record. Hypothesis: a local-first recorder wins on trust while making zoom visible and editable before export.',
         ],
       },
       {
@@ -513,15 +513,15 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           badge: 'Auto-zoom · click to zoom',
           videoSrc: caseAsset('cases/ssr/01_SSR_case.mp4'),
           videoPoster: caseAsset('ssr_click_to_zoom.png'),
-          alt: 'Before and after a click — the recorder zooms toward the cursor automatically.',
-          caption: 'Every click becomes a smooth zoom toward the action — no keyframing.',
+          alt: 'Before and after a click: the recorder zooms toward the cursor automatically.',
+          caption: 'Every click becomes a smooth zoom toward the action, no keyframing.',
         },
       },
       {
         kind: 'text',
         heading: 'What I built',
         paragraphs: [
-          'A Manifest V3 Chrome extension: records browser flows, turns clicks into zoom, exports MP4 locally. On-device library, pause/resume, camera overlay at export. AI-assisted iteration (Cursor / Codex / Claude Code) — design calls stay mine.',
+          'A Manifest V3 Chrome extension: records browser flows, turns clicks into zoom, exports MP4 locally. On-device library, pause/resume, camera overlay at export. AI-assisted iteration (Cursor / Codex / Claude Code). Design calls stay mine.',
         ],
       },
       {
@@ -531,8 +531,8 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           badge: 'On-device library',
           videoSrc: caseAsset('cases/ssr/02_SSR_case.mp4'),
           videoPoster: caseAsset('ssr_library.png'),
-          alt: 'Recordings library — a grid of saved takes with thumbnails and durations.',
-          caption: 'The top ask from testers: a home for every take. Stored locally — reopen, re-edit, or export later.',
+          alt: 'Recordings library: a grid of saved takes with thumbnails and durations.',
+          caption: 'The top ask from testers: a home for every take. Stored locally: reopen, re-edit, or export later.',
         },
       },
       {
@@ -550,19 +550,19 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           videoSrc: caseAsset('cases/ssr/03_SSR_case.mp4'),
           videoPoster: caseAsset('ssr_zoom_timeline.png'),
           alt: 'Editor timeline with three editable zoom blocks along the playhead.',
-          caption: 'Each zoom is a visible block — drag the edges, change the depth, delete it — before you export.',
+          caption: 'Each zoom is a visible block. Drag the edges, change the depth, or delete it before you export.',
         },
       },
       {
         kind: 'quote',
-        text: "Pause / restart — that's so convenient, that's class. Cursorful doesn't have this.",
+        text: "Pause / restart, that's so convenient, that's class. Cursorful doesn't have this.",
         attribution: 'Beta tester · former Cursorful user',
       },
       {
         kind: 'text',
         heading: 'Technical credibility',
         paragraphs: [
-          'Zoom settles with a damped spring (stiffness 200, damping 30) so the end reads intentional — same math in preview and exported MP4 via requestVideoFrameCallback. MV3 service-worker kills mid-recording are handled by OPFS checkpoints, which fixed first-run data loss.',
+          'Zoom settles with a damped spring (stiffness 200, damping 30) so the end reads intentional, with the same math in preview and exported MP4 via requestVideoFrameCallback. MV3 service-worker kills mid-recording are handled by OPFS checkpoints, which fixed first-run data loss.',
         ],
       },
       {
@@ -572,7 +572,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           badge: 'Backgrounds & browser frames',
           videoSrc: caseAsset('cases/ssr/04_SSR_case.mp4'),
           videoPoster: caseAsset('ssr_frames.png'),
-          alt: 'Six background presets — gradients, solid, and dark — with a browser frame around the recording.',
+          alt: 'Six background presets: gradients, solid, and dark, with a browser frame around the recording.',
           caption: 'A browser frame hides messy tabs; gradients turn a raw capture into a product demo.',
         },
       },
@@ -585,7 +585,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
       },
       {
         kind: 'quote',
-        text: 'Love it. Used it today for a demo, actually. Other than a camera — perfect.',
+        text: 'Love it. Used it today for a demo, actually. Other than a camera, perfect.',
         attribution: 'Product designer · Mollie',
       },
       {
@@ -595,7 +595,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
           badge: 'Local export · no cloud',
           videoSrc: caseAsset('cases/ssr/05_SSR_case.mp4'),
           videoPoster: caseAsset('ssr_export_local.png'),
-          alt: 'Export panel — MP4 or WebM, resolution and aspect ratio, processed locally.',
+          alt: 'Export panel: MP4 or WebM, resolution and aspect ratio, processed locally.',
           caption: 'Processed on-device with FFmpeg WebAssembly, exported as MP4 or WebM. Nothing is uploaded.',
         },
       },
@@ -605,11 +605,11 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         rows: [
           {
             signal: 'A former Cursorful user missed “a home for all my recordings.”',
-            shipped: 'On-device recordings library (OPFS) — reopen and re-edit before export.',
+            shipped: 'On-device recordings library (OPFS): reopen and re-edit before export.',
           },
           {
             signal: 'A product designer wished she could record with a camera.',
-            shipped: 'Camera overlay — dual-track record, composited at export.',
+            shipped: 'Camera overlay: dual-track record, composited at export.',
           },
           {
             signal: 'A tester re-recorded 15–20× because zoom boundaries were invisible.',
@@ -625,7 +625,7 @@ export const PORTFOLIO_CASES: Record<string, PortfolioCase> = {
         kind: 'text',
         heading: 'Where this stands',
         paragraphs: [
-          'Still open: whether zoom clarity closes the re-record loop at scale, and whether local-first converts Loom defaults. Almost everything shipped came from watching one person struggle — turning “this feels off” into an editable object on screen, and dropping claims research stopped supporting.',
+          'Still open: whether zoom clarity closes the re-record loop at scale, and whether local-first converts Loom defaults. Almost everything shipped came from watching one person struggle, turning “this feels off” into an editable object on screen, and dropping claims research stopped supporting.',
         ],
       },
     ],

@@ -9,7 +9,7 @@ import {
 export const SITE_ORIGIN = 'https://eugenevoroniuk.com' as const;
 
 const DEFAULT_DESCRIPTION =
-  'Eugene Voroniuk — Senior Product Designer. Complex SaaS, lifecycle design, activation, monetization, and growth surfaces.';
+  'Eugene Voroniuk, Senior Product Designer. Complex SaaS, lifecycle design, activation, monetization, and growth surfaces.';
 
 export type PageMeta = {
   title: string;
@@ -19,7 +19,7 @@ export type PageMeta = {
 };
 
 const HOME: PageMeta = {
-  title: 'Eugene Voroniuk — Senior Product Designer | Growth, Monetization & SaaS',
+  title: 'Eugene Voroniuk | Senior Product Designer | Growth, Monetization & SaaS',
   description: DEFAULT_DESCRIPTION,
 };
 
@@ -66,15 +66,15 @@ export function resolvePageMeta(pathname: string): PageMeta {
 
   if (path === '/about') {
     return {
-      title: 'About — Eugene Voroniuk · Senior Product Designer',
+      title: 'About | Eugene Voroniuk, Senior Product Designer',
       description:
-        'Background, skills, chronology, and leadership — Miro, Wix, Star, mentoring, and side projects. Senior product designer for complex SaaS.',
+        'Background, skills, chronology, and leadership: Miro, Wix, Star, mentoring, and side projects. Senior product designer for complex SaaS.',
     };
   }
 
   if (path === '/advisory') {
     return {
-      title: 'Product Design & Advisory — Eugene Voroniuk',
+      title: 'Product Design & Advisory | Eugene Voroniuk',
       description:
         'Help for founders and SaaS teams: test a new product idea, design a first version, or improve onboarding and upgrade journeys.',
     };
@@ -82,7 +82,7 @@ export function resolvePageMeta(pathname: string): PageMeta {
 
   if (path === '/contact') {
     return {
-      title: 'Contact — Eugene Voroniuk',
+      title: 'Contact | Eugene Voroniuk',
       description:
         'Book an intro call or reach out by email. Open to senior, staff, and principal IC product design roles and selective contract or advisory work.',
     };
@@ -94,19 +94,19 @@ export function resolvePageMeta(pathname: string): PageMeta {
     const data = PORTFOLIO_CASES[slug];
     if (data) {
       return {
-        title: `${data.title} — Eugene Voroniuk`,
+        title: `${data.title} | Eugene Voroniuk`,
         description: truncateMetaDescription(stripLedeForMeta(data.lede)),
       };
     }
     return {
-      title: 'Case not available — Eugene Voroniuk',
+      title: 'Case not available | Eugene Voroniuk',
       description: 'This portfolio case link is not available. Browse the homepage or contact Eugene for case access.',
       robots: 'noindex, follow',
     };
   }
 
   return {
-    title: 'Page not found — Eugene Voroniuk',
+    title: 'Page not found | Eugene Voroniuk',
     description: 'This page may have moved. Return to the homepage or use contact to request a link.',
     robots: 'noindex, follow',
   };

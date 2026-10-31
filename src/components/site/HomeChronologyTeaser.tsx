@@ -12,7 +12,7 @@ export function HomeChronologyTeaser() {
         <CaseStudyFigure
           aspectRatio="21 / 9"
           badge=""
-          alt="Career chronology — design, product, lifecycle, AI"
+          alt="Career chronology: design, product, lifecycle, AI"
           placeholderVariant="chronology"
           loading="lazy"
         />

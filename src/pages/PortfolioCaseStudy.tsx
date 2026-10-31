@@ -182,7 +182,7 @@ export default function PortfolioCaseStudy() {
             <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
               <h2 className={styles.caseBlockHead}>Program map</h2>
               <p className={styles.caseTrackMapHint}>
-                Expand a stream — the preview on the right updates with that work.
+                Expand a stream and the preview on the right updates with that work.
               </p>
               <CaseTrackAccordion
                 tracks={data.publicTracks}
@@ -215,7 +215,7 @@ export default function PortfolioCaseStudy() {
 
           <section className={styles.caseAccessGate}>
             <p className={styles.caseLockIntro}>
-              Full case decks — process, decisions, and outcomes — are shared on request via{' '}
+              Full case decks (process, decisions, and outcomes) are shared on request via{' '}
               <a href={MAILTO}>email</a>.
             </p>
             <ul className={styles.caseAccessChecklist}>
@@ -258,7 +258,7 @@ export default function PortfolioCaseStudy() {
             <section id="program-map" className={styles.caseTrackMap} aria-label="Program map">
               <h2 className={styles.caseBlockHead}>Program map</h2>
               <p className={styles.caseTrackMapHint}>
-                Expand a stream — the preview on the right updates with that work.
+                Expand a stream and the preview on the right updates with that work.
               </p>
               <CaseTrackAccordion
                 tracks={data.publicTracks}

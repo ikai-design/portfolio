@@ -17,40 +17,40 @@ type Job = {
 
 const TIMELINE: Job[] = [
   {
-    year: '2021 — 2026',
+    year: '2021–2026',
     role: 'Senior Product Designer, Growth',
     company: 'Miro',
     location: 'Amsterdam · 5y 4m',
     blurb: 'Community, acquisition, enterprise, and monetization for 100M+ users.',
   },
   {
-    year: '2019 — 2021',
+    year: '2019–2021',
     role: 'Senior Product Designer',
     company: 'Wix.com',
     location: 'Kyiv · 1y 11m',
-    blurb: 'Sole designer on Wix Groups — 300M+ users, web, iOS, Android.',
+    blurb: 'Sole designer on Wix Groups: 300M+ users, web, iOS, Android.',
   },
   {
-    year: '2015 — 2019',
+    year: '2015–2019',
     role: 'UX → Senior UX Designer',
     company: 'Star (ex-Cogniance)',
     location: 'Kyiv · 3y 7m',
     blurb: '10+ Fortune 500 programs under NDA; briefly led 4 designers in Wrocław.',
   },
   {
-    year: '2013 — 2015',
+    year: '2013–2015',
     role: 'Graphic & Web Designer',
     company: 'Ciklum',
     location: 'Kyiv · 2y',
   },
   {
-    year: '2011 — 2013',
+    year: '2011–2013',
     role: 'Web Designer',
     company: 'Vortex InterCom',
     location: 'Kyiv · 1y 4m',
   },
   {
-    year: '2009 — 2011',
+    year: '2009–2011',
     role: 'Junior SEO Specialist',
     company: 'Web-Promo',
     location: 'Kyiv · 1y 9m',
@@ -81,32 +81,32 @@ const AI = [
 
 const LEADERSHIP = [
   {
-    year: '2023 — now',
+    year: '2023–now',
     title: 'ADPList Mentor',
     href: 'https://adplist.org/mentors/eugene-voroniuk',
     desc: 'CV, portfolio, and interview prep for early- to mid-career designers.',
   },
   {
-    year: '2024 — now',
+    year: '2024–now',
     title: 'YouTube channel',
     href: 'https://www.youtube.com/@EugeneVoroniuk',
     desc: 'Design, AI, and product thinking.',
   },
   {
     year: '2023',
-    title: 'Midjourney Mastery — Udemy',
+    title: 'Midjourney Mastery (Udemy)',
     href: 'https://www.udemy.com/course/midjourney-comprehensive/',
-    desc: '28,682 students — AI visuals course.',
+    desc: '28,682 students, AI visuals course.',
   },
   {
-    year: '2018 — now',
+    year: '2018–now',
     title: 'Startup advisor',
     desc: 'UX, product strategy, and PLG for startups and SMBs.',
   },
   {
-    year: '2014 — 2018',
-    title: 'Projector Institute — tutor',
-    desc: '150 students — Web Design. Basics.',
+    year: '2014–2018',
+    title: 'Projector Institute, tutor',
+    desc: '150 students, Web Design. Basics.',
   },
 ];
 
@@ -128,8 +128,8 @@ export default function About() {
           About
         </h1>
         <p className={styles.pageLede}>
-          Senior Product Designer with 14+ years shipping SaaS — strategy, journeys, systems, and
-          UI — with depth from signup to revenue.
+          Senior Product Designer with 14+ years shipping SaaS: strategy, journeys, systems, and
+          UI, with depth from signup to revenue.
         </p>
         <div className={styles.aboutHeroIntro}>
           <p className={`${styles.prose} ${styles.proseNoBottom}`}>
@@ -191,7 +191,7 @@ export default function About() {
               <div className={styles.tlYear}>{job.year}</div>
               <div className={styles.tlRow}>
                 <span className={styles.tlRole}>
-                  {job.role} — <em>{job.company}</em>
+                  {job.role} · <em>{job.company}</em>
                 </span>
                 <span className={styles.tlMeta}>{job.location}</span>
                 {job.blurb && <span className={styles.tlBlurb}>{job.blurb}</span>}
@@ -265,14 +265,14 @@ export default function About() {
         <div className={styles.metaGrid}>
           <span className={styles.metaKey}>Education</span>
           <span className={styles.metaValue}>
-            BA Graphic Design — Kyiv National University of Technologies & Design (2009–2013)
+            BA Graphic Design, Kyiv National University of Technologies & Design (2009–2013)
           </span>
           <span className={styles.metaKey}>Continuing</span>
           <span className={styles.metaValue}>Reforge Growth Series Alumni (2022–2023)</span>
           <span className={styles.metaKey}>Certification</span>
-          <span className={styles.metaValue}>NN/g UX Certification — ID 1046980 (2021)</span>
+          <span className={styles.metaValue}>NN/g UX Certification, ID 1046980 (2021)</span>
           <span className={styles.metaKey}>Award</span>
-          <span className={styles.metaValue}>UA Very Best of — Fravel travel & planning concept (2016)</span>
+          <span className={styles.metaValue}>UA Very Best of: Fravel travel & planning concept (2016)</span>
           <span className={styles.metaKey}>Languages</span>
           <span className={styles.metaValue}>
             English (fluent) · Ukrainian (native) · Dutch (conversational) · Spanish (conversational)
@@ -285,7 +285,7 @@ export default function About() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior, staff, and principal IC product design roles — including teams with
+          Open to senior, staff, and principal IC product design roles, including teams with
           heavy monetization, activation, or experimentation needs.
         </p>
         <div className={styles.ctaRow}>

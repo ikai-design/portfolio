@@ -32,7 +32,7 @@ function TrackVisualPlaceholder({
         className={`${styles.caseFrame} ${styles.caseTrackVisualPlaceholder}`}
         style={{ aspectRatio: '16 / 9' }}
         role="img"
-        aria-label={`${label} — available on request`}
+        aria-label={`${label} (available on request)`}
       >
         <span className={styles.caseFrameBadge}>{badge}</span>
         <div className={styles.caseTrackVisualPlaceholderBody}>

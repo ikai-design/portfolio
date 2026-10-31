@@ -11,7 +11,7 @@ export default function Contact() {
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={`${styles.pageLede} ${styles.pageLedeNoBottom}`}>
-        Open to senior, staff, and principal IC product design roles — including teams with heavy
+        Open to senior, staff, and principal IC product design roles, including teams with heavy
         monetization, activation, or experimentation needs.
       </p>
 
@@ -104,7 +104,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            ADPList — free 30-min sessions
+            ADPList: free 30-min sessions
           </a>
         </span>
         <span className={styles.metaKey}>VanBlum</span>

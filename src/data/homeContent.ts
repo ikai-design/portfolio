@@ -15,7 +15,7 @@ const SSR_HOME: HomeCaseItem = (() => {
     badge: 'Case · Live',
     videoSrc: petAsset(p.videoFile),
     videoPoster: petAsset(p.posterFile),
-    imageAlt: `${p.name} — product demo`,
+    imageAlt: `${p.name}: product demo`,
     playOn: 'hover' as const,
     loading: 'lazy' as const,
   };
@@ -24,13 +24,13 @@ const SSR_HOME: HomeCaseItem = (() => {
 const MIRO_HOME: HomeCaseItem = {
   to: '/projects/miro',
   title: 'Miro',
-  desc: 'Product design for 100M+ users — community, acquisition, enterprise, monetization.',
-  meta: '2021 — 2026 · Amsterdam · Solo designer, cross-functional teams',
+  desc: 'Product design for 100M+ users: community, acquisition, enterprise, monetization.',
+  meta: '2021–2026 · Amsterdam · Solo designer, cross-functional teams',
   aspectRatio: '16 / 9',
   badge: 'Case · Hub',
   videoSrc: `${import.meta.env.BASE_URL}Miro_case_01_sign_up_in_prod.mp4`,
   videoPoster: `${import.meta.env.BASE_URL}miro_case_01_poster.jpg`,
-  imageAlt: 'Miro — in-product sign-up flow',
+  imageAlt: 'Miro: in-product sign-up flow',
   playOn: 'hover',
   loading: 'eager',
 };
@@ -48,7 +48,7 @@ const WREN_HOME: HomeCaseItem = (() => {
     badge: 'Case · Live',
     videoSrc: petAsset(p.videoFile),
     videoPoster: petAsset(p.posterFile),
-    imageAlt: `${p.name} — product demo`,
+    imageAlt: `${p.name}: product demo`,
     playOn: 'hover' as const,
     loading: 'lazy' as const,
   };
@@ -57,13 +57,13 @@ const WREN_HOME: HomeCaseItem = (() => {
 const WIX_HOME: HomeCaseItem = {
   to: '/projects/wix-groups',
   title: 'Wix',
-  desc: 'Product design — cross-platform community for creators and SMBs, 300M+ users.',
-  meta: '2019 — 2021 · Kyiv · Solo designer, product ownership',
+  desc: 'Product design for a cross-platform community of creators and SMBs, 300M+ users.',
+  meta: '2019–2021 · Kyiv · Solo designer, product ownership',
   aspectRatio: '8 / 5',
   badge: 'Case · Cover',
   videoSrc: `${import.meta.env.BASE_URL}Wix_case_01.mp4`,
   videoPoster: `${import.meta.env.BASE_URL}wix_case_01_poster.png`,
-  imageAlt: 'Wix Groups — product screen recording',
+  imageAlt: 'Wix Groups: product screen recording',
   playOn: 'hover',
   loading: 'lazy',
 };
@@ -71,8 +71,8 @@ const WIX_HOME: HomeCaseItem = {
 const STAR_HOME: HomeCaseItem = {
   to: '/projects/star-global',
   title: 'Star (ex-Cogniance)',
-  desc: 'Product & UX design for Fortune 500 — IoT, HealthTech, AdTech (greenfield, regulated).',
-  meta: '2015 — 2019 · Kyiv · Senior UX',
+  desc: 'Product & UX design for Fortune 500: IoT, HealthTech, AdTech (greenfield, regulated).',
+  meta: '2015–2019 · Kyiv · Senior UX',
   aspectRatio: '8 / 5',
   badge: 'Case · Cover',
   imageSrc: `${import.meta.env.BASE_URL}cover_s.png`,
