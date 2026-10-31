@@ -11,8 +11,8 @@ export default function Contact() {
     <>
       <h1 className={styles.pageTitle}>Contact</h1>
       <p className={`${styles.pageLede} ${styles.pageLedeNoBottom}`}>
-        Open to senior, staff, and principal IC product design roles, including teams with heavy
-        monetization, activation, or experimentation needs.
+        Open to senior, staff, and principal IC product design roles where design has a real seat in
+        product and business decisions.
       </p>
 
       <h2 className={styles.sectionHead}>

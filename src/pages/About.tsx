@@ -18,7 +18,7 @@ type Job = {
 const TIMELINE: Job[] = [
   {
     year: '2021–2026',
-    role: 'Senior Product Designer, Growth',
+    role: 'Senior Product Designer',
     company: 'Miro',
     location: 'Amsterdam · 5y 4m',
     blurb: 'Community, acquisition, enterprise, and monetization for 100M+ users.',
@@ -99,13 +99,18 @@ const LEADERSHIP = [
     desc: '28,682 students, AI visuals course.',
   },
   {
+    year: '2019–2020',
+    title: 'Do not lean podcast',
+    desc: 'Conversations with product designers about careers, processes, and craft.',
+  },
+  {
     year: '2018–now',
     title: 'Startup advisor',
     desc: 'UX, product strategy, and PLG for startups and SMBs.',
   },
   {
-    year: '2014–2018',
-    title: 'Projector Institute, tutor',
+    year: '2015–2016',
+    title: 'Projector School, tutor',
     desc: '150 students, Web Design. Basics.',
   },
 ];
@@ -137,7 +142,7 @@ export default function About() {
             <a className={styles.inlineLink} href="https://miro.com" target="_blank" rel="noopener noreferrer">
               Miro
             </a>{' '}
-            I designed for 100M+ users across high stakes growth surfaces. Before that: sole designer on{' '}
+            I designed across the product for 100M+ users: community, acquisition, enterprise, and monetization. Before that: sole designer on{' '}
             <a className={styles.inlineLink} href="https://www.wix.com/" target="_blank" rel="noopener noreferrer">
               Wix
             </a>{' '}
@@ -270,12 +275,15 @@ export default function About() {
           <span className={styles.metaKey}>Continuing</span>
           <span className={styles.metaValue}>Reforge Growth Series Alumni (2022–2023)</span>
           <span className={styles.metaKey}>Certification</span>
-          <span className={styles.metaValue}>NN/g UX Certification, ID 1046980 (2021)</span>
+          <span className={styles.metaValue}>
+            NN/g UX Certification, ID 1046980 (2021) · AI Fluency: Framework & Foundations · Product
+            Psychology Masterclass
+          </span>
           <span className={styles.metaKey}>Award</span>
           <span className={styles.metaValue}>UA Very Best of: Fravel travel & planning concept (2016)</span>
           <span className={styles.metaKey}>Languages</span>
           <span className={styles.metaValue}>
-            English (fluent) · Ukrainian (native) · Dutch (conversational) · Spanish (conversational)
+            English (full professional) · Ukrainian (native) · Spanish (limited working) · Dutch (elementary)
           </span>
         </div>
       </PageSection>
@@ -285,8 +293,8 @@ export default function About() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior, staff, and principal IC product design roles, including teams with
-          heavy monetization, activation, or experimentation needs.
+          Open to senior, staff, and principal IC product design roles where design has a real seat
+          in product and business decisions.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">

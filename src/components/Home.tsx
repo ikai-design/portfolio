@@ -18,7 +18,7 @@ export default function Home() {
         <section className={`${styles.intro} ${styles.homeIntro}`} aria-label="Introduction">
           <p className={styles.introLine}>
             <span className={styles.introLineTail}>
-              14+ years across Miro (100M+), Wix (300M+), and{'\u00A0'}independently shipped products
+              14+ years across Miro (100M+), Wix (300M+), and{'\u00A0'}products I designed and built myself
             </span>
           </p>
         </section>
@@ -42,8 +42,8 @@ export default function Home() {
           Stay in touch
         </h2>
         <p className={styles.ctaText}>
-          Open to senior, staff, and principal IC product design roles, including teams with
-          heavy monetization, activation, or experimentation needs.
+          Open to senior, staff, and principal IC product design roles where design has a real seat
+          in product and business decisions.
         </p>
         <div className={styles.ctaRow}>
           <a className={styles.contactLink} href={CAL_30} target="_blank" rel="noopener noreferrer">

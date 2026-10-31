@@ -9,7 +9,7 @@ import {
 export const SITE_ORIGIN = 'https://eugenevoroniuk.com' as const;
 
 const DEFAULT_DESCRIPTION =
-  'Eugene Voroniuk, Senior Product Designer. Complex SaaS, lifecycle design, activation, monetization, and growth surfaces.';
+  'Eugene Voroniuk, Senior Product Designer. End-to-end product design for complex SaaS, from research and systems to signup, activation, and revenue. Ex-Miro, ex-Wix.';
 
 export type PageMeta = {
   title: string;
@@ -19,7 +19,7 @@ export type PageMeta = {
 };
 
 const HOME: PageMeta = {
-  title: 'Eugene Voroniuk | Senior Product Designer | Growth, Monetization & SaaS',
+  title: 'Eugene Voroniuk | Senior Product Designer | End-to-end SaaS, Product & Business',
   description: DEFAULT_DESCRIPTION,
 };
 
